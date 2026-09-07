@@ -1,373 +1,360 @@
 <!DOCTYPE html>
-
 <html lang="en">
 
 <head>
-
-    ```
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="description" content="IndustryOne - Smart Industrial Approval and Compliance Management System">
 
     <title>IndustryOne | About Us</title>
 
-
-    <!-- Tailwind CSS CDN -->
+    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-
-    <!-- Google Font -->
+    <!-- Space Mono -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
-
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
-        rel="stylesheet">
-
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
 
     <style>
         * {
-            font-family: "Inter", sans-serif;
+            box-sizing: border-box;
         }
 
         html {
             scroll-behavior: smooth;
+            background: #090806;
         }
 
         body {
             margin: 0;
+            font-family: "Space Mono", monospace;
+            color: #EDE6D6;
+
+            background:
+                radial-gradient(circle at 50% 0%,
+                    #21170d 0%,
+                    #100c08 42%,
+                    #090806 100%);
+
+            min-height: 100vh;
         }
 
-        /* Smooth animation */
+        /* Industrial background grid */
 
-        .card-hover {
+        .industrial-grid {
+            background-image:
+                linear-gradient(rgba(212, 169, 76, 0.025) 1px,
+                    transparent 1px),
+                linear-gradient(90deg,
+                    rgba(212, 169, 76, 0.025) 1px,
+                    transparent 1px);
+
+            background-size: 45px 45px;
+        }
+
+        /* Cards */
+
+        .industrial-card {
+            background: rgba(18, 15, 11, 0.82);
+
+            border: 1px solid rgba(212, 169, 76, 0.25);
+
+            box-shadow:
+                0 15px 40px rgba(0, 0, 0, 0.30);
+
             transition:
                 transform 0.3s ease,
-                box-shadow 0.3s ease,
-                border-color 0.3s ease;
+                border-color 0.3s ease,
+                box-shadow 0.3s ease;
         }
 
-        .card-hover:hover {
-            transform: translateY(-8px);
+        .industrial-card:hover {
+            transform: translateY(-5px);
+
+            border-color: rgba(212, 169, 76, 0.55);
+
+            box-shadow:
+                0 20px 45px rgba(0, 0, 0, 0.45),
+                0 0 20px rgba(212, 169, 76, 0.05);
         }
 
-        /* Badge pulse */
+        /* Gold line */
 
-        @keyframes pulse-dot {
+        .gold-line {
+            height: 1px;
 
-            0%,
-            100% {
-                transform: scale(1);
-                opacity: 1;
-            }
-
-            50% {
-                transform: scale(1.35);
-                opacity: 0.65;
-            }
-
+            background:
+                linear-gradient(90deg,
+                    transparent,
+                    rgba(212, 169, 76, 0.55),
+                    transparent);
         }
 
-        .pulse-dot {
-            animation: pulse-dot 1.8s ease-in-out infinite;
+        /* Small gold glow */
+
+        .gold-glow {
+            text-shadow:
+                0 0 20px rgba(212, 169, 76, 0.12);
+        }
+
+        /* Remove particles/canvas */
+
+        canvas,
+        #particles,
+        #particle-container,
+        .particles {
+            display: none !important;
+        }
+
+        /* Scrollbar */
+
+        ::-webkit-scrollbar {
+            width: 7px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #090806;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #3c3020;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #D4A94C;
         }
     </style>
-    ```
-
 </head>
 
-<body class="bg-gradient-to-b from-[#f8fbff] via-[#eef5ff] to-[#f8fbff] text-slate-900">
 
-    <!-- =====================================================
-     NAVBAR
-====================================================== -->
-
-    <header class="sticky top-0 z-50 border-b border-slate-200/60 bg-white/80 backdrop-blur-xl">
-
-        ```
-        <div class="mx-auto flex max-w-6xl items-center justify-between px-5 py-4">
-
-            <!-- ==================== INDUSTRYONE LOGO ==================== -->
-
-            <a href="index.html" class="flex items-center gap-4 group">
-
-                <!-- LOGO ICON -->
-                <div class="relative w-20 h-20 flex-shrink-0">
-
-                    <svg viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" class="w-20 h-20 transition-all duration-500
-                   group-hover:scale-110">
-
-                        <!-- ================= ORBIT ================= -->
-
-                        <path d="M10 51
-                   C14 65 31 72 48 67
-                   C63 63 72 51 69 37" fill="none" stroke="#2563EB" stroke-width="5" stroke-linecap="round" />
-
-                        <!-- Small orbit accent -->
-
-                        <circle cx="68" cy="36" r="3.5" fill="#2563EB" />
-
-                        <!-- ================= FACTORY BASE ================= -->
-
-                        <path d="M10 55
-                   V35
-                   L24 27
-                   V55
-                   Z" fill="#0F172A" />
-
-                        <!-- Factory roof -->
-
-                        <path d="M10 35
-                   L24 27
-                   L35 33
-                   V55
-                   H10
-                   Z" fill="#172033" />
-
-                        <!-- ================= BLUE BUILDING ================= -->
-
-                        <path d="M24 55
-                   V22
-                   L39 13
-                   V55
-                   Z" fill="#1D4ED8" />
-
-                        <!-- Building highlight -->
-
-                        <path d="M24 22
-                   L39 13
-                   V21
-                   L24 30
-                   Z" fill="#3B82F6" />
-
-                        <!-- ================= NUMBER 1 ================= -->
-
-                        <path d="M39 13
-                   L55 5
-                   V55
-                   H45
-                   V19
-                   L39 22
-                   Z" fill="#2563EB" />
-
-                        <!-- 1 highlight -->
-
-                        <path d="M55 5
-                   L62 9
-                   V55
-                   H55
-                   Z" fill="#1E40AF" />
-
-                        <!-- ================= FACTORY WINDOWS ================= -->
-
-                        <rect x="14" y="40" width="4" height="5" rx="1" fill="white" />
-
-                        <rect x="14" y="48" width="4" height="5" rx="1" fill="white" />
-
-                        <rect x="28" y="35" width="4" height="5" rx="1" fill="white" />
-
-                        <rect x="28" y="44" width="4" height="5" rx="1" fill="white" />
-
-                        <!-- ================= INDUSTRIAL SPARK ================= -->
-
-                        <path d="M60 16
-                   L64 22
-                   L71 22
-                   L65 27
-                   L67 34
-                   L60 29
-                   L54 33
-                   L56 26
-                   L51 22
-                   H58
-                   Z" fill="#60A5FA" opacity="0.9" />
-
-                    </svg>
-
-                </div>
+<body class="industrial-grid">
 
 
-                <!-- ================= BRAND NAME ================= -->
+    <!-- ===================================================== -->
+    <!-- NAVBAR -->
+    <!-- ===================================================== -->
 
-                <div class="flex flex-col leading-none">
+    <nav class="sticky top-0 z-50 border-b border-[#D4A94C]/20 bg-[#0d2b2a]/95 backdrop-blur-md">
 
-                    <span class="text-4xl font-black tracking-[-0.045em]
-                   text-slate-900">
-                        Industry<span class="text-blue-600">One</span>
-                    </span>
+        <div class="mx-auto flex h-[70px] max-w-[1400px] items-center justify-between px-9">
 
-                    <!-- Tagline -->
+            <!-- LOGO -->
 
-                    <span class="mt-1 text-[10px] font-bold tracking-[0.28em]
-                   uppercase text-slate-500">
-                        Smart Industrial Approvals
-                    </span>
-
-                </div>
-
+            <a href="login.html" class="text-[21px] font-bold tracking-wide text-[#F3E8D0] no-underline">
+                IndustryOne
             </a>
+
 
             <!-- NAVIGATION -->
 
-            <nav class="hidden items-center gap-8 md:flex">
+            <div class="flex items-center gap-8 text-sm">
 
-                <a href="login.html" class="text-sm font-semibold text-slate-600 transition hover:text-blue-600">
+                <a href="login.html" class="text-[#D8CFBD] transition hover:text-[#F3D98B]">
                     Home
                 </a>
 
-                <button type="button"
-                    class="rounded-md bg-blue-600 px-4 py-2 text-sm font-semibold text-white shadow-md">
+
+                <!-- ACTIVE ABOUT BUTTON -->
+
+                <button type="button" class="rounded-md border border-[rgba(212,169,76,0.45)]
+                           bg-[#17403e]
+                           px-4 py-2
+                           text-sm
+                           font-semibold
+                           text-[#F3D98B]
+                           shadow-[0_0_15px_rgba(212,169,76,0.06)]
+                           transition
+                           hover:bg-[#20514e]">
                     About
                 </button>
-                <a href="contact.html" class="text-sm font-semibold text-slate-600 transition hover:text-blue-600">
+
+
+                <a href="contact.html" class="text-[#D8CFBD] transition hover:text-[#F3D98B]">
                     Contact
                 </a>
-            </nav>
+
+
+                <button type="button" class="rounded-md border border-[rgba(212,169,76,0.45)]
+                           bg-[#123634]
+                           px-4 py-2
+                           text-sm
+                           text-[#F3D98B]
+                           transition
+                           hover:bg-[#174541]">
+                    Admin
+                </button>
+
+            </div>
 
         </div>
-        ```
 
-    </header>
+    </nav>
 
-    <!-- =====================================================
-     ABOUT SECTION
-====================================================== -->
+
+
+    <!-- ===================================================== -->
+    <!-- ABOUT HERO -->
+    <!-- ===================================================== -->
 
     <main>
 
-        <section class="relative overflow-hidden py-20 lg:py-28">
 
-            ```
-            <!-- BACKGROUND GRID -->
+        <section class="px-5 pb-16 pt-20 lg:px-8">
 
-            <div class="pointer-events-none absolute inset-0 opacity-40" style="
-        background-image:
-        linear-gradient(rgba(37,99,235,0.025) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(37,99,235,0.025) 1px, transparent 1px);
-        background-size:45px 45px;
-    ">
+            <div class="mx-auto max-w-5xl text-center">
+
+
+                <!-- Heading -->
+
+                <h1 class="gold-glow text-4xl font-bold leading-tight
+                           text-[#D4A94C]
+                           sm:text-5xl
+                           lg:text-6xl">
+                    About us
+                </h1>
+
+
+                <p class="mx-auto mt-6 max-w-3xl text-sm leading-7 text-[#B9B2A0] sm:text-base">
+                    IndustryOne is a digital industrial approval management
+                    platform designed to make the approval process simpler,
+                    faster, more transparent and easier to track.
+                </p>
+
             </div>
 
-
-            <!-- LEFT GLOW -->
-
-            <div class="pointer-events-none absolute -left-20 top-20 h-72 w-72 rounded-full bg-blue-400/10 blur-[90px]">
-            </div>
-
-
-            <!-- RIGHT GLOW -->
-
-            <div
-                class="pointer-events-none absolute -bottom-20 -right-20 h-96 w-96 rounded-full bg-indigo-500/10 blur-[100px]">
-            </div>
+        </section>
 
 
 
-            <!-- CONTAINER -->
+        <!-- ===================================================== -->
+        <!-- INTRODUCTION -->
+        <!-- ===================================================== -->
 
-            <div class="relative z-10 mx-auto max-w-6xl px-5 sm:px-6 lg:px-8">
+        <section class="px-5 py-12 lg:px-8">
 
+            <div class="mx-auto max-w-6xl">
 
-
-                <!-- =================================================
-         INTRO
-    ================================================== -->
-
-                <div class="mx-auto mb-16 max-w-4xl text-center sm:mb-20">
+                <div class="gold-line mb-12"></div>
 
 
-                    <!-- BADGE -->
+                <div class="industrial-card rounded-xl p-8 md:p-10">
 
-                    <div
-                        class="mb-5 inline-flex items-center gap-2 rounded-full border border-blue-300/40 bg-gradient-to-r from-blue-50 to-indigo-50 px-4 py-2 text-[11px] font-extrabold uppercase tracking-[0.16em] text-blue-800 shadow-lg shadow-blue-600/5 backdrop-blur-md">
+                    <div class="grid gap-10 lg:grid-cols-[1fr_auto] lg:items-center">
 
-                        <span class="pulse-dot h-2 w-2 rounded-full bg-blue-600 shadow-[0_0_0_4px_rgba(37,99,235,0.1)]">
-                        </span>
 
-                        Smart Industrial Platform
+                        <div>
+
+                            <p class="mb-3 text-xs font-bold tracking-[0.25em] text-[#D4A94C]">
+                                WHO WE ARE
+                            </p>
+
+
+                            <h2 class="mb-5 text-2xl font-bold text-[#F3D98B] md:text-3xl">
+                                A Smarter Way to Manage Industrial Approvals
+                            </h2>
+
+
+                            <p class="text-sm leading-7 text-[#B9B2A0]">
+                                Our platform connects industries, applicants,
+                                licence officers and administrative authorities
+                                through one centralized digital ecosystem.
+                                IndustryOne helps reduce manual paperwork,
+                                improve communication and provide clear
+                                visibility throughout the approval journey.
+                            </p>
+
+
+                            <p class="mt-5 text-sm leading-7 text-[#9C9585]">
+                                From submitting an application to document
+                                verification and final approval, every stage
+                                can be managed in an organized and transparent
+                                environment.
+                            </p>
+
+                        </div>
+
+
+                        <!-- Industrial marker -->
+
+                        <div class="mx-auto flex h-32 w-32 items-center justify-center
+                                   rounded-full
+                                   border border-[#D4A94C]/35
+                                   bg-[#0d2b2a]/60">
+
+                            <div class="text-center">
+
+                                <div class="text-3xl font-bold text-[#D4A94C]">
+                                    IO
+                                </div>
+
+                                <div class="mt-1 text-[9px] tracking-[0.2em] text-[#9C9585]">
+                                    SYSTEM
+                                </div>
+
+                            </div>
+
+                        </div>
 
                     </div>
 
-
-
-                    <!-- TITLE -->
-
-                    <h1
-                        class="mb-5 text-[2.7rem] font-black leading-[0.98] tracking-[-0.075em] text-slate-950 sm:text-6xl lg:text-[4.7rem]">
-
-                        About
-
-                        <span
-                            class="bg-gradient-to-r from-blue-900 via-blue-600 to-teal-600 bg-clip-text text-transparent">
-
-                            IndustryOne
-
-                        </span>
-
-                    </h1>
-
-
-
-                    <!-- DESCRIPTION -->
-
-                    <p
-                        class="mx-auto max-w-3xl text-base font-medium leading-8 tracking-tight text-slate-500 sm:text-lg">
-
-                        IndustryOne is a smart Industrial Approval & Compliance
-                        Management Platform designed to simplify, digitize, and
-                        streamline the process of industrial approvals and clearances.
-
-                    </p>
-
                 </div>
 
+            </div>
+
+        </section>
 
 
-                <!-- =================================================
-         MISSION & VISION
-    ================================================== -->
 
-                <div class="mb-20 grid grid-cols-1 gap-6 md:grid-cols-2 lg:gap-8">
+        <!-- ===================================================== -->
+        <!-- MISSION / VISION -->
+        <!-- ===================================================== -->
+
+        <section class="px-5 py-14 lg:px-8">
+
+            <div class="mx-auto max-w-6xl">
+
+                <div class="grid gap-6 md:grid-cols-2">
 
 
                     <!-- MISSION -->
 
-                    <div
-                        class="card-hover group relative overflow-hidden rounded-3xl border border-slate-200/70 bg-white/80 p-8 shadow-[0_20px_50px_rgba(15,23,42,0.07)] backdrop-blur-xl hover:border-blue-300/50 hover:shadow-[0_30px_70px_rgba(37,99,235,0.13)] sm:p-10">
+                    <div class="industrial-card rounded-xl p-8">
+
+                        <div class="mb-6 flex items-center gap-4">
+
+                            <div class="flex h-12 w-12 items-center justify-center
+                                       rounded-lg
+                                       border border-[#D4A94C]/25
+                                       bg-[#17403e]
+                                       text-xl
+                                       text-[#F3D98B]">
+                                M
+                            </div>
 
 
-                        <!-- DECORATIVE GLOW -->
+                            <div>
 
-                        <div class="absolute -right-20 -top-20 h-40 w-40 rounded-full bg-blue-500/10 blur-3xl">
+                                <p class="text-[10px] tracking-[0.2em] text-[#D4A94C]">
+                                    01
+                                </p>
+
+                                <h2 class="text-2xl font-bold text-[#F3D98B]">
+                                    Our Mission
+                                </h2>
+
+                            </div>
+
                         </div>
 
 
-                        <!-- ICON -->
-
-                        <div
-                            class="relative mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-blue-100 to-blue-50 text-2xl shadow-inner transition duration-300 group-hover:scale-110 group-hover:-rotate-6">
-
-                            🎯
-
-                        </div>
-
-
-                        <h2 class="mb-3 text-2xl font-bold tracking-tight text-slate-900">
-
-                            Our Mission
-
-                        </h2>
-
-
-                        <p class="text-[15px] leading-8 text-slate-500">
-
-                            Our mission is to make industrial approval processes
-                            faster, simpler, and more transparent by bringing
-                            applicants, officers, and administrators onto one
-                            centralized digital platform.
-
+                        <p class="text-sm leading-7 text-[#B9B2A0]">
+                            Our mission is to simplify industrial approval
+                            processes by replacing complicated manual
+                            procedures with a structured digital system.
+                            We aim to make applications easier to submit,
+                            review and monitor.
                         </p>
 
                     </div>
@@ -376,541 +363,509 @@
 
                     <!-- VISION -->
 
-                    <div
-                        class="card-hover group relative overflow-hidden rounded-3xl border border-slate-200/70 bg-white/80 p-8 shadow-[0_20px_50px_rgba(15,23,42,0.07)] backdrop-blur-xl hover:border-indigo-300/50 hover:shadow-[0_30px_70px_rgba(79,70,229,0.13)] sm:p-10">
+                    <div class="industrial-card rounded-xl p-8">
+
+                        <div class="mb-6 flex items-center gap-4">
+
+                            <div class="flex h-12 w-12 items-center justify-center
+                                       rounded-lg
+                                       border border-[#D4A94C]/25
+                                       bg-[#17403e]
+                                       text-xl
+                                       text-[#F3D98B]">
+                                V
+                            </div>
 
 
-                        <!-- DECORATIVE GLOW -->
+                            <div>
 
-                        <div class="absolute -right-20 -top-20 h-40 w-40 rounded-full bg-indigo-500/10 blur-3xl">
+                                <p class="text-[10px] tracking-[0.2em] text-[#D4A94C]">
+                                    02
+                                </p>
+
+                                <h2 class="text-2xl font-bold text-[#F3D98B]">
+                                    Our Vision
+                                </h2>
+
+                            </div>
+
                         </div>
 
 
-                        <!-- ICON -->
-
-                        <div
-                            class="relative mb-6 flex h-14 w-14 items-center justify-center rounded-2xl bg-gradient-to-br from-indigo-100 to-indigo-50 text-2xl shadow-inner transition duration-300 group-hover:scale-110 group-hover:-rotate-6">
-
-                            👁
-
-                        </div>
-
-
-                        <h2 class="mb-3 text-2xl font-bold tracking-tight text-slate-900">
-
-                            Our Vision
-
-                        </h2>
-
-
-                        <p class="text-[15px] leading-8 text-slate-500">
-
-                            We envision a connected and digitally empowered
-                            industrial ecosystem where applications can be
-                            submitted, verified, tracked, and approved efficiently.
-
+                        <p class="text-sm leading-7 text-[#B9B2A0]">
+                            We envision a connected industrial ecosystem
+                            where approval procedures are transparent,
+                            efficient and technology-driven, allowing
+                            businesses and authorities to work together
+                            more effectively.
                         </p>
 
                     </div>
 
                 </div>
-
-
-
-                <!-- =================================================
-         WHAT WE PROVIDE
-    ================================================== -->
-
-                <section class="mb-20">
-
-
-                    <div class="mx-auto mb-10 max-w-2xl text-center">
-
-                        <h2 class="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
-
-                            What We Provide
-
-                        </h2>
-
-                        <p class="mt-3 text-slate-500">
-
-                            Everything needed to make industrial approvals
-                            simpler and more efficient.
-
-                        </p>
-
-                    </div>
-
-
-
-                    <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-
-
-                        <!-- CARD 1 -->
-
-                        <div
-                            class="card-hover group relative overflow-hidden rounded-2xl border border-slate-200/70 bg-white/80 p-6 shadow-[0_14px_35px_rgba(15,23,42,0.05)] backdrop-blur-xl hover:border-blue-300/40 hover:shadow-[0_24px_50px_rgba(37,99,235,0.10)]">
-
-                            <div
-                                class="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-transparent via-blue-500/60 to-transparent opacity-0 transition group-hover:opacity-100">
-                            </div>
-
-                            <div
-                                class="mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-blue-100 to-sky-50 text-xs font-extrabold text-blue-700 transition group-hover:scale-110">
-                                01
-                            </div>
-
-                            <h3 class="mb-2 text-[17px] font-bold text-slate-900">
-                                Digital Applications
-                            </h3>
-
-                            <p class="text-sm leading-7 text-slate-500">
-                                Submit industrial approval and clearance applications
-                                digitally without unnecessary paperwork.
-                            </p>
-
-                        </div>
-
-
-
-                        <!-- CARD 2 -->
-
-                        <div
-                            class="card-hover group relative overflow-hidden rounded-2xl border border-slate-200/70 bg-white/80 p-6 shadow-[0_14px_35px_rgba(15,23,42,0.05)] backdrop-blur-xl hover:border-blue-300/40 hover:shadow-[0_24px_50px_rgba(37,99,235,0.10)]">
-
-                            <div
-                                class="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-transparent via-blue-500/60 to-transparent opacity-0 transition group-hover:opacity-100">
-                            </div>
-
-                            <div
-                                class="mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-blue-100 to-sky-50 text-xs font-extrabold text-blue-700 transition group-hover:scale-110">
-                                02
-                            </div>
-
-                            <h3 class="mb-2 text-[17px] font-bold text-slate-900">
-                                Document Verification
-                            </h3>
-
-                            <p class="text-sm leading-7 text-slate-500">
-                                Upload and manage required documents through a
-                                centralized verification system.
-                            </p>
-
-                        </div>
-
-
-
-                        <!-- CARD 3 -->
-
-                        <div
-                            class="card-hover group relative overflow-hidden rounded-2xl border border-slate-200/70 bg-white/80 p-6 shadow-[0_14px_35px_rgba(15,23,42,0.05)] backdrop-blur-xl hover:border-blue-300/40 hover:shadow-[0_24px_50px_rgba(37,99,235,0.10)]">
-
-                            <div
-                                class="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-transparent via-blue-500/60 to-transparent opacity-0 transition group-hover:opacity-100">
-                            </div>
-
-                            <div
-                                class="mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-blue-100 to-sky-50 text-xs font-extrabold text-blue-700 transition group-hover:scale-110">
-                                03
-                            </div>
-
-                            <h3 class="mb-2 text-[17px] font-bold text-slate-900">
-                                Application Tracking
-                            </h3>
-
-                            <p class="text-sm leading-7 text-slate-500">
-                                Track application progress and approval status
-                                through a transparent workflow.
-                            </p>
-
-                        </div>
-
-
-
-                        <!-- CARD 4 -->
-
-                        <div
-                            class="card-hover group relative overflow-hidden rounded-2xl border border-slate-200/70 bg-white/80 p-6 shadow-[0_14px_35px_rgba(15,23,42,0.05)] backdrop-blur-xl hover:border-blue-300/40 hover:shadow-[0_24px_50px_rgba(37,99,235,0.10)]">
-
-                            <div
-                                class="absolute left-0 top-0 h-[2px] w-full bg-gradient-to-r from-transparent via-blue-500/60 to-transparent opacity-0 transition group-hover:opacity-100">
-                            </div>
-
-                            <div
-                                class="mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-gradient-to-br from-blue-100 to-sky-50 text-xs font-extrabold text-blue-700 transition group-hover:scale-110">
-                                04
-                            </div>
-
-                            <h3 class="mb-2 text-[17px] font-bold text-slate-900">
-                                Officer Workflow
-                            </h3>
-
-                            <p class="text-sm leading-7 text-slate-500">
-                                Officers can review, verify, approve, or reject
-                                applications through a structured workflow.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </section>
-
-
-
-                <!-- =================================================
-         USERS
-    ================================================== -->
-
-                <section class="mb-20">
-
-
-                    <div class="mx-auto mb-10 max-w-2xl text-center">
-
-                        <h2 class="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
-
-                            Who Uses IndustryOne?
-
-                        </h2>
-
-                        <p class="mt-3 text-slate-500">
-
-                            One platform connecting every important stakeholder.
-
-                        </p>
-
-                    </div>
-
-
-
-                    <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-
-
-                        <div
-                            class="card-hover rounded-2xl border border-slate-200/70 bg-white/80 p-6 shadow-lg shadow-slate-900/5 backdrop-blur-xl">
-
-                            <div
-                                class="mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-blue-100 text-sm font-black text-blue-700">
-                                A
-                            </div>
-
-                            <h3 class="mb-2 text-lg font-bold">
-                                Applicants
-                            </h3>
-
-                            <p class="text-sm leading-7 text-slate-500">
-                                Submit applications, upload documents, receive updates,
-                                and track the complete approval process.
-                            </p>
-
-                        </div>
-
-
-
-                        <div
-                            class="card-hover rounded-2xl border border-slate-200/70 bg-white/80 p-6 shadow-lg shadow-slate-900/5 backdrop-blur-xl">
-
-                            <div
-                                class="mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-indigo-100 text-sm font-black text-indigo-700">
-                                O
-                            </div>
-
-                            <h3 class="mb-2 text-lg font-bold">
-                                Officers
-                            </h3>
-
-                            <p class="text-sm leading-7 text-slate-500">
-                                Review applications, verify documents, request corrections,
-                                and approve or reject applications.
-                            </p>
-
-                        </div>
-
-
-
-                        <div
-                            class="card-hover rounded-2xl border border-slate-200/70 bg-white/80 p-6 shadow-lg shadow-slate-900/5 backdrop-blur-xl">
-
-                            <div
-                                class="mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-cyan-100 text-sm font-black text-cyan-700">
-                                A
-                            </div>
-
-                            <h3 class="mb-2 text-lg font-bold">
-                                Administrators
-                            </h3>
-
-                            <p class="text-sm leading-7 text-slate-500">
-                                Manage users, departments, applications, officers,
-                                records, and system activities.
-                            </p>
-
-                        </div>
-
-
-
-                        <div
-                            class="card-hover rounded-2xl border border-slate-200/70 bg-white/80 p-6 shadow-lg shadow-slate-900/5 backdrop-blur-xl">
-
-                            <div
-                                class="mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-teal-100 text-sm font-black text-teal-700">
-                                I
-                            </div>
-
-                            <h3 class="mb-2 text-lg font-bold">
-                                Industries
-                            </h3>
-
-                            <p class="text-sm leading-7 text-slate-500">
-                                Access a simplified digital process for obtaining
-                                industrial approvals and regulatory clearances.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </section>
-
-
-
-                <!-- =================================================
-         FUTURE SCOPE
-    ================================================== -->
-
-                <section class="mb-20">
-
-
-                    <div class="mx-auto mb-10 max-w-2xl text-center">
-
-                        <h2 class="text-3xl font-extrabold tracking-tight text-slate-900 sm:text-4xl">
-
-                            Future Scope
-
-                        </h2>
-
-                        <p class="mt-3 text-slate-500">
-
-                            Building a smarter and more automated approval ecosystem.
-
-                        </p>
-
-                    </div>
-
-
-
-                    <div class="grid grid-cols-1 gap-5 sm:grid-cols-2 lg:grid-cols-4">
-
-
-                        <div
-                            class="card-hover rounded-2xl border border-slate-200/70 bg-white/80 p-6 shadow-lg shadow-slate-900/5 backdrop-blur-xl">
-
-                            <div
-                                class="mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-blue-100 text-xs font-black text-blue-700">
-                                01
-                            </div>
-
-                            <h3 class="mb-2 font-bold">
-                                AI Document Verification
-                            </h3>
-
-                            <p class="text-sm leading-7 text-slate-500">
-                                Intelligent document analysis to identify missing,
-                                incorrect, or inconsistent information.
-                            </p>
-
-                        </div>
-
-
-
-                        <div
-                            class="card-hover rounded-2xl border border-slate-200/70 bg-white/80 p-6 shadow-lg shadow-slate-900/5 backdrop-blur-xl">
-
-                            <div
-                                class="mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-indigo-100 text-xs font-black text-indigo-700">
-                                02
-                            </div>
-
-                            <h3 class="mb-2 font-bold">
-                                Automated Workflows
-                            </h3>
-
-                            <p class="text-sm leading-7 text-slate-500">
-                                Automated routing of applications between departments
-                                and responsible officers.
-                            </p>
-
-                        </div>
-
-
-
-                        <div
-                            class="card-hover rounded-2xl border border-slate-200/70 bg-white/80 p-6 shadow-lg shadow-slate-900/5 backdrop-blur-xl">
-
-                            <div
-                                class="mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-cyan-100 text-xs font-black text-cyan-700">
-                                03
-                            </div>
-
-                            <h3 class="mb-2 font-bold">
-                                Smart Analytics
-                            </h3>
-
-                            <p class="text-sm leading-7 text-slate-500">
-                                Advanced dashboards and analytics to monitor approval
-                                performance and processing times.
-                            </p>
-
-                        </div>
-
-
-
-                        <div
-                            class="card-hover rounded-2xl border border-slate-200/70 bg-white/80 p-6 shadow-lg shadow-slate-900/5 backdrop-blur-xl">
-
-                            <div
-                                class="mb-5 flex h-11 w-11 items-center justify-center rounded-xl bg-teal-100 text-xs font-black text-teal-700">
-                                04
-                            </div>
-
-                            <h3 class="mb-2 font-bold">
-                                Mobile Application
-                            </h3>
-
-                            <p class="text-sm leading-7 text-slate-500">
-                                Mobile support for applicants and officers to access
-                                applications and updates from anywhere.
-                            </p>
-
-                        </div>
-
-                    </div>
-
-                </section>
-
-
-
-                <!-- =================================================
-         METRICS
-    ================================================== -->
-
-                <div
-                    class="relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#0b1731] via-[#163b7a] to-[#0f172a] p-8 text-white shadow-[0_30px_65px_rgba(15,23,42,0.20)] sm:p-11">
-
-
-                    <!-- GRID -->
-
-                    <div class="pointer-events-none absolute inset-0 opacity-40" style="
-                background-image:
-                linear-gradient(rgba(255,255,255,0.035) 1px, transparent 1px),
-                linear-gradient(90deg, rgba(255,255,255,0.035) 1px, transparent 1px);
-                background-size:32px 32px;
-            ">
-                    </div>
-
-
-                    <div class="relative z-10 grid grid-cols-1 text-center sm:grid-cols-3">
-
-
-                        <div class="border-b border-slate-400/20 px-6 py-5 sm:border-b-0 sm:border-r">
-
-                            <span class="block text-4xl font-extrabold tracking-tight sm:text-5xl">
-                                24/7
-                            </span>
-
-                            <span class="mt-2 block text-xs font-bold uppercase tracking-[0.15em] text-slate-300">
-                                Digital Access
-                            </span>
-
-                        </div>
-
-
-
-                        <div class="border-b border-slate-400/20 px-6 py-5 sm:border-b-0 sm:border-r">
-
-                            <span class="block text-4xl font-extrabold tracking-tight sm:text-5xl">
-                                100%
-                            </span>
-
-                            <span class="mt-2 block text-xs font-bold uppercase tracking-[0.15em] text-slate-300">
-                                Process Transparency
-                            </span>
-
-                        </div>
-
-
-
-                        <div class="px-6 py-5">
-
-                            <span class="block text-4xl font-extrabold tracking-tight sm:text-5xl">
-                                1
-                            </span>
-
-                            <span class="mt-2 block text-xs font-bold uppercase tracking-[0.15em] text-slate-300">
-                                Unified Platform
-                            </span>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-
-
-                <!-- =================================================
-         FINAL MESSAGE
-    ================================================== -->
-
-                <div class="mt-16 text-center">
-
-                    <p class="text-lg font-medium text-slate-500">
-
-                        Built with technology, transparency, and efficiency in mind.
-
-                    </p>
-
-                    <p class="mt-3 text-sm text-slate-500">
-
-                        Developed by
-
-                        <span class="font-bold text-blue-700">
-                            Team IndustryOne
-                        </span>
-
-                    </p>
-
-                </div>
-
 
             </div>
 
+        </section>
+
+
+
+        <!-- ===================================================== -->
+        <!-- WHAT WE PROVIDE -->
+        <!-- ===================================================== -->
+
+        <section class="px-5 py-14 lg:px-8">
+
+            <div class="mx-auto max-w-6xl">
+
+
+                <div class="mb-10">
+
+                    <p class="mb-2 text-xs tracking-[0.25em] text-[#D4A94C]">
+                        PLATFORM FEATURES
+                    </p>
+
+                    <h2 class="text-3xl font-bold text-[#F3D98B]">
+                        What We Provide
+                    </h2>
+
+                </div>
+
+
+
+                <div class="grid gap-5 md:grid-cols-2 lg:grid-cols-3">
+
+
+                    <!-- 01 -->
+
+                    <div class="industrial-card rounded-xl p-7">
+
+                        <div class="mb-5 text-2xl text-[#D4A94C]">
+                            [01]
+                        </div>
+
+                        <h3 class="mb-3 text-lg font-bold text-[#F3D98B]">
+                            Digital Applications
+                        </h3>
+
+                        <p class="text-sm leading-6 text-[#9C9585]">
+                            Submit industrial approval applications digitally
+                            without depending on lengthy manual paperwork.
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- 02 -->
+
+                    <div class="industrial-card rounded-xl p-7">
+
+                        <div class="mb-5 text-2xl text-[#D4A94C]">
+                            [02]
+                        </div>
+
+                        <h3 class="mb-3 text-lg font-bold text-[#F3D98B]">
+                            Application Tracking
+                        </h3>
+
+                        <p class="text-sm leading-6 text-[#9C9585]">
+                            Track applications through different stages and
+                            understand exactly where an application currently
+                            stands.
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- 03 -->
+
+                    <div class="industrial-card rounded-xl p-7">
+
+                        <div class="mb-5 text-2xl text-[#D4A94C]">
+                            [03]
+                        </div>
+
+                        <h3 class="mb-3 text-lg font-bold text-[#F3D98B]">
+                            Document Management
+                        </h3>
+
+                        <p class="text-sm leading-6 text-[#9C9585]">
+                            Keep important documents organized and accessible
+                            throughout the approval process.
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- 04 -->
+
+                    <div class="industrial-card rounded-xl p-7">
+
+                        <div class="mb-5 text-2xl text-[#D4A94C]">
+                            [04]
+                        </div>
+
+                        <h3 class="mb-3 text-lg font-bold text-[#F3D98B]">
+                            Officer Review
+                        </h3>
+
+                        <p class="text-sm leading-6 text-[#9C9585]">
+                            Licence officers can review submitted information,
+                            verify documents and provide decisions.
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- 05 -->
+
+                    <div class="industrial-card rounded-xl p-7">
+
+                        <div class="mb-5 text-2xl text-[#D4A94C]">
+                            [05]
+                        </div>
+
+                        <h3 class="mb-3 text-lg font-bold text-[#F3D98B]">
+                            Notifications
+                        </h3>
+
+                        <p class="text-sm leading-6 text-[#9C9585]">
+                            Applicants can receive updates about important
+                            changes to their approval applications.
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- 06 -->
+
+                    <div class="industrial-card rounded-xl p-7">
+
+                        <div class="mb-5 text-2xl text-[#D4A94C]">
+                            [06]
+                        </div>
+
+                        <h3 class="mb-3 text-lg font-bold text-[#F3D98B]">
+                            Reports & Analytics
+                        </h3>
+
+                        <p class="text-sm leading-6 text-[#9C9585]">
+                            Authorities can use reports and analytics to
+                            monitor applications and improve administration.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ===================================================== -->
+        <!-- WHO USES INDUSTRYONE -->
+        <!-- ===================================================== -->
+
+        <section class="px-5 py-14 lg:px-8">
+
+            <div class="mx-auto max-w-6xl">
+
+
+                <div class="mb-10 text-center">
+
+                    <p class="mb-2 text-xs tracking-[0.25em] text-[#D4A94C]">
+                        CONNECTED ECOSYSTEM
+                    </p>
+
+                    <h2 class="text-3xl font-bold text-[#F3D98B]">
+                        Who Uses IndustryOne?
+                    </h2>
+
+                </div>
+
+
+
+                <div class="grid gap-6 md:grid-cols-3">
+
+
+                    <!-- INDUSTRIES -->
+
+                    <div class="industrial-card rounded-xl p-8 text-center">
+
+                        <div class="mx-auto mb-5 flex h-14 w-14 items-center justify-center
+                                   rounded-lg
+                                   border border-[#D4A94C]/25
+                                   bg-[#17403e]
+                                   text-[#D4A94C]">
+                            I
+                        </div>
+
+                        <h3 class="mb-3 text-lg font-bold text-[#F3D98B]">
+                            Industries
+                        </h3>
+
+                        <p class="text-sm leading-6 text-[#9C9585]">
+                            Businesses can submit applications, upload
+                            documents and monitor approval progress.
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- OFFICERS -->
+
+                    <div class="industrial-card rounded-xl p-8 text-center">
+
+                        <div class="mx-auto mb-5 flex h-14 w-14 items-center justify-center
+                                   rounded-lg
+                                   border border-[#D4A94C]/25
+                                   bg-[#17403e]
+                                   text-[#D4A94C]">
+                            O
+                        </div>
+
+                        <h3 class="mb-3 text-lg font-bold text-[#F3D98B]">
+                            Licence Officers
+                        </h3>
+
+                        <p class="text-sm leading-6 text-[#9C9585]">
+                            Officers can verify documents, review applications
+                            and provide approval or rejection decisions.
+                        </p>
+
+                    </div>
+
+
+
+                    <!-- AUTHORITIES -->
+
+                    <div class="industrial-card rounded-xl p-8 text-center">
+
+                        <div class="mx-auto mb-5 flex h-14 w-14 items-center justify-center
+                                   rounded-lg
+                                   border border-[#D4A94C]/25
+                                   bg-[#17403e]
+                                   text-[#D4A94C]">
+                            A
+                        </div>
+
+                        <h3 class="mb-3 text-lg font-bold text-[#F3D98B]">
+                            Authorities
+                        </h3>
+
+                        <p class="text-sm leading-6 text-[#9C9585]">
+                            Administrative authorities can monitor approval
+                            activity and access useful reports.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ===================================================== -->
+        <!-- FUTURE SCOPE -->
+        <!-- ===================================================== -->
+
+        <section class="px-5 py-14 lg:px-8">
+
+            <div class="mx-auto max-w-6xl">
+
+
+                <div class="industrial-card rounded-xl p-8 md:p-10">
+
+
+                    <div class="mb-10">
+
+                        <p class="mb-2 text-xs tracking-[0.25em] text-[#D4A94C]">
+                            DEVELOPMENT ROADMAP
+                        </p>
+
+                        <h2 class="text-3xl font-bold text-[#F3D98B]">
+                            Future Scope
+                        </h2>
+
+                    </div>
+
+
+
+                    <div class="grid gap-4 md:grid-cols-2">
+
+
+                        <div class="rounded-lg border border-[#D4A94C]/15
+                                   bg-[#0d2b2a]/40 p-6">
+
+                            <p class="mb-2 text-xs text-[#D4A94C]">
+                                01 / AI
+                            </p>
+
+                            <h3 class="mb-2 font-bold text-[#F3D98B]">
+                                AI-Assisted Verification
+                            </h3>
+
+                            <p class="text-sm leading-6 text-[#9C9585]">
+                                AI can assist in identifying missing
+                                information and supporting document
+                                verification.
+                            </p>
+
+                        </div>
+
+
+
+                        <div class="rounded-lg border border-[#D4A94C]/15
+                                   bg-[#0d2b2a]/40 p-6">
+
+                            <p class="mb-2 text-xs text-[#D4A94C]">
+                                02 / MOBILE
+                            </p>
+
+                            <h3 class="mb-2 font-bold text-[#F3D98B]">
+                                Mobile Accessibility
+                            </h3>
+
+                            <p class="text-sm leading-6 text-[#9C9585]">
+                                Mobile applications can make industrial
+                                approval services accessible from anywhere.
+                            </p>
+
+                        </div>
+
+
+
+                        <div class="rounded-lg border border-[#D4A94C]/15
+                                   bg-[#0d2b2a]/40 p-6">
+
+                            <p class="mb-2 text-xs text-[#D4A94C]">
+                                03 / INTEGRATION
+                            </p>
+
+                            <h3 class="mb-2 font-bold text-[#F3D98B]">
+                                Government Integration
+                            </h3>
+
+                            <p class="text-sm leading-6 text-[#9C9585]">
+                                The platform can integrate with other
+                                government services and verification systems.
+                            </p>
+
+                        </div>
+
+
+
+                        <div class="rounded-lg border border-[#D4A94C]/15
+                                   bg-[#0d2b2a]/40 p-6">
+
+                            <p class="mb-2 text-xs text-[#D4A94C]">
+                                04 / ANALYTICS
+                            </p>
+
+                            <h3 class="mb-2 font-bold text-[#F3D98B]">
+                                Advanced Analytics
+                            </h3>
+
+                            <p class="text-sm leading-6 text-[#9C9585]">
+                                Advanced dashboards can help authorities
+                                understand approval trends and performance.
+                            </p>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ===================================================== -->
+        <!-- FINAL SECTION -->
+        <!-- ===================================================== -->
+
+        <section class="px-5 py-20 lg:px-8">
+
+            <div class="mx-auto max-w-4xl text-center">
+
+
+                <div class="gold-line mb-12"></div>
+
+
+                <p class="mb-4 text-xs tracking-[0.3em] text-[#D4A94C]">
+                    INDUSTRYONE
+                </p>
+
+
+                <h2 class="gold-glow text-3xl font-bold text-[#F3D98B] md:text-4xl">
+                    Making Industrial Approvals
+                    <span class="text-[#D4A94C]">
+                        Simpler.
+                    </span>
+                </h2>
+
+
+                <p class="mx-auto mt-6 max-w-2xl text-sm leading-7 text-[#9C9585]">
+                    IndustryOne brings industries and authorities together
+                    through a transparent, structured and technology-driven
+                    approval ecosystem.
+                </p>
+
+
+            </div>
 
         </section>
 
     </main>
 
-    <!--FOOTER -->
 
-    <footer class="border-t border-slate-200 bg-white/70">
 
-        ```
-        <div class="mx-auto max-w-6xl px-5 py-6 text-center">
+    <!-- ===================================================== -->
+    <!-- FOOTER -->
+    <!-- ===================================================== -->
 
-            <p class="text-sm text-slate-500">
+    <footer class="border-t border-[#D4A94C]/15 bg-[#080705]">
 
-                © 2026 IndustryOne
+        <div class="mx-auto flex max-w-6xl flex-col items-center
+                   justify-between gap-3 px-6 py-7
+                   text-center md:flex-row md:text-left">
 
-                <span class="mx-2 text-slate-300">|</span>
+            <div>
 
-                Smart Industrial Approval & Compliance Platform
+                <p class="font-bold text-[#F3D98B]">
+                    IndustryOne
+                </p>
 
+                <p class="mt-1 text-[10px] tracking-wide text-[#777062]">
+                    INDUSTRIAL APPROVAL MANAGEMENT SYSTEM
+                </p>
+
+            </div>
+
+
+            <p class="text-xs text-[#777062]">
+
+                © 2026 IndustryOne. All rights reserved.
             </p>
 
         </div>
-        ```
 
     </footer>
+
 
 </body>
 
