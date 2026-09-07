@@ -4,68 +4,650 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <title>Licence Officer Registration</title>
+
+    <!-- Space Mono Font -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
     <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="officer.css">
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        mono: ['"Space Mono"', 'monospace']
+                    }
+                }
+            }
+        }
+    </script>
+
+    <!-- Remove browser default spacing / unwanted particles -->
+    <style>
+        html,
+        body {
+            margin: 0 !important;
+            padding: 0 !important;
+            width: 100%;
+            min-height: 100%;
+        }
+
+        canvas {
+            display: none !important;
+        }
+    </style>
+
 </head>
 
-<body>
 
-    <div class="navbar">
-        <a class="brand" href="login.html">IndustryOne</a>
-        <div class="nav-links">
-            <a href="#">About</a>
-            <a href="#">Contact</a>
-            <button class="admin-btn">Admin</button>
+<body class="m-0 min-h-screen w-full overflow-x-hidden
+           font-mono text-[#EDE6D6]
+           bg-[radial-gradient(circle_at_50%_15%,#2b1f10_0%,#120d08_45%,#0a0806_100%)]
+           bg-fixed">
+
+
+    <!-- ==================== NAVBAR ==================== -->
+
+    <nav class="m-0 flex items-center justify-between
+               px-10 py-[18px]
+               bg-[#0d2b2a]
+               border-b border-[rgba(212,169,76,0.25)]
+               max-[480px]:px-5
+               max-[480px]:py-4">
+
+        <!-- Brand -->
+
+        <a href="login.html" class="text-[22px]
+                   font-bold
+                   tracking-[0.01em]
+                   text-[#EDE6D6]
+                   no-underline">
+            IndustryOne
+        </a>
+
+
+        <!-- Navigation Links -->
+
+        <div class="flex items-center
+                   gap-7
+                   text-[14px]
+                   text-[#C9C2B2]
+                   max-[480px]:gap-[14px]
+                   max-[480px]:text-[12px]">
+
+            <a href="#" class="text-[#C9C2B2]
+                       no-underline
+                       hover:text-[#EDE6D6]">
+                About
+            </a>
+
+
+            <a href="#" class="text-[#C9C2B2]
+                       no-underline
+                       hover:text-[#EDE6D6]">
+                Contact
+            </a>
+
+
+            <button type="button" class="cursor-pointer
+                       rounded-[6px]
+                       border border-[rgba(212,169,76,0.4)]
+                       bg-[#17403e]
+                       px-4 py-2
+                       font-mono
+                       text-[13px]
+                       text-[#EDE6D6]
+                       hover:bg-[#20504d]">
+                Admin
+            </button>
+
         </div>
-    </div>
 
-    <div class="hero">
-        <h1>Create Account</h1>
-        <p>Register as a licence officer to review applications.</p>
-    </div>
+    </nav>
 
-    <div class="card-outer">
-        <div class="card">
 
-            <div id="form-section" class="form-section">
-                <p class="tagline">Fill in your details to register as a licence officer.</p>
 
-                <div class="notice-box show">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+    <!-- ==================== HERO ==================== -->
+
+    <section class="px-5
+               pt-14
+               pb-[34px]
+               text-center">
+
+        <h1 class="m-0
+                   text-[40px]
+                   tracking-[0.03em]
+                   font-bold
+                   bg-gradient-to-b
+                   from-[#F3D98B]
+                   to-[#D4A94C]
+                   bg-clip-text
+                   text-transparent
+                   max-[480px]:text-[28px]">
+            Create Account
+        </h1>
+
+
+        <p class="mt-[14px]
+                   mb-0
+                   text-[14px]
+                   tracking-[0.02em]
+                   text-[#B9B2A0]">
+            Register as a licence officer to review applications.
+        </p>
+
+    </section>
+
+
+
+    <!-- ==================== CARD OUTER ==================== -->
+
+    <div class="mx-auto
+               mb-[60px]
+               max-w-[620px]
+               px-5">
+
+        <!-- Card -->
+
+        <div class="rounded-[16px]
+                   border border-[rgba(212,169,76,0.45)]
+                   bg-[rgba(18,15,11,0.75)]
+                   px-9
+                   pt-[34px]
+                   pb-10
+                   shadow-[0_0_40px_rgba(212,169,76,0.08)]
+                   max-[480px]:px-5">
+
+
+            <!-- ==================== FORM SECTION ==================== -->
+
+            <div id="form-section">
+
+                <!-- Tagline -->
+
+                <p class="mt-0
+                           mb-5
+                           text-[12.5px]
+                           leading-[1.6]
+                           tracking-[0.02em]
+                           text-[#B9B2A0]">
+                    Fill in your details to register as a licence officer.
+                </p>
+
+
+
+                <!-- ==================== NOTICE BOX ==================== -->
+
+                <div class="mb-6
+                           flex
+                           items-start
+                           gap-[10px]
+                           rounded-[8px]
+                           border
+                           border-[rgba(212,169,76,0.35)]
+                           bg-[rgba(212,169,76,0.08)]
+                           px-[14px]
+                           py-3
+                           text-[12px]
+                           leading-[1.6]
+                           text-[#E8CE8F]">
+
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="mt-[2px]
+                               shrink-0">
+
                         <circle cx="12" cy="12" r="9" stroke="#D4A94C" stroke-width="1.6" />
+
                         <path d="M8.5 12.5l2.3 2.3 4.7-5.1" stroke="#D4A94C" stroke-width="1.6" stroke-linecap="round"
                             stroke-linejoin="round" />
+
                     </svg>
-                    <span>Officer accounts are reviewed by an admin. You'll be able to sign in once your registration is
-                        approved.</span>
+
+
+                    <span>
+                        Officer accounts are reviewed by an admin.
+                        You'll be able to sign in once your registration
+                        is approved.
+                    </span>
+
                 </div>
 
+
+
+                <!-- ==================== FORM ==================== -->
+
                 <form id="reg-form" novalidate>
-                    <div class="grid" id="fields-grid"></div>
-                    <button type="submit" class="submit-btn">Create Account</button>
+
+                    <!-- Fields -->
+
+                    <div class="grid
+                               grid-cols-2
+                               gap-x-[18px]
+                               gap-y-5
+                               max-[480px]:grid-cols-1">
+
+
+                        <!-- ==================== FULL NAME ==================== -->
+
+                        <div class="flex flex-col gap-2">
+
+                            <label for="fullName" class="text-[11px]
+                                       uppercase
+                                       tracking-[0.12em]
+                                       text-[#C9C2B2]">
+                                Full name
+                            </label>
+
+                            <input id="fullName" name="fullName" type="text" placeholder="Enter full name" class="w-full
+                                       rounded-[8px]
+                                       border
+                                       border-[rgba(255,255,255,0.12)]
+                                       bg-[rgba(255,255,255,0.03)]
+                                       px-[14px]
+                                       py-[13px]
+                                       font-mono
+                                       text-[13.5px]
+                                       text-[#EDE6D6]
+                                       outline-none
+                                       placeholder:text-[#6E6858]
+                                       focus:border-[#D4A94C]
+                                       focus:ring-[3px]
+                                       focus:ring-[rgba(212,169,76,0.15)]" />
+
+                            <span id="fullName-error" class="hidden
+                                       text-[11px]
+                                       tracking-[0.02em]
+                                       text-[#E08A7C]">
+                                Please enter your full name.
+                            </span>
+
+                        </div>
+
+
+
+                        <!-- ==================== EMAIL ==================== -->
+
+                        <div class="flex flex-col gap-2">
+
+                            <label for="email" class="text-[11px]
+                                       uppercase
+                                       tracking-[0.12em]
+                                       text-[#C9C2B2]">
+                                Email
+                            </label>
+
+                            <input id="email" name="email" type="email" placeholder="Enter email" class="w-full
+                                       rounded-[8px]
+                                       border
+                                       border-[rgba(255,255,255,0.12)]
+                                       bg-[rgba(255,255,255,0.03)]
+                                       px-[14px]
+                                       py-[13px]
+                                       font-mono
+                                       text-[13.5px]
+                                       text-[#EDE6D6]
+                                       outline-none
+                                       placeholder:text-[#6E6858]
+                                       focus:border-[#D4A94C]
+                                       focus:ring-[3px]
+                                       focus:ring-[rgba(212,169,76,0.15)]" />
+
+                            <span id="email-error" class="hidden
+                                       text-[11px]
+                                       tracking-[0.02em]
+                                       text-[#E08A7C]">
+                                Please enter your email.
+                            </span>
+
+                        </div>
+
+
+
+                        <!-- ==================== MOBILE ==================== -->
+
+                        <div class="flex flex-col gap-2">
+
+                            <label for="mobile" class="text-[11px]
+                                       uppercase
+                                       tracking-[0.12em]
+                                       text-[#C9C2B2]">
+                                Mobile number
+                            </label>
+
+                            <input id="mobile" name="mobile" type="tel" placeholder="Enter mobile number" class="w-full
+                                       rounded-[8px]
+                                       border
+                                       border-[rgba(255,255,255,0.12)]
+                                       bg-[rgba(255,255,255,0.03)]
+                                       px-[14px]
+                                       py-[13px]
+                                       font-mono
+                                       text-[13.5px]
+                                       text-[#EDE6D6]
+                                       outline-none
+                                       placeholder:text-[#6E6858]
+                                       focus:border-[#D4A94C]
+                                       focus:ring-[3px]
+                                       focus:ring-[rgba(212,169,76,0.15)]" />
+
+                            <span id="mobile-error" class="hidden
+                                       text-[11px]
+                                       tracking-[0.02em]
+                                       text-[#E08A7C]">
+                                Please enter your mobile number.
+                            </span>
+
+                        </div>
+
+
+
+                        <!-- ==================== PASSWORD ==================== -->
+
+                        <div class="flex flex-col gap-2">
+
+                            <label for="password" class="text-[11px]
+                                       uppercase
+                                       tracking-[0.12em]
+                                       text-[#C9C2B2]">
+                                Password
+                            </label>
+
+                            <input id="password" name="password" type="password" placeholder="Enter password" class="w-full
+                                       rounded-[8px]
+                                       border
+                                       border-[rgba(255,255,255,0.12)]
+                                       bg-[rgba(255,255,255,0.03)]
+                                       px-[14px]
+                                       py-[13px]
+                                       font-mono
+                                       text-[13.5px]
+                                       text-[#EDE6D6]
+                                       outline-none
+                                       placeholder:text-[#6E6858]
+                                       focus:border-[#D4A94C]
+                                       focus:ring-[3px]
+                                       focus:ring-[rgba(212,169,76,0.15)]" />
+
+                            <span id="password-error" class="hidden
+                                       text-[11px]
+                                       tracking-[0.02em]
+                                       text-[#E08A7C]">
+                                Please enter your password.
+                            </span>
+
+                        </div>
+
+
+
+                        <!-- ==================== EMPLOYEE ID ==================== -->
+
+                        <div class="flex flex-col gap-2">
+
+                            <label for="employeeId" class="text-[11px]
+                                       uppercase
+                                       tracking-[0.12em]
+                                       text-[#C9C2B2]">
+                                Employee ID
+                            </label>
+
+                            <input id="employeeId" name="employeeId" type="text" placeholder="Enter employee ID" class="w-full
+                                       rounded-[8px]
+                                       border
+                                       border-[rgba(255,255,255,0.12)]
+                                       bg-[rgba(255,255,255,0.03)]
+                                       px-[14px]
+                                       py-[13px]
+                                       font-mono
+                                       text-[13.5px]
+                                       text-[#EDE6D6]
+                                       outline-none
+                                       placeholder:text-[#6E6858]
+                                       focus:border-[#D4A94C]
+                                       focus:ring-[3px]
+                                       focus:ring-[rgba(212,169,76,0.15)]" />
+
+                            <span id="employeeId-error" class="hidden
+                                       text-[11px]
+                                       tracking-[0.02em]
+                                       text-[#E08A7C]">
+                                Please enter your employee ID.
+                            </span>
+
+                        </div>
+
+
+
+                        <!-- ==================== DEPARTMENT ==================== -->
+
+                        <div class="flex flex-col gap-2">
+
+                            <label for="department" class="text-[11px]
+                                       uppercase
+                                       tracking-[0.12em]
+                                       text-[#C9C2B2]">
+                                Department
+                            </label>
+
+                            <input id="department" name="department" type="text" placeholder="Enter department" class="w-full
+                                       rounded-[8px]
+                                       border
+                                       border-[rgba(255,255,255,0.12)]
+                                       bg-[rgba(255,255,255,0.03)]
+                                       px-[14px]
+                                       py-[13px]
+                                       font-mono
+                                       text-[13.5px]
+                                       text-[#EDE6D6]
+                                       outline-none
+                                       placeholder:text-[#6E6858]
+                                       focus:border-[#D4A94C]
+                                       focus:ring-[3px]
+                                       focus:ring-[rgba(212,169,76,0.15)]" />
+
+                            <span id="department-error" class="hidden
+                                       text-[11px]
+                                       tracking-[0.02em]
+                                       text-[#E08A7C]">
+                                Please enter your department.
+                            </span>
+
+                        </div>
+
+
+
+                        <!-- ==================== LICENCE TYPE ==================== -->
+
+                        <div class="flex flex-col gap-2">
+
+                            <label for="licenceType" class="text-[11px]
+                                       uppercase
+                                       tracking-[0.12em]
+                                       text-[#C9C2B2]">
+                                Licence type
+                            </label>
+
+                            <input id="licenceType" name="licenceType" type="text" placeholder="Enter licence type"
+                                class="w-full
+                                       rounded-[8px]
+                                       border
+                                       border-[rgba(255,255,255,0.12)]
+                                       bg-[rgba(255,255,255,0.03)]
+                                       px-[14px]
+                                       py-[13px]
+                                       font-mono
+                                       text-[13.5px]
+                                       text-[#EDE6D6]
+                                       outline-none
+                                       placeholder:text-[#6E6858]
+                                       focus:border-[#D4A94C]
+                                       focus:ring-[3px]
+                                       focus:ring-[rgba(212,169,76,0.15)]" />
+
+                            <span id="licenceType-error" class="hidden
+                                       text-[11px]
+                                       tracking-[0.02em]
+                                       text-[#E08A7C]">
+                                Please enter the licence type.
+                            </span>
+
+                        </div>
+
+
+
+                        <!-- ==================== OFFICE ADDRESS ==================== -->
+
+                        <div class="col-span-2
+                                   flex flex-col gap-2
+                                   max-[480px]:col-span-1">
+
+                            <label for="officeAddress" class="text-[11px]
+                                       uppercase
+                                       tracking-[0.12em]
+                                       text-[#C9C2B2]">
+                                Office address
+                            </label>
+
+                            <input id="officeAddress" name="officeAddress" type="text"
+                                placeholder="Enter office address" class="w-full
+                                       rounded-[8px]
+                                       border
+                                       border-[rgba(255,255,255,0.12)]
+                                       bg-[rgba(255,255,255,0.03)]
+                                       px-[14px]
+                                       py-[13px]
+                                       font-mono
+                                       text-[13.5px]
+                                       text-[#EDE6D6]
+                                       outline-none
+                                       placeholder:text-[#6E6858]
+                                       focus:border-[#D4A94C]
+                                       focus:ring-[3px]
+                                       focus:ring-[rgba(212,169,76,0.15)]" />
+
+                            <span id="officeAddress-error" class="hidden
+                                       text-[11px]
+                                       tracking-[0.02em]
+                                       text-[#E08A7C]">
+                                Please enter your office address.
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- ==================== SUBMIT BUTTON ==================== -->
+
+                    <button type="submit" class="mt-[30px]
+                               w-full
+                               cursor-pointer
+                               rounded-[8px]
+                               border-0
+                               bg-[#EDE6D6]
+                               px-4
+                               py-[15px]
+                               font-mono
+                               text-[14px]
+                               font-bold
+                               uppercase
+                               tracking-[0.08em]
+                               text-[#0d2b2a]
+                               hover:bg-[#F3D98B]">
+                        Create Account
+                    </button>
+
                 </form>
 
-                <p class="footer-line">Already have an account? <a href="login.html">Log in</a></p>
+
+
+                <!-- ==================== LOGIN ==================== -->
+
+                <p class="mt-[22px]
+                           text-center
+                           text-[12px]
+                           text-[#9C9585]">
+                    Already have an account?
+
+                    <a href="login.html" class="text-[#D4A94C]
+                               no-underline
+                               hover:text-[#F3D98B]">
+                        Log in
+                    </a>
+                </p>
+
             </div>
 
-            <div class="confirm-wrap" id="confirm-wrap">
-                <svg width="36" height="36" viewBox="0 0 24 24" fill="none">
+
+
+            <!-- ==================== CONFIRMATION ==================== -->
+
+            <div id="confirm-wrap" class="hidden
+                       px-2
+                       pt-5
+                       pb-2
+                       text-center">
+
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" class="mx-auto">
+
                     <circle cx="12" cy="12" r="9" stroke="#D4A94C" stroke-width="1.6" />
+
                     <path d="M8.5 12.5l2.3 2.3 4.7-5.1" stroke="#D4A94C" stroke-width="1.6" stroke-linecap="round"
                         stroke-linejoin="round" />
+
                 </svg>
-                <h2 class="confirm-heading">Registration received</h2>
-                <p class="confirm-text">Your details have been recorded. An admin will review and approve your account
-                    before you can sign in.</p>
-                <p class="footer-line"><a href="login.html">Go to login</a></p>
+
+
+                <h2 class="mt-4
+                           mb-[10px]
+                           text-[20px]
+                           font-bold
+                           tracking-[0.03em]
+                           text-[#F3D98B]">
+                    Registration received
+                </h2>
+
+
+                <p class="mx-auto
+                           max-w-[380px]
+                           text-[13px]
+                           leading-[1.7]
+                           text-[#B9B2A0]">
+                    Your details have been recorded. An admin will
+                    review and approve your account before you can
+                    sign in.
+                </p>
+
+
+                <p class="mt-[22px]
+                           text-center
+                           text-[12px]
+                           text-[#9C9585]">
+
+                    <a href="login.html" class="text-[#D4A94C]
+                               no-underline
+                               hover:text-[#F3D98B]">
+                        Go to login
+                    </a>
+
+                </p>
+
             </div>
 
         </div>
+
     </div>
 
+
+
+    <!-- JavaScript -->
     <script src="officer.js"></script>
+
 </body>
 
 </html>
