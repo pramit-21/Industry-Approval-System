@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Licence Officer Registration</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="officer.css">
+</head>
+
+<body>
+
+    <div class="navbar">
+        <a class="brand" href="login.html">IndustryOne</a>
+        <div class="nav-links">
+            <a href="#">About</a>
+            <a href="#">Contact</a>
+            <button class="admin-btn">Admin</button>
+        </div>
+    </div>
+
+    <div class="hero">
+        <h1>Create Account</h1>
+        <p>Register as a licence officer to review applications.</p>
+    </div>
+
+    <div class="card-outer">
+        <div class="card">
+
+            <div id="form-section" class="form-section">
+                <p class="tagline">Fill in your details to register as a licence officer.</p>
+
+                <div class="notice-box show">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+                        <circle cx="12" cy="12" r="9" stroke="#D4A94C" stroke-width="1.6" />
+                        <path d="M8.5 12.5l2.3 2.3 4.7-5.1" stroke="#D4A94C" stroke-width="1.6" stroke-linecap="round"
+                            stroke-linejoin="round" />
+                    </svg>
+                    <span>Officer accounts are reviewed by an admin. You'll be able to sign in once your registration is
+                        approved.</span>
+                </div>
+
+                <form id="reg-form" novalidate>
+                    <div class="grid" id="fields-grid"></div>
+                    <button type="submit" class="submit-btn">Create Account</button>
+                </form>
+
+                <p class="footer-line">Already have an account? <a href="login.html">Log in</a></p>
+            </div>
+
+            <div class="confirm-wrap" id="confirm-wrap">
+                <svg width="36" height="36" viewBox="0 0 24 24" fill="none">
+                    <circle cx="12" cy="12" r="9" stroke="#D4A94C" stroke-width="1.6" />
+                    <path d="M8.5 12.5l2.3 2.3 4.7-5.1" stroke="#D4A94C" stroke-width="1.6" stroke-linecap="round"
+                        stroke-linejoin="round" />
+                </svg>
+                <h2 class="confirm-heading">Registration received</h2>
+                <p class="confirm-text">Your details have been recorded. An admin will review and approve your account
+                    before you can sign in.</p>
+                <p class="footer-line"><a href="login.html">Go to login</a></p>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="officer.js"></script>
+</body>
+
+</html>
