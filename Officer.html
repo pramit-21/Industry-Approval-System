@@ -5,13 +5,15 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <title>Licence Officer Registration</title>
+    <title>IndustryOne | Licence Officer Registration</title>
 
-    <!-- Space Mono Font -->
+    <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Space+Mono:wght@400;700&display=swap"
+        rel="stylesheet">
 
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -21,6 +23,7 @@
             theme: {
                 extend: {
                     fontFamily: {
+                        sans: ['"DM Sans"', 'sans-serif'],
                         mono: ['"Space Mono"', 'monospace']
                     }
                 }
@@ -28,621 +31,1183 @@
         }
     </script>
 
-    <!-- Remove browser default spacing / unwanted particles -->
     <style>
-        html,
-        body {
-            margin: 0 !important;
-            padding: 0 !important;
-            width: 100%;
-            min-height: 100%;
+        /* =====================================================
+           BASE
+        ===================================================== */
+
+        * {
+            box-sizing: border-box;
         }
 
-        canvas {
-            display: none !important;
+        html {
+            scroll-behavior: smooth;
+            background: #07152F;
+        }
+
+        body {
+            margin: 0;
+            padding: 0;
+            min-height: 100vh;
+            overflow-x: hidden;
+
+            font-family: "DM Sans", sans-serif;
+            color: #F8F1DF;
+
+            background:
+                radial-gradient(circle at 15% 10%,
+                    rgba(45, 91, 160, 0.35),
+                    transparent 32%),
+                radial-gradient(circle at 85% 30%,
+                    rgba(50, 105, 190, 0.18),
+                    transparent 30%),
+                linear-gradient(135deg,
+                    #07152F 0%,
+                    #0A2045 48%,
+                    #06132B 100%);
+        }
+
+
+        /* =====================================================
+           BLUEPRINT GRID
+        ===================================================== */
+
+        .blueprint-grid {
+            background-image:
+                linear-gradient(rgba(248, 241, 223, 0.035) 1px,
+                    transparent 1px),
+                linear-gradient(90deg,
+                    rgba(248, 241, 223, 0.035) 1px,
+                    transparent 1px);
+
+            background-size: 50px 50px;
+        }
+
+
+        /* =====================================================
+           BACKGROUND ORBS
+        ===================================================== */
+
+        .orb {
+            position: fixed;
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: -1;
+            filter: blur(2px);
+        }
+
+        .orb-one {
+            width: 320px;
+            height: 320px;
+            top: 100px;
+            left: -180px;
+            background: rgba(56, 110, 190, 0.15);
+            animation: floatOne 10s ease-in-out infinite;
+        }
+
+        .orb-two {
+            width: 260px;
+            height: 260px;
+            right: -130px;
+            bottom: 100px;
+            background: rgba(80, 137, 213, 0.12);
+            animation: floatTwo 12s ease-in-out infinite;
+        }
+
+        @keyframes floatOne {
+
+            0%,
+            100% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(40px, 35px);
+            }
+        }
+
+        @keyframes floatTwo {
+
+            0%,
+            100% {
+                transform: translate(0, 0);
+            }
+
+            50% {
+                transform: translate(-35px, -40px);
+            }
+        }
+
+
+        /* =====================================================
+           NAVBAR
+        ===================================================== */
+
+        .navbar {
+            min-height: 88px;
+
+            background: rgba(5, 18, 41, 0.88);
+
+            backdrop-filter: blur(18px);
+            -webkit-backdrop-filter: blur(18px);
+
+            border-bottom: 1px solid rgba(248, 241, 223, 0.10);
+        }
+
+
+        /* =====================================================
+           LARGE INDUSTRYONE LOGO
+        ===================================================== */
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 14px;
+
+            text-decoration: none;
+
+            transition:
+                transform 0.3s ease;
+        }
+
+        .logo:hover {
+            transform: translateY(-2px);
+        }
+
+
+        .logo-mark {
+            position: relative;
+
+            width: 54px;
+            height: 54px;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 14px;
+
+            background: #F8F1DF;
+            color: #0B2347;
+
+            font-family: "Space Mono", monospace;
+            font-size: 18px;
+            font-weight: 700;
+
+            letter-spacing: -0.08em;
+
+            box-shadow:
+                0 10px 30px rgba(0, 0, 0, 0.22);
+
+            transition:
+                transform 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+        .logo-mark::before {
+            content: "";
+
+            position: absolute;
+
+            inset: -4px;
+
+            border-radius: 17px;
+
+            border: 1px solid rgba(248, 241, 223, 0.20);
+
+            opacity: 0;
+
+            transition: opacity 0.3s ease;
+        }
+
+        .logo-mark::after {
+            content: "";
+
+            position: absolute;
+
+            width: 8px;
+            height: 8px;
+
+            top: 7px;
+            right: 7px;
+
+            border-radius: 50%;
+
+            background: #173B70;
+        }
+
+        .logo:hover .logo-mark {
+            transform: rotate(-4deg) scale(1.06);
+
+            box-shadow:
+                0 14px 35px rgba(0, 0, 0, 0.30);
+        }
+
+        .logo:hover .logo-mark::before {
+            opacity: 1;
+        }
+
+        .logo-name {
+            font-size: 22px;
+            font-weight: 700;
+
+            line-height: 1;
+
+            letter-spacing: -0.035em;
+
+            color: #F8F1DF;
+        }
+
+        .logo-subtitle {
+            margin-top: 6px;
+
+            font-family: "Space Mono", monospace;
+
+            font-size: 8px;
+
+            letter-spacing: 0.24em;
+
+            color: #819BC2;
+        }
+
+
+        /* =====================================================
+           NAVIGATION
+        ===================================================== */
+
+        .nav-link {
+            position: relative;
+
+            color: #C2D0E5;
+
+            text-decoration: none;
+
+            transition:
+                color 0.25s ease;
+        }
+
+        .nav-link:hover {
+            color: #FFFFFF;
+        }
+
+        .nav-link::after {
+            content: "";
+
+            position: absolute;
+
+            left: 0;
+            bottom: -7px;
+
+            width: 0;
+            height: 1px;
+
+            background: #F8F1DF;
+
+            transition: width 0.25s ease;
+        }
+
+        .nav-link:hover::after {
+            width: 100%;
+        }
+
+
+        .admin-button {
+            border: 1px solid rgba(248, 241, 223, 0.18);
+
+            background: rgba(248, 241, 223, 0.045);
+
+            color: #F8F1DF;
+
+            transition:
+                background 0.25s ease,
+                border-color 0.25s ease,
+                transform 0.25s ease;
+        }
+
+        .admin-button:hover {
+            background: rgba(248, 241, 223, 0.10);
+
+            border-color: rgba(248, 241, 223, 0.35);
+
+            transform: translateY(-2px);
+        }
+
+
+        /* =====================================================
+           HERO
+        ===================================================== */
+
+        .hero {
+            animation: heroReveal 0.8s ease forwards;
+        }
+
+        @keyframes heroReveal {
+
+            from {
+                opacity: 0;
+                transform: translateY(25px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+
+        .hero-title {
+            background:
+                linear-gradient(120deg,
+                    #FFFFFF 0%,
+                    #F8F1DF 48%,
+                    #BCD2F1 100%);
+
+            -webkit-background-clip: text;
+            background-clip: text;
+
+            color: transparent;
+
+            letter-spacing: -0.045em;
+        }
+
+
+        .hero-line {
+            width: 70px;
+            height: 2px;
+
+            margin: 22px auto 0;
+
+            border-radius: 999px;
+
+            background: #F8F1DF;
+
+            animation:
+                lineGrow 1s ease 0.25s both;
+        }
+
+        @keyframes lineGrow {
+
+            from {
+                opacity: 0;
+                transform: scaleX(0);
+            }
+
+            to {
+                opacity: 1;
+                transform: scaleX(1);
+            }
+        }
+
+
+        /* =====================================================
+           MAIN CREAM REGISTRATION CARD
+        ===================================================== */
+
+        .registration-card {
+            position: relative;
+
+            background: #F8F1DF;
+
+            border: 1px solid rgba(255, 255, 255, 0.75);
+
+            border-radius: 20px;
+
+            color: #0B2347;
+
+            box-shadow:
+                0 25px 70px rgba(0, 0, 0, 0.25);
+
+            overflow: hidden;
+
+            animation:
+                cardReveal 0.8s ease 0.15s both;
+        }
+
+        .registration-card::before {
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 4px;
+
+            background:
+                linear-gradient(90deg,
+                    #0B2347,
+                    #426DA7,
+                    #0B2347);
+        }
+
+        @keyframes cardReveal {
+
+            from {
+                opacity: 0;
+                transform: translateY(30px) scale(0.98);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0) scale(1);
+            }
+        }
+
+
+        /* =====================================================
+           NOTICE BOX
+        ===================================================== */
+
+        .notice-box {
+            background: #EFE6D2;
+
+            border: 1px solid #D8CEBA;
+
+            color: #40516B;
+        }
+
+
+        /* =====================================================
+           FORM LABELS
+        ===================================================== */
+
+        .form-label {
+            color: #234C83;
+
+            font-family: "Space Mono", monospace;
+
+            font-size: 10px;
+
+            font-weight: 700;
+
+            text-transform: uppercase;
+
+            letter-spacing: 0.12em;
+        }
+
+
+        /* =====================================================
+           INPUTS
+        ===================================================== */
+
+        .form-input {
+            width: 100%;
+
+            border: 1px solid #CFC6B5;
+
+            background: #EFE6D2;
+
+            color: #0B2347;
+
+            border-radius: 9px;
+
+            outline: none;
+
+            transition:
+                border-color 0.25s ease,
+                background 0.25s ease,
+                box-shadow 0.25s ease,
+                transform 0.2s ease;
+        }
+
+        .form-input::placeholder {
+            color: #7A8290;
+        }
+
+        .form-input:hover {
+            border-color: #AEB8C8;
+        }
+
+        .form-input:focus {
+            border-color: #173B70;
+
+            background: #F8F1DF;
+
+            box-shadow:
+                0 0 0 3px rgba(23, 59, 112, 0.10);
+
+            transform: translateY(-1px);
+        }
+
+
+        /* =====================================================
+           SUBMIT BUTTON
+        ===================================================== */
+
+        .submit-button {
+            position: relative;
+
+            overflow: hidden;
+
+            background: #0B2347;
+
+            color: #F8F1DF;
+
+            transition:
+                transform 0.3s ease,
+                background 0.3s ease,
+                box-shadow 0.3s ease;
+        }
+
+        .submit-button::before {
+            content: "";
+
+            position: absolute;
+
+            top: 0;
+            left: -100%;
+
+            width: 100%;
+            height: 100%;
+
+            background:
+                linear-gradient(90deg,
+                    transparent,
+                    rgba(255, 255, 255, 0.12),
+                    transparent);
+
+            transition: left 0.6s ease;
+        }
+
+        .submit-button:hover {
+            background: #173B70;
+
+            transform: translateY(-2px);
+
+            box-shadow:
+                0 12px 30px rgba(11, 35, 71, 0.25);
+        }
+
+        .submit-button:hover::before {
+            left: 100%;
+        }
+
+
+        /* =====================================================
+           LOGIN LINK
+        ===================================================== */
+
+        .login-link {
+            color: #173B70;
+
+            font-weight: 700;
+
+            text-decoration: none;
+
+            transition:
+                color 0.25s ease;
+        }
+
+        .login-link:hover {
+            color: #426DA7;
+        }
+
+
+        /* =====================================================
+           ERROR MESSAGE
+        ===================================================== */
+
+        .error-message {
+            color: #B64A43;
+        }
+
+
+        /* =====================================================
+           CONFIRMATION
+        ===================================================== */
+
+        .confirmation-icon {
+            width: 48px;
+            height: 48px;
+
+            margin: 0 auto;
+
+            display: flex;
+            align-items: center;
+            justify-content: center;
+
+            border-radius: 50%;
+
+            background: #0B2347;
+
+            color: #F8F1DF;
+
+            font-size: 22px;
+        }
+
+
+        /* =====================================================
+           FOOTER
+        ===================================================== */
+
+        footer {
+            border-top:
+                1px solid rgba(248, 241, 223, 0.08);
+
+            background: #051126;
+        }
+
+
+        /* =====================================================
+           SCROLLBAR
+        ===================================================== */
+
+        ::-webkit-scrollbar {
+            width: 7px;
+        }
+
+        ::-webkit-scrollbar-track {
+            background: #06132B;
+        }
+
+        ::-webkit-scrollbar-thumb {
+            background: #294B78;
+            border-radius: 10px;
+        }
+
+        ::-webkit-scrollbar-thumb:hover {
+            background: #547FB7;
+        }
+
+
+        /* =====================================================
+           MOBILE
+        ===================================================== */
+
+        @media (max-width: 768px) {
+
+            .navbar {
+                min-height: 76px;
+            }
+
+            .logo-mark {
+                width: 46px;
+                height: 46px;
+
+                font-size: 15px;
+            }
+
+            .logo-name {
+                font-size: 18px;
+            }
+
+            .logo-subtitle {
+                font-size: 7px;
+            }
+
+            .nav-link {
+                display: none;
+            }
+
+            .hero-title {
+                font-size: 38px;
+            }
+
+        }
+
+
+        @media (max-width: 480px) {
+
+            .logo-subtitle {
+                letter-spacing: 0.15em;
+            }
+
+            .registration-card {
+                border-radius: 16px;
+            }
+
         }
     </style>
 
 </head>
 
 
-<body class="m-0 min-h-screen w-full overflow-x-hidden
-           font-mono text-[#EDE6D6]
-           bg-[radial-gradient(circle_at_50%_15%,#2b1f10_0%,#120d08_45%,#0a0806_100%)]
-           bg-fixed">
+<body class="blueprint-grid">
 
 
-    <!-- ==================== NAVBAR ==================== -->
+    <!-- BACKGROUND EFFECTS -->
 
-    <nav class="m-0 flex items-center justify-between
-               px-10 py-[18px]
-               bg-[#0d2b2a]
-               border-b border-[rgba(212,169,76,0.25)]
-               max-[480px]:px-5
-               max-[480px]:py-4">
-
-        <!-- Brand -->
-
-        <a href="login.html" class="text-[22px]
-                   font-bold
-                   tracking-[0.01em]
-                   text-[#EDE6D6]
-                   no-underline">
-            IndustryOne
-        </a>
+    <div class="orb orb-one"></div>
+    <div class="orb orb-two"></div>
 
 
-        <!-- Navigation Links -->
+    <!-- =====================================================
+         NAVBAR
+    ===================================================== -->
 
-        <div class="flex items-center
-                   gap-7
-                   text-[14px]
-                   text-[#C9C2B2]
-                   max-[480px]:gap-[14px]
-                   max-[480px]:text-[12px]">
+    <nav class="navbar sticky top-0 z-50">
 
-            <a href="#" class="text-[#C9C2B2]
-                       no-underline
-                       hover:text-[#EDE6D6]">
-                About
+        <div class="mx-auto flex min-h-[88px] max-w-[1280px]
+                    items-center justify-between
+                    px-6 lg:px-8">
+
+
+            <!-- INDUSTRYONE LOGO -->
+
+            <a href="login.html" class="logo">
+
+
+                <div>
+
+                    <div class="logo-name">
+                        IndustryOne
+                    </div>
+
+                    <div class="logo-subtitle">
+                        INDUSTRIAL APPROVAL SYSTEM
+                    </div>
+
+                </div>
+
             </a>
 
 
-            <a href="#" class="text-[#C9C2B2]
-                       no-underline
-                       hover:text-[#EDE6D6]">
-                Contact
-            </a>
+            <!-- NAVIGATION -->
 
+            <div class="flex items-center gap-7 text-sm">
 
-            <button type="button" class="cursor-pointer
-                       rounded-[6px]
-                       border border-[rgba(212,169,76,0.4)]
-                       bg-[#17403e]
-                       px-4 py-2
-                       font-mono
-                       text-[13px]
-                       text-[#EDE6D6]
-                       hover:bg-[#20504d]">
-                Admin
-            </button>
+                <a href="login.html" class="nav-link">
+                    Home
+                </a>
+
+                <a href="about.html" class="nav-link">
+                    About
+                </a>
+
+                <a href="contact.html" class="nav-link">
+                    Contact
+                </a>
+
+                <button type="button" class="admin-button rounded-lg px-4 py-2 text-sm font-mono">
+                    Admin
+                </button>
+
+            </div>
 
         </div>
 
     </nav>
 
 
+    <!-- =====================================================
+         HERO
+    ===================================================== -->
 
-    <!-- ==================== HERO ==================== -->
+    <section class="hero px-5 pb-10 pt-16 text-center">
 
-    <section class="px-5
-               pt-14
-               pb-[34px]
-               text-center">
-
-        <h1 class="m-0
-                   text-[40px]
-                   tracking-[0.03em]
-                   font-bold
-                   bg-gradient-to-b
-                   from-[#F3D98B]
-                   to-[#D4A94C]
-                   bg-clip-text
-                   text-transparent
-                   max-[480px]:text-[28px]">
-            Create Account
-        </h1>
+        <div class="mx-auto max-w-3xl">
 
 
-        <p class="mt-[14px]
-                   mb-0
-                   text-[14px]
-                   tracking-[0.02em]
-                   text-[#B9B2A0]">
-            Register as a licence officer to review applications.
-        </p>
+            <h1 class="hero-title text-5xl font-bold
+                       leading-tight
+                       sm:text-6xl">
+
+                Officer Registration
+
+            </h1>
+
+
+            <div class="hero-line"></div>
+
+
+            <p class="mx-auto mt-6 max-w-xl
+                       text-sm leading-7
+                       text-[#B7C7DE]
+                       sm:text-base">
+
+                Register as a licence officer to review and manage
+                industrial approval applications.
+
+            </p>
+
+        </div>
 
     </section>
 
 
+    <!-- =====================================================
+         REGISTRATION CARD
+    ===================================================== -->
 
-    <!-- ==================== CARD OUTER ==================== -->
+    <main class="px-5 pb-20">
 
-    <div class="mx-auto
-               mb-[60px]
-               max-w-[620px]
-               px-5">
+        <div class="mx-auto max-w-[900px]">
 
-        <!-- Card -->
+            <div class="registration-card px-6 pb-10 pt-10 sm:px-10">
 
-        <div class="rounded-[16px]
-                   border border-[rgba(212,169,76,0.45)]
-                   bg-[rgba(18,15,11,0.75)]
-                   px-9
-                   pt-[34px]
-                   pb-10
-                   shadow-[0_0_40px_rgba(212,169,76,0.08)]
-                   max-[480px]:px-5">
+                <!-- FORM SECTION -->
 
+                <div id="form-section">
 
-            <!-- ==================== FORM SECTION ==================== -->
 
-            <div id="form-section">
+                    <!-- INTRO -->
 
-                <!-- Tagline -->
+                    <div class="mb-7">
 
-                <p class="mt-0
-                           mb-5
-                           text-[12.5px]
-                           leading-[1.6]
-                           tracking-[0.02em]
-                           text-[#B9B2A0]">
-                    Fill in your details to register as a licence officer.
-                </p>
+                        <p class="mb-2 font-mono text-[18px]
+                                   font-bold tracking-[0.20em]
+                                   text-[#234C83]" style="font-size: 20px;">
 
+                            OFFICER PROFILE
 
+                        </p>
 
-                <!-- ==================== NOTICE BOX ==================== -->
+                        <p class="text-sm leading-6
+                                   text-[#40516B]">
 
-                <div class="mb-6
-                           flex
-                           items-start
-                           gap-[10px]
-                           rounded-[8px]
-                           border
-                           border-[rgba(212,169,76,0.35)]
-                           bg-[rgba(212,169,76,0.08)]
-                           px-[14px]
-                           py-3
-                           text-[12px]
-                           leading-[1.6]
-                           text-[#E8CE8F]">
+                            Fill in your details below to register
+                            as a licence officer.
 
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" class="mt-[2px]
-                               shrink-0">
-
-                        <circle cx="12" cy="12" r="9" stroke="#D4A94C" stroke-width="1.6" />
-
-                        <path d="M8.5 12.5l2.3 2.3 4.7-5.1" stroke="#D4A94C" stroke-width="1.6" stroke-linecap="round"
-                            stroke-linejoin="round" />
-
-                    </svg>
-
-
-                    <span>
-                        Officer accounts are reviewed by an admin.
-                        You'll be able to sign in once your registration
-                        is approved.
-                    </span>
-
-                </div>
-
-
-
-                <!-- ==================== FORM ==================== -->
-
-                <form id="reg-form" novalidate>
-
-                    <!-- Fields -->
-
-                    <div class="grid
-                               grid-cols-2
-                               gap-x-[18px]
-                               gap-y-5
-                               max-[480px]:grid-cols-1">
-
-
-                        <!-- ==================== FULL NAME ==================== -->
-
-                        <div class="flex flex-col gap-2">
-
-                            <label for="fullName" class="text-[11px]
-                                       uppercase
-                                       tracking-[0.12em]
-                                       text-[#C9C2B2]">
-                                Full name
-                            </label>
-
-                            <input id="fullName" name="fullName" type="text" placeholder="Enter full name" class="w-full
-                                       rounded-[8px]
-                                       border
-                                       border-[rgba(255,255,255,0.12)]
-                                       bg-[rgba(255,255,255,0.03)]
-                                       px-[14px]
-                                       py-[13px]
-                                       font-mono
-                                       text-[13.5px]
-                                       text-[#EDE6D6]
-                                       outline-none
-                                       placeholder:text-[#6E6858]
-                                       focus:border-[#D4A94C]
-                                       focus:ring-[3px]
-                                       focus:ring-[rgba(212,169,76,0.15)]" />
-
-                            <span id="fullName-error" class="hidden
-                                       text-[11px]
-                                       tracking-[0.02em]
-                                       text-[#E08A7C]">
-                                Please enter your full name.
-                            </span>
-
-                        </div>
-
-
-
-                        <!-- ==================== EMAIL ==================== -->
-
-                        <div class="flex flex-col gap-2">
-
-                            <label for="email" class="text-[11px]
-                                       uppercase
-                                       tracking-[0.12em]
-                                       text-[#C9C2B2]">
-                                Email
-                            </label>
-
-                            <input id="email" name="email" type="email" placeholder="Enter email" class="w-full
-                                       rounded-[8px]
-                                       border
-                                       border-[rgba(255,255,255,0.12)]
-                                       bg-[rgba(255,255,255,0.03)]
-                                       px-[14px]
-                                       py-[13px]
-                                       font-mono
-                                       text-[13.5px]
-                                       text-[#EDE6D6]
-                                       outline-none
-                                       placeholder:text-[#6E6858]
-                                       focus:border-[#D4A94C]
-                                       focus:ring-[3px]
-                                       focus:ring-[rgba(212,169,76,0.15)]" />
-
-                            <span id="email-error" class="hidden
-                                       text-[11px]
-                                       tracking-[0.02em]
-                                       text-[#E08A7C]">
-                                Please enter your email.
-                            </span>
-
-                        </div>
-
-
-
-                        <!-- ==================== MOBILE ==================== -->
-
-                        <div class="flex flex-col gap-2">
-
-                            <label for="mobile" class="text-[11px]
-                                       uppercase
-                                       tracking-[0.12em]
-                                       text-[#C9C2B2]">
-                                Mobile number
-                            </label>
-
-                            <input id="mobile" name="mobile" type="tel" placeholder="Enter mobile number" class="w-full
-                                       rounded-[8px]
-                                       border
-                                       border-[rgba(255,255,255,0.12)]
-                                       bg-[rgba(255,255,255,0.03)]
-                                       px-[14px]
-                                       py-[13px]
-                                       font-mono
-                                       text-[13.5px]
-                                       text-[#EDE6D6]
-                                       outline-none
-                                       placeholder:text-[#6E6858]
-                                       focus:border-[#D4A94C]
-                                       focus:ring-[3px]
-                                       focus:ring-[rgba(212,169,76,0.15)]" />
-
-                            <span id="mobile-error" class="hidden
-                                       text-[11px]
-                                       tracking-[0.02em]
-                                       text-[#E08A7C]">
-                                Please enter your mobile number.
-                            </span>
-
-                        </div>
-
-
-
-                        <!-- ==================== PASSWORD ==================== -->
-
-                        <div class="flex flex-col gap-2">
-
-                            <label for="password" class="text-[11px]
-                                       uppercase
-                                       tracking-[0.12em]
-                                       text-[#C9C2B2]">
-                                Password
-                            </label>
-
-                            <input id="password" name="password" type="password" placeholder="Enter password" class="w-full
-                                       rounded-[8px]
-                                       border
-                                       border-[rgba(255,255,255,0.12)]
-                                       bg-[rgba(255,255,255,0.03)]
-                                       px-[14px]
-                                       py-[13px]
-                                       font-mono
-                                       text-[13.5px]
-                                       text-[#EDE6D6]
-                                       outline-none
-                                       placeholder:text-[#6E6858]
-                                       focus:border-[#D4A94C]
-                                       focus:ring-[3px]
-                                       focus:ring-[rgba(212,169,76,0.15)]" />
-
-                            <span id="password-error" class="hidden
-                                       text-[11px]
-                                       tracking-[0.02em]
-                                       text-[#E08A7C]">
-                                Please enter your password.
-                            </span>
-
-                        </div>
-
-
-
-                        <!-- ==================== EMPLOYEE ID ==================== -->
-
-                        <div class="flex flex-col gap-2">
-
-                            <label for="employeeId" class="text-[11px]
-                                       uppercase
-                                       tracking-[0.12em]
-                                       text-[#C9C2B2]">
-                                Employee ID
-                            </label>
-
-                            <input id="employeeId" name="employeeId" type="text" placeholder="Enter employee ID" class="w-full
-                                       rounded-[8px]
-                                       border
-                                       border-[rgba(255,255,255,0.12)]
-                                       bg-[rgba(255,255,255,0.03)]
-                                       px-[14px]
-                                       py-[13px]
-                                       font-mono
-                                       text-[13.5px]
-                                       text-[#EDE6D6]
-                                       outline-none
-                                       placeholder:text-[#6E6858]
-                                       focus:border-[#D4A94C]
-                                       focus:ring-[3px]
-                                       focus:ring-[rgba(212,169,76,0.15)]" />
-
-                            <span id="employeeId-error" class="hidden
-                                       text-[11px]
-                                       tracking-[0.02em]
-                                       text-[#E08A7C]">
-                                Please enter your employee ID.
-                            </span>
-
-                        </div>
-
-
-
-                        <!-- ==================== DEPARTMENT ==================== -->
-
-                        <div class="flex flex-col gap-2">
-
-                            <label for="department" class="text-[11px]
-                                       uppercase
-                                       tracking-[0.12em]
-                                       text-[#C9C2B2]">
-                                Department
-                            </label>
-
-                            <input id="department" name="department" type="text" placeholder="Enter department" class="w-full
-                                       rounded-[8px]
-                                       border
-                                       border-[rgba(255,255,255,0.12)]
-                                       bg-[rgba(255,255,255,0.03)]
-                                       px-[14px]
-                                       py-[13px]
-                                       font-mono
-                                       text-[13.5px]
-                                       text-[#EDE6D6]
-                                       outline-none
-                                       placeholder:text-[#6E6858]
-                                       focus:border-[#D4A94C]
-                                       focus:ring-[3px]
-                                       focus:ring-[rgba(212,169,76,0.15)]" />
-
-                            <span id="department-error" class="hidden
-                                       text-[11px]
-                                       tracking-[0.02em]
-                                       text-[#E08A7C]">
-                                Please enter your department.
-                            </span>
-
-                        </div>
-
-
-
-                        <!-- ==================== LICENCE TYPE ==================== -->
-
-                        <div class="flex flex-col gap-2">
-
-                            <label for="licenceType" class="text-[11px]
-                                       uppercase
-                                       tracking-[0.12em]
-                                       text-[#C9C2B2]">
-                                Licence type
-                            </label>
-
-                            <input id="licenceType" name="licenceType" type="text" placeholder="Enter licence type"
-                                class="w-full
-                                       rounded-[8px]
-                                       border
-                                       border-[rgba(255,255,255,0.12)]
-                                       bg-[rgba(255,255,255,0.03)]
-                                       px-[14px]
-                                       py-[13px]
-                                       font-mono
-                                       text-[13.5px]
-                                       text-[#EDE6D6]
-                                       outline-none
-                                       placeholder:text-[#6E6858]
-                                       focus:border-[#D4A94C]
-                                       focus:ring-[3px]
-                                       focus:ring-[rgba(212,169,76,0.15)]" />
-
-                            <span id="licenceType-error" class="hidden
-                                       text-[11px]
-                                       tracking-[0.02em]
-                                       text-[#E08A7C]">
-                                Please enter the licence type.
-                            </span>
-
-                        </div>
-
-
-
-                        <!-- ==================== OFFICE ADDRESS ==================== -->
-
-                        <div class="col-span-2
-                                   flex flex-col gap-2
-                                   max-[480px]:col-span-1">
-
-                            <label for="officeAddress" class="text-[11px]
-                                       uppercase
-                                       tracking-[0.12em]
-                                       text-[#C9C2B2]">
-                                Office address
-                            </label>
-
-                            <input id="officeAddress" name="officeAddress" type="text"
-                                placeholder="Enter office address" class="w-full
-                                       rounded-[8px]
-                                       border
-                                       border-[rgba(255,255,255,0.12)]
-                                       bg-[rgba(255,255,255,0.03)]
-                                       px-[14px]
-                                       py-[13px]
-                                       font-mono
-                                       text-[13.5px]
-                                       text-[#EDE6D6]
-                                       outline-none
-                                       placeholder:text-[#6E6858]
-                                       focus:border-[#D4A94C]
-                                       focus:ring-[3px]
-                                       focus:ring-[rgba(212,169,76,0.15)]" />
-
-                            <span id="officeAddress-error" class="hidden
-                                       text-[11px]
-                                       tracking-[0.02em]
-                                       text-[#E08A7C]">
-                                Please enter your office address.
-                            </span>
-
-                        </div>
+                        </p>
 
                     </div>
 
 
+                    <!-- NOTICE -->
 
-                    <!-- ==================== SUBMIT BUTTON ==================== -->
+                    <div class="notice-box mb-7 flex items-start gap-3
+                               rounded-[10px] px-4 py-3.5
+                               text-[12px] leading-6">
 
-                    <button type="submit" class="mt-[30px]
-                               w-full
-                               cursor-pointer
-                               rounded-[8px]
-                               border-0
-                               bg-[#EDE6D6]
-                               px-4
-                               py-[15px]
-                               font-mono
-                               text-[14px]
-                               font-bold
-                               uppercase
-                               tracking-[0.08em]
-                               text-[#0d2b2a]
-                               hover:bg-[#F3D98B]">
-                        Create Account
-                    </button>
+                        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" class="mt-[2px] shrink-0">
 
-                </form>
+                            <circle cx="12" cy="12" r="9" stroke="#173B70" stroke-width="1.6" />
 
+                            <path d="M8.5 12.5l2.3 2.3 4.7-5.1" stroke="#173B70" stroke-width="1.6"
+                                stroke-linecap="round" stroke-linejoin="round" />
 
+                        </svg>
 
-                <!-- ==================== LOGIN ==================== -->
+                        <span>
 
-                <p class="mt-[22px]
-                           text-center
-                           text-[12px]
-                           text-[#9C9585]">
-                    Already have an account?
+                            Officer accounts are reviewed by an admin.
+                            You'll be able to sign in once your registration
+                            is approved.
 
-                    <a href="login.html" class="text-[#D4A94C]
-                               no-underline
-                               hover:text-[#F3D98B]">
-                        Log in
-                    </a>
-                </p>
+                        </span>
 
-            </div>
+                    </div>
 
 
+                    <!-- =================================================
+                         FORM
+                    ================================================= -->
 
-            <!-- ==================== CONFIRMATION ==================== -->
-
-            <div id="confirm-wrap" class="hidden
-                       px-2
-                       pt-5
-                       pb-2
-                       text-center">
-
-                <svg width="36" height="36" viewBox="0 0 24 24" fill="none" class="mx-auto">
-
-                    <circle cx="12" cy="12" r="9" stroke="#D4A94C" stroke-width="1.6" />
-
-                    <path d="M8.5 12.5l2.3 2.3 4.7-5.1" stroke="#D4A94C" stroke-width="1.6" stroke-linecap="round"
-                        stroke-linejoin="round" />
-
-                </svg>
+                    <form id="reg-form" novalidate>
 
 
-                <h2 class="mt-4
-                           mb-[10px]
-                           text-[20px]
-                           font-bold
-                           tracking-[0.03em]
-                           text-[#F3D98B]">
-                    Registration received
-                </h2>
+                        <div class="grid grid-cols-2
+                                   gap-x-5 gap-y-5
+                                   max-[600px]:grid-cols-1">
 
 
-                <p class="mx-auto
-                           max-w-[380px]
-                           text-[13px]
-                           leading-[1.7]
-                           text-[#B9B2A0]">
-                    Your details have been recorded. An admin will
-                    review and approve your account before you can
-                    sign in.
-                </p>
+                            <!-- FULL NAME -->
+
+                            <div class="flex flex-col gap-2">
+
+                                <label for="fullName" class="form-label">
+
+                                    Full name
+
+                                </label>
+
+                                <input id="fullName" name="fullName" type="text" placeholder="Enter full name" class="form-input px-4 py-3 font-mono
+                                           text-[13px]" />
+
+                                <span id="fullName-error" class="error-message hidden text-[11px]">
+
+                                    Please enter your full name.
+
+                                </span>
+
+                            </div>
 
 
-                <p class="mt-[22px]
-                           text-center
-                           text-[12px]
-                           text-[#9C9585]">
+                            <!-- EMAIL -->
 
-                    <a href="login.html" class="text-[#D4A94C]
-                               no-underline
-                               hover:text-[#F3D98B]">
-                        Go to login
-                    </a>
+                            <div class="flex flex-col gap-2">
 
-                </p>
+                                <label for="email" class="form-label">
+
+                                    Email
+
+                                </label>
+
+                                <input id="email" name="email" type="email" placeholder="Enter email" class="form-input px-4 py-3 font-mono
+                                           text-[13px]" />
+
+                                <span id="email-error" class="error-message hidden text-[11px]">
+
+                                    Please enter your email.
+
+                                </span>
+
+                            </div>
+
+
+                            <!-- MOBILE -->
+
+                            <div class="flex flex-col gap-2">
+
+                                <label for="mobile" class="form-label">
+
+                                    Mobile number
+
+                                </label>
+
+                                <input id="mobile" name="mobile" type="tel" placeholder="Enter mobile number" class="form-input px-4 py-3 font-mono
+                                           text-[13px]" />
+
+                                <span id="mobile-error" class="error-message hidden text-[11px]">
+
+                                    Please enter your mobile number.
+
+                                </span>
+
+                            </div>
+
+
+                            <!-- PASSWORD -->
+
+                            <div class="flex flex-col gap-2">
+
+                                <label for="password" class="form-label">
+
+                                    Password
+
+                                </label>
+
+                                <input id="password" name="password" type="password" placeholder="Enter password" class="form-input px-4 py-3 font-mono
+                                           text-[13px]" />
+
+                                <span id="password-error" class="error-message hidden text-[11px]">
+
+                                    Please enter your password.
+
+                                </span>
+
+                            </div>
+
+
+                            <!-- EMPLOYEE ID -->
+
+                            <div class="flex flex-col gap-2">
+
+                                <label for="employeeId" class="form-label">
+
+                                    Employee ID
+
+                                </label>
+
+                                <input id="employeeId" name="employeeId" type="text" placeholder="Enter employee ID"
+                                    class="form-input px-4 py-3 font-mono
+                                           text-[13px]" />
+
+                                <span id="employeeId-error" class="error-message hidden text-[11px]">
+
+                                    Please enter your employee ID.
+
+                                </span>
+
+                            </div>
+
+
+                            <!-- DEPARTMENT -->
+
+                            <div class="flex flex-col gap-2">
+
+                                <label for="department" class="form-label">
+
+                                    Department
+
+                                </label>
+
+                                <input id="department" name="department" type="text" placeholder="Enter department"
+                                    class="form-input px-4 py-3 font-mono
+                                           text-[13px]" />
+
+                                <span id="department-error" class="error-message hidden text-[11px]">
+
+                                    Please enter your department.
+
+                                </span>
+
+                            </div>
+
+
+                            <!-- LICENCE TYPE -->
+
+                            <div class="flex flex-col gap-2">
+
+                                <label for="licenceType" class="form-label">
+
+                                    Licence type
+
+                                </label>
+
+                                <input id="licenceType" name="licenceType" type="text" placeholder="Enter licence type"
+                                    class="form-input px-4 py-3 font-mono
+                                           text-[13px]" />
+
+                                <span id="licenceType-error" class="error-message hidden text-[11px]">
+
+                                    Please enter the licence type.
+
+                                </span>
+
+                            </div>
+
+
+                            <!-- OFFICE ADDRESS -->
+
+                            <div class="col-span-2 flex flex-col gap-2
+                                       max-[600px]:col-span-1">
+
+                                <label for="officeAddress" class="form-label">
+
+                                    Office address
+
+                                </label>
+
+                                <input id="officeAddress" name="officeAddress" type="text"
+                                    placeholder="Enter office address" class="form-input px-4 py-3 font-mono
+                                           text-[13px]" />
+
+                                <span id="officeAddress-error" class="error-message hidden text-[11px]">
+
+                                    Please enter your office address.
+
+                                </span>
+
+                            </div>
+
+                        </div>
+
+
+                        <!-- SUBMIT -->
+
+                        <button type="submit" class="submit-button mt-8 w-full
+                                   cursor-pointer rounded-[9px]
+                                   border-0 px-4 py-4
+                                   font-mono text-[13px]
+                                   font-bold uppercase
+                                   tracking-[0.10em]">
+
+                            Create Account
+
+                        </button>
+
+
+                    </form>
+
+
+                    <!-- LOGIN -->
+
+                    <p class="mt-6 text-center
+                               text-[12px] text-[#65748A]">
+
+                        Already have an account?
+
+                        <a href="login.html" class="login-link">
+
+                            Log in
+
+                        </a>
+
+                    </p>
+
+                </div>
+
+
+                <!-- =================================================
+                     CONFIRMATION
+                ================================================= -->
+
+                <div id="confirm-wrap" class="hidden px-2 py-8 text-center">
+
+                    <div class="confirmation-icon">
+                        ✓
+                    </div>
+
+
+                    <h2 class="mt-5 text-[22px]
+                               font-bold tracking-tight
+                               text-[#0B2347]">
+
+                        Registration received
+
+                    </h2>
+
+
+                    <p class="mx-auto mt-3 max-w-[400px]
+                               text-[13px] leading-7
+                               text-[#53627A]">
+
+                        Your details have been recorded.
+                        An admin will review and approve your
+                        account before you can sign in.
+
+                    </p>
+
+
+                    <p class="mt-6 text-[12px]
+                               text-[#65748A]">
+
+                        <a href="login.html" class="login-link">
+
+                            Go to login
+
+                        </a>
+
+                    </p>
+
+                </div>
 
             </div>
 
         </div>
 
-    </div>
+    </main>
 
+
+    <!-- =====================================================
+         FOOTER
+    ===================================================== -->
+
+    <footer>
+
+        <div class="mx-auto max-w-6xl
+                   px-6 py-8
+                   text-center">
+
+            <p class="font-bold
+                       text-[#F8F1DF]">
+
+                IndustryOne
+
+            </p>
+
+            <p class="mt-2 font-mono text-[9px]
+                       tracking-[0.18em]
+                       text-[#61799E]">
+
+                INDUSTRIAL APPROVAL MANAGEMENT SYSTEM
+
+            </p>
+
+            <p class="mt-4 text-xs
+                       text-[#61799E]">
+
+                Developed by Team IndustryOne
+                <br>
+                © 2026 IndustryOne | All rights reserved.
+
+            </p>
+
+        </div>
+
+    </footer>
 
 
     <!-- JavaScript -->
