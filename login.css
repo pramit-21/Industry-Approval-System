@@ -1,0 +1,144 @@
+/* Reset & Base Settings */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "JetBrains Mono", "SF Mono", "Consolas", monospace, sans-serif;
+    overflow: hidden;
+    background-color: #121417;
+    color: #d1d5db;
+}
+
+/* Page Background: Industrial Grid & Blueprint Amber Glow */
+.page-bg {
+    position: relative;
+    width: 100vw;
+    height: 100vh;
+    overflow: hidden;
+    background-color: #0d0f12;
+    background-image:
+        linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+        radial-gradient(at 15% 15%, rgba(245, 158, 11, 0.12) 0px, transparent 45%),
+        radial-gradient(at 85% 85%, rgba(75, 85, 99, 0.2) 0px, transparent 55%);
+    background-size: 32px 32px, 32px 32px, 100% 100%, 100% 100%;
+}
+
+.page-content {
+    position: relative;
+    z-index: 10;
+}
+
+/* Industrial Matte Panel with Hazard Rivet Border */
+.glass-card {
+    background: rgba(22, 27, 34, 0.88);
+    border: 1px solid #30363d;
+    border-top: 2px solid #f59e0b;
+    /* Hazard amber top rule */
+    border-radius: 4px;
+    /* Sharp technical corners */
+    box-shadow:
+        0 20px 35px -10px rgba(0, 0, 0, 0.8),
+        inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+}
+
+/* Dynamic Form Sections */
+.form-section {
+    display: block;
+    animation: techSnap 0.2s cubic-bezier(0, 0, 0.2, 1);
+}
+
+.hidden-section {
+    display: none !important;
+}
+
+@keyframes techSnap {
+    from {
+        opacity: 0;
+        transform: translateY(4px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Tabs: Machined Segment Control */
+.tab-wrapper {
+    background: #0d1117;
+    border: 1px solid #30363d;
+    border-radius: 4px;
+    padding: 3px;
+    display: inline-flex;
+    gap: 2px;
+}
+
+.tab-btn {
+    cursor: pointer;
+    border-radius: 2px;
+    outline: none;
+    border: 1px solid transparent;
+    background: transparent;
+    user-select: none;
+    font-weight: 700;
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    padding: 8px 16px;
+    transition: all 0.15s ease-out;
+}
+
+.tab-active {
+    background: #f59e0b;
+    color: #0d1117 !important;
+    border-color: #d97706;
+    box-shadow: 0 0 12px rgba(245, 158, 11, 0.35);
+}
+
+.tab-inactive {
+    color: #8b949e;
+}
+
+.tab-inactive:hover {
+    color: #e6edf3;
+    background: rgba(255, 255, 255, 0.04);
+    border-color: #484f58;
+}
+
+/* Industrial Rugged Inputs */
+input {
+    background: #0d1117;
+    border: 1px solid #30363d;
+    border-radius: 3px;
+    padding: 10px 14px;
+    color: #f3f4f6;
+    font-family: inherit;
+    font-size: 0.875rem;
+    transition: border-color 0.15s ease, box-shadow 0.15s ease;
+}
+
+input::placeholder {
+    color: #4b5563 !important;
+    text-transform: uppercase;
+    font-size: 0.75rem;
+    letter-spacing: 0.05em;
+}
+
+input:hover {
+    border-color: #6e7681;
+}
+
+input:focus {
+    outline: none;
+    background: #161b22 !important;
+    border-color: #f59e0b !important;
+    box-shadow:
+        0 0 0 2px rgba(245, 158, 11, 0.2),
+        inset 0 1px 2px rgba(0, 0, 0, 0.5);
+}
