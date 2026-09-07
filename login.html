@@ -8,9 +8,9 @@
 
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <link rel="stylesheet" href="Login.css">
+    <link rel="stylesheet" href="login.css">
 
-    <script src="Login.js"></script>
+    <script src="login.js"></script>
 </head>
 
 <body class="h-screen flex flex-col relative">
@@ -57,23 +57,27 @@
 
                         <div
                             class="tab-wrapper grid grid-cols-3 p-1 rounded-full bg-white/10 border border-white/10 mb-6">
-                            <button type="button" id="tabOfficer" onclick="showOfficer()"
-                                class="tab-btn tab-active font-bold text-xs md:text-sm py-1 transition-all duration-200">
-                                Officer
-                            </button>
-                            <button type="button" id="tabInspector" onclick="showInspector()"
-                                class="tab-btn tab-inactive font-bold text-xs md:text-sm py-1 transition-all duration-200">
-                                Inspector
-                            </button>
+
                             <button type="button" id="tabEntrepreneur" onclick="showEntrepreneur()"
                                 class="tab-btn tab-inactive font-bold text-xs md:text-sm py-1 transition-all duration-200">
                                 Entrepreneur
                             </button>
+
+                            <button type="button" id="tabOfficer" onclick="showOfficer()"
+                                class="tab-btn tab-active font-bold text-xs md:text-sm py-1 transition-all duration-200">
+                                Officer
+                            </button>
+
+                            <button type="button" id="tabInspector" onclick="showInspector()"
+                                class="tab-btn tab-inactive font-bold text-xs md:text-sm py-1 transition-all duration-200">
+                                Inspector
+                            </button>
+
                         </div>
 
                         <div id="emailSection" class="form-section">
                             <div class="text-left mb-3">
-                                <label id="userLabel" class="text-xs text-white">ENTER YOUR EMAIL</label>
+                                <label id="userLabel" class="text-xs text-white">EMAIL</label>
                                 <input id="userInput" name="email" type="text" placeholder="Enter your email"
                                     style="color:white;"
                                     class="w-full mt-1 p-2 rounded-md bg-white/10 border border-black-200 text-white placeholder-white-400 focus:outline-none focus:ring-2 focus:ring-white-400">
@@ -82,18 +86,16 @@
 
                         <div id="inspectorSection" class="form-section hidden-section">
                             <div class="text-left mb-4">
-                                <label class="text-xs text-white">INSPECTOR CODE</label>
-                                <input type="text" style="color: white;" name="inspectorCode"
-                                    placeholder="Enter inspector code"
+                                <label class="text-xs text-white">EMAIL</label>
+                                <input type="text" style="color: white;" name="email" placeholder="Enter your email"
                                     class="w-full mt-1 p-2 rounded-md bg-white/10 border border-black-200 text-white placeholder-white-400 focus:outline-none focus:ring-2 focus:ring-white-400">
                             </div>
                         </div>
 
                         <div id="entrepreneurSection" class="form-section hidden-section">
                             <div class="text-left mb-4">
-                                <label class="text-xs text-white">BUSINESS REGISTRATION ID</label>
-                                <input type="text" style="color: white;" name="entrepreneurId"
-                                    placeholder="Enter registration ID"
+                                <label class="text-xs text-white">EMAIL</label>
+                                <input type="text" style="color: white;" name="email" placeholder="Enter your email"
                                     class="w-full mt-1 p-2 rounded-md bg-white/10 border border-black-200 text-white placeholder-white-400 focus:outline-none focus:ring-2 focus:ring-white-400">
                             </div>
                         </div>
