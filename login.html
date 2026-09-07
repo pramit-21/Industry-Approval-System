@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login</title>
+
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <link rel="stylesheet" href="Login.css">
+
+    <script src="Login.js"></script>
+</head>
+
+<body class="h-screen flex flex-col relative">
+
+    <div class="page-bg">
+
+        <div class="page-content flex flex-col h-full">
+
+
+            <header class="flex justify-between items-center px-10 py-3 bg-[#183D3D] relative">
+
+                <h1 class="logo-font text-3xl font-bold text-[#ffffff] tracking-wide transition duration-300 hover:scale-105"
+                    style="font-family: 'ComicRelief-Bold', sans-serif;">
+                    IndustryOne
+                </h1>
+
+                <button id="hamburger-btn" class="block md:hidden text-white focus:outline-none text-2xl"
+                    aria-label="Toggle Menu">
+                    &#9776;
+                </button>
+
+                <nav id="nav-menu" class="hidden md:flex space-x-5 text-sm items-center">
+                    <a href="About.jsp" class="text-[#ffffff] hover:text-[#ffffff]">About</a>
+                    <a href="Contact.jsp" class="text-[#ffffff] hover:text-[#ffffff]">Contact</a>
+                    <a href="AdminLogin.jsp" class="bg-[#688783] text-white px-3 py-1 rounded-md hover:bg-[#5a7571]">
+                        Admin
+                    </a>
+                </nav>
+            </header>
+
+            <main class="flex-1 flex justify-center items-center px-4 py-6">
+
+                <div class="text-center">
+
+                    <h1 class="text-3xl font-bold text-[#F5F5DC] mb-2">Welcome Back !</h1>
+
+                    <p class="text-[#F5F5DC] text-md mb-6">
+                        <b>Unlock Your Potential, Where Dreams Meet Their Destination.</b>
+                    </p>
+
+                    <div class="glass-card w-full max-w-[460px] min-h-[300px] p-6 rounded-2xl mx-auto">
+
+                        <input type="hidden" id="role" name="role" value="officer">
+
+                        <div
+                            class="tab-wrapper grid grid-cols-3 p-1 rounded-full bg-white/10 border border-white/10 mb-6">
+                            <button type="button" id="tabOfficer" onclick="showOfficer()"
+                                class="tab-btn tab-active font-bold text-xs md:text-sm py-1 transition-all duration-200">
+                                Officer
+                            </button>
+                            <button type="button" id="tabInspector" onclick="showInspector()"
+                                class="tab-btn tab-inactive font-bold text-xs md:text-sm py-1 transition-all duration-200">
+                                Inspector
+                            </button>
+                            <button type="button" id="tabEntrepreneur" onclick="showEntrepreneur()"
+                                class="tab-btn tab-inactive font-bold text-xs md:text-sm py-1 transition-all duration-200">
+                                Entrepreneur
+                            </button>
+                        </div>
+
+                        <div id="emailSection" class="form-section">
+                            <div class="text-left mb-3">
+                                <label id="userLabel" class="text-xs text-white">ENTER YOUR EMAIL</label>
+                                <input id="userInput" name="email" type="text" placeholder="Enter your email"
+                                    style="color:white;"
+                                    class="w-full mt-1 p-2 rounded-md bg-white/10 border border-black-200 text-white placeholder-white-400 focus:outline-none focus:ring-2 focus:ring-white-400">
+                            </div>
+                        </div>
+
+                        <div id="inspectorSection" class="form-section hidden-section">
+                            <div class="text-left mb-4">
+                                <label class="text-xs text-white">INSPECTOR CODE</label>
+                                <input type="text" style="color: white;" name="inspectorCode"
+                                    placeholder="Enter inspector code"
+                                    class="w-full mt-1 p-2 rounded-md bg-white/10 border border-black-200 text-white placeholder-white-400 focus:outline-none focus:ring-2 focus:ring-white-400">
+                            </div>
+                        </div>
+
+                        <div id="entrepreneurSection" class="form-section hidden-section">
+                            <div class="text-left mb-4">
+                                <label class="text-xs text-white">BUSINESS REGISTRATION ID</label>
+                                <input type="text" style="color: white;" name="entrepreneurId"
+                                    placeholder="Enter registration ID"
+                                    class="w-full mt-1 p-2 rounded-md bg-white/10 border border-black-200 text-white placeholder-white-400 focus:outline-none focus:ring-2 focus:ring-white-400">
+                            </div>
+                        </div>
+
+                        <div class="text-left mb-4">
+                            <div class="flex justify-between text-xs text-white">
+                                <label>PASSWORD</label>
+                                <a href="Forgetpassword.jsp" class="text-white hover:underline">Forgot?</a>
+                            </div>
+
+                            <input type="password" name="password" placeholder="Enter your password"
+                                style="color: white;"
+                                class="w-full mt-1 p-2 rounded-md bg-white/10 border border-black-200 text-white placeholder-white-400 focus:outline-none focus:ring-2 focus:ring-white-400">
+                        </div>
+
+                        <button type="submit"
+                            class="w-full mt-3 py-2 rounded-lg bg-white text-[#063831] font-bold hover:scale-105 hover:bg-[#e0fce2] transition duration-200">
+                            Access Portal
+                        </button>
+
+                        </form>
+                        <div class="mt-3 text-xs text-white">
+                            <span id="footerText">New officer?</span>
+                            <a id="footerLink" href="OfficerRegister.jsp" class="text-white hover:underline">
+                                Create new Account
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </main>
+        </div>
+    </div>
+</body>
+
+</html>
