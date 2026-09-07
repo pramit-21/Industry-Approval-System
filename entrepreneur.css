@@ -1,0 +1,242 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    min-height: 100vh;
+    font-family: 'Space Mono', monospace;
+    color: #EDE6D6;
+    background:
+        radial-gradient(circle at 50% 15%, #2b1f10 0%, #120d08 45%, #0a0806 100%);
+    background-attachment: fixed;
+}
+
+/* ---- Top nav ---- */
+.navbar {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 40px;
+    background: #0d2b2a;
+    border-bottom: 1px solid rgba(212, 169, 76, 0.25);
+}
+
+.brand {
+    font-size: 22px;
+    font-weight: 700;
+    color: #EDE6D6;
+    letter-spacing: 0.01em;
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+    gap: 28px;
+    font-size: 14px;
+    color: #C9C2B2;
+}
+
+.nav-links a {
+    color: #C9C2B2;
+    text-decoration: none;
+}
+
+.admin-btn {
+    background: #17403e;
+    color: #EDE6D6;
+    border: 1px solid rgba(212, 169, 76, 0.4);
+    padding: 8px 16px;
+    border-radius: 6px;
+    font-family: 'Space Mono', monospace;
+    font-size: 13px;
+    cursor: pointer;
+}
+
+/* ---- Hero text ---- */
+.hero {
+    text-align: center;
+    padding: 56px 20px 34px;
+}
+
+.hero h1 {
+    margin: 0;
+    font-size: 40px;
+    letter-spacing: 0.03em;
+    background: linear-gradient(180deg, #F3D98B 0%, #D4A94C 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    color: transparent;
+}
+
+.hero p {
+    margin: 14px 0 0;
+    font-size: 14px;
+    color: #B9B2A0;
+    letter-spacing: 0.02em;
+}
+
+/* ---- Card ---- */
+.card-outer {
+    max-width: 620px;
+    margin: 0 auto 60px;
+    padding: 0 20px;
+}
+
+.card {
+    background: rgba(18, 15, 11, 0.75);
+    border: 1px solid rgba(212, 169, 76, 0.45);
+    border-radius: 16px;
+    padding: 34px 36px 40px;
+    box-shadow: 0 0 40px rgba(212, 169, 76, 0.08);
+}
+
+.tagline {
+    margin: 0 0 20px;
+    font-size: 12.5px;
+    color: #B9B2A0;
+    line-height: 1.6;
+    letter-spacing: 0.02em;
+}
+
+/* ---- Fields ---- */
+.grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    column-gap: 18px;
+    row-gap: 20px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.field.full-width {
+    grid-column: 1 / -1;
+}
+
+label {
+    font-size: 11px;
+    letter-spacing: 0.12em;
+    color: #C9C2B2;
+    text-transform: uppercase;
+}
+
+input {
+    font-family: 'Space Mono', monospace;
+    font-size: 13.5px;
+    padding: 13px 14px;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    outline: none;
+    background: rgba(255, 255, 255, 0.03);
+    color: #EDE6D6;
+}
+
+input::placeholder {
+    color: #6E6858;
+}
+
+input:focus {
+    border-color: #D4A94C;
+    box-shadow: 0 0 0 3px rgba(212, 169, 76, 0.15);
+}
+
+input.error {
+    border-color: #C0574A;
+}
+
+.error-text {
+    font-size: 11px;
+    color: #E08A7C;
+    display: none;
+    letter-spacing: 0.02em;
+}
+
+.error-text.show {
+    display: block;
+}
+
+.submit-btn {
+    margin-top: 30px;
+    width: 100%;
+    padding: 15px 16px;
+    font-size: 14px;
+    font-family: 'Space Mono', monospace;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    color: #0d2b2a;
+    background: #EDE6D6;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    text-transform: uppercase;
+}
+
+.submit-btn:hover {
+    background: #F3D98B;
+}
+
+.footer-line {
+    text-align: center;
+    margin-top: 22px;
+    font-size: 12px;
+    color: #9C9585;
+}
+
+.footer-line a {
+    color: #D4A94C;
+    text-decoration: none;
+}
+
+/* ---- Confirmation panel ---- */
+.confirm-wrap {
+    display: none;
+    text-align: center;
+    padding: 20px 8px 8px;
+}
+
+.confirm-wrap.show {
+    display: block;
+}
+
+.confirm-heading {
+    font-size: 20px;
+    letter-spacing: 0.03em;
+    color: #F3D98B;
+    margin: 16px 0 10px;
+}
+
+.confirm-text {
+    font-size: 13px;
+    color: #B9B2A0;
+    line-height: 1.7;
+    max-width: 380px;
+    margin: 0 auto;
+}
+
+.form-section.hide {
+    display: none;
+}
+
+@media (max-width: 480px) {
+    .grid {
+        grid-template-columns: 1fr;
+    }
+
+    .navbar {
+        padding: 16px 20px;
+    }
+
+    .nav-links {
+        gap: 14px;
+        font-size: 12px;
+    }
+
+    .hero h1 {
+        font-size: 28px;
+    }
+}
