@@ -146,252 +146,155 @@
 
 
         /* =====================================================
-           NAVBAR
+           GOVERNMENT TOP BAR & MAIN NAVBAR
         ===================================================== */
 
-        .navbar {
-            width: 100%;
-
-            margin: 0;
-            padding: 0;
-
-            background: rgba(5, 18, 41, 0.90);
-
-            backdrop-filter: blur(18px);
-            -webkit-backdrop-filter: blur(18px);
-
-            border-bottom: 1px solid rgba(248, 241, 223, 0.10);
+        .govt-topbar {
+            background: #040D1E;
+            border-bottom: 1px solid rgba(248, 241, 223, 0.08);
+            font-size: 11px;
+            color: #C9C2B2;
         }
 
+        .accessibility-btn {
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(248, 241, 223, 0.15);
+            color: #F8F1DF;
+            border-radius: 4px;
+            padding: 1px 6px;
+            font-size: 10px;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
 
-        /* =====================================================
-           BIGGER LOGO
-        ===================================================== */
+        .accessibility-btn:hover {
+            background: #D4A94C;
+            color: #07152F;
+            border-color: #D4A94C;
+        }
 
-        .logo {
+        .main-navbar {
+            background: rgba(7, 21, 47, 0.94);
+            border-bottom: 1px solid rgba(212, 169, 76, 0.22);
+            position: sticky;
+            top: 0;
+            z-index: 50;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+        }
+
+        .portal-brand {
             display: flex;
-
             align-items: center;
-
-            gap: 15px;
-
+            gap: 14px;
             text-decoration: none;
-
-            transition:
-                transform 0.3s ease;
+            transition: transform 0.25s ease;
+            flex-shrink: 0;
+            white-space: nowrap;
         }
 
-        .logo:hover {
+        .portal-brand:hover {
             transform: translateY(-1px);
         }
 
-
-        /* Main IO logo box */
-
-        .logo-mark {
+        .brand-badge {
             position: relative;
-
-            width: 58px;
-            height: 58px;
-
+            width: 48px;
+            height: 48px;
             display: flex;
-
             align-items: center;
             justify-content: center;
-
-            border-radius: 15px;
-
-            background: #F8F1DF;
-
-            color: #0B2347;
-
-            font-family: "Space Mono", monospace;
-
-            font-size: 19px;
-
+            border-radius: 12px;
+            background: linear-gradient(135deg, #F8F1DF 0%, #E5B869 100%);
+            color: #07152F;
+            font-family: 'Space Mono', monospace;
+            font-size: 1.15rem;
             font-weight: 700;
-
-            letter-spacing: -0.10em;
-
-            box-shadow:
-                0 8px 28px rgba(0, 0, 0, 0.22);
-
-            transition:
-                transform 0.3s ease,
-                box-shadow 0.3s ease;
+            box-shadow: 0 6px 20px rgba(212, 169, 76, 0.25);
+            border: 1px solid rgba(255, 255, 255, 0.6);
+            flex-shrink: 0;
         }
 
-
-        /* Outer animated border */
-
-        .logo-mark::before {
+        .brand-badge::after {
             content: "";
-
             position: absolute;
-
-            inset: -5px;
-
-            border-radius: 18px;
-
-            border: 1px solid rgba(248, 241, 223, 0.20);
-
-            opacity: 0;
-
-            transition:
-                opacity 0.3s ease;
-        }
-
-
-        /* Small blue indicator */
-
-        .logo-mark::after {
-            content: "";
-
-            position: absolute;
-
-            width: 8px;
-            height: 8px;
-
-            right: 7px;
-            top: 7px;
-
+            width: 7px;
+            height: 7px;
+            top: 5px;
+            right: 5px;
             border-radius: 50%;
-
-            background: #173B70;
-
-            box-shadow:
-                0 0 10px rgba(23, 59, 112, 0.5);
+            background: #138808;
+            box-shadow: 0 0 8px #138808;
         }
 
-
-        .logo:hover .logo-mark {
-            transform:
-                rotate(-4deg) scale(1.06);
-
-            box-shadow:
-                0 14px 35px rgba(0, 0, 0, 0.30);
-        }
-
-        .logo:hover .logo-mark::before {
-            opacity: 1;
-        }
-
-
-        /* IndustryOne text */
-
-        .logo-name {
-            font-size: 24px;
-
+        .brand-title {
+            font-size: 1.35rem;
             font-weight: 700;
-
-            line-height: 1;
-
-            letter-spacing: -0.04em;
-
+            letter-spacing: -0.02em;
             color: #F8F1DF;
+            line-height: 1.1;
+            white-space: nowrap;
         }
 
-        .logo-subtitle {
-            margin-top: 6px;
-
-            font-family: "Space Mono", monospace;
-
-            font-size: 8px;
-
-            font-weight: 400;
-
-            letter-spacing: 0.24em;
-
-            color: #819BC2;
+        .brand-tagline {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
+            letter-spacing: 0.14em;
+            color: #D4A94C;
+            text-transform: uppercase;
+            margin-top: 3px;
+            white-space: nowrap;
         }
 
-
-        /* =====================================================
-           NAVIGATION
-        ===================================================== */
-
-        .nav-link {
-            position: relative;
-
-            color: #C2D0E5;
-
+        .nav-link-item {
+            color: #C9C2B2;
+            font-size: 0.88rem;
+            font-weight: 500;
             text-decoration: none;
-
-            transition:
-                color 0.25s ease;
+            padding: 6px 12px;
+            border-radius: 6px;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            white-space: nowrap;
+            flex-shrink: 0;
         }
 
-        .nav-link:hover {
-            color: #FFFFFF;
+        .nav-link-item:hover {
+            color: #F8F1DF;
+            background: rgba(255, 255, 255, 0.05);
         }
 
-        .nav-link::after {
-            content: "";
-
-            position: absolute;
-
-            left: 0;
-            bottom: -7px;
-
-            width: 0;
-            height: 1px;
-
-            background: #F8F1DF;
-
-            transition:
-                width 0.25s ease;
+        .nav-link-item.active {
+            color: #F3D98B;
+            background: rgba(212, 169, 76, 0.12);
+            border: 1px solid rgba(212, 169, 76, 0.25);
         }
 
-        .nav-link:hover::after {
-            width: 100%;
-        }
-
-
-        .active-link {
-            color: #0B2347;
-
-            background: #F8F1DF;
-
-            padding: 9px 16px;
-
+        .officer-portal-btn {
+            background: rgba(45, 91, 160, 0.25);
+            border: 1px solid rgba(129, 155, 194, 0.35);
+            color: #C0D6F5;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.78rem;
+            padding: 8px 16px;
             border-radius: 8px;
-
-            font-weight: 600;
-
             text-decoration: none;
-
-            box-shadow:
-                0 8px 25px rgba(248, 241, 223, 0.08);
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+            flex-shrink: 0;
         }
 
-
-        /* =====================================================
-           ADMIN BUTTON
-        ===================================================== */
-
-        .admin-button {
-            border: 1px solid rgba(248, 241, 223, 0.18);
-
-            background:
-                rgba(248, 241, 223, 0.045);
-
-            color: #F8F1DF;
-
-            transition:
-                background 0.25s ease,
-                border-color 0.25s ease,
-                transform 0.25s ease;
-        }
-
-        .admin-button:hover {
-            background:
-                rgba(248, 241, 223, 0.10);
-
-            border-color:
-                rgba(248, 241, 223, 0.35);
-
-            transform:
-                translateY(-2px);
+        .officer-portal-btn:hover {
+            background: rgba(45, 91, 160, 0.45);
+            border-color: rgba(129, 155, 194, 0.7);
+            color: #FFFFFF;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 14px rgba(45, 91, 160, 0.3);
         }
 
 
@@ -463,23 +366,34 @@
 
 
         /* =====================================================
-           CREAM CARDS
+           CREAM CARDS WITH GOLDEN BORDERS & GRID
         ===================================================== */
 
         .card {
             position: relative;
 
-            background: #F8F1DF;
+            background-color: #F8F1DF;
+
+            background-image:
+                radial-gradient(circle at 100% 0%, rgba(212, 169, 76, 0.12) 0%, transparent 45%),
+                linear-gradient(rgba(212, 169, 76, 0.07) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(212, 169, 76, 0.07) 1px, transparent 1px);
+
+            background-size: 100% 100%, 28px 28px, 28px 28px;
 
             border:
-                1px solid rgba(255, 255, 255, 0.65);
+                1px solid rgba(212, 169, 76, 0.42);
+
+            border-top:
+                3px solid #D4A94C;
 
             border-radius: 18px;
 
             color: #0B2347;
 
             box-shadow:
-                0 20px 60px rgba(0, 0, 0, 0.20);
+                0 16px 45px rgba(0, 0, 0, 0.22),
+                0 0 15px rgba(212, 169, 76, 0.08);
 
             overflow: hidden;
 
@@ -503,11 +417,13 @@
 
             background:
                 linear-gradient(90deg,
-                    #0B2347,
-                    #426DA7,
-                    #0B2347);
+                    transparent,
+                    #D4A94C,
+                    #F3D98B,
+                    #D4A94C,
+                    transparent);
 
-            opacity: 0;
+            opacity: 0.8;
 
             transition:
                 opacity 0.4s ease;
@@ -519,10 +435,11 @@
                 translateY(-7px);
 
             border-color:
-                #FFFFFF;
+                #D4A94C;
 
             box-shadow:
-                0 30px 75px rgba(0, 0, 0, 0.30);
+                0 16px 45px rgba(212, 169, 76, 0.24),
+                0 30px 75px rgba(0, 0, 0, 0.35);
         }
 
         .card:hover::before {
@@ -552,7 +469,7 @@
         ===================================================== */
 
         .section-label {
-            color: #234C83;
+            color: #9A7629;
 
             font-family:
                 "Space Mono",
@@ -561,6 +478,8 @@
             font-size: 10px;
 
             letter-spacing: 0.22em;
+
+            font-weight: 700;
         }
 
 
@@ -579,10 +498,10 @@
 
             border-radius: 12px;
 
-            background: #0B2347;
+            background: #07152F;
 
             border:
-                1px solid #173B70;
+                1px solid rgba(212, 169, 76, 0.38);
 
             color: #F8F1DF;
 
@@ -593,17 +512,23 @@
             transition:
                 background 0.3s ease,
                 transform 0.3s ease,
-                box-shadow 0.3s ease;
+                box-shadow 0.3s ease,
+                border-color 0.3s ease,
+                color 0.3s ease;
         }
 
         .card:hover .icon-box {
-            background: #173B70;
+            background: #0A2045;
+
+            border-color: #D4A94C;
+
+            color: #D4A94C;
 
             transform:
-                scale(1.06);
+                scale(1.08);
 
             box-shadow:
-                0 8px 20px rgba(11, 35, 71, 0.20);
+                0 8px 24px rgba(212, 169, 76, 0.28);
         }
 
 
@@ -625,11 +550,11 @@
             border-radius: 50%;
 
             border:
-                1px solid rgba(11, 35, 71, 0.18);
+                1px solid rgba(212, 169, 76, 0.35);
 
             background:
                 radial-gradient(circle,
-                    rgba(11, 35, 71, 0.08),
+                    rgba(212, 169, 76, 0.12),
                     rgba(11, 35, 71, 0.025));
         }
 
@@ -644,7 +569,7 @@
             border-radius: 50%;
 
             border:
-                1px dashed rgba(11, 35, 71, 0.18);
+                1px dashed rgba(212, 169, 76, 0.40);
 
             animation:
                 rotateCircle 18s linear infinite;
@@ -667,7 +592,7 @@
         ===================================================== */
 
         .feature-number {
-            color: #65748A;
+            color: #8C7241;
 
             font-family:
                 "Space Mono",
@@ -677,13 +602,15 @@
 
             letter-spacing: 0.08em;
 
+            font-weight: 700;
+
             transition:
                 color 0.3s ease,
                 transform 0.3s ease;
         }
 
         .feature-card:hover .feature-number {
-            color: #173B70;
+            color: #D4A94C;
 
             transform:
                 translateX(4px);
@@ -698,9 +625,15 @@
             position: relative;
 
             border:
-                1px solid #D7CDB7;
+                1px solid rgba(212, 169, 76, 0.32);
 
-            background: #EFE6D2;
+            background: rgba(248, 241, 223, 0.82);
+
+            background-image:
+                linear-gradient(rgba(212, 169, 76, 0.06) 1px, transparent 1px),
+                linear-gradient(90deg, rgba(212, 169, 76, 0.06) 1px, transparent 1px);
+
+            background-size: 20px 20px;
 
             border-radius: 14px;
 
@@ -716,17 +649,19 @@
                 translateX(5px);
 
             border-color:
-                #173B70;
+                #D4A94C;
 
             background:
                 #F8F1DF;
 
             box-shadow:
-                0 10px 25px rgba(11, 35, 71, 0.08);
+                0 10px 25px rgba(212, 169, 76, 0.20);
         }
 
         .roadmap-label {
-            color: #234C83;
+            color: #9A7629;
+
+            font-weight: 700;
         }
 
 
@@ -745,14 +680,20 @@
 
             background:
                 radial-gradient(circle at 50% 0%,
-                    rgba(87, 137, 207, 0.28),
-                    transparent 50%),
+                    rgba(212, 169, 76, 0.20),
+                    transparent 55%),
                 linear-gradient(135deg,
-                    #123568,
-                    #081A37);
+                    #0A2045,
+                    #07152F);
 
             border:
-                1px solid rgba(248, 241, 223, 0.11);
+                1px solid rgba(212, 169, 76, 0.35);
+
+            border-top:
+                3px solid #D4A94C;
+
+            box-shadow:
+                0 20px 60px rgba(0, 0, 0, 0.45);
         }
 
 
@@ -761,8 +702,8 @@
 
             position: absolute;
 
-            width: 320px;
-            height: 320px;
+            width: 340px;
+            height: 340px;
 
             left: 50%;
             top: 50%;
@@ -773,7 +714,7 @@
             border-radius: 50%;
 
             border:
-                1px solid rgba(248, 241, 223, 0.07);
+                1px solid rgba(212, 169, 76, 0.15);
 
             animation:
                 finalPulse 5s ease-in-out infinite;
@@ -841,7 +782,7 @@
             background:
                 linear-gradient(90deg,
                     transparent,
-                    rgba(248, 241, 223, 0.20),
+                    rgba(212, 169, 76, 0.40),
                     transparent);
         }
 
@@ -920,61 +861,107 @@
 
 
     <!-- =====================================================
-         NAVBAR
+         OFFICIAL GOVERNMENT TOP BAR
     ===================================================== -->
-
-    <nav class="navbar sticky top-0 z-50">
-
-        <div class="mx-auto flex h-[92px] max-w-[1280px]
-                   items-center justify-between
-                   px-6 lg:px-8">
-
-            <!-- LOGO -->
-
-            <a href="login.html" class="logo">
-
-                <div>
-
-                    <div class="logo-name">
-                        IndustryOne
-                    </div>
-
-                    <div class="logo-subtitle">
-                        INDUSTRIAL APPROVAL SYSTEM
-                    </div>
-
+    <div class="govt-topbar py-1.5 px-4 sm:px-6 lg:px-8">
+        <div class="w-full flex flex-wrap justify-between items-center gap-2">
+            <!-- Left: National Authority Identity -->
+            <div class="flex items-center gap-2.5">
+                <!-- Ashoka Emblem / National Crest SVG -->
+                <svg class="w-4 h-5 text-[#D4A94C]" viewBox="0 0 24 28" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    aria-label="National Emblem">
+                    <path d="M12 2L15 5H9L12 2Z" fill="currentColor" />
+                    <path d="M7 6H17V9H7V6Z" fill="currentColor" fill-opacity="0.8" />
+                    <path d="M5 10H19V12H5V10Z" fill="currentColor" />
+                    <circle cx="12" cy="16" r="3.5" stroke="currentColor" stroke-width="1.2" />
+                    <path d="M12 13V19M9 16H15M10 14L14 18M10 18L14 14" stroke="currentColor" stroke-width="0.8" />
+                    <path d="M4 21H20V23H4V21Z" fill="currentColor" />
+                    <path d="M6 24H18V26H6V24Z" fill="currentColor" />
+                </svg>
+                <div class="leading-tight">
+                    <span
+                        class="font-semibold text-[#F8F1DF] text-[11px] tracking-wide uppercase whitespace-nowrap">Government
+                        of India</span>
+                    <span class="hidden sm:inline text-[#819BC2] text-[11px] mx-1.5">•</span>
+                    <span class="hidden sm:inline text-[#C9C2B2] text-[11px]">Ministry of Commerce & Industry</span>
                 </div>
-
-            </a>
-
-
-            <!-- NAVIGATION -->
-
-            <div class="nav-links flex items-center gap-7 text-sm">
-
-                <a href="login.html" class="nav-link">
-                    Home
-                </a>
-
-                <a href="#" class="active-link">
-                    About
-                </a>
-
-                <a href="contact.html" class="nav-link">
-                    Contact
-                </a>
-
-                <button type="button" class="admin-button rounded-lg px-4 py-2 text-sm">
-
-                    Admin
-
-                </button>
-
             </div>
 
+            <!-- Right: Accessibility, Language & Helpline -->
+            <div class="flex items-center gap-3 text-[11px]">
+                <div class="hidden md:flex items-center gap-1.5 text-[#C9C2B2]">
+                    <span class="text-[#D4A94C]">📞</span>
+                    <span>Toll-Free Support: <strong>1800-11-4646</strong> (09:00 - 18:00 IST)</span>
+                </div>
+                <div class="hidden sm:flex items-center gap-1">
+                    <button type="button" class="accessibility-btn" onclick="adjustFontSize(-1)"
+                        title="Decrease font size">A-</button>
+                    <button type="button" class="accessibility-btn" onclick="adjustFontSize(0)"
+                        title="Reset font size">A</button>
+                    <button type="button" class="accessibility-btn" onclick="adjustFontSize(1)"
+                        title="Increase font size">A+</button>
+                </div>
+                <span class="text-[#819BC2] hidden sm:inline">|</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- =====================================================
+         MAIN NAVIGATION BAR
+    ===================================================== -->
+    <header class="main-navbar">
+        <div class="w-full px-4 sm:px-6 lg:px-8 h-20 flex justify-between items-center">
+            <!-- Brand Logo -->
+            <a href="login.html" class="portal-brand">
+                <div class="brand-badge">IO</div>
+                <div>
+                    <h1 class="brand-title">IndustryOne</h1>
+                    <p class="brand-tagline">National Single Window Industrial Clearance System</p>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden lg:flex items-center gap-4 xl:gap-6 flex-shrink-0">
+                <a href="login.html" class="nav-link-item mr-2 xl:mr-4">Home</a>
+                <a href="About.html" class="nav-link-item active">About Us</a>
+                <a href="#" class="nav-link-item"
+                    onclick="alert('Industrial Clearances Directory: 140+ central & state clearances unified under Single Window.')">Clearances</a>
+                <a href="#" class="nav-link-item"
+                    onclick="alert('Application Tracking Service: Enter your 12-digit Application ID on the dashboard after login.')">Track
+                    Status</a>
+                <a href="#contact" class="nav-link-item">Helpdesk</a>
+
+                <!-- Officer / Department Portal Gateway -->
+                <a href="Officer.html" class="officer-portal-btn ml-2 xl:ml-3"
+                    title="For Authorized Verification Officers & Department Inspectors">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    </svg>
+                    Administrative Portal
+                </a>
+            </nav>
+
+            <!-- Mobile Hamburger Toggle -->
+            <button id="hamburger-btn" class="block lg:hidden p-2 text-white hover:text-[#D4A94C] focus:outline-none"
+                aria-label="Toggle navigation menu" onclick="toggleMobileMenu()">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
         </div>
 
-    </nav>
+        <!-- Mobile Drawer -->
+        <div id="mobile-menu" class="hidden lg:hidden px-6 py-4 bg-[#05132B] border-b border-[#D4A94C]/20 space-y-3">
+            <a href="login.html" class="block py-2 text-[#C9C2B2] hover:text-white border-b border-white/5">Home
+                (Entrepreneur Login)</a>
+            <a href="About.html" class="block py-2 text-[#D4A94C] font-semibold border-b border-white/5">About
+                Portal</a>
+            <a href="entrepreneur.html" class="block py-2 text-[#C9C2B2] hover:text-white border-b border-white/5">New
+                Registration</a>
+            <a href="Officer.html" class="block py-2 text-[#819BC2] hover:text-white">Officer / Department Portal →</a>
+        </div>
+    </header>
 
 
     <!-- =====================================================
@@ -1243,7 +1230,7 @@
 
                     <p class="mb-2 text-[10px]
                                font-mono tracking-[0.22em]
-                               text-[#AFC5E4]">
+                               text-[#D4A94C]">
 
                         04 / PLATFORM
 
@@ -1464,7 +1451,7 @@
 
                     <p class="mb-2 text-[10px]
                                font-mono tracking-[0.22em]
-                               text-[#AFC5E4]">
+                               text-[#D4A94C]">
 
                         05 / ECOSYSTEM
 
@@ -1860,6 +1847,24 @@
 
     </footer>
 
+    <script>
+        function toggleMobileMenu() {
+            const menu = document.getElementById('mobile-menu');
+            if (menu) {
+                menu.classList.toggle('hidden');
+            }
+        }
+
+        let currentFontSize = 16;
+        function adjustFontSize(delta) {
+            if (delta === 0) {
+                currentFontSize = 16;
+            } else {
+                currentFontSize = Math.min(20, Math.max(12, currentFontSize + delta * 2));
+            }
+            document.documentElement.style.fontSize = currentFontSize + 'px';
+        }
+    </script>
 </body>
 
 </html>

@@ -4,131 +4,473 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>User Login</title>
+    <title>Entrepreneur Portal Login | National Single Window Industrial Clearance System</title>
 
+    <!-- Tailwind CSS CDN for utility classes -->
     <script src="https://cdn.tailwindcss.com"></script>
 
-    <link rel="stylesheet" href="login.css">
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
 
-    <script src="login.js"></script>
+    <!-- Industrial Govt Stylesheet -->
+    <link rel="stylesheet" href="login.css">
 </head>
 
-<body class="h-screen flex flex-col relative">
+<body>
 
-    <div class="page-bg">
+    <!-- Ambient Blueprint Grid & Glow Backgrounds -->
+    <div class="blueprint-bg"></div>
+    <div class="ambient-orb orb-top-left"></div>
+    <div class="ambient-orb orb-bottom-right"></div>
 
-        <div class="page-content flex flex-col h-full">
+    <!-- Official Indian Tricolor Authority Band -->
+    <div class="tricolor-stripe" aria-hidden="true"></div>
 
-
-            <header class="flex justify-between items-center px-10 py-3 bg-[#183D3D] relative">
-
-                <h1 class="logo-font text-3xl font-bold text-[#ffffff] tracking-wide transition duration-300 hover:scale-105"
-                    style="font-family: 'ComicRelief-Bold', sans-serif;">
-                    IndustryOne
-                </h1>
-
-                <button id="hamburger-btn" class="block md:hidden text-white focus:outline-none text-2xl"
-                    aria-label="Toggle Menu">
-                    &#9776;
-                </button>
-
-                <nav id="nav-menu" class="hidden md:flex space-x-5 text-sm items-center">
-                    <a href="About.jsp" class="text-[#ffffff] hover:text-[#ffffff]">About</a>
-                    <a href="Contact.jsp" class="text-[#ffffff] hover:text-[#ffffff]">Contact</a>
-                    <a href="AdminLogin.jsp" class="bg-[#688783] text-white px-3 py-1 rounded-md hover:bg-[#5a7571]">
-                        Admin
-                    </a>
-                </nav>
-            </header>
-
-            <main class="flex-1 flex justify-center items-center px-4 py-6">
-
-                <div class="text-center">
-
-                    <h1 class="text-3xl font-bold text-[#F5F5DC] mb-2">Welcome Back !</h1>
-
-                    <p class="text-[#F5F5DC] text-md mb-6">
-                        <b>Unlock Your Potential, Where Dreams Meet Their Destination.</b>
-                    </p>
-
-                    <div class="glass-card w-full max-w-[460px] min-h-[300px] p-6 rounded-2xl mx-auto">
-
-                        <input type="hidden" id="role" name="role" value="officer">
-
-                        <div
-                            class="tab-wrapper grid grid-cols-3 p-1 rounded-full bg-white/10 border border-white/10 mb-6">
-
-                            <button type="button" id="tabEntrepreneur" onclick="showEntrepreneur()"
-                                class="tab-btn tab-inactive font-bold text-xs md:text-sm py-1 transition-all duration-200">
-                                Entrepreneur
-                            </button>
-
-                            <button type="button" id="tabOfficer" onclick="showOfficer()"
-                                class="tab-btn tab-active font-bold text-xs md:text-sm py-1 transition-all duration-200">
-                                Officer
-                            </button>
-
-                            <button type="button" id="tabInspector" onclick="showInspector()"
-                                class="tab-btn tab-inactive font-bold text-xs md:text-sm py-1 transition-all duration-200">
-                                Inspector
-                            </button>
-
-                        </div>
-
-                        <div id="emailSection" class="form-section">
-                            <div class="text-left mb-3">
-                                <label id="userLabel" class="text-xs text-white">EMAIL</label>
-                                <input id="userInput" name="email" type="text" placeholder="Enter your email"
-                                    style="color:white;"
-                                    class="w-full mt-1 p-2 rounded-md bg-white/10 border border-black-200 text-white placeholder-white-400 focus:outline-none focus:ring-2 focus:ring-white-400">
-                            </div>
-                        </div>
-
-                        <div id="inspectorSection" class="form-section hidden-section">
-                            <div class="text-left mb-4">
-                                <label class="text-xs text-white">EMAIL</label>
-                                <input type="text" style="color: white;" name="email" placeholder="Enter your email"
-                                    class="w-full mt-1 p-2 rounded-md bg-white/10 border border-black-200 text-white placeholder-white-400 focus:outline-none focus:ring-2 focus:ring-white-400">
-                            </div>
-                        </div>
-
-                        <div id="entrepreneurSection" class="form-section hidden-section">
-                            <div class="text-left mb-4">
-                                <label class="text-xs text-white">EMAIL</label>
-                                <input type="text" style="color: white;" name="email" placeholder="Enter your email"
-                                    class="w-full mt-1 p-2 rounded-md bg-white/10 border border-black-200 text-white placeholder-white-400 focus:outline-none focus:ring-2 focus:ring-white-400">
-                            </div>
-                        </div>
-
-                        <div class="text-left mb-4">
-                            <div class="flex justify-between text-xs text-white">
-                                <label>PASSWORD</label>
-                                <a href="Forgetpassword.jsp" class="text-white hover:underline">Forgot?</a>
-                            </div>
-
-                            <input type="password" name="password" placeholder="Enter your password"
-                                style="color: white;"
-                                class="w-full mt-1 p-2 rounded-md bg-white/10 border border-black-200 text-white placeholder-white-400 focus:outline-none focus:ring-2 focus:ring-white-400">
-                        </div>
-
-                        <button type="submit"
-                            class="w-full mt-3 py-2 rounded-lg bg-white text-[#063831] font-bold hover:scale-105 hover:bg-[#e0fce2] transition duration-200">
-                            Access Portal
-                        </button>
-
-                        </form>
-                        <div class="mt-3 text-xs text-white">
-                            <span id="footerText">New officer?</span>
-                            <a id="footerLink" href="OfficerRegister.jsp" class="text-white hover:underline">
-                                Create new Account
-                            </a>
-                        </div>
-
-                    </div>
+    <!-- =====================================================
+         OFFICIAL GOVERNMENT TOP BAR
+    ===================================================== -->
+    <div class="govt-topbar py-1.5 px-4 sm:px-6 lg:px-8">
+        <div class="w-full flex flex-wrap justify-between items-center gap-2">
+            <!-- Left: National Authority Identity -->
+            <div class="flex items-center gap-2.5">
+                <!-- Ashoka Emblem / National Crest SVG -->
+                <svg class="w-4 h-5 text-[#D4A94C]" viewBox="0 0 24 28" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    aria-label="National Emblem">
+                    <path d="M12 2L15 5H9L12 2Z" fill="currentColor" />
+                    <path d="M7 6H17V9H7V6Z" fill="currentColor" fill-opacity="0.8" />
+                    <path d="M5 10H19V12H5V10Z" fill="currentColor" />
+                    <circle cx="12" cy="16" r="3.5" stroke="currentColor" stroke-width="1.2" />
+                    <path d="M12 13V19M9 16H15M10 14L14 18M10 18L14 14" stroke="currentColor" stroke-width="0.8" />
+                    <path d="M4 21H20V23H4V21Z" fill="currentColor" />
+                    <path d="M6 24H18V26H6V24Z" fill="currentColor" />
+                </svg>
+                <div class="leading-tight">
+                    <span
+                        class="font-semibold text-[#F8F1DF] text-[11px] tracking-wide uppercase whitespace-nowrap">Government
+                        of India</span>
+                    <span class="hidden sm:inline text-[#819BC2] text-[11px] mx-1.5">•</span>
+                    <span class="hidden sm:inline text-[#C9C2B2] text-[11px]">Ministry of Commerce & Industry</span>
                 </div>
-            </main>
+            </div>
+
+            <!-- Right: Accessibility, Language & Helpline -->
+            <div class="flex items-center gap-3 text-[11px]">
+                <div class="hidden md:flex items-center gap-1.5 text-[#C9C2B2]">
+                    <span class="text-[#D4A94C]">📞</span>
+                    <span>Toll-Free Support: <strong>1800-11-4646</strong> (09:00 - 18:00 IST)</span>
+                </div>
+                <div class="hidden sm:flex items-center gap-1">
+                    <button type="button" class="accessibility-btn" onclick="adjustFontSize(-1)"
+                        title="Decrease font size">A-</button>
+                    <button type="button" class="accessibility-btn" onclick="adjustFontSize(0)"
+                        title="Reset font size">A</button>
+                    <button type="button" class="accessibility-btn" onclick="adjustFontSize(1)"
+                        title="Increase font size">A+</button>
+                </div>
+                <span class="text-[#819BC2] hidden sm:inline">|</span>
+
+            </div>
         </div>
     </div>
+
+    <!-- =====================================================
+         MAIN NAVIGATION BAR
+    ===================================================== -->
+    <header class="main-navbar">
+        <div class="w-full px-4 sm:px-6 lg:px-8 h-20 flex justify-between items-center">
+            <!-- Brand Logo -->
+            <a href="login.html" class="portal-brand">
+                <div class="brand-badge">IO</div>
+                <div>
+                    <h1 class="brand-title">IndustryOne</h1>
+                    <p class="brand-tagline">National Single Window Industrial Clearance System</p>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden lg:flex items-center gap-4 xl:gap-6 flex-shrink-0">
+                <a href="login.html" class="nav-link-item active mr-2 xl:mr-4">Home</a>
+                <a href="About.html" class="nav-link-item">About Us</a>
+                <a href="#" class="nav-link-item"
+                    onclick="alert('Industrial Clearances Directory: 140+ central & state clearances unified under Single Window.')">Clearances</a>
+                <a href="#" class="nav-link-item"
+                    onclick="alert('Application Tracking Service: Enter your 12-digit Application ID on the dashboard after login.')">Track
+                    Status</a>
+                <a href="About.html#contact" class="nav-link-item">Helpdesk</a>
+
+                <!-- Officer / Department Portal Gateway -->
+                <a href="Officer.html" class="officer-portal-btn ml-2 xl:ml-3"
+                    title="For Authorized Verification Officers & Department Inspectors">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    </svg>
+                    Administrative Portal
+                </a>
+            </nav>
+
+            <!-- Mobile Hamburger Toggle -->
+            <button id="hamburger-btn" class="block lg:hidden p-2 text-white hover:text-[#D4A94C] focus:outline-none"
+                aria-label="Toggle navigation menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div id="mobile-menu" class="hidden lg:hidden px-6 py-4 bg-[#05132B] border-b border-[#D4A94C]/20 space-y-3">
+            <a href="login.html" class="block py-2 text-[#D4A94C] font-semibold border-b border-white/5">Home
+                (Entrepreneur Login)</a>
+            <a href="About.html" class="block py-2 text-[#C9C2B2] hover:text-white border-b border-white/5">About
+                Portal</a>
+            <a href="entrepreneur.html" class="block py-2 text-[#C9C2B2] hover:text-white border-b border-white/5">New
+                Registration</a>
+            <a href="Officer.html" class="block py-2 text-[#819BC2] hover:text-white">Officer / Department Portal →</a>
+        </div>
+    </header>
+
+    <!-- =====================================================
+         MAIN CONTENT: INDUSTRIAL SHOWCASE & ENTREPRENEUR LOGIN
+    ===================================================== -->
+    <main class="portal-main-container">
+        <div class="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+
+            <!-- LEFT COLUMN: NATIONAL INDUSTRIAL PORTAL SHOWCASE -->
+            <section class="lg:col-span-7 flex flex-col gap-6 text-left">
+
+                <!-- Operational Badge -->
+                <div class="flex items-center gap-3">
+                    <div class="status-pill">
+                        <span class="pulse-dot"></span>
+                        <span>PORTAL ACTIVE • SINGLE WINDOW CLEARANCE</span>
+                    </div>
+
+                </div>
+
+                <!-- Main Industrial Headline -->
+                <div class="space-y-3">
+                    <h2 class="hero-heading">
+                        Accelerate Your Industry With <span class="gold-text">Unified Clearances</span>
+                    </h2>
+                    <p class="hero-subtext">
+                        The Government of India's centralized digital gateway for industrial licensing, statutory
+                        environment NOCs, factory registrations, and land allotment approvals.
+                    </p>
+                </div>
+
+                <!-- Key Portal Metrics -->
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <div class="metric-number">12,850+</div>
+                        <div class="metric-label">Clearances Granted</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-number">48 Hrs</div>
+                        <div class="metric-label">Avg. Turnaround SLA</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-number">36+</div>
+                        <div class="metric-label">Depts Integrated</div>
+                    </div>
+                </div>
+
+                <!-- Official Advisory Announcement Ticker -->
+                <div class="announcement-bar">
+                    <span class="text-base">📢</span>
+                    <div>
+                        <strong class="text-[#F8F1DF]">Statutory Advisory:</strong>
+                        All industrial unit promoters are requested to link their <strong>Udyam Registration</strong> or
+                        <strong>CIN</strong> with their Entrepreneur profile for automated NOC validation.
+                    </div>
+                </div>
+
+                <!-- Trust & Security Pillars -->
+                <div class="pt-2 flex flex-wrap items-center gap-5 text-xs text-[#819BC2]">
+                    <div class="flex items-center gap-1.5">
+                        <svg class="w-4 h-4 text-[#D4A94C]" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M10 1.944A11.954 11.954 0 012.166 5C2.056 5.649 2 6.319 2 7c0 5.225 3.34 9.67 8 11.317C14.66 16.67 18 12.225 18 7c0-.682-.057-1.35-.166-2.001A11.954 11.954 0 0110 1.944zM11 14a1 1 0 11-2 0 1 1 0 012 0zm0-7a1 1 0 10-2 0v3a1 1 0 102 0V7z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        <span>256-Bit SSL Encrypted</span>
+                    </div>
+                    <div class="flex items-center gap-1.5">
+                        <svg class="w-4 h-4 text-[#22c55e]" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd"
+                                d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        <span>Make In India Initiative</span>
+                    </div>
+                    <div class="flex items-center gap-1.5">
+                        <svg class="w-4 h-4 text-[#819BC2]" fill="currentColor" viewBox="0 0 20 20">
+                            <path d="M4 4a2 2 0 00-2 2v1h16V6a2 2 0 00-2-2H4z" />
+                            <path fill-rule="evenodd"
+                                d="M18 9H2v5a2 2 0 002 2h12a2 2 0 002-2V9zM4 13a1 1 0 011-1h1a1 1 0 110 2H5a1 1 0 01-1-1zm5-1a1 1 0 100 2h1a1 1 0 100-2H9z"
+                                clip-rule="evenodd" />
+                        </svg>
+                        <span>Paperless & Digital Signatures</span>
+                    </div>
+                </div>
+
+            </section>
+
+            <!-- RIGHT COLUMN: DEDICATED ENTREPRENEUR LOGIN CARD -->
+            <section class="lg:col-span-5 flex justify-center">
+                <div class="login-card">
+
+                    <!-- Card Badge & Title -->
+                    <div class="text-left mb-6">
+                        <div class="flex items-center justify-between mb-2">
+                            <span class="card-header-badge">
+                                <svg class="w-3.5 h-3.5 text-[#D4A94C]" fill="currentColor" viewBox="0 0 20 20">
+                                    <path
+                                        d="M13 6a3 3 0 11-6 0 3 3 0 016 0zM18 8a2 2 0 11-4 0 2 2 0 014 0zM14 15a4 4 0 00-8 0v3h8v-3zM6 8a2 2 0 11-4 0 2 2 0 014 0zM16 18v-3a5.972 5.972 0 00-.75-2.906A3.005 3.005 0 0119 15v3h-3zM4.75 12.094A5.973 5.973 0 004 15v3H1v-3a3 3 0 013.75-2.906z" />
+                                </svg>
+                                Login Portal
+                            </span>
+                            <span class="text-[11px] text-[#819BC2] font-mono">Secured v2.4</span>
+                        </div>
+                        <h3 class="text-2xl font-bold text-[#F8F1DF] tracking-tight">Applicant Sign In</h3>
+                        <p class="text-xs text-[#C9C2B2] mt-1">
+                            Access your industrial dashboard, statutory clearance filings, and tracking logs.
+                        </p>
+                    </div>
+
+                    <!-- Dynamic Feedback / Alert Box -->
+                    <div id="feedbackAlert" class="hidden feedback-alert" role="alert">
+                        <span id="alertIcon">⚠️</span>
+                        <span id="alertMessage">Please check your login details.</span>
+                    </div>
+
+                    <!-- Single Entrepreneur Login Form -->
+                    <form id="entrepreneurLoginForm" onsubmit="handleEntrepreneurLogin(event)" novalidate>
+
+                        <!-- Fixed Role as Entrepreneur -->
+                        <input type="hidden" name="role" value="entrepreneur">
+
+                        <!-- Field 1: Enterprise Email / Identifier -->
+                        <div class="form-group text-left">
+                            <label for="enterpriseIdentifier" class="form-label">
+                                <span>Enter your email</span>
+                            </label>
+                            <div class="input-container">
+                                <span class="input-icon" aria-hidden="true">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.206" />
+                                    </svg>
+                                </span>
+                                <input id="enterpriseIdentifier" name="identifier" type="text" required
+                                    autocomplete="username" placeholder="e.g.john1245@gmail.com" class="gov-input">
+                            </div>
+                        </div>
+
+                        <!-- Field 2: Password -->
+                        <div class="form-group text-left">
+                            <div class="form-label">
+                                <span>Password</span>
+                                <a href="Forgetpassword.jsp"
+                                    class="text-[11px] text-[#D4A94C] hover:underline font-normal tracking-normal lowercase">
+                                    Forgot Password?
+                                </a>
+                            </div>
+                            <div class="input-container">
+                                <span class="input-icon" aria-hidden="true">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                                    </svg>
+                                </span>
+                                <input id="enterprisePassword" name="password" type="password" required
+                                    autocomplete="current-password" placeholder="Enter your password" class="gov-input">
+                                <button type="button" id="passwordToggleBtn" class="password-toggle-btn"
+                                    onclick="togglePasswordVisibility()" aria-label="Toggle password visibility">
+                                    <svg id="eyeIcon" class="w-4 h-4" fill="none" stroke="currentColor"
+                                        viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Field 3: Security Captcha Code -->
+                        <div class="form-group text-left">
+                            <label for="captchaInput" class="form-label">
+                                <span>Security Verification (Captcha)</span>
+                                <span class="text-[10px] text-[#819BC2] font-normal">Case sensitive</span>
+                            </label>
+
+                            <div class="captcha-container">
+                                <div class="captcha-canvas-wrap">
+                                    <canvas id="captchaCanvas" width="180" height="42"></canvas>
+                                </div>
+                                <button type="button" class="captcha-refresh-btn" onclick="generateCaptcha()"
+                                    title="Refresh Captcha Code" aria-label="Refresh Captcha">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                                    </svg>
+                                </button>
+                            </div>
+
+                            <div class="input-container mt-2">
+                                <span class="input-icon" aria-hidden="true">
+                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                                    </svg>
+                                </span>
+                                <input id="captchaInput" name="captcha" type="text" maxlength="6" required
+                                    placeholder="Enter the 6-character code above" class="gov-input">
+                            </div>
+                        </div>
+
+                        <!-- Remember Me & Security Check -->
+                        <div class="flex items-center justify-between my-4 text-xs text-[#C9C2B2]">
+                            <label class="flex items-center gap-2 cursor-pointer select-none">
+                                <input type="checkbox" id="rememberMe" name="remember"
+                                    class="rounded bg-[#051229] border-[#D4A94C]/40 text-[#D4A94C] focus:ring-0">
+                                <span>Remember this workstation</span>
+                            </label>
+                            <span class="text-[10px] text-[#819BC2]">TLS 1.3 Certified</span>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <button type="submit" id="submitBtn" class="btn-submit-portal">
+                            <span>Sign In to Industrial Portal</span>
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M14 5l7 7m0 0l-7 7m7-7H3" />
+                            </svg>
+                        </button>
+
+                    </form>
+
+                    <!-- New Entrepreneur Registration Callout -->
+                    <div class="register-callout-box">
+                        <div class="text-left">
+                            <div class="text-xs font-semibold text-[#F8F1DF]">New Applicant?</div>
+                            <div class="text-[11px] text-[#819BC2]">Register your account</div>
+                        </div>
+                        <a href="entrepreneur.html" class="btn-register-link">
+                            Register →
+                        </a>
+                    </div>
+
+                    <!-- Statutory Cybersecurity & Legal Disclaimer -->
+                    <div class="statutory-disclaimer">
+                        <svg class="w-4 h-4 text-[#D4A94C] shrink-0 mt-0.5" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                        </svg>
+                        <p>
+                            <strong>Statutory Warning:</strong> Unauthorized access to this portal is punishable under
+                            Sections 43 & 66 of the Information Technology Act, 2000. All IP logs and access timestamps
+                            are audited.
+                        </p>
+                    </div>
+
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <!-- =====================================================
+         GOVERNMENT PORTAL OFFICIAL FOOTER
+    ===================================================== -->
+    <footer class="portal-footer pt-10 px-6 lg:px-12 mt-auto">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 text-left">
+
+            <!-- Col 1: Government Single Window System -->
+            <div class="space-y-3">
+                <div class="flex items-center gap-2">
+                    <div
+                        class="w-7 h-7 rounded bg-[#D4A94C] text-[#07152F] flex items-center justify-center font-bold text-xs font-mono">
+                        IO</div>
+                    <span class="font-bold text-[#F8F1DF] text-sm">IndustryOne SWS</span>
+                </div>
+                <p class="text-xs text-[#819BC2] leading-relaxed">
+                    National Industrial Single Window Clearance Portal designed under the Ministry of Commerce &
+                    Industry guidelines to streamline industrial approvals and factory licenses across India.
+                </p>
+            </div>
+
+            <!-- Col 2: Useful Government Gateways -->
+            <div>
+                <h4 class="text-xs font-bold text-[#F8F1DF] uppercase tracking-wider mb-3">Govt Gateways</h4>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="https://www.india.gov.in" target="_blank" rel="noopener" class="footer-link">National
+                            Portal of India</a></li>
+                    <li><a href="https://dpiit.gov.in" target="_blank" rel="noopener" class="footer-link">DPIIT (Govt of
+                            India)</a></li>
+                    <li><a href="https://www.makeinindia.com" target="_blank" rel="noopener" class="footer-link">Make In
+                            India Portal</a></li>
+                    <li><a href="https://www.investindia.gov.in" target="_blank" rel="noopener"
+                            class="footer-link">Invest India National Facilitation</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 3: Portal Services -->
+            <div>
+                <h4 class="text-xs font-bold text-[#F8F1DF] uppercase tracking-wider mb-3">Portal Services</h4>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="entrepreneur.html" class="footer-link">Applicant Registration</a></li>
+                    <li><a href="About.html" class="footer-link">About IndustryOne</a></li>
+                    <li><a href="Officer.html" class="footer-link">Officer & Inspector Gateway</a></li>
+                    <li><a href="#" class="footer-link">Clearance Guidelines (SOP)</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 4: Helpdesk & Support -->
+            <div>
+                <h4 class="text-xs font-bold text-[#F8F1DF] uppercase tracking-wider mb-3">Helpdesk & Support</h4>
+                <p class="text-xs text-[#C9C2B2] mb-1">Toll Free: <strong class="text-[#D4A94C]">1800-11-4646</strong>
+                </p>
+                <p class="text-xs text-[#C9C2B2] mb-2">Email: <strong
+                        class="text-[#F8F1DF]">SupportIndustryOne@10.com</strong></p>
+                <p class="text-[11px] text-[#819BC2]">
+                    Operational Hours: Monday - Saturday (09:00 AM to 06:00 PM IST, except gazetted holidays)
+                </p>
+            </div>
+
+        </div>
+
+        <!-- Bottom Copyright Row -->
+        <div class="portal-footer-bottom">
+            <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-3">
+                <div>
+                    Developed by TeamIndustryOne<br>
+                    Designed & Maintained for <strong>National Industrial Single Window Clearance</strong> | All Rights
+                    Reserved © 2026
+                </div>
+                <div class="flex gap-4 text-xs">
+                    <a href="#" class="footer-link"
+                        onclick="alert('Privacy Policy compliant with Digital Personal Data Protection Act.')">Privacy
+                        Policy</a>
+                    <span>•</span>
+                    <a href="#" class="footer-link"
+                        onclick="alert('Terms of Service and statutory SLA agreements.')">Terms of Service</a>
+                    <span>•</span>
+                    <a href="#" class="footer-link"
+                        onclick="alert('Web Content Accessibility Guidelines (WCAG) 2.1 Level AA compliant.')">Accessibility</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Logic Script -->
+    <script src="login.js"></script>
 </body>
 
 </html>
