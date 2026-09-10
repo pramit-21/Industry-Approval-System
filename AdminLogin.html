@@ -357,9 +357,6 @@
                         <button type="button" class="role-pill active" onclick="selectRole('officer', this)">
                             Verification Officer
                         </button>
-                        <button type="button" class="role-pill" onclick="selectRole('inspector', this)">
-                            Field Inspector
-                        </button>
                         <button type="button" class="role-pill" onclick="selectRole('admin', this)">
                             Dept Admin
                         </button>
@@ -525,13 +522,6 @@
                         </a>
                     </div>
 
-                    <!-- Switch to Applicant Portal Link -->
-                    <div class="mt-4 pt-3 border-t border-white/5 text-center text-xs text-[#819BC2]">
-                        Are you an Admin/Officer?
-                        <a href="Officer.html" class="text-[#D4A94C] font-semibold hover:underline ml-1">
-                            Login Here →
-                        </a>
-                    </div>
 
                     <!-- Statutory Cybersecurity & Legal Disclaimer -->
                     <div class="statutory-disclaimer">
@@ -678,8 +668,6 @@
             if (identifierLabel) {
                 if (role === 'admin') {
                     identifierLabel.textContent = "Admin Email / Gov ID";
-                } else if (role === 'inspector') {
-                    identifierLabel.textContent = "Inspector ID / Official Email";
                 } else {
                     identifierLabel.textContent = "Official Email / Gov ID";
                 }

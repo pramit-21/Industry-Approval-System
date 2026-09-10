@@ -88,7 +88,7 @@ public class LoginController {
 
         String redirect = switch (user.getRole()) {
             case "OFFICER" -> "/Officer.html";
-            case "ENTREPRENEUR" -> "/entrepreneur.html";
+            case "ENTREPRENEUR" -> "/applicant-dashboard.html";
             case "INSPECTOR" -> "/Inspector.html";
             case "ADMIN" -> "/AdminDashboard.html";
             default -> "/";

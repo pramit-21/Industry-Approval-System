@@ -320,11 +320,11 @@ async function handleEntrepreneurLogin(event) {
                 token: data.token,
                 userId: data.userId,
                 email: data.email || identifier,
-                name: formattedName || "Entrepreneur User",
+                name: formattedName || "Applicant User",
                 company: formattedName.includes(" ") ? formattedName : `${formattedName} Industrial Solutions LLP`,
                 udyam: "UDYAM-MP-08-009124",
                 appId: "IND-2026-" + (data.userId || "8942"),
-                role: "Entrepreneur",
+                role: "Verified Applicant",
                 loginTime: new Date().toISOString()
             };
             localStorage.setItem("industryOneUser", JSON.stringify(userProfile));
@@ -332,7 +332,7 @@ async function handleEntrepreneurLogin(event) {
             showAlert(`Verification successful! Welcome back, ${formattedName}. Initializing session...`, "success");
 
             setTimeout(() => {
-                window.location.href = "home.html";
+                window.location.href = "applicant-dashboard.html";
             }, 900);
             return;
         }
