@@ -1,0 +1,2369 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IndustryOne | National Single Window Industrial Clearance System</title>
+    <meta name="description"
+        content="IndustryOne - Government of India's Centralized Single Window Clearance Portal for industrial licensing, environmental NOCs, factory plans, and statutory compliance.">
+
+    <!-- Tailwind CSS CDN for utility classes -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap"
+        rel="stylesheet">
+
+    <!-- Industrial Govt Stylesheet (Exact match with login.html) -->
+    <link rel="stylesheet" href="login.css">
+
+    <style>
+        /* =====================================================
+           HOME PAGE CUSTOM ENHANCEMENTS & COMPONENT STYLES
+        ===================================================== */
+        
+        /* Section Dividers & Technical Accents */
+        .section-separator {
+            border-top: 1px dashed rgba(212, 169, 76, 0.2);
+            position: relative;
+            margin: 3.5rem 0;
+        }
+
+        .section-separator::before {
+            content: "◆";
+            position: absolute;
+            top: -9px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #07152F;
+            padding: 0 10px;
+            color: #D4A94C;
+            font-size: 11px;
+        }
+
+        /* Glassmorphic Industrial Card */
+        .glass-panel {
+            background: rgba(10, 32, 69, 0.72);
+            border: 1px solid rgba(212, 169, 76, 0.25);
+            border-radius: 16px;
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            box-shadow: 0 20px 40px -10px rgba(0, 0, 0, 0.55), inset 0 1px 0 rgba(255, 255, 255, 0.06);
+            transition: all 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+
+        .glass-panel:hover {
+            border-color: rgba(212, 169, 76, 0.45);
+            box-shadow: 0 24px 48px -10px rgba(0, 0, 0, 0.65), 0 0 25px rgba(212, 169, 76, 0.12);
+        }
+
+        /* Action Buttons */
+        .btn-gold-primary {
+            background: linear-gradient(135deg, #D4A94C 0%, #B88E33 100%);
+            color: #07152F;
+            border: 1px solid #E5B869;
+            border-radius: 8px;
+            padding: 12px 24px;
+            font-size: 0.92rem;
+            font-weight: 700;
+            letter-spacing: 0.02em;
+            cursor: pointer;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 6px 20px rgba(212, 169, 76, 0.32);
+            transition: all 0.25s ease;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .btn-gold-primary:hover {
+            background: linear-gradient(135deg, #E5B869 0%, #D4A94C 100%);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 26px rgba(212, 169, 76, 0.48);
+            color: #040D1D;
+        }
+
+        .btn-outline-gold {
+            background: rgba(212, 169, 76, 0.08);
+            border: 1px solid rgba(212, 169, 76, 0.4);
+            color: var(--gold-light);
+            border-radius: 8px;
+            padding: 12px 22px;
+            font-size: 0.92rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 8px;
+            transition: all 0.25s ease;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+
+        .btn-outline-gold:hover {
+            background: rgba(212, 169, 76, 0.2);
+            border-color: var(--gold-primary);
+            color: #FFFFFF;
+            transform: translateY(-2px);
+        }
+
+        /* Clearance Service Cards */
+        .clearance-card {
+            background: rgba(11, 30, 61, 0.85);
+            border: 1px solid rgba(212, 169, 76, 0.22);
+            border-top: 3px solid rgba(212, 169, 76, 0.7);
+            border-radius: 14px;
+            padding: 1.5rem;
+            position: relative;
+            transition: all 0.25s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .clearance-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(212, 169, 76, 0.55);
+            box-shadow: 0 16px 36px rgba(0, 0, 0, 0.5), 0 0 20px rgba(212, 169, 76, 0.15);
+        }
+
+        .sla-pill {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 3px 8px;
+            border-radius: 6px;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+            background: rgba(19, 136, 8, 0.18);
+            border: 1px solid rgba(19, 136, 8, 0.4);
+            color: #6ee7b7;
+        }
+
+        .category-pill-badge {
+            font-size: 0.68rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            padding: 2px 7px;
+            border-radius: 4px;
+            background: rgba(248, 241, 223, 0.08);
+            color: var(--text-secondary);
+            border: 1px solid rgba(248, 241, 223, 0.12);
+        }
+
+        /* Filter Tabs */
+        .filter-tab-btn {
+            padding: 8px 16px;
+            border-radius: 8px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            background: rgba(5, 18, 41, 0.6);
+            border: 1px solid rgba(248, 241, 223, 0.12);
+            cursor: pointer;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .filter-tab-btn:hover {
+            color: var(--text-primary);
+            border-color: rgba(212, 169, 76, 0.3);
+            background: rgba(10, 32, 69, 0.8);
+        }
+
+        .filter-tab-btn.active {
+            color: #07152F;
+            background: linear-gradient(135deg, #F8F1DF 0%, #D4A94C 100%);
+            border-color: #D4A94C;
+            font-weight: 700;
+            box-shadow: 0 4px 14px rgba(212, 169, 76, 0.35);
+        }
+
+        /* Application Timeline Step */
+        .timeline-step-node {
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.85rem;
+            font-weight: 700;
+            border: 2px solid rgba(248, 241, 223, 0.2);
+            background: #07152F;
+            color: var(--text-muted);
+            transition: all 0.3s ease;
+            z-index: 2;
+        }
+
+        .timeline-step-node.completed {
+            background: #138808;
+            border-color: #22c55e;
+            color: #FFFFFF;
+            box-shadow: 0 0 12px rgba(34, 197, 94, 0.4);
+        }
+
+        .timeline-step-node.active-step {
+            background: #D4A94C;
+            border-color: #F8F1DF;
+            color: #07152F;
+            box-shadow: 0 0 16px rgba(212, 169, 76, 0.6);
+            animation: pulseActive 2s infinite;
+        }
+
+        @keyframes pulseActive {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.08); }
+        }
+
+        /* Step Card */
+        .lifecycle-step-card {
+            background: rgba(10, 32, 69, 0.65);
+            border: 1px solid rgba(212, 169, 76, 0.2);
+            border-radius: 14px;
+            padding: 1.75rem;
+            position: relative;
+            overflow: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .lifecycle-step-card::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 4px;
+            height: 100%;
+            background: var(--gold-primary);
+            opacity: 0.7;
+        }
+
+        .lifecycle-step-card:hover {
+            transform: translateY(-4px);
+            border-color: rgba(212, 169, 76, 0.5);
+            background: rgba(10, 32, 69, 0.85);
+        }
+
+        /* Modal Backdrop & Dialog */
+        .gov-modal {
+            position: fixed;
+            inset: 0;
+            background: rgba(3, 10, 22, 0.85);
+            backdrop-filter: blur(12px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 100;
+            padding: 1.25rem;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.25s ease;
+        }
+
+        .gov-modal.open {
+            opacity: 1;
+            pointer-events: auto;
+        }
+
+        .gov-modal-content {
+            background: #091c3d;
+            border: 1px solid rgba(212, 169, 76, 0.4);
+            border-radius: 16px;
+            width: 100%;
+            max-width: 680px;
+            max-height: 90vh;
+            overflow-y: auto;
+            padding: 2rem;
+            position: relative;
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.8), 0 0 40px rgba(212, 169, 76, 0.15);
+            transform: translateY(20px);
+            transition: transform 0.25s ease;
+        }
+
+        .gov-modal.open .gov-modal-content {
+            transform: translateY(0);
+        }
+
+        /* Marquee ticker */
+        .ticker-wrap {
+            overflow: hidden;
+            white-space: nowrap;
+            display: flex;
+            align-items: center;
+            background: rgba(5, 18, 41, 0.85);
+            border-top: 1px solid rgba(212, 169, 76, 0.2);
+            border-bottom: 1px solid rgba(212, 169, 76, 0.2);
+        }
+
+        .ticker-title {
+            background: linear-gradient(135deg, #D4A94C 0%, #B88E33 100%);
+            color: #07152F;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 8px 16px;
+            letter-spacing: 0.08em;
+            flex-shrink: 0;
+            z-index: 2;
+        }
+
+        .ticker-content {
+            display: inline-block;
+            animation: tickerSlide 40s linear infinite;
+            font-size: 0.82rem;
+            color: var(--text-secondary);
+            padding-left: 20px;
+        }
+
+        .ticker-content:hover {
+            animation-play-state: paused;
+        }
+
+        @keyframes tickerSlide {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); }
+        }
+
+        /* Coming Soon & Work in Progress UI Tokens */
+        .wip-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 3px 10px;
+            border-radius: 9999px;
+            background: rgba(255, 153, 51, 0.14);
+            border: 1px solid rgba(255, 153, 51, 0.45);
+            color: #FFB066;
+            font-family: 'Space Mono', monospace;
+            font-size: 0.70rem;
+            font-weight: 700;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .wip-ping-dot {
+            position: relative;
+            display: flex;
+            width: 7px;
+            height: 7px;
+        }
+
+        .wip-ping-dot::before {
+            content: "";
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            border-radius: 50%;
+            background: #FF9933;
+            animation: wipPing 1.8s cubic-bezier(0, 0, 0.2, 1) infinite;
+            opacity: 0.75;
+        }
+
+        .wip-ping-dot::after {
+            content: "";
+            position: relative;
+            width: 7px;
+            height: 7px;
+            border-radius: 50%;
+            background: #FF9933;
+        }
+
+        @keyframes wipPing {
+            75%, 100% {
+                transform: scale(2.2);
+                opacity: 0;
+            }
+        }
+
+        .wip-notice-bar {
+            margin-top: 1rem;
+            margin-bottom: 1.25rem;
+            padding: 10px 14px;
+            border-radius: 10px;
+            background: rgba(5, 19, 43, 0.85);
+            border-left: 3px solid #FF9933;
+            border-top: 1px solid rgba(248, 241, 223, 0.08);
+            border-right: 1px solid rgba(248, 241, 223, 0.08);
+            border-bottom: 1px solid rgba(248, 241, 223, 0.08);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 12px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .wip-card-pill {
+            font-family: 'Space Mono', monospace;
+            font-size: 0.65rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            padding: 2px 7px;
+            border-radius: 9999px;
+            background: rgba(255, 153, 51, 0.15);
+            border: 1px solid rgba(255, 153, 51, 0.4);
+            color: #FFB066;
+            display: inline-flex;
+            align-items: center;
+            gap: 4px;
+        }
+
+        .wip-status-ribbon {
+            margin-top: 2rem;
+            padding: 1rem 1.25rem;
+            border-radius: 0.75rem;
+            background: linear-gradient(90deg, rgba(255, 153, 51, 0.08) 0%, rgba(212, 169, 76, 0.08) 50%, rgba(255, 153, 51, 0.08) 100%);
+            border: 1px solid rgba(255, 153, 51, 0.35);
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+        @media (min-width: 640px) {
+            .wip-status-ribbon {
+                flex-direction: row;
+                align-items: center;
+                justify-content: space-between;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- Ambient Blueprint Grid & Glow Backgrounds (Exact matches) -->
+    <div class="blueprint-bg"></div>
+    <div class="ambient-orb orb-top-left"></div>
+    <div class="ambient-orb orb-bottom-right"></div>
+
+    <!-- Official Indian Tricolor Authority Band -->
+    <div class="tricolor-stripe" aria-hidden="true"></div>
+
+    <!-- =====================================================
+         OFFICIAL GOVERNMENT TOP BAR
+    ===================================================== -->
+    <div class="govt-topbar py-1.5 px-4 sm:px-6 lg:px-8">
+        <div class="w-full flex flex-wrap justify-between items-center gap-2">
+            <!-- Left: National Authority Identity -->
+            <div class="flex items-center gap-2.5">
+                <!-- Ashoka Emblem / National Crest SVG -->
+                <svg class="w-4 h-5 text-[#D4A94C]" viewBox="0 0 24 28" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    aria-label="National Emblem">
+                    <path d="M12 2L15 5H9L12 2Z" fill="currentColor" />
+                    <path d="M7 6H17V9H7V6Z" fill="currentColor" fill-opacity="0.8" />
+                    <path d="M5 10H19V12H5V10Z" fill="currentColor" />
+                    <circle cx="12" cy="16" r="3.5" stroke="currentColor" stroke-width="1.2" />
+                    <path d="M12 13V19M9 16H15M10 14L14 18M10 18L14 14" stroke="currentColor" stroke-width="0.8" />
+                    <path d="M4 21H20V23H4V21Z" fill="currentColor" />
+                    <path d="M6 24H18V26H6V24Z" fill="currentColor" />
+                </svg>
+                <div class="leading-tight">
+                    <span
+                        class="font-semibold text-[#F8F1DF] text-[11px] tracking-wide uppercase whitespace-nowrap">Government
+                        of India</span>
+                    <span class="hidden sm:inline text-[#819BC2] text-[11px] mx-1.5">•</span>
+                    <span class="hidden sm:inline text-[#C9C2B2] text-[11px]">Ministry of Commerce & Industry</span>
+                </div>
+            </div>
+
+            <!-- Right: Accessibility, Language & Helpline -->
+            <div class="flex items-center gap-3 text-[11px]">
+                <div class="hidden md:flex items-center gap-1.5 text-[#C9C2B2]">
+                    <span class="text-[#D4A94C]">📞</span>
+                    <span>Toll-Free Support: <strong>1800-11-4646</strong> (09:00 - 18:00 IST)</span>
+                </div>
+                <div class="hidden sm:flex items-center gap-1">
+                    <button type="button" class="accessibility-btn" onclick="adjustFontSize(-1)"
+                        title="Decrease font size">A-</button>
+                    <button type="button" class="accessibility-btn" onclick="adjustFontSize(0)"
+                        title="Reset font size">A</button>
+                    <button type="button" class="accessibility-btn" onclick="adjustFontSize(1)"
+                        title="Increase font size">A+</button>
+                </div>
+                <span class="text-[#819BC2] hidden sm:inline">|</span>
+                <span class="text-[#D4A94C] font-mono text-[10px] hidden lg:inline">PORTAL BUILD: v2.4 (ACTIVE)</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- =====================================================
+         MAIN NAVIGATION BAR
+    ===================================================== -->
+    <header class="main-navbar">
+        <div class="w-full px-4 sm:px-6 lg:px-8 h-20 flex justify-between items-center">
+            <!-- Brand Logo -->
+            <a href="home.html" class="portal-brand">
+                <div class="brand-badge">IO</div>
+                <div>
+                    <h1 class="brand-title">IndustryOne</h1>
+                    <p class="brand-tagline">National Single Window Industrial Clearance System</p>
+                </div>
+            </a>
+
+            <!-- Desktop Nav Links -->
+            <nav class="hidden lg:flex items-center gap-3 xl:gap-5 flex-shrink-0">
+                <a href="home.html" class="nav-link-item active">Home</a>
+                <a href="About.html" class="nav-link-item">About Us</a>
+                <a href="#schemes" class="nav-link-item">Schemes <span class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-[#FF9933]/20 text-[#FFB066] border border-[#FF9933]/40">Soon</span></a>
+                <a href="#clearances" class="nav-link-item">Clearances <span class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-[#FF9933]/20 text-[#FFB066] border border-[#FF9933]/40">Soon</span></a>
+                <a href="#track-status" class="nav-link-item">Track Status <span class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-[#FF9933]/20 text-[#FFB066] border border-[#FF9933]/40">Soon</span></a>
+                <a href="#fee-estimator" class="nav-link-item">SLA Estimator <span class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-[#FF9933]/20 text-[#FFB066] border border-[#FF9933]/40">Soon</span></a>
+                <a href="Helpdesk.html" class="nav-link-item">Helpdesk</a>
+
+                <!-- Sign In Action -->
+                <a href="login.html" class="nav-link-item text-[#D4A94C] font-semibold border border-[#D4A94C]/30 hover:border-[#D4A94C] rounded-lg ml-1">
+                    Applicant Sign In →
+                </a>
+
+                <!-- Officer / Department Portal Gateway -->
+                <a href="AdminLogin.html" class="officer-portal-btn ml-1 xl:ml-2"
+                    title="For Authorized Verification Officers & Department Inspectors">
+                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                    </svg>
+                    Administrative Portal
+                </a>
+            </nav>
+
+            <!-- Mobile Hamburger Toggle -->
+            <button id="hamburger-btn" class="block lg:hidden p-2 text-white hover:text-[#D4A94C] focus:outline-none"
+                aria-label="Toggle navigation menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16" />
+                </svg>
+            </button>
+        </div>
+
+        <!-- Mobile Drawer -->
+        <div id="mobile-menu" class="hidden lg:hidden px-6 py-4 bg-[#05132B] border-b border-[#D4A94C]/20 space-y-3">
+            <a href="home.html" class="block py-2 text-[#D4A94C] font-bold border-b border-white/5">Home (Active)</a>
+            <a href="login.html" class="block py-2 text-[#F8F1DF] font-semibold border-b border-white/5">Applicant Sign In →</a>
+            <a href="Applicant.html" class="block py-2 text-[#C9C2B2] hover:text-white border-b border-white/5">New Unit Registration</a>
+            <a href="About.html" class="block py-2 text-[#C9C2B2] hover:text-white border-b border-white/5">About Portal</a>
+            <a href="#schemes" class="block py-2 text-[#C9C2B2] hover:text-white border-b border-white/5 flex items-center justify-between">
+                <span>Schemes & Incentives</span>
+                <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-[#FF9933]/20 text-[#FFB066] border border-[#FF9933]/40">Work in Progress</span>
+            </a>
+            <a href="#clearances" class="block py-2 text-[#C9C2B2] hover:text-white border-b border-white/5 flex items-center justify-between">
+                <span>Clearances Catalog</span>
+                <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-[#FF9933]/20 text-[#FFB066] border border-[#FF9933]/40">Coming Soon</span>
+            </a>
+            <a href="#track-status" class="block py-2 text-[#C9C2B2] hover:text-white border-b border-white/5 flex items-center justify-between">
+                <span>Track Application Status</span>
+                <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-[#FF9933]/20 text-[#FFB066] border border-[#FF9933]/40">Prototype</span>
+            </a>
+            <a href="#fee-estimator" class="block py-2 text-[#C9C2B2] hover:text-white border-b border-white/5 flex items-center justify-between">
+                <span>SLA Estimator</span>
+                <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-[#FF9933]/20 text-[#FFB066] border border-[#FF9933]/40">In Progress</span>
+            </a>
+            <a href="Helpdesk.html" class="block py-2 text-[#C9C2B2] hover:text-white border-b border-white/5">Helpdesk & Support</a>
+            <a href="AdminLogin.html" class="block py-2 text-[#819BC2] hover:text-white">Officer / Department Portal →</a>
+        </div>
+    </header>
+
+    <!-- =====================================================
+         STATUTORY TICKER / NOTIFICATION MARQUEE
+    ===================================================== -->
+    <div class="ticker-wrap" aria-label="Portal Announcements">
+        <div class="ticker-title">
+            <span>STATUTORY ADVISORY</span>
+        </div>
+        <div class="ticker-content font-mono">
+            <span>🚨 <strong>GREEN CHANNEL:</strong> 127 non-polluting White Category manufacturing units now receive instantaneous auto-generated CTE within 24 hours.</span>
+            <span class="mx-6 text-[#D4A94C]">✦</span>
+            <span>All industrial units must link valid <strong>Udyam Registration</strong> or <strong>CIN</strong> with their entrepreneur profile for automated DigiLocker NOC verification.</span>
+            <span class="mx-6 text-[#D4A94C]">✦</span>
+            <span>Mandatory joint e-inspections under Business Reform Action Plan (BRAP) enforced across all 28 States & UTs.</span>
+            <span class="mx-6 text-[#D4A94C]">✦</span>
+            <span>Composite Master Clearance Certificate now carries digitally verified QR code valid for all state financial subsidies.</span>
+        </div>
+    </div>
+
+    <!-- =====================================================
+         HERO SECTION: NATIONAL INDUSTRIAL GATEWAY
+    ===================================================== -->
+    <section class="relative z-10 pt-10 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+            
+            <!-- Hero Left Column -->
+            <div class="lg:col-span-7 flex flex-col gap-6 text-left">
+                <!-- Status Pill -->
+                <div class="flex items-center gap-3">
+                    <div class="status-pill">
+                        <span class="pulse-dot"></span>
+                        <span>PORTAL ACTIVE • SINGLE WINDOW CLEARANCE GATEWAY</span>
+                    </div>
+                    <span class="hidden sm:inline text-xs font-mono text-[#819BC2]">| GOVT OF INDIA</span>
+                </div>
+
+                <!-- Main Heading -->
+                <h1 class="hero-heading text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight tracking-tight">
+                    Empowering India's Industry With 
+                    <span class="gold-text">Unified Digital Clearances</span>
+                </h1>
+
+                <!-- Subtitle -->
+                <p class="hero-subtext text-base sm:text-lg text-[#C9C2B2] leading-relaxed">
+                    The Government of India's centralized single-window digital gateway for industrial licensing,
+                    statutory environment NOCs, factory registrations, boiler approvals, and industrial land allotment.
+                    Experience transparent, paperless, and time-bound statutory clearances.
+                </p>
+
+                <!-- Dual Action CTAs -->
+                <div class="flex flex-wrap gap-4 pt-2">
+                    <a href="Applicant.html" class="btn-gold-primary">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                        </svg>
+                        <span>Apply For Clearances (New Unit)</span>
+                    </a>
+
+                    <a href="login.html" class="btn-outline-gold">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
+                        </svg>
+                        <span>Entrepreneur Sign In</span>
+                    </a>
+
+                    <a href="#track-status" class="inline-flex items-center gap-2 text-sm text-[#819BC2] hover:text-[#D4A94C] py-2 px-3 transition-colors">
+                        <span>Track Status</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </a>
+                </div>
+
+                <!-- KPI Metric Grid (Exact Style Match) -->
+                <div class="metrics-grid mt-4">
+                    <div class="metric-card">
+                        <div class="metric-number">12,850+</div>
+                        <div class="metric-label">Clearances Granted</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-number">48 Hrs</div>
+                        <div class="metric-label">Avg. Turnaround SLA</div>
+                    </div>
+                    <div class="metric-card">
+                        <div class="metric-number">36+</div>
+                        <div class="metric-label">Depts Integrated</div>
+                    </div>
+                </div>
+
+                <!-- Statutory Trust Micro-Bar -->
+                <div class="flex flex-wrap items-center gap-6 text-[11px] font-mono text-[#819BC2] pt-1">
+                    <span class="flex items-center gap-1.5">
+                        <span class="text-[#D4A94C]">🔒</span> 256-Bit SSL Encrypted
+                    </span>
+                    <span class="flex items-center gap-1.5">
+                        <span class="text-[#FF9933]">🇮🇳</span> Make in India Initiative
+                    </span>
+                    <span class="flex items-center gap-1.5">
+                        <span class="text-[#22c55e]">📄</span> Paperless & Digital Signatures
+                    </span>
+                    <span class="flex items-center gap-1.5">
+                        <span class="text-[#D4A94C]">⚖️</span> Public Service Guarantee SLA
+                    </span>
+                </div>
+            </div>
+
+            <!-- Hero Right Column: Fast-Track Quick Application Tracker Card -->
+            <div class="lg:col-span-5">
+                <div class="glass-panel p-6 sm:p-8 relative">
+                    <!-- Top Ribbon Accent -->
+                    <div class="flex items-center justify-between pb-5 border-b border-white/10">
+                        <div class="flex items-center gap-2">
+                            <div class="w-8 h-8 rounded-lg bg-[#D4A94C]/15 border border-[#D4A94C]/40 text-[#D4A94C] flex items-center justify-center font-bold text-sm">
+                                🔍
+                            </div>
+                            <div>
+                                <h3 class="text-base font-bold text-[#F8F1DF]">Quick Application Tracker</h3>
+                                <p class="text-xs text-[#819BC2] font-mono">Real-Time Single Window Audit</p>
+                            </div>
+                        </div>
+                        <span class="text-[10px] font-mono uppercase px-2 py-1 rounded bg-[#FF9933]/15 text-[#FFB066] border border-[#FF9933]/40 flex items-center gap-1.5">
+                            <span class="wip-ping-dot"></span>
+                            <span>PROTOTYPE • WIP</span>
+                        </span>
+                    </div>
+
+                    <form id="heroTrackForm" onsubmit="handleTrackSearch(event)" class="mt-5 space-y-4">
+                        <div>
+                            <label for="trackAppIdInput" class="block text-xs font-semibold uppercase tracking-wider text-[#C9C2B2] mb-1.5 font-mono">
+                                Enter Application ID / Udyam / PAN
+                            </label>
+                            <div class="relative flex items-center">
+                                <span class="absolute left-3 text-[#819BC2] font-mono text-xs">#</span>
+                                <input type="text" id="trackAppIdInput" placeholder="e.g. IND-2026-8942"
+                                    class="gov-input !pl-8 !text-sm !font-mono uppercase" required>
+                                <button type="submit" class="absolute right-1.5 bg-[#D4A94C] hover:bg-[#E5B869] text-[#07152F] px-3.5 py-2 rounded-md font-bold text-xs transition-all flex items-center gap-1">
+                                    <span>Track</span>
+                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                                    </svg>
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Sample IDs chips -->
+                        <div class="text-[11px] text-[#819BC2] space-y-1.5">
+                            <span class="block">Try demo application numbers:</span>
+                            <div class="flex flex-wrap gap-1.5">
+                                <button type="button" onclick="setTrackId('IND-2026-8942')"
+                                    class="px-2 py-1 rounded bg-white/5 hover:bg-[#D4A94C]/20 hover:text-[#D4A94C] border border-white/10 text-[11px] font-mono transition-colors">
+                                    IND-2026-8942
+                                </button>
+                                <button type="button" onclick="setTrackId('IND-2026-4410')"
+                                    class="px-2 py-1 rounded bg-white/5 hover:bg-[#D4A94C]/20 hover:text-[#D4A94C] border border-white/10 text-[11px] font-mono transition-colors">
+                                    IND-2026-4410
+                                </button>
+                                <button type="button" onclick="setTrackId('IND-2026-1108')"
+                                    class="px-2 py-1 rounded bg-white/5 hover:bg-[#D4A94C]/20 hover:text-[#D4A94C] border border-white/10 text-[11px] font-mono transition-colors">
+                                    IND-2026-1108
+                                </button>
+                            </div>
+                        </div>
+
+                        <!-- Tracker Result Box (Visible after query) -->
+                        <div id="quickTrackResult" class="p-4 rounded-xl bg-[#05132B]/90 border border-[#D4A94C]/30 space-y-3">
+                            <div class="flex items-start justify-between">
+                                <div>
+                                    <div class="text-xs text-[#819BC2] font-mono" id="resAppId">APP: IND-2026-8942</div>
+                                    <div class="text-sm font-bold text-[#F8F1DF]" id="resUnitName">Apex Renewable Biomass Energy LLP</div>
+                                    <div class="text-[11px] text-[#C9C2B2]" id="resLocation">Pithampur Industrial Area, Sector 3, MP</div>
+                                </div>
+                                <span id="resStatusBadge" class="text-[10px] font-mono px-2 py-0.5 rounded bg-[#22c55e]/20 text-[#86efac] border border-[#22c55e]/40 font-bold">
+                                    STAGE 3: VERIFYING
+                                </span>
+                            </div>
+
+                            <!-- Progress Bar -->
+                            <div>
+                                <div class="flex justify-between text-[10px] font-mono text-[#819BC2] mb-1">
+                                    <span>Composite Clearance Progress</span>
+                                    <span id="resPercentage" class="text-[#D4A94C] font-bold">75%</span>
+                                </div>
+                                <div class="w-full bg-white/10 h-2 rounded-full overflow-hidden">
+                                    <div id="resProgressBar" class="bg-gradient-to-r from-[#D4A94C] to-[#22c55e] h-full rounded-full transition-all duration-500" style="width: 75%;"></div>
+                                </div>
+                            </div>
+
+                            <div class="flex items-center justify-between text-[11px] pt-1 border-t border-white/5">
+                                <span class="text-[#819BC2] font-mono">SLA Remaining: <strong class="text-[#F8F1DF]">18 Hours</strong></span>
+                                <a href="#track-status" onclick="scrollToFullTracker()" class="text-[#D4A94C] hover:underline font-semibold text-xs">
+                                    Full Audit Trail →
+                                </a>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- =====================================================
+         GOVERNMENT SCHEMES & INCENTIVES CATALOG (#schemes)
+    ===================================================== -->
+    <section id="schemes" class="relative z-10 py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full scroll-mt-24">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
+            <div>
+                <div class="flex flex-wrap items-center gap-2 mb-2">
+                    <span class="text-xs font-mono font-bold tracking-widest text-[#D4A94C] uppercase bg-[#D4A94C]/10 px-3 py-1 rounded-full border border-[#D4A94C]/25">
+                        INCENTIVES & SUBSIDIES
+                    </span>
+                    <span class="wip-badge">
+                        <span class="wip-ping-dot"></span>
+                        <span>COMING SOON • WORK IN PROGRESS</span>
+                    </span>
+                </div>
+                <h2 class="text-2xl sm:text-4xl font-bold text-[#F8F1DF] mt-2 flex flex-wrap items-center gap-3">
+                    <span>Central & State <span class="gold-text">Industrial Scheme Catalog</span></span>
+                    <span class="text-[11px] font-mono font-bold px-2.5 py-1 rounded bg-[#FF9933]/15 border border-[#FF9933]/40 text-[#FFB066] uppercase inline-flex items-center gap-1.5">
+                        <span class="wip-ping-dot"></span>
+                        WORK IN PROGRESS • COMING SOON
+                    </span>
+                </h2>
+                <p class="text-sm text-[#819BC2] mt-1 max-w-xl">
+                    Discover capital investment subsidies, Production Linked Incentives (PLI), interest subventions, and green energy grants under Make in India & Atmanirbhar Bharat.
+                </p>
+                <div class="wip-notice-bar">
+                    <div class="flex items-center gap-2.5">
+                        <span class="text-base">🚧</span>
+                        <span><strong>Development Status:</strong> Central ministry API sandboxes are currently integrating. Direct online application filing for these schemes will activate in the next release.</span>
+                    </div>
+                    <span class="hidden sm:inline-block font-mono text-[10px] uppercase px-2 py-0.5 rounded bg-white/5 border border-white/10 text-[#FFB066]">Phase II Rollout</span>
+                </div>
+            </div>
+
+            <!-- Scheme Filter Tabs -->
+            <div class="flex flex-wrap gap-2">
+                <button type="button" class="filter-tab-btn active" onclick="filterSchemes('all', this)">All Schemes (45+)</button>
+                <button type="button" class="filter-tab-btn" onclick="filterSchemes('pli', this)">PLI & Mega Projects</button>
+                <button type="button" class="filter-tab-btn" onclick="filterSchemes('msme', this)">MSME Subsidies</button>
+                <button type="button" class="filter-tab-btn" onclick="filterSchemes('green', this)">Green & Clean Energy</button>
+            </div>
+        </div>
+
+        <!-- Schemes Grid -->
+        <div id="schemesGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+
+            <!-- Scheme 1: PLI Scheme -->
+            <div class="clearance-card !border-t-[#D4A94C]" data-scheme-cat="pli">
+                <div>
+                    <div class="flex items-start justify-between gap-2 mb-3">
+                        <span class="category-pill-badge !text-[#F3D98B] !border-[#D4A94C]/40 !bg-[#D4A94C]/10">DPIIT / CENTRAL GOVT</span>
+                        <div class="flex items-center gap-1.5">
+                            <span class="wip-card-pill">Work in Progress</span>
+                            <span class="sla-pill !bg-[#D4A94C]/20 !text-[#F3D98B] !border-[#D4A94C]/40">⚡ 4% to 6% Incentive</span>
+                        </div>
+                    </div>
+                    <h3 class="text-base font-bold text-[#F8F1DF] mb-1">Production Linked Incentive (PLI) Scheme</h3>
+                    <p class="text-xs text-[#D4A94C] font-mono mb-2">Ministry of Commerce & Industry / DPIIT</p>
+                    <p class="text-xs text-[#C9C2B2] leading-relaxed mb-4">
+                        Financial incentive on incremental sales of goods manufactured in India across 14 champion sectors including electronics, pharma, green hydrogen, and auto components.
+                    </p>
+                </div>
+                <div class="pt-4 border-t border-white/10 space-y-3">
+                    <div class="flex items-center justify-between text-[11px] font-mono text-[#819BC2]">
+                        <span>Outlay: ₹1.97 Lakh Cr</span>
+                        <span class="text-[#22c55e]">✓ 14 Sectors Active</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button type="button" onclick="openSchemeModal('pli')" class="w-1/2 py-2 px-3 text-xs font-semibold rounded-md border border-[#D4A94C]/40 text-[#D4A94C] hover:bg-[#D4A94C]/10 transition-colors">
+                            Guidelines
+                        </button>
+                        <button type="button" onclick="showWipToast('PLI Scheme Online Application')" class="w-1/2 py-2 px-3 text-xs font-bold text-center rounded-md bg-[#D4A94C]/20 hover:bg-[#D4A94C]/30 text-[#D4A94C] border border-[#D4A94C]/40 transition-colors">
+                            Apply (Coming Soon)
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scheme 2: CGTMSE -->
+            <div class="clearance-card !border-t-[#22c55e]" data-scheme-cat="msme">
+                <div>
+                    <div class="flex items-start justify-between gap-2 mb-3">
+                        <span class="category-pill-badge !text-[#86efac] !border-[#22c55e]/40 !bg-[#22c55e]/10">MSME MINISTRY</span>
+                        <div class="flex items-center gap-1.5">
+                            <span class="wip-card-pill">Work in Progress</span>
+                            <span class="sla-pill">₹5 Cr Collateral-Free</span>
+                        </div>
+                    </div>
+                    <h3 class="text-base font-bold text-[#F8F1DF] mb-1">Credit Guarantee Scheme for Micro & Small Enterprises (CGTMSE)</h3>
+                    <p class="text-xs text-[#D4A94C] font-mono mb-2">Ministry of MSME & SIDBI</p>
+                    <p class="text-xs text-[#C9C2B2] leading-relaxed mb-4">
+                        Collateral-free debt credit facility up to ₹500 Lakhs for setting up new manufacturing units or technology expansion with 75% to 85% sovereign credit cover.
+                    </p>
+                </div>
+                <div class="pt-4 border-t border-white/10 space-y-3">
+                    <div class="flex items-center justify-between text-[11px] font-mono text-[#819BC2]">
+                        <span>Zero Collateral</span>
+                        <span class="text-[#86efac]">0.37% Reduced Fee</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button type="button" onclick="openSchemeModal('cgtmse')" class="w-1/2 py-2 px-3 text-xs font-semibold rounded-md border border-[#D4A94C]/40 text-[#D4A94C] hover:bg-[#D4A94C]/10 transition-colors">
+                            Guidelines
+                        </button>
+                        <button type="button" onclick="showWipToast('CGTMSE Credit Guarantee Portal')" class="w-1/2 py-2 px-3 text-xs font-bold text-center rounded-md bg-[#D4A94C]/20 hover:bg-[#D4A94C]/30 text-[#D4A94C] border border-[#D4A94C]/40 transition-colors">
+                            Apply (Coming Soon)
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scheme 3: SPECS Electronic Components -->
+            <div class="clearance-card !border-t-[#3b82f6]" data-scheme-cat="pli">
+                <div>
+                    <div class="flex items-start justify-between gap-2 mb-3">
+                        <span class="category-pill-badge !text-[#93c5fd] !border-[#3b82f6]/40 !bg-[#3b82f6]/10">ELECTRONICS & IT</span>
+                        <div class="flex items-center gap-1.5">
+                            <span class="wip-card-pill">Work in Progress</span>
+                            <span class="sla-pill !bg-[#3b82f6]/20 !text-[#93c5fd] !border-[#3b82f6]/40">25% Capex Subsidy</span>
+                        </div>
+                    </div>
+                    <h3 class="text-base font-bold text-[#F8F1DF] mb-1">SPECS Scheme for Electronic Components & Semiconductors</h3>
+                    <p class="text-xs text-[#D4A94C] font-mono mb-2">Ministry of Electronics & IT (MeitY)</p>
+                    <p class="text-xs text-[#C9C2B2] leading-relaxed mb-4">
+                        Direct financial incentive of 25% on eligible capital expenditure for active/passive components, semiconductor packaging, displays, and optical micro-assemblies.
+                    </p>
+                </div>
+                <div class="pt-4 border-t border-white/10 space-y-3">
+                    <div class="flex items-center justify-between text-[11px] font-mono text-[#819BC2]">
+                        <span>Min Investment: ₹5 Cr</span>
+                        <span class="text-[#93c5fd]">Direct Bank Transfer</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button type="button" onclick="openSchemeModal('specs')" class="w-1/2 py-2 px-3 text-xs font-semibold rounded-md border border-[#D4A94C]/40 text-[#D4A94C] hover:bg-[#D4A94C]/10 transition-colors">
+                            Guidelines
+                        </button>
+                        <button type="button" onclick="showWipToast('SPECS Electronics Subsidy Portal')" class="w-1/2 py-2 px-3 text-xs font-bold text-center rounded-md bg-[#D4A94C]/20 hover:bg-[#D4A94C]/30 text-[#D4A94C] border border-[#D4A94C]/40 transition-colors">
+                            Apply (Coming Soon)
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scheme 4: ZED Clean Tech & Sustainability -->
+            <div class="clearance-card !border-t-[#22c55e]" data-scheme-cat="green">
+                <div>
+                    <div class="flex items-start justify-between gap-2 mb-3">
+                        <span class="category-pill-badge !text-[#86efac] !border-[#22c55e]/40 !bg-[#22c55e]/10">SUSTAINABILITY</span>
+                        <div class="flex items-center gap-1.5">
+                            <span class="wip-card-pill">Work in Progress</span>
+                            <span class="sla-pill">Up to 80% Subsidy</span>
+                        </div>
+                    </div>
+                    <h3 class="text-base font-bold text-[#F8F1DF] mb-1">Zero Defect Zero Effect (ZED) Certification & Green Tech</h3>
+                    <p class="text-xs text-[#D4A94C] font-mono mb-2">Ministry of MSME / QCI</p>
+                    <p class="text-xs text-[#C9C2B2] leading-relaxed mb-4">
+                        Financial assistance up to ₹5 Lakhs for certification handholding and up to ₹10 Lakhs for installing pollution abatement and energy-saving capital equipment.
+                    </p>
+                </div>
+                <div class="pt-4 border-t border-white/10 space-y-3">
+                    <div class="flex items-center justify-between text-[11px] font-mono text-[#819BC2]">
+                        <span>Bronze/Silver/Gold</span>
+                        <span class="text-[#86efac]">50% SPCB Concession</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button type="button" onclick="openSchemeModal('zed')" class="w-1/2 py-2 px-3 text-xs font-semibold rounded-md border border-[#D4A94C]/40 text-[#D4A94C] hover:bg-[#D4A94C]/10 transition-colors">
+                            Guidelines
+                        </button>
+                        <button type="button" onclick="showWipToast('ZED Green Tech Subsidy Portal')" class="w-1/2 py-2 px-3 text-xs font-bold text-center rounded-md bg-[#D4A94C]/20 hover:bg-[#D4A94C]/30 text-[#D4A94C] border border-[#D4A94C]/40 transition-colors">
+                            Apply (Coming Soon)
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scheme 5: PM MITRA Mega Textile Parks -->
+            <div class="clearance-card !border-t-[#f97316]" data-scheme-cat="pli">
+                <div>
+                    <div class="flex items-start justify-between gap-2 mb-3">
+                        <span class="category-pill-badge !text-[#fdba74] !border-[#f97316]/40 !bg-[#f97316]/10">TEXTILES & APPAREL</span>
+                        <div class="flex items-center gap-1.5">
+                            <span class="wip-card-pill">Work in Progress</span>
+                            <span class="sla-pill !bg-[#f97316]/20 !text-[#fdba74] !border-[#f97316]/40">₹500 Cr Park Outlay</span>
+                        </div>
+                    </div>
+                    <h3 class="text-base font-bold text-[#F8F1DF] mb-1">PM Mega Integrated Textile Region and Apparel (PM MITRA)</h3>
+                    <p class="text-xs text-[#D4A94C] font-mono mb-2">Ministry of Textiles, Government of India</p>
+                    <p class="text-xs text-[#C9C2B2] leading-relaxed mb-4">
+                        Access plug-and-play production infrastructure, Zero Liquid Discharge (ZLD) effluent facilities, and dedicated power grids in 1,000+ acre mega textile clusters.
+                    </p>
+                </div>
+                <div class="pt-4 border-t border-white/10 space-y-3">
+                    <div class="flex items-center justify-between text-[11px] font-mono text-[#819BC2]">
+                        <span>₹300 Cr Infra Support</span>
+                        <span class="text-[#fdba74]">Plug & Play Setup</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button type="button" onclick="openSchemeModal('mitra')" class="w-1/2 py-2 px-3 text-xs font-semibold rounded-md border border-[#D4A94C]/40 text-[#D4A94C] hover:bg-[#D4A94C]/10 transition-colors">
+                            Guidelines
+                        </button>
+                        <button type="button" onclick="showWipToast('PM MITRA Textile Park Allotment Portal')" class="w-1/2 py-2 px-3 text-xs font-bold text-center rounded-md bg-[#D4A94C]/20 hover:bg-[#D4A94C]/30 text-[#D4A94C] border border-[#D4A94C]/40 transition-colors">
+                            Apply (Coming Soon)
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Scheme 6: PMFME Micro Food Processing -->
+            <div class="clearance-card !border-t-[#a855f7]" data-scheme-cat="msme">
+                <div>
+                    <div class="flex items-start justify-between gap-2 mb-3">
+                        <span class="category-pill-badge !text-[#d8b4fe] !border-[#a855f7]/40 !bg-[#a855f7]/10">FOOD PROCESSING</span>
+                        <div class="flex items-center gap-1.5">
+                            <span class="wip-card-pill">Work in Progress</span>
+                            <span class="sla-pill !bg-[#a855f7]/20 !text-[#d8b4fe] !border-[#a855f7]/40">35% Capital Grant</span>
+                        </div>
+                    </div>
+                    <h3 class="text-base font-bold text-[#F8F1DF] mb-1">PM Formalisation of Micro Food Processing Enterprises (PMFME)</h3>
+                    <p class="text-xs text-[#D4A94C] font-mono mb-2">Ministry of Food Processing Industries (MoFPI)</p>
+                    <p class="text-xs text-[#C9C2B2] leading-relaxed mb-4">
+                        35% credit-linked capital subsidy up to ₹10 Lakhs per unit for modernizing machinery, establishing cold storage, and standardizing quality under One District One Product (ODOP).
+                    </p>
+                </div>
+                <div class="pt-4 border-t border-white/10 space-y-3">
+                    <div class="flex items-center justify-between text-[11px] font-mono text-[#819BC2]">
+                        <span>Max Grant: ₹10 Lakhs</span>
+                        <span class="text-[#d8b4fe]">ODOP Priority</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button type="button" onclick="openSchemeModal('pmfme')" class="w-1/2 py-2 px-3 text-xs font-semibold rounded-md border border-[#D4A94C]/40 text-[#D4A94C] hover:bg-[#D4A94C]/10 transition-colors">
+                            Guidelines
+                        </button>
+                        <button type="button" onclick="showWipToast('PMFME Micro Food Processing Portal')" class="w-1/2 py-2 px-3 text-xs font-bold text-center rounded-md bg-[#D4A94C]/20 hover:bg-[#D4A94C]/30 text-[#D4A94C] border border-[#D4A94C]/40 transition-colors">
+                            Apply (Coming Soon)
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Post-UI Implementation Status Banner -->
+        <div class="wip-status-ribbon">
+            <div class="flex items-center gap-3">
+                <span class="w-8 h-8 rounded-full bg-[#FF9933]/20 border border-[#FF9933]/40 flex items-center justify-center text-sm flex-shrink-0">⏳</span>
+                <div>
+                    <div class="text-xs font-bold text-[#F8F1DF] uppercase tracking-wide flex items-center gap-2">
+                        <span>Central & State Scheme Catalog — Work in Progress (Coming Soon)</span>
+                    </div>
+                    <div class="text-[11px] text-[#819BC2] mt-0.5">
+                        Central ministry incentive databases & direct DBT subsidy integration are currently being mapped. Direct online application filing will be activated in Phase 2.
+                    </div>
+                </div>
+            </div>
+            <span class="px-3 py-1 rounded-full text-[10px] font-mono font-bold bg-[#FF9933]/20 text-[#FFB066] border border-[#FF9933]/40 uppercase whitespace-nowrap self-start sm:self-center">
+                Coming Soon • Phase 2
+            </span>
+        </div>
+
+        <div class="text-center mt-6">
+            <button type="button" onclick="showWipToast('Master Schemes Directory')" class="inline-flex items-center gap-2 text-sm text-[#D4A94C] hover:text-[#E5B869] font-mono font-bold transition-colors">
+                <span>View All 45+ Central & State Industrial Incentive Schemes (Coming Soon)</span>
+                <span>→</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- =====================================================
+         SINGLE WINDOW CLEARANCES CATALOG (#clearances)
+    ===================================================== -->
+    <section id="clearances" class="relative z-10 py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full scroll-mt-24">
+        
+        <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
+            <div>
+                <div class="flex flex-wrap items-center gap-2 mb-2">
+                    <span class="text-xs font-mono font-bold tracking-widest text-[#D4A94C] uppercase bg-[#D4A94C]/10 px-3 py-1 rounded-full border border-[#D4A94C]/25">
+                        SERVICES DIRECTORY
+                    </span>
+                    <span class="wip-badge">
+                        <span class="wip-ping-dot"></span>
+                        <span>COMING SOON • WORK IN PROGRESS</span>
+                    </span>
+                </div>
+                <h2 class="text-2xl sm:text-4xl font-bold text-[#F8F1DF] mt-2 flex flex-wrap items-center gap-3">
+                    <span>Key Statutory Clearances & <span class="gold-text">Licensing Catalog</span></span>
+                    <span class="text-[11px] font-mono font-bold px-2.5 py-1 rounded bg-[#FF9933]/15 border border-[#FF9933]/40 text-[#FFB066] uppercase inline-flex items-center gap-1.5">
+                        <span class="wip-ping-dot"></span>
+                        WORK IN PROGRESS • COMING SOON
+                    </span>
+                </h2>
+                <p class="text-sm text-[#819BC2] mt-1 max-w-xl">
+                    Search and apply for statutory NOCs across Central Ministries, Pollution Boards, Factory Inspectorates, and State Utilities.
+                </p>
+                <div class="wip-notice-bar">
+                    <div class="flex items-center gap-2.5">
+                        <span class="text-base">🚧</span>
+                        <span><strong>Development Status:</strong> Multi-department licensing workflows & e-signature pipelines are currently being linked. Digital filings will open soon.</span>
+                    </div>
+                    <span class="hidden sm:inline-block font-mono text-[10px] uppercase px-2 py-0.5 rounded bg-white/5 border border-white/10 text-[#FFB066]">Coming Soon</span>
+                </div>
+            </div>
+
+            <!-- Fast Filter Tabs -->
+            <div class="flex flex-wrap gap-2">
+                <button type="button" class="filter-tab-btn active" onclick="filterClearances('all', this)">All Clearances</button>
+                <button type="button" class="filter-tab-btn" onclick="filterClearances('pre-est', this)">Pre-Establishment</button>
+                <button type="button" class="filter-tab-btn" onclick="filterClearances('pre-op', this)">Pre-Operation</button>
+                <button type="button" class="filter-tab-btn" onclick="filterClearances('green', this)">Green Channel</button>
+            </div>
+        </div>
+
+        <!-- Clearance Cards Grid -->
+        <div id="clearanceGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <!-- Card 1: Consent to Establish (CTE) -->
+            <div class="clearance-card" data-category="pre-est">
+                <div>
+                    <div class="flex items-start justify-between gap-2 mb-3">
+                        <span class="category-pill-badge">Environment & Ecology</span>
+                        <div class="flex items-center gap-1.5">
+                            <span class="wip-card-pill">Coming Soon</span>
+                            <span class="sla-pill">⏱ SLA: 14 Days</span>
+                        </div>
+                    </div>
+                    <h3 class="text-base font-bold text-[#F8F1DF] mb-1">Consent to Establish (CTE) - Water & Air</h3>
+                    <p class="text-xs text-[#D4A94C] font-mono mb-2">Central / State Pollution Control Board (CPCB / SPCB)</p>
+                    <p class="text-xs text-[#C9C2B2] leading-relaxed mb-4">
+                        Mandatory environmental authorization prior to construction or installation of industrial plant, machinery, or effluent discharge systems.
+                    </p>
+                </div>
+                <div class="pt-4 border-t border-white/10 space-y-3">
+                    <div class="flex items-center justify-between text-[11px] font-mono text-[#819BC2]">
+                        <span>4 Docs Required</span>
+                        <span>Consolidated E-Fee: ₹15,000</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button type="button" onclick="openChecklistModal('cte')" class="w-1/2 py-2 px-3 text-xs font-semibold rounded-md border border-[#D4A94C]/40 text-[#D4A94C] hover:bg-[#D4A94C]/10 transition-colors">
+                            View SOP
+                        </button>
+                        <button type="button" onclick="showWipToast('Consent to Establish (CTE) E-filing')" class="w-1/2 py-2 px-3 text-xs font-bold text-center rounded-md bg-[#D4A94C]/20 hover:bg-[#D4A94C]/30 text-[#D4A94C] border border-[#D4A94C]/40 transition-colors">
+                            Apply (Coming Soon)
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 2: Factory Building Plan & License -->
+            <div class="clearance-card" data-category="pre-est">
+                <div>
+                    <div class="flex items-start justify-between gap-2 mb-3">
+                        <span class="category-pill-badge">Industrial Safety</span>
+                        <div class="flex items-center gap-1.5">
+                            <span class="wip-card-pill">Coming Soon</span>
+                            <span class="sla-pill">⏱ SLA: 7 Days</span>
+                        </div>
+                    </div>
+                    <h3 class="text-base font-bold text-[#F8F1DF] mb-1">Factory Building Plan & Machinery Layout Approval</h3>
+                    <p class="text-xs text-[#D4A94C] font-mono mb-2">Directorate of Industrial Safety & Health (DISH)</p>
+                    <p class="text-xs text-[#C9C2B2] leading-relaxed mb-4">
+                        Approval of architectural factory drawings, fire escape routes, worker safety provisions, and plant machinery installation plan.
+                    </p>
+                </div>
+                <div class="pt-4 border-t border-white/10 space-y-3">
+                    <div class="flex items-center justify-between text-[11px] font-mono text-[#819BC2]">
+                        <span>CAD Plan Required</span>
+                        <span>Statutory Fee: ₹4,500</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button type="button" onclick="openChecklistModal('dish')" class="w-1/2 py-2 px-3 text-xs font-semibold rounded-md border border-[#D4A94C]/40 text-[#D4A94C] hover:bg-[#D4A94C]/10 transition-colors">
+                            View SOP
+                        </button>
+                        <button type="button" onclick="showWipToast('Factory Plan Approval (DISH)')" class="w-1/2 py-2 px-3 text-xs font-bold text-center rounded-md bg-[#D4A94C]/20 hover:bg-[#D4A94C]/30 text-[#D4A94C] border border-[#D4A94C]/40 transition-colors">
+                            Apply (Coming Soon)
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 3: Fire Safety NOC -->
+            <div class="clearance-card" data-category="pre-est">
+                <div>
+                    <div class="flex items-start justify-between gap-2 mb-3">
+                        <span class="category-pill-badge">Public Safety</span>
+                        <div class="flex items-center gap-1.5">
+                            <span class="wip-card-pill">Coming Soon</span>
+                            <span class="sla-pill">⏱ SLA: 5 Days</span>
+                        </div>
+                    </div>
+                    <h3 class="text-base font-bold text-[#F8F1DF] mb-1">Fire Safety Recommendation & NOC</h3>
+                    <p class="text-xs text-[#D4A94C] font-mono mb-2">State Fire & Emergency Services Department</p>
+                    <p class="text-xs text-[#C9C2B2] leading-relaxed mb-4">
+                        Provisional and final no-objection certificate for industrial hydrant systems, emergency exits, and high-hazard storage.
+                    </p>
+                </div>
+                <div class="pt-4 border-t border-white/10 space-y-3">
+                    <div class="flex items-center justify-between text-[11px] font-mono text-[#819BC2]">
+                        <span>Hydrant Audit</span>
+                        <span>Statutory Fee: ₹3,000</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button type="button" onclick="openChecklistModal('fire')" class="w-1/2 py-2 px-3 text-xs font-semibold rounded-md border border-[#D4A94C]/40 text-[#D4A94C] hover:bg-[#D4A94C]/10 transition-colors">
+                            View SOP
+                        </button>
+                        <button type="button" onclick="showWipToast('Fire Safety Recommendation NOC')" class="w-1/2 py-2 px-3 text-xs font-bold text-center rounded-md bg-[#D4A94C]/20 hover:bg-[#D4A94C]/30 text-[#D4A94C] border border-[#D4A94C]/40 transition-colors">
+                            Apply (Coming Soon)
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 4: Consent to Operate (CTO) -->
+            <div class="clearance-card" data-category="pre-op">
+                <div>
+                    <div class="flex items-start justify-between gap-2 mb-3">
+                        <span class="category-pill-badge">Operational Consent</span>
+                        <div class="flex items-center gap-1.5">
+                            <span class="wip-card-pill">Coming Soon</span>
+                            <span class="sla-pill">⏱ SLA: 15 Days</span>
+                        </div>
+                    </div>
+                    <h3 class="text-base font-bold text-[#F8F1DF] mb-1">Consent to Operate (CTO) & Hazardous Waste</h3>
+                    <p class="text-xs text-[#D4A94C] font-mono mb-2">State Pollution Control Board (SPCB)</p>
+                    <p class="text-xs text-[#C9C2B2] leading-relaxed mb-4">
+                        Commissioning license for manufacturing unit post-installation of Effluent Treatment Plants (ETP) or air pollution devices.
+                    </p>
+                </div>
+                <div class="pt-4 border-t border-white/10 space-y-3">
+                    <div class="flex items-center justify-between text-[11px] font-mono text-[#819BC2]">
+                        <span>ETP Test Report</span>
+                        <span>Validity: 5-10 Years</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button type="button" onclick="openChecklistModal('cto')" class="w-1/2 py-2 px-3 text-xs font-semibold rounded-md border border-[#D4A94C]/40 text-[#D4A94C] hover:bg-[#D4A94C]/10 transition-colors">
+                            View SOP
+                        </button>
+                        <button type="button" onclick="showWipToast('Consent to Operate (CTO) Portal')" class="w-1/2 py-2 px-3 text-xs font-bold text-center rounded-md bg-[#D4A94C]/20 hover:bg-[#D4A94C]/30 text-[#D4A94C] border border-[#D4A94C]/40 transition-colors">
+                            Apply (Coming Soon)
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 5: Boiler Registration & Inspection -->
+            <div class="clearance-card" data-category="pre-op">
+                <div>
+                    <div class="flex items-start justify-between gap-2 mb-3">
+                        <span class="category-pill-badge">Mechanical Safety</span>
+                        <div class="flex items-center gap-1.5">
+                            <span class="wip-card-pill">Coming Soon</span>
+                            <span class="sla-pill">⏱ SLA: 7 Days</span>
+                        </div>
+                    </div>
+                    <h3 class="text-base font-bold text-[#F8F1DF] mb-1">Boiler Registration & Pressure Vessel Sanction</h3>
+                    <p class="text-xs text-[#D4A94C] font-mono mb-2">Chief Inspector of Boilers & Steam Generation</p>
+                    <p class="text-xs text-[#C9C2B2] leading-relaxed mb-4">
+                        Statutory inspection, hydraulic test verification, and operating certificate under Indian Boiler Act, 1923.
+                    </p>
+                </div>
+                <div class="pt-4 border-t border-white/10 space-y-3">
+                    <div class="flex items-center justify-between text-[11px] font-mono text-[#819BC2]">
+                        <span>Hydraulic Test</span>
+                        <span>Statutory Fee: ₹8,000</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button type="button" onclick="openChecklistModal('boiler')" class="w-1/2 py-2 px-3 text-xs font-semibold rounded-md border border-[#D4A94C]/40 text-[#D4A94C] hover:bg-[#D4A94C]/10 transition-colors">
+                            View SOP
+                        </button>
+                        <button type="button" onclick="showWipToast('Boiler Registration Inspection Portal')" class="w-1/2 py-2 px-3 text-xs font-bold text-center rounded-md bg-[#D4A94C]/20 hover:bg-[#D4A94C]/30 text-[#D4A94C] border border-[#D4A94C]/40 transition-colors">
+                            Apply (Coming Soon)
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card 6: Green Channel Auto-NOC -->
+            <div class="clearance-card" data-category="green">
+                <div>
+                    <div class="flex items-start justify-between gap-2 mb-3">
+                        <span class="category-pill-badge !text-[#6ee7b7] !border-[#22c55e]/40 !bg-[#22c55e]/10">FAST-TRACK GREEN</span>
+                        <div class="flex items-center gap-1.5">
+                            <span class="wip-card-pill">Coming Soon</span>
+                            <span class="sla-pill !text-[#6ee7b7] !bg-[#22c55e]/20">⚡ SLA: 24 Hours</span>
+                        </div>
+                    </div>
+                    <h3 class="text-base font-bold text-[#F8F1DF] mb-1">White Category Self-Certification Auto-NOC</h3>
+                    <p class="text-xs text-[#D4A94C] font-mono mb-2">Ministry of Commerce & Industry / CPCB</p>
+                    <p class="text-xs text-[#C9C2B2] leading-relaxed mb-4">
+                        Zero-polluting industrial activities (software, electronics assembly, renewable solar units) receive instant digital acknowledgement without manual inspection.
+                    </p>
+                </div>
+                <div class="pt-4 border-t border-white/10 space-y-3">
+                    <div class="flex items-center justify-between text-[11px] font-mono text-[#819BC2]">
+                        <span>Self-Declaration</span>
+                        <span class="text-[#22c55e] font-bold">Zero Gov Fee</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <button type="button" onclick="openChecklistModal('green')" class="w-1/2 py-2 px-3 text-xs font-semibold rounded-md border border-[#D4A94C]/40 text-[#D4A94C] hover:bg-[#D4A94C]/10 transition-colors">
+                            View SOP
+                        </button>
+                        <button type="button" onclick="showWipToast('Green Channel Auto-NOC Portal')" class="w-1/2 py-2 px-3 text-xs font-bold text-center rounded-md bg-[#D4A94C]/20 hover:bg-[#D4A94C]/30 text-[#D4A94C] border border-[#D4A94C]/40 transition-colors">
+                            Instant Auto-NOC (Coming Soon)
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Post-UI Implementation Status Banner -->
+        <div class="wip-status-ribbon">
+            <div class="flex items-center gap-3">
+                <span class="w-8 h-8 rounded-full bg-[#FF9933]/20 border border-[#FF9933]/40 flex items-center justify-center text-sm flex-shrink-0">⏳</span>
+                <div>
+                    <div class="text-xs font-bold text-[#F8F1DF] uppercase tracking-wide flex items-center gap-2">
+                        <span>Statutory Clearances Catalog — Work in Progress (Coming Soon)</span>
+                    </div>
+                    <div class="text-[11px] text-[#819BC2] mt-0.5">
+                        36+ State Pollution Control Boards, Fire Services, and Factory Inspectorates are currently integrating their electronic filing gateways.
+                    </div>
+                </div>
+            </div>
+            <span class="px-3 py-1 rounded-full text-[10px] font-mono font-bold bg-[#FF9933]/20 text-[#FFB066] border border-[#FF9933]/40 uppercase whitespace-nowrap self-start sm:self-center">
+                Coming Soon • Phase 2
+            </span>
+        </div>
+
+        <div class="text-center mt-6">
+            <button type="button" onclick="showWipToast('Master Clearances Directory')" class="inline-flex items-center gap-2 text-sm text-[#D4A94C] hover:text-[#E5B869] font-mono font-bold transition-colors">
+                <span>Explore all 140+ Central & State Industrial Clearances (Coming Soon)</span>
+                <span>→</span>
+            </button>
+        </div>
+    </section>
+
+    <!-- =====================================================
+         INTERACTIVE FULL APPLICATION TRACKER (#track-status)
+    ===================================================== -->
+    <section id="track-status" class="relative z-10 py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full scroll-mt-24">
+        <div class="section-separator"></div>
+
+        <div class="text-center max-w-3xl mx-auto mb-10">
+            <div class="flex flex-wrap items-center justify-center gap-2 mb-2">
+                <span class="text-xs font-mono font-bold tracking-widest text-[#D4A94C] uppercase bg-[#D4A94C]/10 px-3 py-1 rounded-full border border-[#D4A94C]/25">
+                    TRANSPARENT AUDIT
+                </span>
+                <span class="wip-badge">
+                    <span class="wip-ping-dot"></span>
+                    <span>COMING SOON • WORK IN PROGRESS</span>
+                </span>
+            </div>
+            <h2 class="text-2xl sm:text-4xl font-bold text-[#F8F1DF] mt-2 flex flex-wrap items-center justify-center gap-3">
+                <span>Real-Time <span class="gold-text">Clearance Tracker & Audit Trail</span></span>
+                <span class="text-[11px] font-mono font-bold px-2.5 py-1 rounded bg-[#FF9933]/15 border border-[#FF9933]/40 text-[#FFB066] uppercase inline-flex items-center gap-1.5">
+                    <span class="wip-ping-dot"></span>
+                    WORK IN PROGRESS • COMING SOON
+                </span>
+            </h2>
+            <p class="text-sm text-[#819BC2] mt-1">
+                Monitor multi-department approvals, officer scrutiny notes, inspection orders, and download certified composite NOCs with tamper-proof security.
+            </p>
+            <div class="wip-notice-bar max-w-2xl mx-auto text-left mt-3">
+                <div class="flex items-center gap-2.5">
+                    <span class="text-base">🚧</span>
+                    <span><strong>Prototype Preview:</strong> Live state inspection API gateways are connecting. You can explore the functional test simulation with sample application IDs below.</span>
+                </div>
+                <span class="hidden sm:inline-block font-mono text-[10px] uppercase px-2 py-0.5 rounded bg-white/5 border border-white/10 text-[#FFB066]">In Progress</span>
+            </div>
+        </div>
+
+        <!-- Comprehensive Tracker Container -->
+        <div class="glass-panel p-6 sm:p-10 max-w-5xl mx-auto">
+            
+            <!-- Tracker Header & Input -->
+            <div class="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 pb-8 border-b border-white/10">
+                <div class="flex-1">
+                    <label for="mainTrackInput" class="block text-xs font-mono font-bold text-[#C9C2B2] uppercase tracking-wider mb-2">
+                        Application Reference / Acknowledgement Number:
+                    </label>
+                    <div class="relative flex items-center">
+                        <svg class="w-5 h-5 absolute left-3.5 text-[#D4A94C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                        </svg>
+                        <input type="text" id="mainTrackInput" value="IND-2026-8942"
+                            class="gov-input !pl-11 !font-mono !text-base uppercase" placeholder="e.g. IND-2026-8942">
+                    </div>
+                </div>
+                <div class="flex items-end">
+                    <button type="button" onclick="executeFullAuditTrack()" class="btn-gold-primary w-full md:w-auto h-[46px] flex items-center justify-center gap-2">
+                        <span>Search Audit Trail (WIP Preview)</span>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Active File Summary Meta -->
+            <div id="fullAuditDetails" class="pt-8 space-y-8">
+                
+                <!-- Enterprise Metadata Card -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-4 rounded-xl bg-[#071736] border border-[#D4A94C]/20">
+                    <div>
+                        <div class="flex items-center justify-between mb-1">
+                            <span class="text-[10px] font-mono text-[#819BC2] uppercase">Enterprise Name</span>
+                            <span class="wip-card-pill">WIP Test</span>
+                        </div>
+                        <h4 id="auditUnitTitle" class="text-sm font-bold text-[#F8F1DF]">EcoTech Plastics Recycling Pvt Ltd</h4>
+                        <span id="auditUdyam" class="text-xs font-mono text-[#D4A94C]">UDYAM-MP-08-009124</span>
+                    </div>
+                    <div>
+                        <span class="text-[10px] font-mono text-[#819BC2] uppercase">Project Sector & Stage</span>
+                        <div id="auditSector" class="text-sm font-medium text-[#F8F1DF]">Polymers & Circular Economy</div>
+                        <span class="text-xs text-[#819BC2]">Orange Category • Pre-Establishment</span>
+                    </div>
+                    <div>
+                        <span class="text-[10px] font-mono text-[#819BC2] uppercase">Allotted Industrial Plot</span>
+                        <div id="auditLocation" class="text-sm font-medium text-[#F8F1DF]">Plot 44-B, Sector II</div>
+                        <span class="text-xs text-[#819BC2]">Smart Industrial City, Pithampur</span>
+                    </div>
+                    <div>
+                        <span class="text-[10px] font-mono text-[#819BC2] uppercase">Overall Composite SLA</span>
+                        <div class="text-sm font-bold text-[#22c55e] font-mono">ON SCHEDULE</div>
+                        <span class="text-xs text-[#819BC2]">18 hrs left out of 72 hrs SLA</span>
+                    </div>
+                </div>
+
+                <!-- Visual Step Flow Timeline -->
+                <div>
+                    <h4 class="text-xs font-mono uppercase tracking-widest text-[#D4A94C] mb-6">Multi-Department Scrutiny Timeline</h4>
+                    
+                    <div class="relative">
+                        <!-- Horizontal Track (Desktop) -->
+                        <div class="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-white/10 -translate-y-1/2 z-0"></div>
+
+                        <div class="grid grid-cols-1 md:grid-cols-4 gap-6 relative z-10">
+                            
+                            <!-- Stage 1 -->
+                            <div class="p-4 rounded-xl bg-[#05132B] border border-[#22c55e]/40 space-y-2 text-left">
+                                <div class="flex items-center justify-between">
+                                    <span class="timeline-step-node completed">✓</span>
+                                    <span class="text-[10px] font-mono text-[#86efac]">COMPLETED</span>
+                                </div>
+                                <h5 class="text-sm font-bold text-[#F8F1DF]">1. Single Window Filing</h5>
+                                <p class="text-xs text-[#819BC2]">Common Application Form (CAF) & E-fees verified.</p>
+                                <div class="text-[10px] font-mono text-[#D4A94C]">10 Sep 2026, 09:15 IST</div>
+                            </div>
+
+                            <!-- Stage 2 -->
+                            <div class="p-4 rounded-xl bg-[#05132B] border border-[#22c55e]/40 space-y-2 text-left">
+                                <div class="flex items-center justify-between">
+                                    <span class="timeline-step-node completed">✓</span>
+                                    <span class="text-[10px] font-mono text-[#86efac]">COMPLETED</span>
+                                </div>
+                                <h5 class="text-sm font-bold text-[#F8F1DF]">2. Document Scrutiny</h5>
+                                <p class="text-xs text-[#819BC2]">Parallel validation by SPCB, DISH, and Fire Services.</p>
+                                <div class="text-[10px] font-mono text-[#D4A94C]">10 Sep 2026, 11:30 IST</div>
+                            </div>
+
+                            <!-- Stage 3 -->
+                            <div class="p-4 rounded-xl bg-[#0A2045] border border-[#D4A94C] space-y-2 text-left shadow-lg shadow-[#D4A94C]/10">
+                                <div class="flex items-center justify-between">
+                                    <span class="timeline-step-node active-step">3</span>
+                                    <span class="text-[10px] font-mono text-[#F3D98B] font-bold">IN PROGRESS</span>
+                                </div>
+                                <h5 class="text-sm font-bold text-[#F8F1DF]">3. Joint Field Verification</h5>
+                                <p class="text-xs text-[#C9C2B2]">Inspector assigned. Geo-tagged audit scheduled.</p>
+                                <div class="text-[10px] font-mono text-[#D4A94C]">Assigned Officer: ID #MP-749</div>
+                            </div>
+
+                            <!-- Stage 4 -->
+                            <div class="p-4 rounded-xl bg-[#05132B] border border-white/10 space-y-2 text-left">
+                                <div class="flex items-center justify-between">
+                                    <span class="timeline-step-node pending">4</span>
+                                    <span class="text-[10px] font-mono text-[#819BC2]">PENDING</span>
+                                </div>
+                                <h5 class="text-sm font-bold text-[#F8F1DF]">4. Composite NOC Issuance</h5>
+                                <p class="text-xs text-[#819BC2]">Final e-Sign and QR-coded certified permit.</p>
+                                <div class="text-[10px] font-mono text-[#819BC2]">Est. Delivery: 11 Sep 2026</div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Action Download Row -->
+                <div class="p-4 rounded-xl bg-[#051838] border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+                    <div class="flex items-center gap-3 text-left">
+                        <div class="w-10 h-10 rounded-lg bg-[#D4A94C]/20 border border-[#D4A94C]/40 text-[#D4A94C] flex items-center justify-center">
+                            📄
+                        </div>
+                        <div>
+                            <div class="text-xs font-bold text-[#F8F1DF]">Provisional Acknowledgement & Scrutiny Receipt</div>
+                            <div class="text-[11px] text-[#819BC2] font-mono">Digital Hash: 8F2A-94B1-2026-MP-SWC • QR Verified</div>
+                        </div>
+                    </div>
+                    <button type="button" onclick="showWipToast('Provisional Receipt Download')" class="btn-outline-gold !py-2 !text-xs">
+                        Download Provisional Receipt (Coming Soon) ↓
+                    </button>
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Post-UI Implementation Status Banner -->
+        <div class="wip-status-ribbon max-w-5xl mx-auto">
+            <div class="flex items-center gap-3">
+                <span class="w-8 h-8 rounded-full bg-[#FF9933]/20 border border-[#FF9933]/40 flex items-center justify-center text-sm flex-shrink-0">⏳</span>
+                <div>
+                    <div class="text-xs font-bold text-[#F8F1DF] uppercase tracking-wide flex items-center gap-2">
+                        <span>Real-Time Clearance Tracker UI — Work in Progress (Coming Soon)</span>
+                    </div>
+                    <div class="text-[11px] text-[#819BC2] mt-0.5">
+                        Live officer inspection scheduling, geo-tagged dispatch, and multi-department audit trail telemetry are under active system integration.
+                    </div>
+                </div>
+            </div>
+            <span class="px-3 py-1 rounded-full text-[10px] font-mono font-bold bg-[#FF9933]/20 text-[#FFB066] border border-[#FF9933]/40 uppercase whitespace-nowrap self-start sm:self-center">
+                Coming Soon • Phase 2
+            </span>
+        </div>
+    </section>
+
+    <!-- =====================================================
+         INTERACTIVE SLA & STATUTORY FEE CALCULATOR (#fee-estimator)
+    ===================================================== -->
+    <section id="fee-estimator" class="relative z-10 py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full scroll-mt-24">
+        <div class="section-separator"></div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
+            
+            <!-- Left Info Column -->
+            <div class="lg:col-span-5 space-y-4 text-left">
+                <div class="flex flex-wrap items-center gap-2">
+                    <span class="text-xs font-mono font-bold tracking-widest text-[#D4A94C] uppercase bg-[#D4A94C]/10 px-3 py-1 rounded-full border border-[#D4A94C]/25">
+                        INVESTOR TOOL
+                    </span>
+                    <span class="wip-badge">
+                        <span class="wip-ping-dot"></span>
+                        <span>COMING SOON • WORK IN PROGRESS</span>
+                    </span>
+                </div>
+                <h2 class="text-2xl sm:text-4xl font-bold text-[#F8F1DF] flex flex-wrap items-center gap-3">
+                    <span>Know Your Clearances & <span class="gold-text">SLA Estimator</span></span>
+                    <span class="text-[11px] font-mono font-bold px-2.5 py-1 rounded bg-[#FF9933]/15 border border-[#FF9933]/40 text-[#FFB066] uppercase inline-flex items-center gap-1.5">
+                        <span class="wip-ping-dot"></span>
+                        WORK IN PROGRESS • COMING SOON
+                    </span>
+                </h2>
+                <p class="text-sm text-[#C9C2B2] leading-relaxed">
+                    Planning a new factory or industrial project? Select your sector, proposed investment, and environmental classification to immediately discover required approvals, turn-around times, and estimated statutory fees.
+                </p>
+                <div class="wip-notice-bar">
+                    <div class="flex items-center gap-2">
+                        <span class="text-base">🚧</span>
+                        <span><strong>Notice:</strong> State-specific tariff matrices and statutory fee calculators are currently being calibrated for live rollout.</span>
+                    </div>
+                </div>
+                
+                <div class="space-y-3 pt-2">
+                    <div class="flex items-start gap-3 text-xs text-[#C9C2B2]">
+                        <span class="text-[#22c55e] font-bold">✓</span>
+                        <span>Transparent statutory fee calculation as per state industrial policy rules</span>
+                    </div>
+                    <div class="flex items-start gap-3 text-xs text-[#C9C2B2]">
+                        <span class="text-[#22c55e] font-bold">✓</span>
+                        <span>Automatic Green Channel qualification check for zero-emission units</span>
+                    </div>
+                    <div class="flex items-start gap-3 text-xs text-[#C9C2B2]">
+                        <span class="text-[#22c55e] font-bold">✓</span>
+                        <span>Consolidated checklist of mandatory documents for fast approval</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Right Calculator Form Card -->
+            <div class="lg:col-span-7">
+                <div class="glass-panel p-6 sm:p-8">
+                    <h3 class="text-lg font-bold text-[#F8F1DF] mb-6 flex items-center justify-between pb-3 border-b border-white/10">
+                        <span>Industrial Project Parameter Configurator</span>
+                        <div class="flex items-center gap-2">
+                            <span class="wip-card-pill">Work in Progress</span>
+                            <span class="text-xs font-mono text-[#D4A94C]">RULES ENGINE v2.4</span>
+                        </div>
+                    </h3>
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
+                        <!-- Sector Select -->
+                        <div>
+                            <label for="calcSector" class="block text-xs font-mono font-bold text-[#C9C2B2] uppercase mb-1.5">Industry Sector</label>
+                            <select id="calcSector" onchange="recalculateEstimator()" class="gov-input !py-2.5 !text-sm">
+                                <option value="mfg">General Manufacturing & Engineering</option>
+                                <option value="pharma">Chemicals, APIs & Pharmaceuticals</option>
+                                <option value="food">Food Processing & Agro-Industries</option>
+                                <option value="renew">Renewable Energy & Solar Parks</option>
+                                <option value="it">Electronics Assembly & IT Hardware</option>
+                            </select>
+                        </div>
+
+                        <!-- Pollution Category -->
+                        <div>
+                            <label for="calcPollution" class="block text-xs font-mono font-bold text-[#C9C2B2] uppercase mb-1.5">Pollution Classification</label>
+                            <select id="calcPollution" onchange="recalculateEstimator()" class="gov-input !py-2.5 !text-sm">
+                                <option value="white">White Category (Zero Pollution - Fast Track)</option>
+                                <option value="green" selected>Green Category (Low Pollution)</option>
+                                <option value="orange">Orange Category (Moderate Pollution)</option>
+                                <option value="red">Red Category (High Pollution Index)</option>
+                            </select>
+                        </div>
+
+                        <!-- Investment Bracket -->
+                        <div>
+                            <label for="calcInvestment" class="block text-xs font-mono font-bold text-[#C9C2B2] uppercase mb-1.5">Proposed Capital Investment</label>
+                            <select id="calcInvestment" onchange="recalculateEstimator()" class="gov-input !py-2.5 !text-sm">
+                                <option value="micro">Micro Enterprise (&lt; ₹1 Crore)</option>
+                                <option value="small" selected>Small Enterprise (₹1 Cr - ₹10 Cr)</option>
+                                <option value="medium">Medium Enterprise (₹10 Cr - ₹50 Cr)</option>
+                                <option value="large">Mega / Ultra-Mega (&gt; ₹50 Cr)</option>
+                            </select>
+                        </div>
+
+                        <!-- Land Requirement -->
+                        <div>
+                            <label for="calcLand" class="block text-xs font-mono font-bold text-[#C9C2B2] uppercase mb-1.5">Plot Extent Required</label>
+                            <select id="calcLand" onchange="recalculateEstimator()" class="gov-input !py-2.5 !text-sm">
+                                <option value="leased">Leased Industrial Shed / Flatted Factory</option>
+                                <option value="small-plot" selected>Plot up to 2,500 sq. meters</option>
+                                <option value="mid-plot">Plot 2,500 - 25,000 sq. meters</option>
+                                <option value="mega-plot">Large Tract (&gt; 25,000 sq. meters)</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <!-- Computed Results Strip -->
+                    <div class="p-5 rounded-xl bg-[#040e24] border border-[#D4A94C]/40 space-y-4">
+                        <div class="grid grid-cols-3 gap-3 text-center">
+                            <div class="p-2 rounded-lg bg-white/5">
+                                <div class="text-[10px] font-mono text-[#819BC2] uppercase">Estimated Approvals</div>
+                                <div id="estApprovalsCount" class="text-xl font-mono font-bold text-[#D4A94C] mt-0.5">4 NOCs</div>
+                            </div>
+                            <div class="p-2 rounded-lg bg-white/5">
+                                <div class="text-[10px] font-mono text-[#819BC2] uppercase">Max Composite SLA</div>
+                                <div id="estSlaTime" class="text-xl font-mono font-bold text-[#22c55e] mt-0.5">14 Days</div>
+                            </div>
+                            <div class="p-2 rounded-lg bg-white/5">
+                                <div class="text-[10px] font-mono text-[#819BC2] uppercase">Consolidated Govt Fee</div>
+                                <div id="estTotalFee" class="text-xl font-mono font-bold text-[#F8F1DF] mt-0.5">₹22,500</div>
+                            </div>
+                        </div>
+
+                        <div class="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs border-t border-white/10 pt-3">
+                            <span id="estNoticeText" class="text-[#819BC2] text-left">
+                                Includes: Consent to Establish (SPCB), Factory Plan Approval (DISH), and Fire Recommendation.
+                            </span>
+                            <button type="button" onclick="showWipToast('Automated Clearance Application Filing')" class="btn-gold-primary !py-2 !px-4 !text-xs whitespace-nowrap">
+                                Apply for these Clearances (Coming Soon) →
+                            </button>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Post-UI Implementation Status Banner -->
+        <div class="wip-status-ribbon">
+            <div class="flex items-center gap-3">
+                <span class="w-8 h-8 rounded-full bg-[#FF9933]/20 border border-[#FF9933]/40 flex items-center justify-center text-sm flex-shrink-0">⏳</span>
+                <div>
+                    <div class="text-xs font-bold text-[#F8F1DF] uppercase tracking-wide flex items-center gap-2">
+                        <span>Clearances & SLA Estimator UI — Work in Progress (Coming Soon)</span>
+                    </div>
+                    <div class="text-[11px] text-[#819BC2] mt-0.5">
+                        Dynamic state fee matrices, capital investment slabs, and statutory timeline estimators across all 28 states are currently in development.
+                    </div>
+                </div>
+            </div>
+            <span class="px-3 py-1 rounded-full text-[10px] font-mono font-bold bg-[#FF9933]/20 text-[#FFB066] border border-[#FF9933]/40 uppercase whitespace-nowrap self-start sm:self-center">
+                Coming Soon • Phase 2
+            </span>
+        </div>
+    </section>
+
+    <!-- =====================================================
+         PARTICIPATING DEPARTMENTS & CENTRAL AUTHORITIES
+    ===================================================== -->
+    <section class="relative z-10 py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full text-center">
+        <div class="section-separator"></div>
+
+        <span class="text-xs font-mono font-bold tracking-widest text-[#D4A94C] uppercase bg-[#D4A94C]/10 px-3 py-1 rounded-full border border-[#D4A94C]/25">
+            NATIONAL SINGLE WINDOW ECOSYSTEM
+        </span>
+        <h2 class="text-2xl sm:text-3xl font-bold text-[#F8F1DF] mt-2 mb-3">
+            Integrated Statutory Ministries & Departments
+        </h2>
+        <p class="text-sm text-[#819BC2] max-w-2xl mx-auto mb-10">
+            A seamless digital coalition connecting 36+ Central Ministries and State Industrial Development Authorities on a common API fabric.
+        </p>
+
+        <!-- Department Badges Grid -->
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
+            
+            <div class="p-4 rounded-xl bg-white/5 border border-white/10 hover:border-[#D4A94C]/50 transition-colors flex flex-col items-center justify-center gap-2 text-center">
+                <div class="w-10 h-10 rounded-full bg-[#D4A94C]/15 text-[#D4A94C] flex items-center justify-center font-bold text-sm">
+                    DPIIT
+                </div>
+                <div class="text-xs font-bold text-[#F8F1DF]">Commerce & Industry</div>
+                <div class="text-[10px] text-[#819BC2]">Govt of India</div>
+            </div>
+
+            <div class="p-4 rounded-xl bg-white/5 border border-white/10 hover:border-[#D4A94C]/50 transition-colors flex flex-col items-center justify-center gap-2 text-center">
+                <div class="w-10 h-10 rounded-full bg-[#22c55e]/15 text-[#22c55e] flex items-center justify-center font-bold text-sm">
+                    CPCB
+                </div>
+                <div class="text-xs font-bold text-[#F8F1DF]">Pollution Control</div>
+                <div class="text-[10px] text-[#819BC2]">MoEFCC</div>
+            </div>
+
+            <div class="p-4 rounded-xl bg-white/5 border border-white/10 hover:border-[#D4A94C]/50 transition-colors flex flex-col items-center justify-center gap-2 text-center">
+                <div class="w-10 h-10 rounded-full bg-[#D4A94C]/15 text-[#D4A94C] flex items-center justify-center font-bold text-sm">
+                    DISH
+                </div>
+                <div class="text-xs font-bold text-[#F8F1DF]">Industrial Safety</div>
+                <div class="text-[10px] text-[#819BC2]">Inspectorate of Factories</div>
+            </div>
+
+            <div class="p-4 rounded-xl bg-white/5 border border-white/10 hover:border-[#D4A94C]/50 transition-colors flex flex-col items-center justify-center gap-2 text-center">
+                <div class="w-10 h-10 rounded-full bg-[#3b82f6]/15 text-[#93c5fd] flex items-center justify-center font-bold text-sm">
+                    PESO
+                </div>
+                <div class="text-xs font-bold text-[#F8F1DF]">Explosives & Gas</div>
+                <div class="text-[10px] text-[#819BC2]">Petroleum Safety</div>
+            </div>
+
+            <div class="p-4 rounded-xl bg-white/5 border border-white/10 hover:border-[#D4A94C]/50 transition-colors flex flex-col items-center justify-center gap-2 text-center">
+                <div class="w-10 h-10 rounded-full bg-[#f97316]/15 text-[#fdba74] flex items-center justify-center font-bold text-sm">
+                    FIRE
+                </div>
+                <div class="text-xs font-bold text-[#F8F1DF]">Fire Services</div>
+                <div class="text-[10px] text-[#819BC2]">Disaster Management</div>
+            </div>
+
+            <div class="p-4 rounded-xl bg-white/5 border border-white/10 hover:border-[#D4A94C]/50 transition-colors flex flex-col items-center justify-center gap-2 text-center">
+                <div class="w-10 h-10 rounded-full bg-[#a855f7]/15 text-[#d8b4fe] flex items-center justify-center font-bold text-sm">
+                    SIDC
+                </div>
+                <div class="text-xs font-bold text-[#F8F1DF]">Land Allotment</div>
+                <div class="text-[10px] text-[#819BC2]">State Industrial Corps</div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- =====================================================
+         CALLOUT: HELPDESK & ESCALATION SUPPORT
+    ===================================================== -->
+    <section class="relative z-10 py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
+        <div class="p-8 sm:p-10 rounded-2xl bg-gradient-to-r from-[#071d44] via-[#0b2b63] to-[#071d44] border border-[#D4A94C]/35 relative overflow-hidden">
+            <div class="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8 text-left">
+                <div class="space-y-2 max-w-2xl">
+                    <span class="text-xs font-mono uppercase text-[#D4A94C] font-bold">24x7 Statutory Investor Facilitation</span>
+                    <h3 class="text-2xl sm:text-3xl font-bold text-[#F8F1DF]">
+                        Need Guidance on Clearances or Experiencing SLA Delays?
+                    </h3>
+                    <p class="text-sm text-[#C9C2B2] leading-relaxed">
+                        Our centralized grievance escalation cell monitors department SLAs in real-time. If any clearance exceeds guaranteed turnaround timelines, an automatic reminder is triggered to the State Principal Secretary.
+                    </p>
+                </div>
+                <div class="flex flex-wrap items-center gap-4 flex-shrink-0">
+                    <a href="Helpdesk.html" class="btn-gold-primary">
+                        <span>Central Grievance Redressal</span>
+                        <span>→</span>
+                    </a>
+                    <a href="tel:1800114646" class="btn-outline-gold">
+                        <span>📞 1800-11-4646</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- =====================================================
+         REQUIREMENTS CHECKLIST MODAL (SOP & DOCUMENTS)
+    ===================================================== -->
+    <div id="checklistModal" class="gov-modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <div class="gov-modal-content">
+            <div class="flex items-start justify-between pb-4 border-b border-white/10">
+                <div>
+                    <span id="modalDept" class="text-xs font-mono text-[#D4A94C]">DEPARTMENT CLEARANCE SOP</span>
+                    <h3 id="modalTitle" class="text-lg font-bold text-[#F8F1DF]">Clearance Checklist & Statutory Rules</h3>
+                </div>
+                <button type="button" onclick="closeChecklistModal()" class="text-[#819BC2] hover:text-white p-1 rounded-md text-xl leading-none">
+                    ✕
+                </button>
+            </div>
+
+            <div class="py-5 space-y-4 text-sm text-[#C9C2B2]" id="modalBody">
+                <!-- Injected via JavaScript -->
+            </div>
+
+            <div class="flex items-center justify-end gap-3 pt-4 border-t border-white/10">
+                <button type="button" onclick="closeChecklistModal()" class="btn-outline-gold !py-2 !px-4 !text-xs">
+                    Close Window
+                </button>
+                <a href="Applicant.html" class="btn-gold-primary !py-2 !px-4 !text-xs">
+                    Proceed to Application Form →
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <!-- =====================================================
+         GOVERNMENT PORTAL OFFICIAL FOOTER (Exact match with login.html)
+    ===================================================== -->
+    <footer class="portal-footer pt-10 px-6 lg:px-12 mt-auto">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 pb-8 text-left">
+
+            <!-- Col 1: Government Single Window System -->
+            <div class="space-y-3">
+                <div class="flex items-center gap-2">
+                    <div
+                        class="w-7 h-7 rounded bg-[#D4A94C] text-[#07152F] flex items-center justify-center font-bold text-xs font-mono">
+                        IO</div>
+                    <span class="font-bold text-[#F8F1DF] text-sm">IndustryOne SWS</span>
+                </div>
+                <p class="text-xs text-[#819BC2] leading-relaxed">
+                    National Industrial Single Window Clearance Portal designed under the Ministry of Commerce &
+                    Industry guidelines to streamline industrial approvals and factory licenses across India.
+                </p>
+            </div>
+
+            <!-- Col 2: Useful Government Gateways -->
+            <div>
+                <h4 class="text-xs font-bold text-[#F8F1DF] uppercase tracking-wider mb-3">Govt Gateways</h4>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="https://www.india.gov.in" target="_blank" rel="noopener" class="footer-link">National
+                            Portal of India</a></li>
+                    <li><a href="https://dpiit.gov.in" target="_blank" rel="noopener" class="footer-link">DPIIT (Govt of
+                            India)</a></li>
+                    <li><a href="https://www.makeinindia.com" target="_blank" rel="noopener" class="footer-link">Make In
+                            India Portal</a></li>
+                    <li><a href="https://www.investindia.gov.in" target="_blank" rel="noopener"
+                            class="footer-link">Invest India National Facilitation</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 3: Portal Services -->
+            <div>
+                <h4 class="text-xs font-bold text-[#F8F1DF] uppercase tracking-wider mb-3">Portal Services</h4>
+                <ul class="space-y-2 text-xs">
+                    <li><a href="Applicant.html" class="footer-link">Applicant Registration</a></li>
+                    <li><a href="login.html" class="footer-link">Entrepreneur Sign In</a></li>
+                    <li><a href="About.html" class="footer-link">About IndustryOne</a></li>
+                    <li><a href="AdminLogin.html" class="footer-link">Officer & Inspector Gateway</a></li>
+                    <li><a href="#clearances" class="footer-link">Clearance Guidelines (SOP)</a></li>
+                </ul>
+            </div>
+
+            <!-- Col 4: Helpdesk & Support -->
+            <div>
+                <h4 class="text-xs font-bold text-[#F8F1DF] uppercase tracking-wider mb-3">Helpdesk & Support</h4>
+                <p class="text-xs text-[#C9C2B2] mb-1">Toll Free: <strong class="text-[#D4A94C]">1800-11-4646</strong>
+                </p>
+                <p class="text-xs text-[#C9C2B2] mb-2">Email: <strong
+                        class="text-[#F8F1DF]">SupportIndustryOne@10.com</strong></p>
+                <p class="text-[11px] text-[#819BC2]">
+                    Operational Hours: Monday - Saturday (09:00 AM to 06:00 PM IST, except gazetted holidays)
+                </p>
+            </div>
+
+        </div>
+
+        <!-- Bottom Copyright Row -->
+        <div class="portal-footer-bottom">
+            <div class="max-w-7xl mx-auto flex flex-col sm:flex-row justify-between items-center gap-3">
+                <div>
+                    Developed by TeamIndustryOne<br>
+                    Designed & Maintained for <strong>National Industrial Single Window Clearance</strong> | All Rights
+                    Reserved © 2026
+                </div>
+                <div class="flex gap-4 text-xs">
+                    <a href="#" class="footer-link"
+                        onclick="alert('Privacy Policy compliant with Digital Personal Data Protection Act.')">Privacy
+                        Policy</a>
+                    <span>•</span>
+                    <a href="#" class="footer-link"
+                        onclick="alert('Terms of Service and statutory SLA agreements.')">Terms of Service</a>
+                    <span>•</span>
+                    <a href="#" class="footer-link"
+                        onclick="alert('Web Content Accessibility Guidelines (WCAG) 2.1 Level AA compliant.')">Accessibility</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- =====================================================
+         INTERACTIVE SCRIPTS
+    ===================================================== -->
+    <script>
+        // Accessibility Font Size Adjuster (Matching login.js)
+        let currentFontSizeLevel = 0;
+        function adjustFontSize(delta) {
+            const root = document.documentElement;
+            if (delta === 0) {
+                currentFontSizeLevel = 0;
+                root.style.fontSize = "16px";
+            } else {
+                currentFontSizeLevel += delta;
+                if (currentFontSizeLevel > 2) currentFontSizeLevel = 2;
+                if (currentFontSizeLevel < -1) currentFontSizeLevel = -1;
+
+                const sizeMap = {
+                    "-1": "14.5px",
+                    "0": "16px",
+                    "1": "17.5px",
+                    "2": "19px"
+                };
+                root.style.fontSize = sizeMap[currentFontSizeLevel] || "16px";
+            }
+        }
+
+        // Mobile Menu Hamburger Toggle
+        document.addEventListener("DOMContentLoaded", () => {
+            const hamburgerBtn = document.getElementById("hamburger-btn");
+            const mobileMenu = document.getElementById("mobile-menu");
+            if (hamburgerBtn && mobileMenu) {
+                hamburgerBtn.addEventListener("click", () => {
+                    mobileMenu.classList.toggle("hidden");
+                });
+            }
+        });
+
+        // Sample Data for Live Tracker
+        const trackerDatabase = {
+            "IND-2026-8942": {
+                unitName: "Apex Renewable Biomass Energy LLP",
+                udyam: "UDYAM-MP-08-009124",
+                location: "Pithampur Industrial Area, Sector 3, MP",
+                status: "STAGE 3: FIELD VERIFICATION IN PROGRESS",
+                statusClass: "bg-[#D4A94C]/20 text-[#F3D98B] border-[#D4A94C]/40",
+                progress: "75%",
+                sector: "Renewable Energy & Bio-Fuels",
+                officer: "Officer ID: #MP-749"
+            },
+            "IND-2026-4410": {
+                unitName: "Gujarat Solar Park Infra Solutions Ltd",
+                udyam: "UDYAM-GJ-04-004381",
+                location: "Dholera Special Investment Region (SIR), Gujarat",
+                status: "COMPOSITE CLEARANCE ISSUED",
+                statusClass: "bg-[#22c55e]/20 text-[#86efac] border-[#22c55e]/40",
+                progress: "100%",
+                sector: "Solar Photovoltaic Generation",
+                officer: "Digitally Signed Certificate Available"
+            },
+            "IND-2026-1108": {
+                unitName: "Bharat Precision Forgings & Fasteners",
+                udyam: "UDYAM-MH-12-003319",
+                location: "Chakan Industrial Zone Phase II, Pune, Maharashtra",
+                status: "STAGE 2: DOCUMENT SCRUTINY",
+                statusClass: "bg-[#3b82f6]/20 text-[#93c5fd] border-[#3b82f6]/40",
+                progress: "45%",
+                sector: "Heavy Metallurgy & Forging",
+                officer: "SPCB & Fire Scrutiny Active"
+            }
+        };
+
+        function setTrackId(id) {
+            const input = document.getElementById("trackAppIdInput");
+            if (input) {
+                input.value = id;
+                handleTrackSearch(new Event("submit"));
+            }
+        }
+
+        function handleTrackSearch(e) {
+            if (e) e.preventDefault();
+            const inputVal = document.getElementById("trackAppIdInput").value.trim().toUpperCase();
+            const data = trackerDatabase[inputVal] || {
+                unitName: "Industrial Unit Applicant",
+                udyam: "UDYAM-REG-VERIFIED",
+                location: "State Industrial Development Corporation (SIDC)",
+                status: "STAGE 2: MULTI-DEPT SCRUTINY",
+                statusClass: "bg-[#3b82f6]/20 text-[#93c5fd] border-[#3b82f6]/40",
+                progress: "50%",
+                sector: "Manufacturing & Processing",
+                officer: "Scrutiny Team #04"
+            };
+
+            document.getElementById("resAppId").textContent = "APP: " + inputVal;
+            document.getElementById("resUnitName").textContent = data.unitName;
+            document.getElementById("resLocation").textContent = data.location;
+            
+            const badge = document.getElementById("resStatusBadge");
+            badge.textContent = data.status;
+            badge.className = `text-[10px] font-mono px-2 py-0.5 rounded border font-bold ${data.statusClass}`;
+
+            document.getElementById("resPercentage").textContent = data.progress;
+            document.getElementById("resProgressBar").style.width = data.progress;
+
+            // Also synchronize with full tracker below
+            const mainTrackInput = document.getElementById("mainTrackInput");
+            if (mainTrackInput) mainTrackInput.value = inputVal;
+            executeFullAuditTrack();
+        }
+
+        function scrollToFullTracker() {
+            const target = document.getElementById("track-status");
+            if (target) target.scrollIntoView({ behavior: 'smooth' });
+        }
+
+        function executeFullAuditTrack() {
+            const val = document.getElementById("mainTrackInput").value.trim().toUpperCase();
+            const data = trackerDatabase[val] || {
+                unitName: "Industrial Unit Applicant",
+                udyam: "UDYAM-REG-VERIFIED",
+                location: "State Industrial Zone",
+                status: "STAGE 2: MULTI-DEPT SCRUTINY",
+                sector: "Manufacturing & Processing",
+                progress: "50%"
+            };
+
+            const unitTitle = document.getElementById("auditUnitTitle");
+            const udyamEl = document.getElementById("auditUdyam");
+            const sectorEl = document.getElementById("auditSector");
+            const locEl = document.getElementById("auditLocation");
+
+            if (unitTitle) unitTitle.textContent = data.unitName;
+            if (udyamEl) udyamEl.textContent = data.udyam;
+            if (sectorEl) sectorEl.textContent = data.sector;
+            if (locEl) locEl.textContent = data.location;
+        }
+
+        // Clearances Category Filtering
+        function filterClearances(category, btn) {
+            const tabs = document.querySelectorAll(".filter-tab-btn");
+            tabs.forEach(t => t.classList.remove("active"));
+            if (btn) btn.classList.add("active");
+
+            const cards = document.querySelectorAll("#clearanceGrid .clearance-card");
+            cards.forEach(card => {
+                const cat = card.getAttribute("data-category");
+                if (category === "all" || cat === category) {
+                    card.style.display = "flex";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        }
+
+        // Checklist Modal Management
+        const checklistData = {
+            cte: {
+                dept: "CENTRAL & STATE POLLUTION CONTROL BOARD",
+                title: "Consent to Establish (CTE) Requirements & SOP",
+                content: `
+                    <div class="space-y-3">
+                        <p class="text-xs text-[#F8F1DF]"><strong>Statutory Act:</strong> Under Section 25 of the Water (Prevention & Control of Pollution) Act 1974 & Section 21 of Air Act 1981.</p>
+                        <h4 class="font-bold text-xs uppercase font-mono text-[#D4A94C]">Mandatory Uploads:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-xs text-[#C9C2B2]">
+                            <li>Site Layout Plan with marked water drainage and emission chimney locations.</li>
+                            <li>Detailed Manufacturing Process Flowchart with raw material mass balance.</li>
+                            <li>Effluent Treatment Plant (ETP) / Sewage Treatment Plant (STP) design proposal.</li>
+                            <li>Copy of Land Title Deed / SIDC Allotment Letter.</li>
+                        </ul>
+                        <div class="p-3 rounded-lg bg-[#071838] border border-white/10 text-xs text-[#819BC2]">
+                            <strong>Guaranteed SLA:</strong> 14 Business Days. Deemed approval applies if queries are not raised within 7 days of online filing.
+                        </div>
+                    </div>
+                `
+            },
+            dish: {
+                dept: "DIRECTORATE OF INDUSTRIAL SAFETY & HEALTH",
+                title: "Factory Building Plan Approval Guidelines",
+                content: `
+                    <div class="space-y-3">
+                        <p class="text-xs text-[#F8F1DF]"><strong>Statutory Act:</strong> Section 6 of Factories Act, 1948 & State Factory Rules.</p>
+                        <h4 class="font-bold text-xs uppercase font-mono text-[#D4A94C]">Mandatory Uploads:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-xs text-[#C9C2B2]">
+                            <li>CAD Drawing of Factory Building with cross-sectional elevation (1:100 scale).</li>
+                            <li>Plant and machinery floor layout indicating minimum worker aisle clearance (1.8m).</li>
+                            <li>Ventilation, natural illumination, and emergency escape fire stairs scheme.</li>
+                            <li>Chartered Structural Engineer Stability Certificate.</li>
+                        </ul>
+                        <div class="p-3 rounded-lg bg-[#071838] border border-white/10 text-xs text-[#819BC2]">
+                            <strong>Guaranteed SLA:</strong> 7 Business Days. Digital scrutiny with computerized validation.
+                        </div>
+                    </div>
+                `
+            },
+            fire: {
+                dept: "STATE FIRE & EMERGENCY SERVICES",
+                title: "Fire Safety Recommendation & NOC Checklist",
+                content: `
+                    <div class="space-y-3">
+                        <p class="text-xs text-[#F8F1DF]"><strong>Statutory Act:</strong> State Fire Prevention and Life Safety Measures Act & NBC 2016 Part IV.</p>
+                        <h4 class="font-bold text-xs uppercase font-mono text-[#D4A94C]">Mandatory Uploads:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-xs text-[#C9C2B2]">
+                            <li>Fire Hydrant, Hose Reel, and Sprinkler System Layout.</li>
+                            <li>Underground static water storage reservoir capacity calculations.</li>
+                            <li>Driveway width declaration for 6-meter turning radius of fire tenders.</li>
+                        </ul>
+                        <div class="p-3 rounded-lg bg-[#071838] border border-white/10 text-xs text-[#819BC2]">
+                            <strong>Guaranteed SLA:</strong> 5 Business Days. Joint digital scheduling of site inspection.
+                        </div>
+                    </div>
+                `
+            },
+            cto: {
+                dept: "STATE POLLUTION CONTROL BOARD",
+                title: "Consent to Operate (CTO) Checklist",
+                content: `
+                    <div class="space-y-3">
+                        <p class="text-xs text-[#F8F1DF]"><strong>Purpose:</strong> Final commissioning clearance before starting commercial production.</p>
+                        <h4 class="font-bold text-xs uppercase font-mono text-[#D4A94C]">Mandatory Uploads:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-xs text-[#C9C2B2]">
+                            <li>CTE Compliance Report with photographic evidence of installed ETP/APCD.</li>
+                            <li>Analysis report of treated effluent from NABL / MoEFCC recognized laboratory.</li>
+                            <li>Hazardous Waste Management storage facility manifest.</li>
+                        </ul>
+                        <div class="p-3 rounded-lg bg-[#071838] border border-white/10 text-xs text-[#819BC2]">
+                            <strong>Guaranteed SLA:</strong> 15 Business Days. Valid for 5 years with auto-renewal provision.
+                        </div>
+                    </div>
+                `
+            },
+            boiler: {
+                dept: "CHIEF INSPECTOR OF BOILERS",
+                title: "Boiler Registration & Pressure Vessel Sanction",
+                content: `
+                    <div class="space-y-3">
+                        <p class="text-xs text-[#F8F1DF]"><strong>Statutory Act:</strong> Indian Boilers Act, 1923 & Indian Boiler Regulations (IBR).</p>
+                        <ul class="list-disc pl-5 space-y-1 text-xs text-[#C9C2B2]">
+                            <li>Maker's Test Certificate and Form II/III/IV under IBR.</li>
+                            <li>Steam piping isometric layout drawings approved by Competent Authority.</li>
+                            <li>Hydraulic pressure test certificate witnessed by boiler inspector.</li>
+                        </ul>
+                    </div>
+                `
+            },
+            green: {
+                dept: "FAST-TRACK GREEN CHANNEL",
+                title: "White Category Industrial Unit Auto-NOC",
+                content: `
+                    <div class="space-y-3">
+                        <p class="text-xs text-[#F8F1DF]"><strong>Reform:</strong> Under Business Reform Action Plan (BRAP), 127 non-polluting manufacturing categories require NO physical site inspection.</p>
+                        <h4 class="font-bold text-xs uppercase font-mono text-[#D4A94C]">Requirements:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-xs text-[#C9C2B2]">
+                            <li>Valid Udyam Registration Number.</li>
+                            <li>Self-declaration that no toxic discharge, chemical effluents, or fuel emissions will take place.</li>
+                        </ul>
+                        <div class="p-3 rounded-lg bg-[#22c55e]/15 border border-[#22c55e]/30 text-xs text-[#86efac]">
+                            <strong>Auto-NOC Delivery:</strong> Within 24 hours of submission with zero government fees.
+                        </div>
+                    </div>
+                `
+            },
+            pli: {
+                dept: "MINISTRY OF COMMERCE & INDUSTRY / DPIIT",
+                title: "Production Linked Incentive (PLI) Scheme Guidelines",
+                content: `
+                    <div class="space-y-3">
+                        <p class="text-xs text-[#F8F1DF]"><strong>Financial Benefit:</strong> 4% to 6% incentive on incremental sales over base year for 5 consecutive financial years.</p>
+                        <h4 class="font-bold text-xs uppercase font-mono text-[#D4A94C]">14 Focus Sectors:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-xs text-[#C9C2B2]">
+                            <li>Mobile Phones, Telecom & Networking Products</li>
+                            <li>Critical Key Starting Materials / APIs & Medical Devices</li>
+                            <li>Automobiles, Advanced Chemistry Cells & EV Components</li>
+                            <li>High Efficiency Solar PV Modules & Green Hydrogen Electrolysers</li>
+                        </ul>
+                        <div class="p-3 rounded-lg bg-[#071838] border border-white/10 text-xs text-[#819BC2]">
+                            <strong>Application Window:</strong> Applications processed directly through IndustryOne single window with direct integration to Project Management Agencies (IFCI/SIDBI).
+                        </div>
+                    </div>
+                `
+            },
+            cgtmse: {
+                dept: "MINISTRY OF MSME & SIDBI",
+                title: "Credit Guarantee Scheme (CGTMSE) Guidelines",
+                content: `
+                    <div class="space-y-3">
+                        <p class="text-xs text-[#F8F1DF]"><strong>Coverage:</strong> Collateral-free debt credit facilities up to ₹500 Lakhs (₹5 Crore) for eligible MSMEs.</p>
+                        <h4 class="font-bold text-xs uppercase font-mono text-[#D4A94C]">Key Highlights:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-xs text-[#C9C2B2]">
+                            <li>85% guarantee cover for micro enterprises up to ₹5 Lakhs.</li>
+                            <li>75% guarantee cover for all manufacturing facilities up to ₹5 Cr.</li>
+                            <li>Covers both Term Loans for capital equipment and Working Capital limits.</li>
+                            <li>Annual guarantee fee reduced to 0.37% to support early-stage manufacturing.</li>
+                        </ul>
+                    </div>
+                `
+            },
+            specs: {
+                dept: "MINISTRY OF ELECTRONICS & IT (MeitY)",
+                title: "SPECS Scheme for Electronic Components & Semiconductors",
+                content: `
+                    <div class="space-y-3">
+                        <p class="text-xs text-[#F8F1DF]"><strong>Capex Subsidy:</strong> 25% direct financial incentive on eligible capital expenditure on plant, machinery, and technology transfer.</p>
+                        <h4 class="font-bold text-xs uppercase font-mono text-[#D4A94C]">Target Goods:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-xs text-[#C9C2B2]">
+                            <li>SMT passive and active components, resistors, inductors.</li>
+                            <li>Semiconductor OSAT / ATMP packaging facilities.</li>
+                            <li>Multi-layer and High-Density Interconnect (HDI) PCBs.</li>
+                            <li>Camera modules, display assemblies, and micro-electromechanical systems.</li>
+                        </ul>
+                    </div>
+                `
+            },
+            zed: {
+                dept: "MINISTRY OF MSME / QUALITY COUNCIL OF INDIA",
+                title: "Zero Defect Zero Effect (ZED) Certification & Green Subsidy",
+                content: `
+                    <div class="space-y-3">
+                        <p class="text-xs text-[#F8F1DF]"><strong>Grant Structure:</strong> Up to 80% subsidy for Micro, 60% for Small, and 50% for Medium units on certification cost.</p>
+                        <h4 class="font-bold text-xs uppercase font-mono text-[#D4A94C]">Financial Concessions:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-xs text-[#C9C2B2]">
+                            <li>Up to ₹5 Lakhs financial support for expert consultant handholding.</li>
+                            <li>Up to ₹10 Lakhs capital grant for zero-pollution ETP / emission abatement plant.</li>
+                            <li>0.5% interest rate rebate on term loans from partner public sector banks.</li>
+                            <li>50% statutory concession on State Pollution Control Board consent fees.</li>
+                        </ul>
+                    </div>
+                `
+            },
+            mitra: {
+                dept: "MINISTRY OF TEXTILES, GOVT OF INDIA",
+                title: "PM MITRA Mega Textile Parks Scheme",
+                content: `
+                    <div class="space-y-3">
+                        <p class="text-xs text-[#F8F1DF]"><strong>Mega Park Facilities:</strong> Development of 1,000+ acre state-of-the-art plug-and-play textile manufacturing parks.</p>
+                        <h4 class="font-bold text-xs uppercase font-mono text-[#D4A94C]">Tenant Financial Incentives:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-xs text-[#C9C2B2]">
+                            <li>₹300 Cr Development Capital Support per park for shared common infrastructure.</li>
+                            <li>₹300 Cr Competitiveness Incentive Support (CIS) to anchor manufacturing tenants.</li>
+                            <li>Zero Liquid Discharge (ZLD) effluent facilities with subsidized water & green power tariffs.</li>
+                        </ul>
+                    </div>
+                `
+            },
+            pmfme: {
+                dept: "MINISTRY OF FOOD PROCESSING INDUSTRIES",
+                title: "PM Formalisation of Micro Food Processing Enterprises (PMFME)",
+                content: `
+                    <div class="space-y-3">
+                        <p class="text-xs text-[#F8F1DF]"><strong>Subsidy Limit:</strong> 35% credit-linked capital subsidy up to ₹10 Lakhs per micro unit.</p>
+                        <h4 class="font-bold text-xs uppercase font-mono text-[#D4A94C]">Key Components:</h4>
+                        <ul class="list-disc pl-5 space-y-1 text-xs text-[#C9C2B2]">
+                            <li>Technology upgradation for sorting, grading, processing, and packaging.</li>
+                            <li>Financial assistance for FSSAI food licensing, lab testing, and branding.</li>
+                            <li>₹40,000 seed capital per member for Self-Help Groups (SHGs).</li>
+                            <li>Priority funding for One District One Product (ODOP) agro-clusters.</li>
+                        </ul>
+                    </div>
+                `
+            }
+        };
+
+        function openSchemeModal(key) {
+            openChecklistModal(key);
+        }
+
+        function filterSchemes(category, btn) {
+            const tabs = btn?.parentElement?.querySelectorAll(".filter-tab-btn");
+            tabs?.forEach(t => t.classList.remove("active"));
+            if (btn) btn.classList.add("active");
+
+            const cards = document.querySelectorAll("#schemesGrid .clearance-card");
+            cards.forEach(card => {
+                const cat = card.getAttribute("data-scheme-cat");
+                if (category === "all" || cat === category) {
+                    card.style.display = "flex";
+                } else {
+                    card.style.display = "none";
+                }
+            });
+        }
+
+        function openChecklistModal(key) {
+            const data = checklistData[key] || checklistData.cte;
+            document.getElementById("modalDept").textContent = data.dept;
+            document.getElementById("modalTitle").textContent = data.title;
+            document.getElementById("modalBody").innerHTML = data.content;
+            document.getElementById("checklistModal").classList.add("open");
+        }
+
+        function closeChecklistModal() {
+            document.getElementById("checklistModal").classList.remove("open");
+        }
+
+        // Close modal on Escape key or outside click
+        window.addEventListener("keydown", (e) => {
+            if (e.key === "Escape") closeChecklistModal();
+        });
+        document.getElementById("checklistModal")?.addEventListener("click", (e) => {
+            if (e.target === document.getElementById("checklistModal")) closeChecklistModal();
+        });
+
+        // Interactive Fee & SLA Estimator Engine
+        function recalculateEstimator() {
+            const pollution = document.getElementById("calcPollution").value;
+            const investment = document.getElementById("calcInvestment").value;
+            const sector = document.getElementById("calcSector").value;
+
+            let count = 4;
+            let sla = 14;
+            let fee = 22500;
+            let notice = "Standard clearance packet: CTE, Factory Plan, Fire Safety, and Power Sanction.";
+
+            if (pollution === "white") {
+                count = 2;
+                sla = 1;
+                fee = 0;
+                notice = "Eligible for Fast-Track Green Channel Auto-NOC within 24 hours with ₹0 statutory fee.";
+            } else if (pollution === "green") {
+                count = 3;
+                sla = 7;
+                fee = 12000;
+                notice = "Low pollution packet: Simplified CTE, DISH Plan Approval, and Fire Clearance.";
+            } else if (pollution === "orange") {
+                count = 5;
+                sla = 15;
+                fee = 28500;
+                notice = "Moderate pollution packet: CTE, CTO, Hazardous Waste authorization, DISH, and Fire NOC.";
+            } else if (pollution === "red") {
+                count = 8;
+                sla = 30;
+                fee = 65000;
+                notice = "Red Category: Full Environmental Clearance (EAC), Consent to Establish, Boiler Registration & PESO.";
+            }
+
+            if (investment === "micro") fee = Math.round(fee * 0.4);
+            else if (investment === "medium") fee = Math.round(fee * 1.5);
+            else if (investment === "large") fee = Math.round(fee * 2.8);
+
+            document.getElementById("estApprovalsCount").textContent = `${count} NOCs`;
+            document.getElementById("estSlaTime").textContent = `${sla} Days`;
+            document.getElementById("estTotalFee").textContent = fee === 0 ? "₹0 (FREE)" : `₹${fee.toLocaleString('en-IN')}`;
+            document.getElementById("estNoticeText").textContent = notice;
+        }
+
+        // Work In Progress Toast Notification
+        let wipToastTimer = null;
+        function showWipToast(featureName) {
+            const toast = document.getElementById("wipToast");
+            const msg = document.getElementById("wipToastMsg");
+            if (!toast || !msg) return;
+
+            if (featureName) {
+                msg.textContent = `${featureName} is under active development. Direct online processing will activate soon in Phase 2.`;
+            } else {
+                msg.textContent = "This module is currently in progress. Full digital integration is coming soon in Phase 2.";
+            }
+
+            toast.classList.remove("translate-y-28", "opacity-0", "pointer-events-none");
+            toast.classList.add("translate-y-0", "opacity-100");
+
+            clearTimeout(wipToastTimer);
+            wipToastTimer = setTimeout(() => {
+                hideWipToast();
+            }, 4000);
+        }
+
+        function hideWipToast() {
+            const toast = document.getElementById("wipToast");
+            if (!toast) return;
+            toast.classList.add("translate-y-28", "opacity-0", "pointer-events-none");
+            toast.classList.remove("translate-y-0", "opacity-100");
+        }
+    </script>
+
+    <!-- =====================================================
+         WORK IN PROGRESS / COMING SOON INTERACTIVE TOAST
+    ===================================================== -->
+    <div id="wipToast"
+        class="fixed bottom-6 right-6 z-50 transform translate-y-28 opacity-0 pointer-events-none transition-all duration-300 flex items-center gap-3.5 px-5 py-3.5 rounded-xl bg-[#071736] border border-[#FF9933]/50 text-[#F8F1DF] shadow-2xl shadow-black/80 max-w-sm backdrop-blur-md">
+        <div class="w-9 h-9 rounded-lg bg-[#FF9933]/20 border border-[#FF9933]/40 flex items-center justify-center text-lg flex-shrink-0">
+            🚧
+        </div>
+        <div class="flex-1">
+            <div class="text-xs font-bold text-[#FFB066] uppercase font-mono tracking-wider flex items-center gap-1.5">
+                <span class="wip-ping-dot"></span>
+                <span>Work in Progress • Coming Soon</span>
+            </div>
+            <div id="wipToastMsg" class="text-[11px] text-[#C9C2B2] mt-0.5 leading-snug">
+                This service module is currently in development and will launch in the Phase 2 rollout.
+            </div>
+        </div>
+        <button type="button" onclick="hideWipToast()" class="text-[#819BC2] hover:text-white text-sm font-bold ml-1">
+            ✕
+        </button>
+    </div>
+</body>
+
+</html>

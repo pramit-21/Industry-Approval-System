@@ -912,7 +912,7 @@
     <header class="main-navbar">
         <div class="w-full px-4 sm:px-6 lg:px-8 h-20 flex justify-between items-center">
             <!-- Brand Logo -->
-            <a href="login.html" class="portal-brand">
+            <a href="home.html" class="portal-brand">
                 <div class="brand-badge">IO</div>
                 <div>
                     <h1 class="brand-title">IndustryOne</h1>
@@ -922,13 +922,10 @@
 
             <!-- Desktop Nav Links -->
             <nav class="hidden lg:flex items-center gap-4 xl:gap-6 flex-shrink-0">
-                <a href="login.html" class="nav-link-item mr-2 xl:mr-4">Home</a>
+                <a href="home.html" class="nav-link-item mr-2 xl:mr-4">Home</a>
                 <a href="About.html" class="nav-link-item active">About Us</a>
-                <a href="#" class="nav-link-item"
-                    onclick="alert('Industrial Clearances Directory: 140+ central & state clearances unified under Single Window.')">Clearances</a>
-                <a href="#" class="nav-link-item"
-                    onclick="alert('Application Tracking Service: Enter your 12-digit Application ID on the dashboard after login.')">Track
-                    Status</a>
+                <a href="home.html#clearances" class="nav-link-item">Clearances</a>
+                <a href="home.html#track-status" class="nav-link-item">Track Status</a>
                 <a href="Helpdesk.html" class="nav-link-item">Helpdesk</a>
 
                 <!-- Officer / Department Portal Gateway -->
@@ -953,8 +950,8 @@
 
         <!-- Mobile Drawer -->
         <div id="mobile-menu" class="hidden lg:hidden px-6 py-4 bg-[#05132B] border-b border-[#D4A94C]/20 space-y-3">
-            <a href="login.html" class="block py-2 text-[#C9C2B2] hover:text-white border-b border-white/5">Home
-                (Entrepreneur Login)</a>
+            <a href="home.html" class="block py-2 text-[#C9C2B2] hover:text-white border-b border-white/5">Home</a>
+            <a href="login.html" class="block py-2 text-[#C9C2B2] hover:text-white border-b border-white/5">Applicant Sign In</a>
             <a href="About.html" class="block py-2 text-[#D4A94C] font-semibold border-b border-white/5">About
                 Portal</a>
             <a href="Helpdesk.html" class="block py-2 text-[#C9C2B2] hover:text-white border-b border-white/5">Helpdesk & Support</a>
@@ -1440,6 +1437,128 @@
 
 
         <!-- =================================================
+             APPROVAL LIFECYCLE: 4-STEP WORKFLOW
+        ================================================= -->
+
+        <section class="px-6 py-14 lg:px-8">
+
+            <div class="mx-auto max-w-6xl">
+
+                <div class="mb-10 text-center">
+
+                    <p class="mb-2 text-[10px]
+                               font-mono tracking-[0.22em]
+                               text-[#D4A94C]">
+
+                        05 / APPROVAL LIFECYCLE
+
+                    </p>
+
+                    <h2 class="text-3xl font-bold
+                               tracking-tight
+                               text-[#F8F1DF]">
+
+                        How IndustryOne Transforms Industrial Approvals
+
+                    </h2>
+
+                    <p class="mt-3 max-w-2xl mx-auto
+                               text-sm leading-6
+                               text-[#93A9C6]">
+
+                        Replace 30+ physical departmental visits with one composite digital application lifecycle governed by strict statutory SLAs.
+
+                    </p>
+
+                </div>
+
+
+                <div class="grid gap-6 md:grid-cols-2 lg:grid-cols-4">
+
+                    <!-- Step 1: Common Application Form -->
+                    <div class="card reveal delay-1 p-7 relative flex flex-col justify-between">
+                        <div>
+                            <div class="feature-number mb-4 text-[#D4A94C] font-mono text-xl font-bold">
+                                [01]
+                            </div>
+                            <h3 class="card-heading mb-3 text-lg font-bold">
+                                Common Application Form
+                            </h3>
+                            <p class="card-text text-sm leading-6 mb-4">
+                                Submit unified enterprise profile with Udyam / PAN. One form auto-populates documents for 36+ departments via DigiLocker.
+                            </p>
+                        </div>
+                        <div class="pt-3 border-t border-white/10 flex items-center justify-between text-[11px] font-mono text-[#93A9C6]">
+                            <span>Single Submission</span>
+                            <span class="text-[#22c55e]">✓ Zero Duplication</span>
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Smart Dept Routing -->
+                    <div class="card reveal delay-2 p-7 relative flex flex-col justify-between">
+                        <div>
+                            <div class="feature-number mb-4 text-[#D4A94C] font-mono text-xl font-bold">
+                                [02]
+                            </div>
+                            <h3 class="card-heading mb-3 text-lg font-bold">
+                                Smart Dept Routing
+                            </h3>
+                            <p class="card-text text-sm leading-6 mb-4">
+                                Rule-based AI engine classifies your industry (White/Green/Orange/Red) and broadcasts applications in parallel to all statutory bodies.
+                            </p>
+                        </div>
+                        <div class="pt-3 border-t border-white/10 flex items-center justify-between text-[11px] font-mono text-[#93A9C6]">
+                            <span>Parallel Scrutiny</span>
+                            <span class="text-[#D4A94C]">⚡ Instant Dispatch</span>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Joint E-Inspection -->
+                    <div class="card reveal delay-3 p-7 relative flex flex-col justify-between">
+                        <div>
+                            <div class="feature-number mb-4 text-[#D4A94C] font-mono text-xl font-bold">
+                                [03]
+                            </div>
+                            <h3 class="card-heading mb-3 text-lg font-bold">
+                                Joint E-Inspection
+                            </h3>
+                            <p class="card-text text-sm leading-6 mb-4">
+                                Synchronized, risk-based inspection by multiple departments on a single notified date with geo-tagged verification uploaded in 48 hours.
+                            </p>
+                        </div>
+                        <div class="pt-3 border-t border-white/10 flex items-center justify-between text-[11px] font-mono text-[#93A9C6]">
+                            <span>Transparent Audit</span>
+                            <span class="text-[#6ee7b7]">📍 Geo-Tagged</span>
+                        </div>
+                    </div>
+
+                    <!-- Step 4: Composite Digital NOC -->
+                    <div class="card reveal delay-4 p-7 relative flex flex-col justify-between">
+                        <div>
+                            <div class="feature-number mb-4 text-[#D4A94C] font-mono text-xl font-bold">
+                                [04]
+                            </div>
+                            <h3 class="card-heading mb-3 text-lg font-bold">
+                                Composite Digital NOC
+                            </h3>
+                            <p class="card-text text-sm leading-6 mb-4">
+                                Download unified QR-code verified statutory license with legal digital signatures. Recognized by banks and statutory authorities nationwide.
+                            </p>
+                        </div>
+                        <div class="pt-3 border-t border-white/10 flex items-center justify-between text-[11px] font-mono text-[#93A9C6]">
+                            <span>Instant Download</span>
+                            <span class="text-[#22c55e]">🔒 Digitally Signed</span>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
              ECOSYSTEM
         ================================================= -->
 
@@ -1454,7 +1573,7 @@
                                font-mono tracking-[0.22em]
                                text-[#D4A94C]">
 
-                        05 / ECOSYSTEM
+                        06 / ECOSYSTEM
 
                     </p>
 
@@ -1582,7 +1701,7 @@
 
                         <p class="section-label mb-2">
 
-                            06 / ROADMAP
+                            07 / ROADMAP
 
                         </p>
 
