@@ -297,6 +297,12 @@
             box-shadow: 0 4px 14px rgba(45, 91, 160, 0.3);
         }
 
+        .hidden,
+        .officer-portal-btn.hidden,
+        #navAdminPortalBtn.hidden {
+            display: none !important;
+        }
+
 
         /* =====================================================
            HERO
@@ -927,7 +933,7 @@
                 <a href="Helpdesk.html" class="nav-link-item">Helpdesk</a>
 
                 <!-- Officer / Department Portal Gateway -->
-                <a href="AdminLogin.html" class="officer-portal-btn ml-2 xl:ml-3"
+                <a id="navAdminPortalBtn" href="AdminLogin.html" class="officer-portal-btn ml-2 xl:ml-3"
                     title="For Authorized Verification Officers & Department Inspectors">
                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -957,7 +963,7 @@
                 & Support</a>
             <a href="Applicant.html" class="block py-2 text-[#C9C2B2] hover:text-white border-b border-white/5">New
                 Registration</a>
-            <a href="AdminLogin.html" class="block py-2 text-[#819BC2] hover:text-white">Officer / Department Portal
+            <a id="mobileAdminPortalLink" href="AdminLogin.html" class="block py-2 text-[#819BC2] hover:text-white">Officer / Department Portal
                 →</a>
         </div>
     </header>
@@ -1994,6 +2000,28 @@
             }
             document.documentElement.style.fontSize = currentFontSize + 'px';
         }
+
+        // Hide administrative portal if logged in as applicant
+        function checkApplicantSession() {
+            try {
+                if (localStorage.getItem("industryOneUser")) {
+                    const adminBtn = document.getElementById("navAdminPortalBtn") || document.querySelector(".officer-portal-btn");
+                    if (adminBtn) {
+                        adminBtn.classList.add("hidden");
+                        adminBtn.style.setProperty("display", "none", "important");
+                    }
+                    const mobileAdmin = document.getElementById("mobileAdminPortalLink") || document.querySelector("a[href='AdminLogin.html']");
+                    if (mobileAdmin) {
+                        mobileAdmin.classList.add("hidden");
+                        mobileAdmin.style.setProperty("display", "none", "important");
+                    }
+                }
+            } catch (e) {
+                console.error("Session check error:", e);
+            }
+        }
+        document.addEventListener("DOMContentLoaded", checkApplicantSession);
+        checkApplicantSession();
     </script>
 </body>
 
