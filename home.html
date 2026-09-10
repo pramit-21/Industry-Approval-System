@@ -843,7 +843,7 @@
                 </div>
 
                 <!-- Officer / Department Portal Gateway -->
-                <a href="AdminLogin.html" class="officer-portal-btn ml-1 xl:ml-2"
+                <a id="navAdminPortalBtn" href="AdminLogin.html" class="officer-portal-btn ml-1 xl:ml-2"
                     title="For Authorized Verification Officers & Department Inspectors">
                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -911,7 +911,7 @@
             </div>
 
             <a href="Helpdesk.html" class="block py-2 text-[#C9C2B2] hover:text-white border-b border-white/5">Helpdesk & Support</a>
-            <a href="AdminLogin.html" class="block py-2 text-[#819BC2] hover:text-white">Officer / Department Portal →</a>
+            <a id="mobileAdminPortalLink" href="AdminLogin.html" class="block py-2 text-[#819BC2] hover:text-white">Officer / Department Portal →</a>
         </div>
     </header>
 
@@ -2361,6 +2361,8 @@
             const navUserProfile = document.getElementById("navUserProfile");
             const mobileSignInLink = document.getElementById("mobileSignInLink");
             const mobileUserProfile = document.getElementById("mobileUserProfile");
+            const navAdminPortalBtn = document.getElementById("navAdminPortalBtn");
+            const mobileAdminPortalLink = document.getElementById("mobileAdminPortalLink");
 
             if (storedUser) {
                 try {
@@ -2374,6 +2376,10 @@
                     // Desktop elements
                     if (navSignInBtn) navSignInBtn.classList.add("hidden");
                     if (navUserProfile) navUserProfile.classList.remove("hidden");
+
+                    // Hide administrative portal when logged in as applicant
+                    if (navAdminPortalBtn) navAdminPortalBtn.style.display = "none";
+                    if (mobileAdminPortalLink) mobileAdminPortalLink.style.display = "none";
 
                     const userAvatar = document.getElementById("userAvatar");
                     const userAvatarLarge = document.getElementById("userAvatarLarge");
@@ -2409,6 +2415,10 @@
                 if (navUserProfile) navUserProfile.classList.add("hidden");
                 if (mobileSignInLink) mobileSignInLink.classList.remove("hidden");
                 if (mobileUserProfile) mobileUserProfile.classList.add("hidden");
+
+                // Restore administrative portal when logged out
+                if (navAdminPortalBtn) navAdminPortalBtn.style.display = "";
+                if (mobileAdminPortalLink) mobileAdminPortalLink.style.display = "";
             }
         }
 
