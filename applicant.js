@@ -247,25 +247,3 @@ function handleApplicantRegistration(event) {
         }
     }, 1000);
 }
-
-// Session check: Hide administrative portal when logged in as applicant
-function checkApplicantSession() {
-    try {
-        if (localStorage.getItem("industryOneUser")) {
-            const adminBtn = document.getElementById("navAdminPortalBtn") || document.querySelector(".officer-portal-btn");
-            if (adminBtn) {
-                adminBtn.classList.add("hidden");
-                adminBtn.style.setProperty("display", "none", "important");
-            }
-            const mobileAdmin = document.getElementById("mobileAdminPortalLink") || document.querySelector("a[href='AdminLogin.html']");
-            if (mobileAdmin) {
-                mobileAdmin.classList.add("hidden");
-                mobileAdmin.style.setProperty("display", "none", "important");
-            }
-        }
-    } catch (e) {
-        console.error("Session check error:", e);
-    }
-}
-document.addEventListener("DOMContentLoaded", checkApplicantSession);
-checkApplicantSession();

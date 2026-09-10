@@ -298,13 +298,6 @@ body {
     box-shadow: 0 4px 14px rgba(45, 91, 160, 0.3);
 }
 
-/* Ensure hidden elements and officer portal button are strictly removed when hidden */
-.hidden,
-.officer-portal-btn.hidden,
-#navAdminPortalBtn.hidden {
-    display: none !important;
-}
-
 /* =====================================================
    MAIN PAGE CONTENT
 ===================================================== */
