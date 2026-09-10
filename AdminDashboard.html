@@ -269,7 +269,7 @@
          GOVERNMENT OFFICIAL TOPBAR
     ===================================================== -->
     <aside aria-label="Official Government Header" class="govt-topbar py-1.5 px-4 sm:px-6 lg:px-8 border-b border-white/10 relative z-20">
-        <div class="max-w-7xl mx-auto flex flex-wrap justify-between items-center gap-2 text-xs">
+        <div class="w-full flex flex-wrap justify-between items-center gap-2 text-xs">
             <div class="flex items-center gap-2">
                 <!-- Ashoka Emblem SVG -->
                 <svg class="w-4 h-5 text-[#D4A94C]" viewBox="0 0 24 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="National Emblem">
@@ -305,16 +305,16 @@
          MAIN ADMIN CONSOLE HEADER / NAVBAR
     ===================================================== -->
     <header class="border-b border-white/10 bg-[#07152F]/90 backdrop-blur-md sticky top-0 z-40">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3.5 flex justify-between items-center">
+        <div class="w-full px-4 sm:px-6 lg:px-8 py-3.5 flex justify-between items-center">
             <!-- Brand Logo -->
-            <a href="home.html" class="flex items-center gap-3 group">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#D4A94C] to-[#916E25] p-0.5 shadow-lg shadow-[#D4A94C]/20 flex items-center justify-center font-mono font-bold text-[#07152F] text-base">
+            <a href="home.html" class="flex items-center gap-3.5 group -ml-1 sm:-ml-2 transition-transform hover:-translate-y-0.5">
+                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#D4A94C] to-[#916E25] p-0.5 shadow-lg shadow-[#D4A94C]/20 flex items-center justify-center font-mono font-bold text-[#07152F] text-base shrink-0">
                     IO
                 </div>
-                <div>
+                <div class="space-y-0.5">
                     <div class="flex items-center gap-2">
                         <span class="text-xl font-bold tracking-tight text-[#F8F1DF] group-hover:text-[#D4A94C] transition-colors">IndustryOne</span>
-                        <span class="text-[10px] uppercase font-mono px-2 py-0.5 bg-[#D4A94C]/20 border border-[#D4A94C]/40 text-[#D4A94C] rounded-md font-semibold">Admin Gateway</span>
+                        <span class="text-[10px] uppercase font-mono px-2 py-0.5 bg-[#D4A94C]/20 border border-[#D4A94C]/40 text-[#D4A94C] rounded-md font-semibold">Official Authority</span>
                     </div>
                     <p class="text-[10px] text-[#819BC2] tracking-wider uppercase font-mono">Departmental Scrutiny & Licensing Console</p>
                 </div>
@@ -324,7 +324,7 @@
             <nav class="hidden lg:flex items-center gap-6 text-sm font-medium text-[#C9C2B2]">
                 <a href="AdminDashboard.html" class="text-[#D4A94C] border-b-2 border-[#D4A94C] pb-1 font-semibold">Scrutiny Queue</a>
                 <a href="#worklistSection" class="hover:text-[#F8F1DF] transition-colors">Applications Worklist</a>
-                <a href="#alertsSection" class="hover:text-[#F8F1DF] transition-colors">Security Audits</a>
+                <a href="#alertsSection" class="hover:text-[#F8F1DF] transition-colors">Access & Security</a>
                 <a href="About.html" class="hover:text-[#F8F1DF] transition-colors">Citizen Charter SLAs</a>
                 <a href="Helpdesk.html" class="hover:text-[#F8F1DF] transition-colors">Officer Helpdesk</a>
             </nav>
@@ -363,7 +363,7 @@
                         </div>
                         <div class="py-1">
                             <a href="#worklistSection" onclick="toggleAdminProfileDropdown()" class="block px-3 py-2 text-xs text-[#C9C2B2] hover:text-[#F8F1DF] hover:bg-white/5 rounded-lg">My Assigned Worklist</a>
-                            <a href="#alertsSection" onclick="toggleAdminProfileDropdown()" class="block px-3 py-2 text-xs text-[#C9C2B2] hover:text-[#F8F1DF] hover:bg-white/5 rounded-lg">System Security Audit Logs</a>
+                            <a href="#alertsSection" onclick="toggleAdminProfileDropdown()" class="block px-3 py-2 text-xs text-[#C9C2B2] hover:text-[#F8F1DF] hover:bg-white/5 rounded-lg">Access & Security Records</a>
                             <a href="#" onclick="showDscTokenInfo()" class="block px-3 py-2 text-xs text-[#C9C2B2] hover:text-[#F8F1DF] hover:bg-white/5 rounded-lg">Digital Signature Certificate (DSC)</a>
                         </div>
                         <div class="border-t border-white/10 pt-1">
@@ -442,7 +442,7 @@
                         <svg class="w-4 h-4 text-[#D4A94C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                         </svg>
-                        <span>Spring Boot Security Feed</span>
+                        <span>Access & Security Records</span>
                     </a>
                 </div>
             </div>
@@ -520,7 +520,7 @@
                 <p class="text-[11px] text-rose-200 mt-1">Penalty risk under PSGA Act</p>
             </div>
 
-            <!-- Spring Boot Security Alerts -->
+            <!-- System Security Alerts -->
             <div class="kpi-card kpi-security">
                 <div class="flex items-center justify-between">
                     <span class="text-xs font-mono uppercase text-purple-300 tracking-wider">Security Alerts</span>
@@ -534,7 +534,7 @@
                     <span class="text-3xl font-extrabold text-purple-300" id="kpiSecurityCount">2</span>
                     <span class="text-xs font-mono text-purple-300/80">Lockouts</span>
                 </div>
-                <p class="text-[11px] text-[#C9C2B2] mt-1">Live Spring Boot security feed</p>
+                <p class="text-[11px] text-[#C9C2B2] mt-1">Suspicious access & account lockouts</p>
             </div>
         </section>
 
@@ -546,7 +546,7 @@
                 <div>
                     <h2 class="text-lg font-bold text-[#F8F1DF] flex items-center gap-2">
                         <span>Statutory Scrutiny Worklist & Queue</span>
-                        <span class="text-xs font-mono font-normal px-2 py-0.5 bg-white/5 border border-white/10 rounded text-[#D4A94C]">Live Department Sync</span>
+                        <span class="text-xs font-mono font-normal px-2 py-0.5 bg-white/5 border border-white/10 rounded text-[#D4A94C]">Integrated Clearance Network</span>
                     </h2>
                     <p class="text-xs text-[#819BC2] mt-0.5">Inspect industrial composite filings, perform document checks, and execute digital approvals.</p>
                 </div>
@@ -589,7 +589,7 @@
         </section>
 
         <!-- =====================================================
-             4. LIVE SPRING BOOT SECURITY AUDIT & LOCKOUT DESK
+             4. PORTAL SECURITY AUDIT & ACCOUNT LOCKOUT DESK
         ===================================================== -->
         <section id="alertsSection" class="dash-card p-6 space-y-5 border-purple-500/30">
             <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
@@ -598,9 +598,9 @@
                         <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                         </svg>
-                        <span>Cybersecurity Audit & Login Lockout Feed</span>
+                        <span>Official Access & Account Security Desk</span>
                     </h2>
-                    <p class="text-xs text-[#819BC2] mt-0.5">Real-time alerts generated by Spring Boot SecurityAlertService (Port 8080) for suspicious login attempts and locked accounts.</p>
+                    <p class="text-xs text-[#819BC2] mt-0.5">Surveillance monitoring for repeated failed sign-in attempts, security alerts, and official account unlocking requests.</p>
                 </div>
 
                 <div class="flex items-center gap-2">
@@ -608,7 +608,7 @@
                         <svg class="w-3.5 h-3.5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
                         </svg>
-                        <span>Refresh Backend Feed</span>
+                        <span>Refresh Security Records</span>
                     </button>
                 </div>
             </div>
@@ -864,7 +864,7 @@
                 <span>•</span>
                 <a href="Helpdesk.html" class="hover:text-white">Administrative Helpdesk</a>
                 <span>•</span>
-                <span class="text-emerald-400 font-mono">DSC FIPS 140-2 Level 2 Authenticated</span>
+                <span class="text-emerald-400 font-mono">Class-3 Digital Signature Authenticated</span>
             </div>
         </div>
     </footer>

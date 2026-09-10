@@ -365,7 +365,7 @@ async function handleEntrepreneurLogin(event) {
     } catch (err) {
         console.error("Authentication request failed:", err);
         showAlert(
-            "Unable to reach authentication server (http://localhost:8080). Please ensure your Spring Boot backend is running.",
+            "Unable to connect to the authentication server. Please verify your network connection or try again shortly.",
             "error"
         );
         resetSubmitButton();

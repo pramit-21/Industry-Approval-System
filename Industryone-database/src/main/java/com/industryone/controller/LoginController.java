@@ -87,9 +87,9 @@ public class LoginController {
         String token = authService.createToken(user);
 
         String redirect = switch (user.getRole()) {
-            case "OFFICER" -> "/Officer.html";
+            case "OFFICER" -> "/AdminDashboard.html";
             case "ENTREPRENEUR" -> "/applicant-dashboard.html";
-            case "INSPECTOR" -> "/Inspector.html";
+            case "INSPECTOR" -> "/AdminDashboard.html";
             case "ADMIN" -> "/AdminDashboard.html";
             default -> "/";
         };
