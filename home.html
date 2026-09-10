@@ -435,6 +435,96 @@
                 justify-content: space-between;
             }
         }
+
+        /* =====================================================
+           SERVICES DROPDOWN (BESIDE IO PORTION)
+        ===================================================== */
+        .services-nav-dropdown-btn {
+            background: rgba(10, 32, 69, 0.85);
+            border: 1px solid rgba(212, 169, 76, 0.35);
+            color: #F8F1DF;
+            border-radius: 8px;
+            padding: 8px 14px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            transition: all 0.25s ease;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            white-space: nowrap;
+        }
+
+        .services-nav-dropdown-btn:hover,
+        .services-nav-dropdown-btn[aria-expanded="true"] {
+            background: rgba(14, 44, 94, 0.95);
+            border-color: #D4A94C;
+            box-shadow: 0 4px 16px rgba(212, 169, 76, 0.28);
+            color: #FFFFFF;
+        }
+
+        .services-nav-dropdown-menu {
+            position: absolute;
+            top: calc(100% + 10px);
+            left: 0;
+            width: 350px;
+            background: rgba(7, 21, 47, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(212, 169, 76, 0.4);
+            border-radius: 14px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.85), 0 0 30px rgba(212, 169, 76, 0.12);
+            padding: 8px;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-8px);
+            transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+        }
+
+        .services-nav-dropdown-menu.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
+
+        .services-dropdown-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 12px;
+            padding: 10px 12px;
+            border-radius: 10px;
+            text-decoration: none;
+            transition: all 0.2s ease;
+            border-left: 2px solid transparent;
+        }
+
+        .services-dropdown-item:hover {
+            background: rgba(212, 169, 76, 0.08);
+            border-left-color: #D4A94C;
+            transform: translateX(3px);
+        }
+
+        .services-dropdown-icon {
+            width: 34px;
+            height: 34px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 15px;
+            flex-shrink: 0;
+            border: 1px solid rgba(212, 169, 76, 0.25);
+            background: rgba(10, 32, 69, 0.8);
+            transition: all 0.2s ease;
+        }
+
+        .services-dropdown-item:hover .services-dropdown-icon {
+            border-color: #D4A94C;
+            transform: scale(1.08);
+            box-shadow: 0 0 12px rgba(212, 169, 76, 0.3);
+        }
     </style>
 </head>
 
@@ -500,23 +590,118 @@
     ===================================================== -->
     <header class="main-navbar">
         <div class="w-full px-4 sm:px-6 lg:px-8 h-20 flex justify-between items-center">
-            <!-- Brand Logo -->
-            <a href="home.html" class="portal-brand">
-                <div class="brand-badge">IO</div>
-                <div>
-                    <h1 class="brand-title">IndustryOne</h1>
-                    <p class="brand-tagline">National Single Window Industrial Clearance System</p>
-                </div>
-            </a>
+            <!-- Left Side: Brand Logo (IO portion) + Services Dropdown -->
+            <div class="flex items-center gap-3 sm:gap-4 flex-shrink-0">
+                <a href="home.html" class="portal-brand">
+                    <div class="brand-badge">IO</div>
+                    <div>
+                        <h1 class="brand-title">IndustryOne</h1>
+                        <p class="brand-tagline">National Single Window Industrial Clearance System</p>
+                    </div>
+                </a>
 
-            <!-- Desktop Nav Links -->
+                <!-- Vertical Divider -->
+                <div class="hidden sm:block h-7 w-[1px] bg-gradient-to-b from-transparent via-[#D4A94C]/40 to-transparent"></div>
+
+                <!-- Dropdown beside IO portion -->
+                <div class="relative" id="servicesDropdownContainer">
+                    <button id="servicesDropdownBtn" type="button" class="services-nav-dropdown-btn"
+                        aria-expanded="false" aria-haspopup="true" aria-label="Toggle Portal Services Menu">
+                        <svg class="w-4 h-4 text-[#D4A94C] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="3" width="7" height="7" rx="1.5"></rect>
+                            <rect x="14" y="3" width="7" height="7" rx="1.5"></rect>
+                            <rect x="14" y="14" width="7" height="7" rx="1.5"></rect>
+                            <rect x="3" y="14" width="7" height="7" rx="1.5"></rect>
+                        </svg>
+                        <span>Services</span>
+                        <svg id="servicesDropdownArrow" class="w-3.5 h-3.5 text-[#D4A94C] transition-transform duration-200 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                        </svg>
+                    </button>
+
+                    <!-- Dropdown Menu -->
+                    <div id="servicesDropdownMenu" class="services-nav-dropdown-menu" role="menu" aria-orientation="vertical">
+                        <!-- Dropdown Header -->
+                        <div class="px-3.5 py-2 border-b border-white/10 flex items-center justify-between">
+                            <span class="text-[11px] font-mono uppercase tracking-wider text-[#D4A94C] font-semibold">Single Window Tools</span>
+                            <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-[#22c55e]/15 text-[#86efac] border border-[#22c55e]/30 font-semibold">Active</span>
+                        </div>
+
+                        <!-- Dropdown Items: Schemes, Clearances, Track Status, SLA Estimator -->
+                        <div class="py-1 space-y-0.5">
+                            <!-- 1. Schemes -->
+                            <a href="#schemes" class="services-dropdown-item group" role="menuitem">
+                                <div class="services-dropdown-icon text-[#D4A94C]">
+                                    🏛️
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-center justify-between gap-2">
+                                        <span class="text-xs sm:text-sm font-bold text-[#F8F1DF] group-hover:text-[#D4A94C] transition-colors">Schemes</span>
+                                        <span class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-[#FF9933]/20 text-[#FFB066] border border-[#FF9933]/40 flex-shrink-0">Soon</span>
+                                    </div>
+                                    <p class="text-[11px] text-[#819BC2] mt-0.5 leading-snug">PLI, MSME capital subsidies & clean green energy grants</p>
+                                </div>
+                            </a>
+
+                            <!-- 2. Clearances -->
+                            <a href="#clearances" class="services-dropdown-item group" role="menuitem">
+                                <div class="services-dropdown-icon text-[#22c55e]">
+                                    📋
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-center justify-between gap-2">
+                                        <span class="text-xs sm:text-sm font-bold text-[#F8F1DF] group-hover:text-[#D4A94C] transition-colors">Clearances</span>
+                                        <span class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-[#FF9933]/20 text-[#FFB066] border border-[#FF9933]/40 flex-shrink-0">Soon</span>
+                                    </div>
+                                    <p class="text-[11px] text-[#819BC2] mt-0.5 leading-snug">Statutory NOCs, CTE, DISH & Environmental licenses</p>
+                                </div>
+                            </a>
+
+                            <!-- 3. Track Status -->
+                            <a href="#track-status" class="services-dropdown-item group" role="menuitem">
+                                <div class="services-dropdown-icon text-[#60a5fa]">
+                                    🔍
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-center justify-between gap-2">
+                                        <span class="text-xs sm:text-sm font-bold text-[#F8F1DF] group-hover:text-[#D4A94C] transition-colors">Track Status</span>
+                                        <span class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-[#FF9933]/20 text-[#FFB066] border border-[#FF9933]/40 flex-shrink-0">Soon</span>
+                                    </div>
+                                    <p class="text-[11px] text-[#819BC2] mt-0.5 leading-snug">Real-time multi-department audit trail & scrutiny notes</p>
+                                </div>
+                            </a>
+
+                            <!-- 4. SLA Estimator -->
+                            <a href="#fee-estimator" class="services-dropdown-item group" role="menuitem">
+                                <div class="services-dropdown-icon text-[#fcd34d]">
+                                    ⏱️
+                                </div>
+                                <div class="flex-1 min-w-0">
+                                    <div class="flex items-center justify-between gap-2">
+                                        <span class="text-xs sm:text-sm font-bold text-[#F8F1DF] group-hover:text-[#D4A94C] transition-colors">SLA Estimator</span>
+                                        <span class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-[#FF9933]/20 text-[#FFB066] border border-[#FF9933]/40 flex-shrink-0">Soon</span>
+                                    </div>
+                                    <p class="text-[11px] text-[#819BC2] mt-0.5 leading-snug">Statutory approval timelines & composite fee calculator</p>
+                                </div>
+                            </a>
+                        </div>
+
+                        <!-- Dropdown Footer -->
+                        <div class="px-3 py-2 mt-1 border-t border-white/10 bg-[#05132B]/60 rounded-b-lg flex items-center justify-between text-[11px]">
+                            <span class="text-[#819BC2]">Direct Investor Services</span>
+                            <a href="Applicant.html" class="text-[#D4A94C] hover:underline font-semibold flex items-center gap-1">
+                                <span>Register Unit</span>
+                                <span>→</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Desktop Nav Links (Schemes, Clearances, Track Status, SLA Estimator removed as requested) -->
             <nav class="hidden lg:flex items-center gap-3 xl:gap-5 flex-shrink-0">
                 <a href="home.html" class="nav-link-item active">Home</a>
                 <a href="About.html" class="nav-link-item">About Us</a>
-                <a href="#schemes" class="nav-link-item">Schemes <span class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-[#FF9933]/20 text-[#FFB066] border border-[#FF9933]/40">Soon</span></a>
-                <a href="#clearances" class="nav-link-item">Clearances <span class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-[#FF9933]/20 text-[#FFB066] border border-[#FF9933]/40">Soon</span></a>
-                <a href="#track-status" class="nav-link-item">Track Status <span class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-[#FF9933]/20 text-[#FFB066] border border-[#FF9933]/40">Soon</span></a>
-                <a href="#fee-estimator" class="nav-link-item">SLA Estimator <span class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-[#FF9933]/20 text-[#FFB066] border border-[#FF9933]/40">Soon</span></a>
                 <a href="Helpdesk.html" class="nav-link-item">Helpdesk</a>
 
                 <!-- Sign In Action -->
@@ -550,22 +735,30 @@
             <a href="login.html" class="block py-2 text-[#F8F1DF] font-semibold border-b border-white/5">Applicant Sign In →</a>
             <a href="Applicant.html" class="block py-2 text-[#C9C2B2] hover:text-white border-b border-white/5">New Unit Registration</a>
             <a href="About.html" class="block py-2 text-[#C9C2B2] hover:text-white border-b border-white/5">About Portal</a>
-            <a href="#schemes" class="block py-2 text-[#C9C2B2] hover:text-white border-b border-white/5 flex items-center justify-between">
-                <span>Schemes & Incentives</span>
-                <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-[#FF9933]/20 text-[#FFB066] border border-[#FF9933]/40">Work in Progress</span>
-            </a>
-            <a href="#clearances" class="block py-2 text-[#C9C2B2] hover:text-white border-b border-white/5 flex items-center justify-between">
-                <span>Clearances Catalog</span>
-                <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-[#FF9933]/20 text-[#FFB066] border border-[#FF9933]/40">Coming Soon</span>
-            </a>
-            <a href="#track-status" class="block py-2 text-[#C9C2B2] hover:text-white border-b border-white/5 flex items-center justify-between">
-                <span>Track Application Status</span>
-                <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-[#FF9933]/20 text-[#FFB066] border border-[#FF9933]/40">Prototype</span>
-            </a>
-            <a href="#fee-estimator" class="block py-2 text-[#C9C2B2] hover:text-white border-b border-white/5 flex items-center justify-between">
-                <span>SLA Estimator</span>
-                <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-[#FF9933]/20 text-[#FFB066] border border-[#FF9933]/40">In Progress</span>
-            </a>
+
+            <!-- Services Section in Mobile Drawer -->
+            <div class="py-2 border-b border-white/5">
+                <span class="text-[10px] font-mono uppercase tracking-widest text-[#D4A94C] block mb-2 font-bold">Services & Portals</span>
+                <div class="space-y-1.5 pl-2">
+                    <a href="#schemes" class="py-1.5 text-[#C9C2B2] hover:text-white flex items-center justify-between text-xs">
+                        <span>Schemes & Incentives</span>
+                        <span class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-[#FF9933]/20 text-[#FFB066] border border-[#FF9933]/40">Soon</span>
+                    </a>
+                    <a href="#clearances" class="py-1.5 text-[#C9C2B2] hover:text-white flex items-center justify-between text-xs">
+                        <span>Clearances Catalog</span>
+                        <span class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-[#FF9933]/20 text-[#FFB066] border border-[#FF9933]/40">Soon</span>
+                    </a>
+                    <a href="#track-status" class="py-1.5 text-[#C9C2B2] hover:text-white flex items-center justify-between text-xs">
+                        <span>Track Application Status</span>
+                        <span class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-[#FF9933]/20 text-[#FFB066] border border-[#FF9933]/40">Soon</span>
+                    </a>
+                    <a href="#fee-estimator" class="py-1.5 text-[#C9C2B2] hover:text-white flex items-center justify-between text-xs">
+                        <span>SLA Estimator</span>
+                        <span class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-[#FF9933]/20 text-[#FFB066] border border-[#FF9933]/40">Soon</span>
+                    </a>
+                </div>
+            </div>
+
             <a href="Helpdesk.html" class="block py-2 text-[#C9C2B2] hover:text-white border-b border-white/5">Helpdesk & Support</a>
             <a href="AdminLogin.html" class="block py-2 text-[#819BC2] hover:text-white">Officer / Department Portal →</a>
         </div>
@@ -1902,6 +2095,87 @@
             if (hamburgerBtn && mobileMenu) {
                 hamburgerBtn.addEventListener("click", () => {
                     mobileMenu.classList.toggle("hidden");
+                });
+            }
+
+            // Services Dropdown (Beside IO Portion) Toggle Logic
+            const dropdownBtn = document.getElementById("servicesDropdownBtn");
+            const dropdownMenu = document.getElementById("servicesDropdownMenu");
+            const dropdownArrow = document.getElementById("servicesDropdownArrow");
+            const dropdownContainer = document.getElementById("servicesDropdownContainer");
+
+            function toggleServicesDropdown(forceClose = false) {
+                if (!dropdownMenu) return;
+                const isCurrentlyOpen = dropdownMenu.classList.contains("show");
+                if (forceClose || isCurrentlyOpen) {
+                    dropdownMenu.classList.remove("show");
+                    dropdownArrow?.classList.remove("rotate-180");
+                    dropdownBtn?.setAttribute("aria-expanded", "false");
+                } else {
+                    dropdownMenu.classList.add("show");
+                    dropdownArrow?.classList.add("rotate-180");
+                    dropdownBtn?.setAttribute("aria-expanded", "true");
+                }
+            }
+
+            if (dropdownBtn) {
+                dropdownBtn.addEventListener("click", (e) => {
+                    e.stopPropagation();
+                    toggleServicesDropdown();
+                });
+            }
+
+            // Close when clicking outside
+            document.addEventListener("click", (e) => {
+                if (dropdownContainer && !dropdownContainer.contains(e.target)) {
+                    toggleServicesDropdown(true);
+                }
+            });
+
+            // Close on Escape key
+            document.addEventListener("keydown", (e) => {
+                if (e.key === "Escape") {
+                    toggleServicesDropdown(true);
+                }
+            });
+
+            // Close dropdown and smooth scroll when an item inside is clicked
+            dropdownMenu?.querySelectorAll("a").forEach(link => {
+                link.addEventListener("click", (e) => {
+                    const href = link.getAttribute("href");
+                    if (href && href.startsWith("#")) {
+                        const targetEl = document.querySelector(href);
+                        if (targetEl) {
+                            e.preventDefault();
+                            toggleServicesDropdown(true);
+                            targetEl.scrollIntoView({ behavior: "smooth" });
+                        }
+                    } else {
+                        toggleServicesDropdown(true);
+                    }
+                });
+            });
+
+            // Desktop hover preview enhancement with debounce
+            let hoverTimeout;
+            if (dropdownContainer) {
+                dropdownContainer.addEventListener("mouseenter", () => {
+                    if (window.innerWidth >= 1024) {
+                        clearTimeout(hoverTimeout);
+                        dropdownMenu?.classList.add("show");
+                        dropdownArrow?.classList.add("rotate-180");
+                        dropdownBtn?.setAttribute("aria-expanded", "true");
+                    }
+                });
+
+                dropdownContainer.addEventListener("mouseleave", () => {
+                    if (window.innerWidth >= 1024) {
+                        hoverTimeout = setTimeout(() => {
+                            dropdownMenu?.classList.remove("show");
+                            dropdownArrow?.classList.remove("rotate-180");
+                            dropdownBtn?.setAttribute("aria-expanded", "false");
+                        }, 220);
+                    }
                 });
             }
         });
