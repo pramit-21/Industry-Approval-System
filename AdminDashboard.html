@@ -64,11 +64,25 @@
             background: var(--gold-primary);
         }
 
-        .kpi-card.kpi-pending::before { background: #38bdf8; }
-        .kpi-card.kpi-queries::before { background: #f59e0b; }
-        .kpi-card.kpi-approved::before { background: #22c55e; }
-        .kpi-card.kpi-critical::before { background: #ef4444; }
-        .kpi-card.kpi-security::before { background: #c084fc; }
+        .kpi-card.kpi-pending::before {
+            background: #38bdf8;
+        }
+
+        .kpi-card.kpi-queries::before {
+            background: #f59e0b;
+        }
+
+        .kpi-card.kpi-approved::before {
+            background: #22c55e;
+        }
+
+        .kpi-card.kpi-critical::before {
+            background: #ef4444;
+        }
+
+        .kpi-card.kpi-security::before {
+            background: #c084fc;
+        }
 
         /* Status Pills */
         .status-badge {
@@ -110,8 +124,15 @@
         }
 
         @keyframes pulseCritical {
-            0%, 100% { box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4); }
-            50% { box-shadow: 0 0 10px 2px rgba(239, 68, 68, 0.35); }
+
+            0%,
+            100% {
+                box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.4);
+            }
+
+            50% {
+                box-shadow: 0 0 10px 2px rgba(239, 68, 68, 0.35);
+            }
         }
 
         .filter-tab {
@@ -268,11 +289,13 @@
     <!-- =====================================================
          GOVERNMENT OFFICIAL TOPBAR
     ===================================================== -->
-    <aside aria-label="Official Government Header" class="govt-topbar py-1.5 px-4 sm:px-6 lg:px-8 border-b border-white/10 relative z-20">
+    <aside aria-label="Official Government Header"
+        class="govt-topbar py-1.5 px-4 sm:px-6 lg:px-8 border-b border-white/10 relative z-20">
         <div class="w-full flex flex-wrap justify-between items-center gap-2 text-xs">
             <div class="flex items-center gap-2">
                 <!-- Ashoka Emblem SVG -->
-                <svg class="w-4 h-5 text-[#D4A94C]" viewBox="0 0 24 28" fill="none" xmlns="http://www.w3.org/2000/svg" aria-label="National Emblem">
+                <svg class="w-4 h-5 text-[#D4A94C]" viewBox="0 0 24 28" fill="none" xmlns="http://www.w3.org/2000/svg"
+                    aria-label="National Emblem">
                     <path d="M12 2L15 5H9L12 2Z" fill="currentColor" />
                     <path d="M7 6H17V9H7V6Z" fill="currentColor" fill-opacity="0.8" />
                     <path d="M5 10H19V12H5V10Z" fill="currentColor" />
@@ -283,18 +306,23 @@
                 </svg>
                 <span class="font-semibold tracking-wide uppercase text-[#F8F1DF]">Government of India</span>
                 <span class="text-[#819BC2] hidden sm:inline">•</span>
-                <span class="text-[#C9C2B2] hidden sm:inline">Single Window Clearance Authority | Administrative Scrutiny Console</span>
+                <span class="text-[#C9C2B2] hidden sm:inline">Single Window Clearance Authority | Administrative
+                    Scrutiny Console</span>
             </div>
             <div class="flex items-center gap-3 text-[11px] text-[#C9C2B2]">
                 <!-- DSC Token Active Status -->
-                <span class="flex items-center gap-1.5 text-emerald-400 font-mono bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/30">
+                <span
+                    class="flex items-center gap-1.5 text-emerald-400 font-mono bg-emerald-500/10 px-2 py-0.5 rounded border border-emerald-500/30">
                     <span class="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-ping"></span>
                     DSC TOKEN: ePass2003 ACTIVE
                 </span>
                 <span>•</span>
-                <button onclick="adjustFontSize(1)" class="hover:text-white font-mono" title="Increase font size">A+</button>
-                <button onclick="adjustFontSize(0)" class="hover:text-white font-mono" title="Reset font size">A</button>
-                <button onclick="adjustFontSize(-1)" class="hover:text-white font-mono" title="Decrease font size">A-</button>
+                <button onclick="adjustFontSize(1)" class="hover:text-white font-mono"
+                    title="Increase font size">A+</button>
+                <button onclick="adjustFontSize(0)" class="hover:text-white font-mono"
+                    title="Reset font size">A</button>
+                <button onclick="adjustFontSize(-1)" class="hover:text-white font-mono"
+                    title="Decrease font size">A-</button>
                 <span>•</span>
                 <a href="Helpdesk.html" class="text-[#D4A94C] hover:underline">Department Escalation Desk</a>
             </div>
@@ -307,22 +335,29 @@
     <header class="border-b border-white/10 bg-[#07152F]/90 backdrop-blur-md sticky top-0 z-40">
         <div class="w-full px-4 sm:px-6 lg:px-8 py-3.5 flex justify-between items-center">
             <!-- Brand Logo -->
-            <a href="home.html" class="flex items-center gap-3.5 group -ml-1 sm:-ml-2 transition-transform hover:-translate-y-0.5">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#D4A94C] to-[#916E25] p-0.5 shadow-lg shadow-[#D4A94C]/20 flex items-center justify-center font-mono font-bold text-[#07152F] text-base shrink-0">
+            <a href="home.html"
+                class="flex items-center gap-3.5 group -ml-1 sm:-ml-2 transition-transform hover:-translate-y-0.5">
+                <div
+                    class="w-10 h-10 rounded-xl bg-gradient-to-br from-[#D4A94C] to-[#916E25] p-0.5 shadow-lg shadow-[#D4A94C]/20 flex items-center justify-center font-mono font-bold text-[#07152F] text-base shrink-0">
                     IO
                 </div>
                 <div class="space-y-0.5">
                     <div class="flex items-center gap-2">
-                        <span class="text-xl font-bold tracking-tight text-[#F8F1DF] group-hover:text-[#D4A94C] transition-colors">IndustryOne</span>
-                        <span class="text-[10px] uppercase font-mono px-2 py-0.5 bg-[#D4A94C]/20 border border-[#D4A94C]/40 text-[#D4A94C] rounded-md font-semibold">Official Authority</span>
+                        <span
+                            class="text-xl font-bold tracking-tight text-[#F8F1DF] group-hover:text-[#D4A94C] transition-colors">IndustryOne</span>
+                        <span
+                            class="text-[10px] uppercase font-mono px-2 py-0.5 bg-[#D4A94C]/20 border border-[#D4A94C]/40 text-[#D4A94C] rounded-md font-semibold">Official
+                            Authority</span>
                     </div>
-                    <p class="text-[10px] text-[#819BC2] tracking-wider uppercase font-mono">Departmental Scrutiny & Licensing Console</p>
+                    <p class="text-[10px] text-[#819BC2] tracking-wider uppercase font-mono">Departmental Scrutiny &
+                        Licensing Console</p>
                 </div>
             </a>
 
             <!-- Nav Links -->
             <nav class="hidden lg:flex items-center gap-6 text-sm font-medium text-[#C9C2B2]">
-                <a href="AdminDashboard.html" class="text-[#D4A94C] border-b-2 border-[#D4A94C] pb-1 font-semibold">Scrutiny Queue</a>
+                <a href="AdminDashboard.html"
+                    class="text-[#D4A94C] border-b-2 border-[#D4A94C] pb-1 font-semibold">Scrutiny Queue</a>
                 <a href="#worklistSection" class="hover:text-[#F8F1DF] transition-colors">Applications Worklist</a>
                 <a href="#alertsSection" class="hover:text-[#F8F1DF] transition-colors">Access & Security</a>
                 <a href="About.html" class="hover:text-[#F8F1DF] transition-colors">Citizen Charter SLAs</a>
@@ -332,21 +367,28 @@
             <!-- Officer Profile & Role Controls -->
             <div class="flex items-center gap-4">
                 <!-- Notifications with Badge -->
-                <button id="alertNotificationBtn" onclick="toggleAlertsDrawer()" class="relative p-2 rounded-lg bg-white/5 border border-white/10 hover:border-[#D4A94C]/50 text-[#C9C2B2] hover:text-[#F8F1DF] transition-all" title="View Urgent Filings & Lockouts">
+                <button id="alertNotificationBtn" onclick="toggleAlertsDrawer()"
+                    class="relative p-2 rounded-lg bg-white/5 border border-white/10 hover:border-[#D4A94C]/50 text-[#C9C2B2] hover:text-[#F8F1DF] transition-all"
+                    title="View Urgent Filings & Lockouts">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V5a2 2 0 10-4 0v.341C7.67 6.165 6 8.388 6 11v3.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
                     </svg>
-                    <span id="unreadAdminAlertCount" class="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-rose-500 text-[10px] font-mono font-bold text-white flex items-center justify-center animate-pulse">2</span>
+                    <span id="unreadAdminAlertCount"
+                        class="absolute -top-1 -right-1 w-4 h-4 rounded-full bg-rose-500 text-[10px] font-mono font-bold text-white flex items-center justify-center animate-pulse">2</span>
                 </button>
 
                 <!-- Profile Dropdown Trigger -->
                 <div class="relative">
-                    <button id="adminProfileDropdownBtn" onclick="toggleAdminProfileDropdown()" class="flex items-center gap-2.5 p-1.5 pr-3 rounded-full bg-white/5 border border-white/10 hover:border-[#D4A94C]/40 transition-all">
-                        <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-[#D4A94C] to-[#2D5BA0] flex items-center justify-center text-xs font-bold text-[#07152F] shadow-inner" id="adminAvatar">
+                    <button id="adminProfileDropdownBtn" onclick="toggleAdminProfileDropdown()"
+                        class="flex items-center gap-2.5 p-1.5 pr-3 rounded-full bg-white/5 border border-white/10 hover:border-[#D4A94C]/40 transition-all">
+                        <div class="w-8 h-8 rounded-full bg-gradient-to-tr from-[#D4A94C] to-[#2D5BA0] flex items-center justify-center text-xs font-bold text-[#07152F] shadow-inner"
+                            id="adminAvatar">
                             RS
                         </div>
                         <div class="text-left hidden sm:block leading-tight">
-                            <p class="text-xs font-semibold text-[#F8F1DF]" id="adminOfficerName">Er. Rajesh Singhania</p>
+                            <p class="text-xs font-semibold text-[#F8F1DF]" id="adminOfficerName">Er. Rajesh Singhania
+                            </p>
                             <p class="text-[10px] font-mono text-[#D4A94C]" id="adminRoleBadge">Verification Officer</p>
                         </div>
                         <svg class="w-3.5 h-3.5 text-[#819BC2]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -355,21 +397,32 @@
                     </button>
 
                     <!-- Dropdown Content -->
-                    <div id="adminProfileDropdown" class="hidden absolute right-0 mt-2 w-72 bg-[#091c3d] border border-[#D4A94C]/30 rounded-xl shadow-2xl p-2 z-50">
+                    <div id="adminProfileDropdown"
+                        class="hidden absolute right-0 mt-2 w-72 bg-[#091c3d] border border-[#D4A94C]/30 rounded-xl shadow-2xl p-2 z-50">
                         <div class="p-3 border-b border-white/10">
                             <p class="text-xs font-bold text-[#F8F1DF]" id="dropdownAdminName">Er. Rajesh Singhania</p>
-                            <p class="text-[11px] text-[#819BC2] font-mono mt-0.5" id="dropdownAdminEmail">r.singhania@mp.gov.in</p>
-                            <p class="text-[10px] text-emerald-400 font-mono mt-1" id="dropdownAdminDesk">Desk: OFF-MP-9014 (DISH Indore Region)</p>
+                            <p class="text-[11px] text-[#819BC2] font-mono mt-0.5" id="dropdownAdminEmail">
+                                r.singhania@mp.gov.in</p>
+                            <p class="text-[10px] text-emerald-400 font-mono mt-1" id="dropdownAdminDesk">Desk:
+                                OFF-MP-9014 (DISH Indore Region)</p>
                         </div>
                         <div class="py-1">
-                            <a href="#worklistSection" onclick="toggleAdminProfileDropdown()" class="block px-3 py-2 text-xs text-[#C9C2B2] hover:text-[#F8F1DF] hover:bg-white/5 rounded-lg">My Assigned Worklist</a>
-                            <a href="#alertsSection" onclick="toggleAdminProfileDropdown()" class="block px-3 py-2 text-xs text-[#C9C2B2] hover:text-[#F8F1DF] hover:bg-white/5 rounded-lg">Access & Security Records</a>
-                            <a href="#" onclick="showDscTokenInfo()" class="block px-3 py-2 text-xs text-[#C9C2B2] hover:text-[#F8F1DF] hover:bg-white/5 rounded-lg">Digital Signature Certificate (DSC)</a>
+                            <a href="#worklistSection" onclick="toggleAdminProfileDropdown()"
+                                class="block px-3 py-2 text-xs text-[#C9C2B2] hover:text-[#F8F1DF] hover:bg-white/5 rounded-lg">My
+                                Assigned Worklist</a>
+                            <a href="#alertsSection" onclick="toggleAdminProfileDropdown()"
+                                class="block px-3 py-2 text-xs text-[#C9C2B2] hover:text-[#F8F1DF] hover:bg-white/5 rounded-lg">Access
+                                & Security Records</a>
+                            <a href="#" onclick="showDscTokenInfo()"
+                                class="block px-3 py-2 text-xs text-[#C9C2B2] hover:text-[#F8F1DF] hover:bg-white/5 rounded-lg">Digital
+                                Signature Certificate (DSC)</a>
                         </div>
                         <div class="border-t border-white/10 pt-1">
-                            <button onclick="handleAdminLogout()" class="w-full text-left px-3 py-2 text-xs text-rose-400 hover:bg-rose-500/10 rounded-lg flex items-center gap-2">
+                            <button onclick="handleAdminLogout()"
+                                class="w-full text-left px-3 py-2 text-xs text-rose-400 hover:bg-rose-500/10 rounded-lg flex items-center gap-2">
                                 <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                        d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
                                 </svg>
                                 <span>Sign Out of Scrutiny Console</span>
                             </button>
@@ -389,38 +442,48 @@
              1. AUTHORITY HERO BANNER & REGIONAL CONTEXT
         ===================================================== -->
         <section class="dash-card p-6 sm:p-8 relative overflow-hidden" aria-labelledby="admin-title">
-            <div class="absolute -right-16 -top-16 w-64 h-64 bg-[#D4A94C]/10 rounded-full blur-3xl pointer-events-none"></div>
+            <div class="absolute -right-16 -top-16 w-64 h-64 bg-[#D4A94C]/10 rounded-full blur-3xl pointer-events-none">
+            </div>
 
             <div class="flex flex-col lg:flex-row lg:items-center justify-between gap-6 relative z-10">
                 <div>
                     <div class="flex flex-wrap items-center gap-2 mb-2">
-                        <span class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-mono font-semibold bg-[#D4A94C]/15 border border-[#D4A94C]/40 text-[#F8F1DF]">
+                        <span
+                            class="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full text-[11px] font-mono font-semibold bg-[#D4A94C]/15 border border-[#D4A94C]/40 text-[#F8F1DF]">
                             <span class="w-1.5 h-1.5 rounded-full bg-[#D4A94C]"></span>
                             OFFICIAL SCRUTINY DESK • STATE SINGLE WINDOW
                         </span>
-                        <span class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-mono text-emerald-300 bg-emerald-500/10 border border-emerald-500/30">
+                        <span
+                            class="inline-flex items-center gap-1 px-2.5 py-0.5 rounded-full text-[11px] font-mono text-emerald-300 bg-emerald-500/10 border border-emerald-500/30">
                             94.8% SLA COMPLIANCE RATE
                         </span>
                     </div>
 
                     <h1 id="admin-title" class="text-2xl sm:text-3xl font-extrabold text-[#F8F1DF] tracking-tight">
-                        Department Clearance Console • <span id="heroDeskId" class="text-transparent bg-clip-text bg-gradient-to-r from-[#D4A94C] via-[#F3D98B] to-[#D4A94C]">Desk OFF-MP-9014</span>
+                        Department Clearance Console • <span id="heroDeskId"
+                            class="text-transparent bg-clip-text bg-gradient-to-r from-[#D4A94C] via-[#F3D98B] to-[#D4A94C]">Desk
+                            OFF-MP-9014</span>
                     </h1>
                     <p class="text-sm text-[#C9C2B2] mt-1.5 max-w-2xl">
-                        Statutory Scrutiny Jurisdiction: <strong class="text-[#F8F1DF]">Indore, Dhar & Pithampur Industrial Belt</strong>.
-                        Review composite application files, verify technical checklists, issue digitally signed NOCs, and raise statutory objections.
+                        Statutory Scrutiny Jurisdiction: <strong class="text-[#F8F1DF]">Indore, Dhar & Pithampur
+                            Industrial Belt</strong>.
+                        Review composite application files, verify technical checklists, issue digitally signed NOCs,
+                        and raise statutory objections.
                     </p>
 
                     <!-- Authority Metadata Row -->
-                    <div class="flex flex-wrap items-center gap-4 mt-4 pt-3 border-t border-white/10 text-xs text-[#819BC2] font-mono">
+                    <div
+                        class="flex flex-wrap items-center gap-4 mt-4 pt-3 border-t border-white/10 text-xs text-[#819BC2] font-mono">
                         <div>
                             <span class="text-[#C9C2B2]">AUTHORITY:</span>
-                            <span class="text-[#F8F1DF] font-semibold ml-1" id="heroDeptName">DISH & MPPCB Joint Desk</span>
+                            <span class="text-[#F8F1DF] font-semibold ml-1" id="heroDeptName">DISH & MPPCB Joint
+                                Desk</span>
                         </div>
                         <span class="hidden sm:inline">•</span>
                         <div>
                             <span class="text-[#C9C2B2]">CURRENT OFFICER:</span>
-                            <span class="text-[#D4A94C] font-semibold ml-1" id="heroOfficerName">Er. Rajesh Singhania (Joint Director)</span>
+                            <span class="text-[#D4A94C] font-semibold ml-1" id="heroOfficerName">Er. Rajesh Singhania
+                                (Joint Director)</span>
                         </div>
                         <span class="hidden sm:inline">•</span>
                         <div>
@@ -432,15 +495,18 @@
 
                 <!-- Quick Action Controls -->
                 <div class="flex flex-col sm:flex-row lg:flex-col gap-3 shrink-0">
-                    <button onclick="filterByUrgent()" class="btn-action-gold justify-center text-sm py-3 px-5 shadow-xl">
+                    <button onclick="filterByUrgent()"
+                        class="btn-action-gold justify-center text-sm py-3 px-5 shadow-xl">
                         <svg class="w-4 h-4 text-[#07152F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2.5"
+                                d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
                         </svg>
                         <span>View SLA Critical Files (1)</span>
                     </button>
                     <a href="#alertsSection" class="btn-action-outline justify-center text-xs py-2.5 px-4">
                         <svg class="w-4 h-4 text-[#D4A94C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
                         </svg>
                         <span>Access & Security Records</span>
                     </a>
@@ -458,7 +524,8 @@
                     <span class="text-xs font-mono uppercase text-[#819BC2] tracking-wider">Pending Files</span>
                     <span class="p-2 rounded-lg bg-sky-500/15 text-sky-400">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                         </svg>
                     </span>
                 </div>
@@ -475,7 +542,8 @@
                     <span class="text-xs font-mono uppercase text-amber-300 tracking-wider">Active Queries</span>
                     <span class="p-2 rounded-lg bg-amber-500/15 text-amber-300">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M8 12h.01M12 12h.01M16 12h.01M21 12c0 4.418-4.03 8-9 8a9.863 9.863 0 01-4.255-.949L3 20l1.395-3.72C3.512 15.042 3 13.574 3 12c0-4.418 4.03-8 9-8s9 3.582 9 8z" />
                         </svg>
                     </span>
                 </div>
@@ -492,7 +560,8 @@
                     <span class="text-xs font-mono uppercase text-emerald-400 tracking-wider">Granted (Month)</span>
                     <span class="p-2 rounded-lg bg-emerald-500/15 text-emerald-400">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                     </span>
                 </div>
@@ -509,7 +578,8 @@
                     <span class="text-xs font-mono uppercase text-rose-300 tracking-wider">SLA Critical</span>
                     <span class="p-2 rounded-lg bg-rose-500/15 text-rose-400">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                     </span>
                 </div>
@@ -526,7 +596,8 @@
                     <span class="text-xs font-mono uppercase text-purple-300 tracking-wider">Security Alerts</span>
                     <span class="p-2 rounded-lg bg-purple-500/15 text-purple-300">
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                         </svg>
                     </span>
                 </div>
@@ -546,18 +617,24 @@
                 <div>
                     <h2 class="text-lg font-bold text-[#F8F1DF] flex items-center gap-2">
                         <span>Statutory Scrutiny Worklist & Queue</span>
-                        <span class="text-xs font-mono font-normal px-2 py-0.5 bg-white/5 border border-white/10 rounded text-[#D4A94C]">Integrated Clearance Network</span>
+                        <span
+                            class="text-xs font-mono font-normal px-2 py-0.5 bg-white/5 border border-white/10 rounded text-[#D4A94C]">Integrated
+                            Clearance Network</span>
                     </h2>
-                    <p class="text-xs text-[#819BC2] mt-0.5">Inspect industrial composite filings, perform document checks, and execute digital approvals.</p>
+                    <p class="text-xs text-[#819BC2] mt-0.5">Inspect industrial composite filings, perform document
+                        checks, and execute digital approvals.</p>
                 </div>
 
                 <!-- Search & Directorate Filter -->
                 <div class="flex flex-wrap items-center gap-3">
                     <div class="relative min-w-[240px]">
-                        <input type="text" id="adminSearchInput" oninput="filterAdminWorklist()" placeholder="Search proposal, company, or App ID..."
+                        <input type="text" id="adminSearchInput" oninput="filterAdminWorklist()"
+                            placeholder="Search proposal, company, or App ID..."
                             class="w-full bg-[#051229] border border-white/10 rounded-lg py-2 pl-9 pr-3 text-xs text-[#F8F1DF] placeholder-[#819BC2] focus:outline-none focus:border-[#D4A94C]">
-                        <svg class="w-4 h-4 text-[#819BC2] absolute left-2.5 top-2.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        <svg class="w-4 h-4 text-[#819BC2] absolute left-2.5 top-2.5" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                         </svg>
                     </div>
 
@@ -575,11 +652,16 @@
 
             <!-- Filter Tabs -->
             <div class="flex flex-wrap gap-2 border-b border-white/10 pb-3 overflow-x-auto" role="tablist">
-                <button onclick="setAdminFilter('ALL', this)" class="filter-tab active" role="tab">All Filings (<span id="tabCountAll">8</span>)</button>
-                <button onclick="setAdminFilter('REVIEW', this)" class="filter-tab" role="tab">Under Scrutiny (<span id="tabCountReview">5</span>)</button>
-                <button onclick="setAdminFilter('ACTION', this)" class="filter-tab" role="tab">Queries Raised (<span id="tabCountAction">2</span>)</button>
-                <button onclick="setAdminFilter('APPROVED', this)" class="filter-tab" role="tab">Approved & Signed (<span id="tabCountApproved">48</span>)</button>
-                <button onclick="setAdminFilter('CRITICAL', this)" class="filter-tab" role="tab">SLA Critical (<span id="tabCountCritical">1</span>)</button>
+                <button onclick="setAdminFilter('ALL', this)" class="filter-tab active" role="tab">All Filings (<span
+                        id="tabCountAll">8</span>)</button>
+                <button onclick="setAdminFilter('REVIEW', this)" class="filter-tab" role="tab">Under Scrutiny (<span
+                        id="tabCountReview">5</span>)</button>
+                <button onclick="setAdminFilter('ACTION', this)" class="filter-tab" role="tab">Queries Raised (<span
+                        id="tabCountAction">2</span>)</button>
+                <button onclick="setAdminFilter('APPROVED', this)" class="filter-tab" role="tab">Approved & Signed
+                    (<span id="tabCountApproved">48</span>)</button>
+                <button onclick="setAdminFilter('CRITICAL', this)" class="filter-tab" role="tab">SLA Critical (<span
+                        id="tabCountCritical">1</span>)</button>
             </div>
 
             <!-- Worklist Cards / Table -->
@@ -596,17 +678,20 @@
                 <div>
                     <h2 class="text-lg font-bold text-purple-200 flex items-center gap-2">
                         <svg class="w-5 h-5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
                         </svg>
                         <span>Official Access & Account Security Desk</span>
                     </h2>
-                    <p class="text-xs text-[#819BC2] mt-0.5">Surveillance monitoring for repeated failed sign-in attempts, security alerts, and official account unlocking requests.</p>
+                    <p class="text-xs text-[#819BC2] mt-0.5">Surveillance monitoring for repeated failed sign-in
+                        attempts, security alerts, and official account unlocking requests.</p>
                 </div>
 
                 <div class="flex items-center gap-2">
                     <button onclick="refreshSecurityAlerts()" class="btn-action-outline text-xs">
                         <svg class="w-3.5 h-3.5 text-purple-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
                         </svg>
                         <span>Refresh Security Records</span>
                     </button>
@@ -629,11 +714,14 @@
             <div class="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
                 <div class="flex items-center gap-2.5">
                     <span class="w-2.5 h-2.5 rounded-full bg-sky-400"></span>
-                    <h3 id="dossierModalTitle" class="text-base font-bold text-[#F8F1DF]">Statutory Proposal Dossier Scrutiny</h3>
+                    <h3 id="dossierModalTitle" class="text-base font-bold text-[#F8F1DF]">Statutory Proposal Dossier
+                        Scrutiny</h3>
                 </div>
-                <button onclick="closeModal('dossierModal')" class="text-[#819BC2] hover:text-white p-1 rounded-lg hover:bg-white/10">
+                <button onclick="closeModal('dossierModal')"
+                    class="text-[#819BC2] hover:text-white p-1 rounded-lg hover:bg-white/10">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>
             </div>
@@ -643,7 +731,8 @@
                 <div class="p-4 rounded-xl bg-black/25 border border-white/10 grid grid-cols-1 sm:grid-cols-3 gap-3">
                     <div>
                         <span class="text-[#819BC2] text-[10px] font-mono uppercase block">Enterprise Name:</span>
-                        <span class="text-[#F8F1DF] font-bold text-sm" id="dossierCompany">Gargi Industrial Solutions LLP</span>
+                        <span class="text-[#F8F1DF] font-bold text-sm" id="dossierCompany">Gargi Industrial Solutions
+                            LLP</span>
                     </div>
                     <div>
                         <span class="text-[#819BC2] text-[10px] font-mono uppercase block">Application Ref:</span>
@@ -654,18 +743,22 @@
                         <span class="text-emerald-400 font-semibold" id="dossierCapex">₹145 Cr • 420 Direct Jobs</span>
                     </div>
                     <div class="sm:col-span-2">
-                        <span class="text-[#819BC2] text-[10px] font-mono uppercase block">Proposed Industrial Project:</span>
-                        <span class="text-[#F8F1DF]" id="dossierProject">Solar PV Cell Fabrication & Assembly Unit</span>
+                        <span class="text-[#819BC2] text-[10px] font-mono uppercase block">Proposed Industrial
+                            Project:</span>
+                        <span class="text-[#F8F1DF]" id="dossierProject">Solar PV Cell Fabrication & Assembly
+                            Unit</span>
                     </div>
                     <div>
                         <span class="text-[#819BC2] text-[10px] font-mono uppercase block">Statutory Clearance:</span>
-                        <span class="text-[#D4A94C] font-semibold" id="dossierClearance">Factory Building Plan Approval</span>
+                        <span class="text-[#D4A94C] font-semibold" id="dossierClearance">Factory Building Plan
+                            Approval</span>
                     </div>
                 </div>
 
                 <!-- Technical Verification Checklist -->
                 <div>
-                    <h4 class="font-mono text-[11px] text-[#D4A94C] uppercase mb-2">Technical Scrutiny Checklist (Mandatory Compliance)</h4>
+                    <h4 class="font-mono text-[11px] text-[#D4A94C] uppercase mb-2">Technical Scrutiny Checklist
+                        (Mandatory Compliance)</h4>
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-2 bg-white/5 p-3 rounded-lg border border-white/10">
                         <label class="flex items-center gap-2 cursor-pointer text-[#C9C2B2] hover:text-white">
                             <input type="checkbox" checked class="rounded border-white/20 text-[#D4A94C] focus:ring-0">
@@ -690,36 +783,47 @@
                 <div>
                     <h4 class="font-mono text-[11px] text-[#D4A94C] uppercase mb-2">Applicant Submitted Attachments</h4>
                     <div class="space-y-2">
-                        <div class="p-2.5 rounded-lg bg-white/5 border border-white/10 flex items-center justify-between">
+                        <div
+                            class="p-2.5 rounded-lg bg-white/5 border border-white/10 flex items-center justify-between">
                             <div class="flex items-center gap-2.5">
                                 <span class="text-rose-400 font-mono text-sm">PDF</span>
                                 <div>
-                                    <p class="font-medium text-[#F8F1DF]">Architectural Plant Layout & Cross-Section Drawing.pdf</p>
-                                    <p class="text-[10px] text-[#819BC2]">Signed by Council of Architecture (CoA) Registered Architect • 8.4 MB</p>
+                                    <p class="font-medium text-[#F8F1DF]">Architectural Plant Layout & Cross-Section
+                                        Drawing.pdf</p>
+                                    <p class="text-[10px] text-[#819BC2]">Signed by Council of Architecture (CoA)
+                                        Registered Architect • 8.4 MB</p>
                                 </div>
                             </div>
-                            <button onclick="previewDocument('Architectural Plant Layout')" class="text-xs text-[#D4A94C] hover:underline font-semibold">Inspect Document →</button>
+                            <button onclick="previewDocument('Architectural Plant Layout')"
+                                class="text-xs text-[#D4A94C] hover:underline font-semibold">Inspect Document →</button>
                         </div>
-                        <div class="p-2.5 rounded-lg bg-white/5 border border-white/10 flex items-center justify-between">
+                        <div
+                            class="p-2.5 rounded-lg bg-white/5 border border-white/10 flex items-center justify-between">
                             <div class="flex items-center gap-2.5">
                                 <span class="text-sky-400 font-mono text-sm">PDF</span>
                                 <div>
-                                    <p class="font-medium text-[#F8F1DF]">Occupational Health & Worker Safety Plan.pdf</p>
-                                    <p class="text-[10px] text-[#819BC2]">Prepared as per Factories Act 1948 Chapter III • 4.1 MB</p>
+                                    <p class="font-medium text-[#F8F1DF]">Occupational Health & Worker Safety Plan.pdf
+                                    </p>
+                                    <p class="text-[10px] text-[#819BC2]">Prepared as per Factories Act 1948 Chapter III
+                                        • 4.1 MB</p>
                                 </div>
                             </div>
-                            <button onclick="previewDocument('Worker Safety Plan')" class="text-xs text-[#D4A94C] hover:underline font-semibold">Inspect Document →</button>
+                            <button onclick="previewDocument('Worker Safety Plan')"
+                                class="text-xs text-[#D4A94C] hover:underline font-semibold">Inspect Document →</button>
                         </div>
                     </div>
                 </div>
 
                 <!-- Action Tray -->
                 <div class="flex items-center justify-end gap-3 pt-4 border-t border-white/10">
-                    <button type="button" onclick="closeModal('dossierModal')" class="px-4 py-2 text-xs font-semibold text-[#C9C2B2] hover:text-white">Close</button>
-                    <button type="button" onclick="openQueryModalFromDossier()" class="btn-action-outline text-amber-300 border-amber-500/40 text-xs">
+                    <button type="button" onclick="closeModal('dossierModal')"
+                        class="px-4 py-2 text-xs font-semibold text-[#C9C2B2] hover:text-white">Close</button>
+                    <button type="button" onclick="openQueryModalFromDossier()"
+                        class="btn-action-outline text-amber-300 border-amber-500/40 text-xs">
                         <span>Raise Technical Objection</span>
                     </button>
-                    <button type="button" onclick="openApproveModalFromDossier()" class="btn-action-gold py-2 px-5 text-xs">
+                    <button type="button" onclick="openApproveModalFromDossier()"
+                        class="btn-action-gold py-2 px-5 text-xs">
                         <span>Approve & Sign with DSC</span>
                     </button>
                 </div>
@@ -735,48 +839,62 @@
             <div class="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
                 <div class="flex items-center gap-2">
                     <span class="w-2.5 h-2.5 rounded-full bg-emerald-400"></span>
-                    <h3 id="approveModalTitle" class="text-base font-bold text-[#F8F1DF]">Grant Statutory Approval with Digital Token (DSC)</h3>
+                    <h3 id="approveModalTitle" class="text-base font-bold text-[#F8F1DF]">Grant Statutory Approval with
+                        Digital Token (DSC)</h3>
                 </div>
-                <button onclick="closeModal('approveModal')" class="text-[#819BC2] hover:text-white p-1 rounded-lg hover:bg-white/10">
+                <button onclick="closeModal('approveModal')"
+                    class="text-[#819BC2] hover:text-white p-1 rounded-lg hover:bg-white/10">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>
             </div>
 
             <form onsubmit="executeDscSigning(event)" class="space-y-4 text-xs">
                 <div class="dsc-seal-box space-y-2 text-center">
-                    <p class="text-[10px] font-mono tracking-widest text-[#819BC2] uppercase">Government of India • Information Technology Act 2000</p>
-                    <h4 class="text-base font-bold text-emerald-400" id="signClearanceName">Factory Plan Approval & Occupational Clearance</h4>
-                    <p class="text-xs text-[#C9C2B2]">Applicant: <strong class="text-[#F8F1DF]" id="signCompanyName">Gargi Industrial Solutions LLP</strong></p>
+                    <p class="text-[10px] font-mono tracking-widest text-[#819BC2] uppercase">Government of India •
+                        Information Technology Act 2000</p>
+                    <h4 class="text-base font-bold text-emerald-400" id="signClearanceName">Factory Plan Approval &
+                        Occupational Clearance</h4>
+                    <p class="text-xs text-[#C9C2B2]">Applicant: <strong class="text-[#F8F1DF]"
+                            id="signCompanyName">Gargi Industrial Solutions LLP</strong></p>
                     <p class="text-[11px] font-mono text-[#D4A94C]" id="signAppId">REF: IND-2026-8942</p>
                 </div>
 
                 <div>
-                    <label class="block font-mono text-[11px] text-[#C9C2B2] uppercase mb-1">Select Hardware Token / DSC Certificate</label>
-                    <select required class="w-full bg-[#051229] border border-white/15 rounded-lg p-2.5 text-xs text-[#F8F1DF] focus:outline-none focus:border-[#D4A94C]">
-                        <option value="1">ePass2003 Token - Er. Rajesh Singhania (Class-3 Signing • Valid until 2028)</option>
+                    <label class="block font-mono text-[11px] text-[#C9C2B2] uppercase mb-1">Select Hardware Token / DSC
+                        Certificate</label>
+                    <select required
+                        class="w-full bg-[#051229] border border-white/15 rounded-lg p-2.5 text-xs text-[#F8F1DF] focus:outline-none focus:border-[#D4A94C]">
+                        <option value="1">ePass2003 Token - Er. Rajesh Singhania (Class-3 Signing • Valid until 2028)
+                        </option>
                         <option value="2">NIC CA USB Token - Joint Director Desk (DISH MP)</option>
                     </select>
                 </div>
 
                 <div>
-                    <label class="block font-mono text-[11px] text-[#C9C2B2] uppercase mb-1">Officer Scrutiny Remarks & Clearance Conditions</label>
-                    <textarea id="officerApproveRemarks" rows="2" required class="w-full bg-[#051229] border border-white/15 rounded-lg p-2.5 text-xs text-[#F8F1DF] focus:outline-none focus:border-[#D4A94C]">Statutory inspection completed satisfactorily. Factory building layout complies with provisions of the Factories Act 1948 and M.P. Factories Rules.</textarea>
+                    <label class="block font-mono text-[11px] text-[#C9C2B2] uppercase mb-1">Officer Scrutiny Remarks &
+                        Clearance Conditions</label>
+                    <textarea id="officerApproveRemarks" rows="2" required
+                        class="w-full bg-[#051229] border border-white/15 rounded-lg p-2.5 text-xs text-[#F8F1DF] focus:outline-none focus:border-[#D4A94C]">Statutory inspection completed satisfactorily. Factory building layout complies with provisions of the Factories Act 1948 and M.P. Factories Rules.</textarea>
                 </div>
 
                 <div class="p-3 bg-emerald-500/10 border border-emerald-500/30 rounded-lg flex items-center gap-3">
                     <input type="checkbox" id="dscConsentCheckbox" required class="rounded text-[#D4A94C] focus:ring-0">
                     <label for="dscConsentCheckbox" class="text-[11px] text-emerald-200">
-                        I solemnly certify that all statutory parameters and clearances have been audited. Affix my legal Class-3 Digital Signature Certificate.
+                        I solemnly certify that all statutory parameters and clearances have been audited. Affix my
+                        legal Class-3 Digital Signature Certificate.
                     </label>
                 </div>
 
                 <div class="flex items-center justify-end gap-3 pt-3 border-t border-white/10">
-                    <button type="button" onclick="closeModal('approveModal')" class="px-4 py-2 text-xs font-semibold text-[#C9C2B2] hover:text-white">Cancel</button>
+                    <button type="button" onclick="closeModal('approveModal')"
+                        class="px-4 py-2 text-xs font-semibold text-[#C9C2B2] hover:text-white">Cancel</button>
                     <button type="submit" class="btn-action-gold py-2 px-5 text-xs" id="signSubmitBtn">
                         <svg class="w-4 h-4 text-[#07152F]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                         <span>Affix DSC & Issue Statutory Clearance</span>
                     </button>
@@ -793,24 +911,29 @@
             <div class="flex items-center justify-between border-b border-white/10 pb-3 mb-4">
                 <div class="flex items-center gap-2">
                     <span class="w-2.5 h-2.5 rounded-full bg-amber-400"></span>
-                    <h3 id="raiseQueryTitle" class="text-base font-bold text-[#F8F1DF]">Raise Technical Objection / Query to Applicant</h3>
+                    <h3 id="raiseQueryTitle" class="text-base font-bold text-[#F8F1DF]">Raise Technical Objection /
+                        Query to Applicant</h3>
                 </div>
-                <button onclick="closeModal('raiseQueryModal')" class="text-[#819BC2] hover:text-white p-1 rounded-lg hover:bg-white/10">
+                <button onclick="closeModal('raiseQueryModal')"
+                    class="text-[#819BC2] hover:text-white p-1 rounded-lg hover:bg-white/10">
                     <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12" />
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M6 18L18 6M6 6l12 12" />
                     </svg>
                 </button>
             </div>
 
             <form onsubmit="executeRaiseQuery(event)" class="space-y-4 text-xs">
                 <div class="p-3 bg-amber-500/10 border border-amber-500/30 rounded-lg">
-                    <p class="text-amber-200">Target Enterprise: <strong class="text-[#F8F1DF]" id="queryTargetCompany">Gargi Industrial Solutions LLP</strong></p>
+                    <p class="text-amber-200">Target Enterprise: <strong class="text-[#F8F1DF]"
+                            id="queryTargetCompany">Gargi Industrial Solutions LLP</strong></p>
                     <p class="text-[10px] text-[#819BC2] font-mono mt-0.5" id="queryTargetRef">REF: IND-2026-8942</p>
                 </div>
 
                 <div>
                     <label class="block font-mono text-[11px] text-[#C9C2B2] uppercase mb-1">Objection Category</label>
-                    <select id="queryCategorySelect" class="w-full bg-[#051229] border border-white/15 rounded-lg p-2.5 text-xs text-[#F8F1DF] focus:outline-none focus:border-[#D4A94C]">
+                    <select id="queryCategorySelect"
+                        class="w-full bg-[#051229] border border-white/15 rounded-lg p-2.5 text-xs text-[#F8F1DF] focus:outline-none focus:border-[#D4A94C]">
                         <option value="DRAWING">Inadequate Engineering Drawing / Single Line Diagram</option>
                         <option value="POLLUTION">Effluent Treatment Capacity Insufficient</option>
                         <option value="FIRE">Fire Exit Width & Sprinkler Coverage Discrepancy</option>
@@ -820,14 +943,18 @@
                 </div>
 
                 <div>
-                    <label class="block font-mono text-[11px] text-[#C9C2B2] uppercase mb-1">Technical Objection Details (Visible to Applicant)</label>
-                    <textarea id="officerQueryText" rows="3" required placeholder="State exact deficiency and reference applicable government code..."
+                    <label class="block font-mono text-[11px] text-[#C9C2B2] uppercase mb-1">Technical Objection Details
+                        (Visible to Applicant)</label>
+                    <textarea id="officerQueryText" rows="3" required
+                        placeholder="State exact deficiency and reference applicable government code..."
                         class="w-full bg-[#051229] border border-white/15 rounded-lg p-2.5 text-xs text-[#F8F1DF] focus:outline-none focus:border-[#D4A94C]"></textarea>
                 </div>
 
                 <div>
-                    <label class="block font-mono text-[11px] text-[#C9C2B2] uppercase mb-1">Compliance Response SLA Granted to Applicant</label>
-                    <select class="w-full bg-[#051229] border border-white/15 rounded-lg p-2.5 text-xs text-[#F8F1DF] focus:outline-none focus:border-[#D4A94C]">
+                    <label class="block font-mono text-[11px] text-[#C9C2B2] uppercase mb-1">Compliance Response SLA
+                        Granted to Applicant</label>
+                    <select
+                        class="w-full bg-[#051229] border border-white/15 rounded-lg p-2.5 text-xs text-[#F8F1DF] focus:outline-none focus:border-[#D4A94C]">
                         <option value="7">7 Working Days (Standard Statutory Window)</option>
                         <option value="15">15 Working Days (Complex Engineering Re-design)</option>
                         <option value="3">3 Days (Urgent SLA Protection)</option>
@@ -835,8 +962,10 @@
                 </div>
 
                 <div class="flex items-center justify-end gap-3 pt-3 border-t border-white/10">
-                    <button type="button" onclick="closeModal('raiseQueryModal')" class="px-4 py-2 text-xs font-semibold text-[#C9C2B2] hover:text-white">Cancel</button>
-                    <button type="submit" class="btn-action-gold py-2 px-5 text-xs bg-amber-400 text-black border-amber-300">
+                    <button type="button" onclick="closeModal('raiseQueryModal')"
+                        class="px-4 py-2 text-xs font-semibold text-[#C9C2B2] hover:text-white">Cancel</button>
+                    <button type="submit"
+                        class="btn-action-gold py-2 px-5 text-xs bg-amber-400 text-black border-amber-300">
                         <span>Dispatch Objection Notice</span>
                     </button>
                 </div>
