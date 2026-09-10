@@ -227,9 +227,26 @@ function handleEntrepreneurLogin(event) {
         `;
     }
 
-    // Simulated session routing or redirect to registered profile / dashboard
+    // Save session in localStorage for IndustryOne
+    const rawName = identifier.includes("@") ? identifier.split("@")[0] : identifier;
+    const formattedName = rawName
+        .replace(/[._-]/g, " ")
+        .replace(/\b\w/g, c => c.toUpperCase());
+
+    const userProfile = {
+        identifier: identifier,
+        name: formattedName || "Entrepreneur User",
+        email: identifier.includes("@") ? identifier : `${identifier.toLowerCase()}@enterprise.gov.in`,
+        company: formattedName.includes(" ") ? formattedName : `${formattedName} Industrial Solutions LLP`,
+        udyam: "UDYAM-MP-08-009124",
+        appId: "IND-2026-8942",
+        role: "Entrepreneur",
+        loginTime: new Date().toISOString()
+    };
+    localStorage.setItem("industryOneUser", JSON.stringify(userProfile));
+
+    // Redirect to home page with active session
     setTimeout(() => {
-        // If an Entrepreneur dashboard exists, route to it or display authorized prompt
-        window.location.href = "About.html";
-    }, 1200);
+        window.location.href = "home.html";
+    }, 900);
 }

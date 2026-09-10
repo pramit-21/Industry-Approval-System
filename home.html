@@ -525,6 +525,59 @@
             transform: scale(1.08);
             box-shadow: 0 0 12px rgba(212, 169, 76, 0.3);
         }
+
+        /* =====================================================
+           USER PROFILE DROPDOWN (AUTHENTICATED STATE)
+        ===================================================== */
+        .profile-nav-btn {
+            background: rgba(10, 32, 69, 0.85);
+            border: 1px solid rgba(212, 169, 76, 0.35);
+            color: #F8F1DF;
+            border-radius: 9999px;
+            padding: 5px 12px 5px 6px;
+            font-size: 0.82rem;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 9px;
+            transition: all 0.25s ease;
+            cursor: pointer;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+            white-space: nowrap;
+        }
+
+        .profile-nav-btn:hover,
+        .profile-nav-btn[aria-expanded="true"] {
+            background: rgba(14, 44, 94, 0.95);
+            border-color: #D4A94C;
+            box-shadow: 0 4px 16px rgba(212, 169, 76, 0.28);
+            color: #FFFFFF;
+        }
+
+        .profile-nav-dropdown-menu {
+            position: absolute;
+            top: calc(100% + 10px);
+            right: 0;
+            width: 300px;
+            background: rgba(7, 21, 47, 0.98);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            border: 1px solid rgba(212, 169, 76, 0.4);
+            border-radius: 14px;
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.85), 0 0 30px rgba(212, 169, 76, 0.15);
+            padding: 14px;
+            z-index: 1000;
+            opacity: 0;
+            visibility: hidden;
+            transform: translateY(-8px);
+            transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+        }
+
+        .profile-nav-dropdown-menu.show {
+            opacity: 1;
+            visibility: visible;
+            transform: translateY(0);
+        }
     </style>
 </head>
 
@@ -704,10 +757,90 @@
                 <a href="About.html" class="nav-link-item">About Us</a>
                 <a href="Helpdesk.html" class="nav-link-item">Helpdesk</a>
 
-                <!-- Sign In Action -->
-                <a href="login.html" class="nav-link-item text-[#D4A94C] font-semibold border border-[#D4A94C]/30 hover:border-[#D4A94C] rounded-lg ml-1">
-                    Applicant Sign In →
-                </a>
+                <!-- Auth Nav: Sign In Link OR Logged-in User Profile -->
+                <div id="authNavContainer" class="flex items-center ml-1">
+                    <!-- Shown when Logged Out -->
+                    <a id="navSignInBtn" href="login.html" class="nav-link-item text-[#D4A94C] font-semibold border border-[#D4A94C]/30 hover:border-[#D4A94C] rounded-lg">
+                        Applicant Sign In →
+                    </a>
+
+                    <!-- Shown when Logged In: User Profile Dropdown -->
+                    <div id="navUserProfile" class="relative hidden">
+                        <button id="profileDropdownBtn" type="button" class="profile-nav-btn"
+                            aria-expanded="false" aria-haspopup="true" aria-label="User Account Menu">
+                            <div class="relative flex-shrink-0">
+                                <div id="userAvatar" class="w-7 h-7 rounded-full bg-gradient-to-br from-[#F8F1DF] to-[#D4A94C] text-[#07152F] font-bold text-xs flex items-center justify-center font-mono shadow-sm">
+                                    U
+                                </div>
+                                <span class="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-[#22c55e] border-2 border-[#07152F]"></span>
+                            </div>
+                            <div class="text-left hidden sm:block leading-none">
+                                <div id="userNameDisplay" class="text-xs font-bold text-[#F8F1DF] truncate max-w-[130px]">Enterprise User</div>
+                                <div class="text-[9px] text-[#D4A94C] font-mono mt-0.5">Verified Investor</div>
+                            </div>
+                            <svg id="profileDropdownArrow" class="w-3.5 h-3.5 text-[#D4A94C] transition-transform duration-200 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            </svg>
+                        </button>
+
+                        <!-- Profile Dropdown Card -->
+                        <div id="profileDropdownMenu" class="profile-nav-dropdown-menu" role="menu">
+                            <!-- Profile Header -->
+                            <div class="pb-3 border-b border-white/10 flex items-start gap-3">
+                                <div id="userAvatarLarge" class="w-10 h-10 rounded-full bg-gradient-to-br from-[#F8F1DF] to-[#D4A94C] text-[#07152F] font-bold text-sm flex items-center justify-center font-mono flex-shrink-0 shadow-md">
+                                    U
+                                </div>
+                                <div class="min-w-0 flex-1 text-left">
+                                    <h4 id="profileMenuName" class="text-sm font-bold text-[#F8F1DF] truncate">Apex Bio-Energy</h4>
+                                    <p id="profileMenuEmail" class="text-xs text-[#819BC2] truncate">user@enterprise.gov.in</p>
+                                    <div class="mt-1">
+                                        <span class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-[#22c55e]/20 text-[#86efac] border border-[#22c55e]/40 font-semibold inline-flex items-center gap-1">
+                                            <span>✓</span> <span>UDYAM VERIFIED</span>
+                                        </span>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <!-- Enterprise Info Strip -->
+                            <div class="py-2.5 my-2.5 px-3 rounded-lg bg-[#05132B]/80 border border-white/5 space-y-1 text-left">
+                                <div class="flex justify-between text-[11px]">
+                                    <span class="text-[#819BC2]">Enterprise ID:</span>
+                                    <span id="profileUdyamDisplay" class="font-mono text-[#D4A94C] font-semibold">UDYAM-MP-08-009124</span>
+                                </div>
+                                <div class="flex justify-between text-[11px]">
+                                    <span class="text-[#819BC2]">Application:</span>
+                                    <span class="font-mono text-[#F8F1DF]">IND-2026-8942</span>
+                                </div>
+                            </div>
+
+                            <!-- Menu Quick Links -->
+                            <div class="space-y-1 text-left">
+                                <a href="home.html#track-status" onclick="closeProfileDropdown()" class="flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg text-xs font-semibold text-[#C9C2B2] hover:text-[#F8F1DF] hover:bg-white/5 transition-colors">
+                                    <span>📊</span>
+                                    <span>Track Applications & Audit</span>
+                                </a>
+                                <a href="Applicant.html" class="flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg text-xs font-semibold text-[#C9C2B2] hover:text-[#F8F1DF] hover:bg-white/5 transition-colors">
+                                    <span>📝</span>
+                                    <span>Register New Unit</span>
+                                </a>
+                                <a href="Helpdesk.html" class="flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg text-xs font-semibold text-[#C9C2B2] hover:text-[#F8F1DF] hover:bg-white/5 transition-colors">
+                                    <span>📞</span>
+                                    <span>Grievances & Support</span>
+                                </a>
+                            </div>
+
+                            <!-- Sign Out Button -->
+                            <div class="pt-2 mt-2 border-t border-white/10">
+                                <button type="button" onclick="handleSignOut()" class="w-full flex items-center justify-center gap-2 py-2 px-3 rounded-lg bg-red-500/10 hover:bg-red-500/20 text-red-400 border border-red-500/30 text-xs font-bold transition-all cursor-pointer">
+                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                                    </svg>
+                                    <span>Sign Out</span>
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
                 <!-- Officer / Department Portal Gateway -->
                 <a href="AdminLogin.html" class="officer-portal-btn ml-1 xl:ml-2"
@@ -732,7 +865,25 @@
         <!-- Mobile Drawer -->
         <div id="mobile-menu" class="hidden lg:hidden px-6 py-4 bg-[#05132B] border-b border-[#D4A94C]/20 space-y-3">
             <a href="home.html" class="block py-2 text-[#D4A94C] font-bold border-b border-white/5">Home (Active)</a>
-            <a href="login.html" class="block py-2 text-[#F8F1DF] font-semibold border-b border-white/5">Applicant Sign In →</a>
+
+            <!-- Mobile Auth: Sign In Link (Logged Out) -->
+            <a id="mobileSignInLink" href="login.html" class="block py-2 text-[#F8F1DF] font-semibold border-b border-white/5">Applicant Sign In →</a>
+
+            <!-- Mobile Auth: Profile Card (Logged In) -->
+            <div id="mobileUserProfile" class="hidden py-3 px-3.5 rounded-xl bg-[#071736] border border-[#D4A94C]/35 space-y-2.5">
+                <div class="flex items-center gap-3">
+                    <div id="mobileAvatar" class="w-9 h-9 rounded-full bg-gradient-to-br from-[#F8F1DF] to-[#D4A94C] text-[#07152F] font-bold text-xs flex items-center justify-center font-mono flex-shrink-0">
+                        U
+                    </div>
+                    <div class="min-w-0 flex-1 text-left">
+                        <div id="mobileName" class="text-xs font-bold text-[#F8F1DF] truncate">Entrepreneur User</div>
+                        <div id="mobileEmail" class="text-[10px] text-[#819BC2] truncate">user@enterprise.gov.in</div>
+                    </div>
+                </div>
+                <button type="button" onclick="handleSignOut()" class="w-full py-1.5 px-3 rounded-lg bg-red-500/15 hover:bg-red-500/25 text-red-400 border border-red-500/30 text-[11px] font-bold transition-all">
+                    Sign Out
+                </button>
+            </div>
             <a href="Applicant.html" class="block py-2 text-[#C9C2B2] hover:text-white border-b border-white/5">New Unit Registration</a>
             <a href="About.html" class="block py-2 text-[#C9C2B2] hover:text-white border-b border-white/5">About Portal</a>
 
@@ -2178,7 +2329,117 @@
                     }
                 });
             }
+
+            // User Profile Authentication State Initialization
+            initUserProfile();
+
+            // Profile Dropdown Toggle Logic
+            const profileBtn = document.getElementById("profileDropdownBtn");
+            const profileContainer = document.getElementById("navUserProfile");
+
+            if (profileBtn) {
+                profileBtn.addEventListener("click", (e) => {
+                    e.stopPropagation();
+                    toggleProfileDropdown();
+                });
+            }
+
+            // Close profile dropdown when clicking outside
+            document.addEventListener("click", (e) => {
+                if (profileContainer && !profileContainer.contains(e.target)) {
+                    toggleProfileDropdown(true);
+                }
+            });
         });
+
+        // =====================================================
+        // USER AUTHENTICATION & PROFILE LOGIC
+        // =====================================================
+        function initUserProfile() {
+            const storedUser = localStorage.getItem("industryOneUser");
+            const navSignInBtn = document.getElementById("navSignInBtn");
+            const navUserProfile = document.getElementById("navUserProfile");
+            const mobileSignInLink = document.getElementById("mobileSignInLink");
+            const mobileUserProfile = document.getElementById("mobileUserProfile");
+
+            if (storedUser) {
+                try {
+                    const user = JSON.parse(storedUser);
+                    const name = user.name || "Entrepreneur User";
+                    const email = user.email || user.identifier || "investor@enterprise.gov.in";
+                    const company = user.company || name;
+                    const udyam = user.udyam || "UDYAM-MP-08-009124";
+                    const initial = (name.charAt(0) || "U").toUpperCase();
+
+                    // Desktop elements
+                    if (navSignInBtn) navSignInBtn.classList.add("hidden");
+                    if (navUserProfile) navUserProfile.classList.remove("hidden");
+
+                    const userAvatar = document.getElementById("userAvatar");
+                    const userAvatarLarge = document.getElementById("userAvatarLarge");
+                    const userNameDisplay = document.getElementById("userNameDisplay");
+                    const profileMenuName = document.getElementById("profileMenuName");
+                    const profileMenuEmail = document.getElementById("profileMenuEmail");
+                    const profileUdyamDisplay = document.getElementById("profileUdyamDisplay");
+
+                    if (userAvatar) userAvatar.textContent = initial;
+                    if (userAvatarLarge) userAvatarLarge.textContent = initial;
+                    if (userNameDisplay) userNameDisplay.textContent = name;
+                    if (profileMenuName) profileMenuName.textContent = company;
+                    if (profileMenuEmail) profileMenuEmail.textContent = email;
+                    if (profileUdyamDisplay) profileUdyamDisplay.textContent = udyam;
+
+                    // Mobile elements
+                    if (mobileSignInLink) mobileSignInLink.classList.add("hidden");
+                    if (mobileUserProfile) {
+                        mobileUserProfile.classList.remove("hidden");
+                        const mobileAvatar = document.getElementById("mobileAvatar");
+                        const mobileName = document.getElementById("mobileName");
+                        const mobileEmail = document.getElementById("mobileEmail");
+                        if (mobileAvatar) mobileAvatar.textContent = initial;
+                        if (mobileName) mobileName.textContent = name;
+                        if (mobileEmail) mobileEmail.textContent = email;
+                    }
+                } catch (e) {
+                    console.error("Error parsing user profile:", e);
+                }
+            } else {
+                // Logged out
+                if (navSignInBtn) navSignInBtn.classList.remove("hidden");
+                if (navUserProfile) navUserProfile.classList.add("hidden");
+                if (mobileSignInLink) mobileSignInLink.classList.remove("hidden");
+                if (mobileUserProfile) mobileUserProfile.classList.add("hidden");
+            }
+        }
+
+        function toggleProfileDropdown(forceClose = false) {
+            const menu = document.getElementById("profileDropdownMenu");
+            const arrow = document.getElementById("profileDropdownArrow");
+            const btn = document.getElementById("profileDropdownBtn");
+            if (!menu) return;
+
+            const isOpen = menu.classList.contains("show");
+            if (forceClose || isOpen) {
+                menu.classList.remove("show");
+                arrow?.classList.remove("rotate-180");
+                btn?.setAttribute("aria-expanded", "false");
+            } else {
+                menu.classList.add("show");
+                arrow?.classList.add("rotate-180");
+                btn?.setAttribute("aria-expanded", "true");
+            }
+        }
+
+        function closeProfileDropdown() {
+            toggleProfileDropdown(true);
+        }
+
+        function handleSignOut() {
+            localStorage.removeItem("industryOneUser");
+            initUserProfile();
+            toggleProfileDropdown(true);
+            showWipToast("Signed out successfully. Session closed.");
+        }
 
         // Sample Data for Live Tracker
         const trackerDatabase = {
