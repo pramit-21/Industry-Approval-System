@@ -96,7 +96,7 @@ function showError(fieldId, customMessage) {
     }
 }
 
-// 6. Setup Real-Time Listeners to Clear Errors
+// 6. Setup Real-Time Listeners to Clear Errors & Verify Password
 document.addEventListener("DOMContentLoaded", () => {
     const fields = [
         "fullName",
@@ -117,7 +117,115 @@ document.addEventListener("DOMContentLoaded", () => {
             el.addEventListener("change", () => clearError(id));
         }
     });
+
+    // Real-time password verification listener
+    const pwdInput = document.getElementById("password");
+    if (pwdInput) {
+        pwdInput.addEventListener("input", (e) => {
+            updatePasswordUI(e.target.value);
+        });
+    }
 });
+
+/**
+ * Check all mandatory password criteria:
+ * - Minimum 8 characters
+ * - Uppercase & Lowercase alphabetic characters
+ * - Numeric digits (0-9)
+ * - Special characters (!@#$%^&*)
+ */
+function checkPasswordRequirements(password) {
+    if (!password) {
+        return {
+            isValid: false,
+            hasLength: false,
+            hasAlpha: false,
+            hasDigit: false,
+            hasSpecial: false,
+            score: 0,
+            message: "Password is required."
+        };
+    }
+
+    const hasLength = password.length >= 8;
+    const hasUpper = /[A-Z]/.test(password);
+    const hasLower = /[a-z]/.test(password);
+    const hasAlpha = hasUpper && hasLower;
+    const hasDigit = /[0-9]/.test(password);
+    const hasSpecial = /[!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?]/.test(password);
+
+    const isValid = hasLength && hasAlpha && hasDigit && hasSpecial;
+
+    let missing = [];
+    if (!hasLength) missing.push("min 8 chars");
+    if (!hasAlpha) missing.push("upper & lower letters");
+    if (!hasDigit) missing.push("numeric digit");
+    if (!hasSpecial) missing.push("special symbol");
+
+    return {
+        isValid,
+        hasLength,
+        hasAlpha,
+        hasDigit,
+        hasSpecial,
+        score: [hasLength, hasAlpha, hasDigit, hasSpecial].filter(Boolean).length,
+        message: "Password must include: " + missing.join(", ") + "."
+    };
+}
+
+/**
+ * Update visual checklist and strength meter in real-time
+ */
+function updatePasswordUI(password) {
+    const pwdCheck = checkPasswordRequirements(password || "");
+
+    updateRuleState("rule-length", pwdCheck.hasLength);
+    updateRuleState("rule-alpha", pwdCheck.hasAlpha);
+    updateRuleState("rule-digit", pwdCheck.hasDigit);
+    updateRuleState("rule-special", pwdCheck.hasSpecial);
+
+    const strengthBar = document.getElementById("pwdStrengthBar");
+    const strengthLabel = document.getElementById("pwdStrengthLabel");
+
+    if (!strengthBar || !strengthLabel) return;
+
+    if (!password) {
+        strengthBar.style.width = "0%";
+        strengthBar.className = "h-full w-0 transition-all duration-300 bg-gray-300 rounded-full";
+        strengthLabel.textContent = "Required";
+        strengthLabel.className = "text-[10px] font-mono font-bold uppercase text-gray-500";
+        return;
+    }
+
+    const levels = [
+        { width: "25%", color: "bg-red-500", label: "Weak", labelClass: "text-red-600" },
+        { width: "50%", color: "bg-orange-500", label: "Moderate", labelClass: "text-orange-600" },
+        { width: "75%", color: "bg-amber-500", label: "Good", labelClass: "text-amber-600" },
+        { width: "100%", color: "bg-green-600", label: "Strong ✓", labelClass: "text-green-600" }
+    ];
+
+    const currentLevel = levels[Math.max(0, pwdCheck.score - 1)];
+    strengthBar.style.width = currentLevel.width;
+    strengthBar.className = `h-full transition-all duration-300 ${currentLevel.color} rounded-full`;
+    strengthLabel.textContent = currentLevel.label;
+    strengthLabel.className = `text-[10px] font-mono font-bold uppercase ${currentLevel.labelClass}`;
+}
+
+function updateRuleState(elementId, isValid) {
+    const el = document.getElementById(elementId);
+    if (!el) return;
+
+    const icon = el.querySelector(".rule-icon");
+    if (isValid) {
+        el.classList.add("rule-valid");
+        el.classList.remove("rule-invalid");
+        if (icon) icon.textContent = "✓";
+    } else {
+        el.classList.remove("rule-valid");
+        el.classList.add("rule-invalid");
+        if (icon) icon.textContent = "✕";
+    }
+}
 
 // 7. Form Submission Handler
 function handleApplicantRegistration(event) {
@@ -162,9 +270,10 @@ function handleApplicantRegistration(event) {
         if (!firstErrorField) firstErrorField = "mobile";
     }
 
-    // Validate Password
-    if (!password || password.length < 8) {
-        showError("password", "Password must contain at least 8 characters.");
+    // Validate Password with all conditions (letters, digits, symbols, length)
+    const pwdCheck = checkPasswordRequirements(password);
+    if (!pwdCheck.isValid) {
+        showError("password", pwdCheck.message);
         hasErrors = true;
         if (!firstErrorField) firstErrorField = "password";
     }
@@ -221,9 +330,33 @@ function handleApplicantRegistration(event) {
         `;
     }
 
-    // Simulated Server Registration & Receipt Generation
-    setTimeout(() => {
-        const randomRef = "APP-IO-" + Math.floor(100000 + Math.random() * 900000);
+    // Call backend API to persist registration in PostgreSQL
+    fetch("http://localhost:8080/api/register", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify({
+            email: email,
+            password: password,
+            role: "ENTREPRENEUR",
+            fullName: fullName
+        })
+    })
+    .then(async res => {
+        const data = await res.json().catch(() => ({}));
+        if (!res.ok && res.status === 409) {
+            showError("email", "An account with this email address already exists. Please sign in.");
+            if (submitBtn) {
+                submitBtn.disabled = false;
+                submitBtn.textContent = "Submit Statutory Clearance Registration";
+            }
+            throw new Error("User exists");
+        }
+        return data;
+    })
+    .then(data => {
+        const randomRef = "APP-IO-" + (data.userId ? (100000 + data.userId) : Math.floor(100000 + Math.random() * 900000));
 
         const summaryAppId = document.getElementById("summaryAppId");
         const summaryBusinessName = document.getElementById("summaryBusinessName");
@@ -245,5 +378,31 @@ function handleApplicantRegistration(event) {
             confirmWrap.classList.remove("hidden");
             confirmWrap.scrollIntoView({ behavior: "smooth", block: "center" });
         }
-    }, 1000);
+    })
+    .catch(err => {
+        if (err.message === "User exists") return;
+        console.warn("Backend server not reached, displaying local summary receipt:", err);
+        // Fallback display if backend is offline
+        const randomRef = "APP-IO-" + Math.floor(100000 + Math.random() * 900000);
+        const summaryAppId = document.getElementById("summaryAppId");
+        const summaryBusinessName = document.getElementById("summaryBusinessName");
+        const summaryName = document.getElementById("summaryName");
+        const summaryEmail = document.getElementById("summaryEmail");
+        const summaryIndustry = document.getElementById("summaryIndustry");
+
+        if (summaryAppId) summaryAppId.textContent = randomRef;
+        if (summaryBusinessName) summaryBusinessName.textContent = businessName;
+        if (summaryName) summaryName.textContent = fullName;
+        if (summaryEmail) summaryEmail.textContent = email;
+        if (summaryIndustry) summaryIndustry.textContent = industryText;
+
+        const formSection = document.getElementById("form-section");
+        const confirmWrap = document.getElementById("confirm-wrap");
+
+        if (formSection) formSection.classList.add("hidden");
+        if (confirmWrap) {
+            confirmWrap.classList.remove("hidden");
+            confirmWrap.scrollIntoView({ behavior: "smooth", block: "center" });
+        }
+    });
 }

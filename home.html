@@ -25,7 +25,7 @@
         /* =====================================================
            HOME PAGE CUSTOM ENHANCEMENTS & COMPONENT STYLES
         ===================================================== */
-        
+
         /* Section Dividers & Technical Accents */
         .section-separator {
             border-top: 1px dashed rgba(212, 169, 76, 0.2);
@@ -221,8 +221,15 @@
         }
 
         @keyframes pulseActive {
-            0%, 100% { transform: scale(1); }
-            50% { transform: scale(1.08); }
+
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(1.08);
+            }
         }
 
         /* Step Card */
@@ -329,8 +336,13 @@
         }
 
         @keyframes tickerSlide {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-50%); }
+            0% {
+                transform: translateX(0);
+            }
+
+            100% {
+                transform: translateX(-50%);
+            }
         }
 
         /* Coming Soon & Work in Progress UI Tokens */
@@ -378,7 +390,9 @@
         }
 
         @keyframes wipPing {
-            75%, 100% {
+
+            75%,
+            100% {
                 transform: scale(2.2);
                 opacity: 0;
             }
@@ -428,6 +442,7 @@
             flex-direction: column;
             gap: 0.75rem;
         }
+
         @media (min-width: 640px) {
             .wip-status-ribbon {
                 flex-direction: row;
@@ -654,30 +669,39 @@
                 </a>
 
                 <!-- Vertical Divider -->
-                <div class="hidden sm:block h-7 w-[1px] bg-gradient-to-b from-transparent via-[#D4A94C]/40 to-transparent"></div>
+                <div
+                    class="hidden sm:block h-7 w-[1px] bg-gradient-to-b from-transparent via-[#D4A94C]/40 to-transparent">
+                </div>
 
                 <!-- Dropdown beside IO portion -->
                 <div class="relative" id="servicesDropdownContainer">
                     <button id="servicesDropdownBtn" type="button" class="services-nav-dropdown-btn"
                         aria-expanded="false" aria-haspopup="true" aria-label="Toggle Portal Services Menu">
-                        <svg class="w-4 h-4 text-[#D4A94C] flex-shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <svg class="w-4 h-4 text-[#D4A94C] flex-shrink-0" viewBox="0 0 24 24" fill="none"
+                            stroke="currentColor" stroke-width="2">
                             <rect x="3" y="3" width="7" height="7" rx="1.5"></rect>
                             <rect x="14" y="3" width="7" height="7" rx="1.5"></rect>
                             <rect x="14" y="14" width="7" height="7" rx="1.5"></rect>
                             <rect x="3" y="14" width="7" height="7" rx="1.5"></rect>
                         </svg>
                         <span>Services</span>
-                        <svg id="servicesDropdownArrow" class="w-3.5 h-3.5 text-[#D4A94C] transition-transform duration-200 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg id="servicesDropdownArrow"
+                            class="w-3.5 h-3.5 text-[#D4A94C] transition-transform duration-200 flex-shrink-0"
+                            fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
                         </svg>
                     </button>
 
                     <!-- Dropdown Menu -->
-                    <div id="servicesDropdownMenu" class="services-nav-dropdown-menu" role="menu" aria-orientation="vertical">
+                    <div id="servicesDropdownMenu" class="services-nav-dropdown-menu" role="menu"
+                        aria-orientation="vertical">
                         <!-- Dropdown Header -->
                         <div class="px-3.5 py-2 border-b border-white/10 flex items-center justify-between">
-                            <span class="text-[11px] font-mono uppercase tracking-wider text-[#D4A94C] font-semibold">Single Window Tools</span>
-                            <span class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-[#22c55e]/15 text-[#86efac] border border-[#22c55e]/30 font-semibold">Active</span>
+                            <span
+                                class="text-[11px] font-mono uppercase tracking-wider text-[#D4A94C] font-semibold">Single
+                                Window Tools</span>
+                            <span
+                                class="text-[10px] font-mono px-1.5 py-0.5 rounded bg-[#22c55e]/15 text-[#86efac] border border-[#22c55e]/30 font-semibold">Active</span>
                         </div>
 
                         <!-- Dropdown Items: Schemes, Clearances, Track Status, SLA Estimator -->
@@ -689,10 +713,13 @@
                                 </div>
                                 <div class="flex-1 min-w-0">
                                     <div class="flex items-center justify-between gap-2">
-                                        <span class="text-xs sm:text-sm font-bold text-[#F8F1DF] group-hover:text-[#D4A94C] transition-colors">Schemes</span>
-                                        <span class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-[#FF9933]/20 text-[#FFB066] border border-[#FF9933]/40 flex-shrink-0">Soon</span>
+                                        <span
+                                            class="text-xs sm:text-sm font-bold text-[#F8F1DF] group-hover:text-[#D4A94C] transition-colors">Schemes</span>
+                                        <span
+                                            class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-[#FF9933]/20 text-[#FFB066] border border-[#FF9933]/40 flex-shrink-0">Soon</span>
                                     </div>
-                                    <p class="text-[11px] text-[#819BC2] mt-0.5 leading-snug">PLI, MSME capital subsidies & clean green energy grants</p>
+                                    <p class="text-[11px] text-[#819BC2] mt-0.5 leading-snug">PLI, MSME capital
+                                        subsidies & clean green energy grants</p>
                                 </div>
                             </a>
 
@@ -703,10 +730,13 @@
                                 </div>
                                 <div class="flex-1 min-w-0">
                                     <div class="flex items-center justify-between gap-2">
-                                        <span class="text-xs sm:text-sm font-bold text-[#F8F1DF] group-hover:text-[#D4A94C] transition-colors">Clearances</span>
-                                        <span class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-[#FF9933]/20 text-[#FFB066] border border-[#FF9933]/40 flex-shrink-0">Soon</span>
+                                        <span
+                                            class="text-xs sm:text-sm font-bold text-[#F8F1DF] group-hover:text-[#D4A94C] transition-colors">Clearances</span>
+                                        <span
+                                            class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-[#FF9933]/20 text-[#FFB066] border border-[#FF9933]/40 flex-shrink-0">Soon</span>
                                     </div>
-                                    <p class="text-[11px] text-[#819BC2] mt-0.5 leading-snug">Statutory NOCs, CTE, DISH & Environmental licenses</p>
+                                    <p class="text-[11px] text-[#819BC2] mt-0.5 leading-snug">Statutory NOCs, CTE, DISH
+                                        & Environmental licenses</p>
                                 </div>
                             </a>
 
@@ -717,10 +747,14 @@
                                 </div>
                                 <div class="flex-1 min-w-0">
                                     <div class="flex items-center justify-between gap-2">
-                                        <span class="text-xs sm:text-sm font-bold text-[#F8F1DF] group-hover:text-[#D4A94C] transition-colors">Track Status</span>
-                                        <span class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-[#FF9933]/20 text-[#FFB066] border border-[#FF9933]/40 flex-shrink-0">Soon</span>
+                                        <span
+                                            class="text-xs sm:text-sm font-bold text-[#F8F1DF] group-hover:text-[#D4A94C] transition-colors">Track
+                                            Status</span>
+                                        <span
+                                            class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-[#FF9933]/20 text-[#FFB066] border border-[#FF9933]/40 flex-shrink-0">Soon</span>
                                     </div>
-                                    <p class="text-[11px] text-[#819BC2] mt-0.5 leading-snug">Real-time multi-department audit trail & scrutiny notes</p>
+                                    <p class="text-[11px] text-[#819BC2] mt-0.5 leading-snug">Real-time multi-department
+                                        audit trail & scrutiny notes</p>
                                 </div>
                             </a>
 
@@ -731,18 +765,24 @@
                                 </div>
                                 <div class="flex-1 min-w-0">
                                     <div class="flex items-center justify-between gap-2">
-                                        <span class="text-xs sm:text-sm font-bold text-[#F8F1DF] group-hover:text-[#D4A94C] transition-colors">SLA Estimator</span>
-                                        <span class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-[#FF9933]/20 text-[#FFB066] border border-[#FF9933]/40 flex-shrink-0">Soon</span>
+                                        <span
+                                            class="text-xs sm:text-sm font-bold text-[#F8F1DF] group-hover:text-[#D4A94C] transition-colors">SLA
+                                            Estimator</span>
+                                        <span
+                                            class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-[#FF9933]/20 text-[#FFB066] border border-[#FF9933]/40 flex-shrink-0">Soon</span>
                                     </div>
-                                    <p class="text-[11px] text-[#819BC2] mt-0.5 leading-snug">Statutory approval timelines & composite fee calculator</p>
+                                    <p class="text-[11px] text-[#819BC2] mt-0.5 leading-snug">Statutory approval
+                                        timelines & composite fee calculator</p>
                                 </div>
                             </a>
                         </div>
 
                         <!-- Dropdown Footer -->
-                        <div class="px-3 py-2 mt-1 border-t border-white/10 bg-[#05132B]/60 rounded-b-lg flex items-center justify-between text-[11px]">
+                        <div
+                            class="px-3 py-2 mt-1 border-t border-white/10 bg-[#05132B]/60 rounded-b-lg flex items-center justify-between text-[11px]">
                             <span class="text-[#819BC2]">Direct Investor Services</span>
-                            <a href="Applicant.html" class="text-[#D4A94C] hover:underline font-semibold flex items-center gap-1">
+                            <a href="Applicant.html"
+                                class="text-[#D4A94C] hover:underline font-semibold flex items-center gap-1">
                                 <span>Register Unit</span>
                                 <span>→</span>
                             </a>
@@ -760,26 +800,34 @@
                 <!-- Auth Nav: Sign In Link OR Logged-in User Profile -->
                 <div id="authNavContainer" class="flex items-center ml-1">
                     <!-- Shown when Logged Out -->
-                    <a id="navSignInBtn" href="login.html" class="nav-link-item text-[#D4A94C] font-semibold border border-[#D4A94C]/30 hover:border-[#D4A94C] rounded-lg">
+                    <a id="navSignInBtn" href="login.html"
+                        class="nav-link-item text-[#D4A94C] font-semibold border border-[#D4A94C]/30 hover:border-[#D4A94C] rounded-lg">
                         Applicant Sign In →
                     </a>
 
                     <!-- Shown when Logged In: User Profile Dropdown -->
                     <div id="navUserProfile" class="relative hidden">
-                        <button id="profileDropdownBtn" type="button" class="profile-nav-btn"
-                            aria-expanded="false" aria-haspopup="true" aria-label="User Account Menu">
+                        <button id="profileDropdownBtn" type="button" class="profile-nav-btn" aria-expanded="false"
+                            aria-haspopup="true" aria-label="User Account Menu">
                             <div class="relative flex-shrink-0">
-                                <div id="userAvatar" class="w-7 h-7 rounded-full bg-gradient-to-br from-[#F8F1DF] to-[#D4A94C] text-[#07152F] font-bold text-xs flex items-center justify-center font-mono shadow-sm">
+                                <div id="userAvatar"
+                                    class="w-7 h-7 rounded-full bg-gradient-to-br from-[#F8F1DF] to-[#D4A94C] text-[#07152F] font-bold text-xs flex items-center justify-center font-mono shadow-sm">
                                     U
                                 </div>
-                                <span class="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-[#22c55e] border-2 border-[#07152F]"></span>
+                                <span
+                                    class="absolute -bottom-0.5 -right-0.5 w-2.5 h-2.5 rounded-full bg-[#22c55e] border-2 border-[#07152F]"></span>
                             </div>
                             <div class="text-left hidden sm:block leading-none">
-                                <div id="userNameDisplay" class="text-xs font-bold text-[#F8F1DF] truncate max-w-[130px]">Enterprise User</div>
+                                <div id="userNameDisplay"
+                                    class="text-xs font-bold text-[#F8F1DF] truncate max-w-[130px]">Enterprise User
+                                </div>
                                 <div class="text-[9px] text-[#D4A94C] font-mono mt-0.5">Verified Investor</div>
                             </div>
-                            <svg id="profileDropdownArrow" class="w-3.5 h-3.5 text-[#D4A94C] transition-transform duration-200 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+                            <svg id="profileDropdownArrow"
+                                class="w-3.5 h-3.5 text-[#D4A94C] transition-transform duration-200 flex-shrink-0"
+                                fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M19 9l-7 7-7-7" />
                             </svg>
                         </button>
 
@@ -787,14 +835,18 @@
                         <div id="profileDropdownMenu" class="profile-nav-dropdown-menu" role="menu">
                             <!-- Profile Header -->
                             <div class="pb-3 border-b border-white/10 flex items-start gap-3">
-                                <div id="userAvatarLarge" class="w-10 h-10 rounded-full bg-gradient-to-br from-[#F8F1DF] to-[#D4A94C] text-[#07152F] font-bold text-sm flex items-center justify-center font-mono flex-shrink-0 shadow-md">
+                                <div id="userAvatarLarge"
+                                    class="w-10 h-10 rounded-full bg-gradient-to-br from-[#F8F1DF] to-[#D4A94C] text-[#07152F] font-bold text-sm flex items-center justify-center font-mono flex-shrink-0 shadow-md">
                                     U
                                 </div>
                                 <div class="min-w-0 flex-1 text-left">
-                                    <h4 id="profileMenuName" class="text-sm font-bold text-[#F8F1DF] truncate">Apex Bio-Energy</h4>
-                                    <p id="profileMenuEmail" class="text-xs text-[#819BC2] truncate">user@enterprise.gov.in</p>
+                                    <h4 id="profileMenuName" class="text-sm font-bold text-[#F8F1DF] truncate">Apex
+                                        Bio-Energy</h4>
+                                    <p id="profileMenuEmail" class="text-xs text-[#819BC2] truncate">
+                                        user@enterprise.gov.in</p>
                                     <div class="mt-1">
-                                        <span class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-[#22c55e]/20 text-[#86efac] border border-[#22c55e]/40 font-semibold inline-flex items-center gap-1">
+                                        <span
+                                            class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-[#22c55e]/20 text-[#86efac] border border-[#22c55e]/40 font-semibold inline-flex items-center gap-1">
                                             <span>✓</span> <span>UDYAM VERIFIED</span>
                                         </span>
                                     </div>
@@ -802,10 +854,12 @@
                             </div>
 
                             <!-- Enterprise Info Strip -->
-                            <div class="py-2.5 my-2.5 px-3 rounded-lg bg-[#05132B]/80 border border-white/5 space-y-1 text-left">
+                            <div
+                                class="py-2.5 my-2.5 px-3 rounded-lg bg-[#05132B]/80 border border-white/5 space-y-1 text-left">
                                 <div class="flex justify-between text-[11px]">
                                     <span class="text-[#819BC2]">Enterprise ID:</span>
-                                    <span id="profileUdyamDisplay" class="font-mono text-[#D4A94C] font-semibold">UDYAM-MP-08-009124</span>
+                                    <span id="profileUdyamDisplay"
+                                        class="font-mono text-[#D4A94C] font-semibold">UDYAM-MP-08-009124</span>
                                 </div>
                                 <div class="flex justify-between text-[11px]">
                                     <span class="text-[#819BC2]">Application:</span>
@@ -815,15 +869,18 @@
 
                             <!-- Menu Quick Links -->
                             <div class="space-y-1 text-left">
-                                <a href="home.html#track-status" onclick="closeProfileDropdown()" class="flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg text-xs font-semibold text-[#C9C2B2] hover:text-[#F8F1DF] hover:bg-white/5 transition-colors">
+                                <a href="home.html#track-status" onclick="closeProfileDropdown()"
+                                    class="flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg text-xs font-semibold text-[#C9C2B2] hover:text-[#F8F1DF] hover:bg-white/5 transition-colors">
                                     <span>📊</span>
                                     <span>Track Applications & Audit</span>
                                 </a>
-                                <a href="Applicant.html" class="flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg text-xs font-semibold text-[#C9C2B2] hover:text-[#F8F1DF] hover:bg-white/5 transition-colors">
+                                <a href="Applicant.html"
+                                    class="flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg text-xs font-semibold text-[#C9C2B2] hover:text-[#F8F1DF] hover:bg-white/5 transition-colors">
                                     <span>📝</span>
                                     <span>Register New Unit</span>
                                 </a>
-                                <a href="Helpdesk.html" class="flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg text-xs font-semibold text-[#C9C2B2] hover:text-[#F8F1DF] hover:bg-white/5 transition-colors">
+                                <a href="Helpdesk.html"
+                                    class="flex items-center gap-2.5 px-2.5 py-1.5 rounded-lg text-xs font-semibold text-[#C9C2B2] hover:text-[#F8F1DF] hover:bg-white/5 transition-colors">
                                     <span>📞</span>
                                     <span>Grievances & Support</span>
                                 </a>
@@ -831,9 +888,11 @@
 
                             <!-- Sign Out Button -->
                             <div class="pt-2 mt-2 border-t border-white/10">
-                                <button type="button" onclick="handleSignOut()" class="w-full flex items-center justify-center gap-2 py-2 px-3 rounded-lg bg-red-500/10 hover:bg-red-500/20 text-red-400 border border-red-500/30 text-xs font-bold transition-all cursor-pointer">
+                                <button type="button" onclick="handleSignOut()"
+                                    class="w-full flex items-center justify-center gap-2 py-2 px-3 rounded-lg bg-red-500/10 hover:bg-red-500/20 text-red-400 border border-red-500/30 text-xs font-bold transition-all cursor-pointer">
                                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
                                     </svg>
                                     <span>Sign Out</span>
                                 </button>
@@ -867,12 +926,15 @@
             <a href="home.html" class="block py-2 text-[#D4A94C] font-bold border-b border-white/5">Home (Active)</a>
 
             <!-- Mobile Auth: Sign In Link (Logged Out) -->
-            <a id="mobileSignInLink" href="login.html" class="block py-2 text-[#F8F1DF] font-semibold border-b border-white/5">Applicant Sign In →</a>
+            <a id="mobileSignInLink" href="login.html"
+                class="block py-2 text-[#F8F1DF] font-semibold border-b border-white/5">Applicant Sign In →</a>
 
             <!-- Mobile Auth: Profile Card (Logged In) -->
-            <div id="mobileUserProfile" class="hidden py-3 px-3.5 rounded-xl bg-[#071736] border border-[#D4A94C]/35 space-y-2.5">
+            <div id="mobileUserProfile"
+                class="hidden py-3 px-3.5 rounded-xl bg-[#071736] border border-[#D4A94C]/35 space-y-2.5">
                 <div class="flex items-center gap-3">
-                    <div id="mobileAvatar" class="w-9 h-9 rounded-full bg-gradient-to-br from-[#F8F1DF] to-[#D4A94C] text-[#07152F] font-bold text-xs flex items-center justify-center font-mono flex-shrink-0">
+                    <div id="mobileAvatar"
+                        class="w-9 h-9 rounded-full bg-gradient-to-br from-[#F8F1DF] to-[#D4A94C] text-[#07152F] font-bold text-xs flex items-center justify-center font-mono flex-shrink-0">
                         U
                     </div>
                     <div class="min-w-0 flex-1 text-left">
@@ -880,38 +942,53 @@
                         <div id="mobileEmail" class="text-[10px] text-[#819BC2] truncate">user@enterprise.gov.in</div>
                     </div>
                 </div>
-                <button type="button" onclick="handleSignOut()" class="w-full py-1.5 px-3 rounded-lg bg-red-500/15 hover:bg-red-500/25 text-red-400 border border-red-500/30 text-[11px] font-bold transition-all">
+                <button type="button" onclick="handleSignOut()"
+                    class="w-full py-1.5 px-3 rounded-lg bg-red-500/15 hover:bg-red-500/25 text-red-400 border border-red-500/30 text-[11px] font-bold transition-all">
                     Sign Out
                 </button>
             </div>
-            <a href="Applicant.html" class="block py-2 text-[#C9C2B2] hover:text-white border-b border-white/5">New Unit Registration</a>
-            <a href="About.html" class="block py-2 text-[#C9C2B2] hover:text-white border-b border-white/5">About Portal</a>
+            <a href="Applicant.html" class="block py-2 text-[#C9C2B2] hover:text-white border-b border-white/5">New Unit
+                Registration</a>
+            <a href="About.html" class="block py-2 text-[#C9C2B2] hover:text-white border-b border-white/5">About
+                Portal</a>
 
             <!-- Services Section in Mobile Drawer -->
             <div class="py-2 border-b border-white/5">
-                <span class="text-[10px] font-mono uppercase tracking-widest text-[#D4A94C] block mb-2 font-bold">Services & Portals</span>
+                <span
+                    class="text-[10px] font-mono uppercase tracking-widest text-[#D4A94C] block mb-2 font-bold">Services
+                    & Portals</span>
                 <div class="space-y-1.5 pl-2">
-                    <a href="#schemes" class="py-1.5 text-[#C9C2B2] hover:text-white flex items-center justify-between text-xs">
+                    <a href="#schemes"
+                        class="py-1.5 text-[#C9C2B2] hover:text-white flex items-center justify-between text-xs">
                         <span>Schemes & Incentives</span>
-                        <span class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-[#FF9933]/20 text-[#FFB066] border border-[#FF9933]/40">Soon</span>
+                        <span
+                            class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-[#FF9933]/20 text-[#FFB066] border border-[#FF9933]/40">Soon</span>
                     </a>
-                    <a href="#clearances" class="py-1.5 text-[#C9C2B2] hover:text-white flex items-center justify-between text-xs">
+                    <a href="#clearances"
+                        class="py-1.5 text-[#C9C2B2] hover:text-white flex items-center justify-between text-xs">
                         <span>Clearances Catalog</span>
-                        <span class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-[#FF9933]/20 text-[#FFB066] border border-[#FF9933]/40">Soon</span>
+                        <span
+                            class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-[#FF9933]/20 text-[#FFB066] border border-[#FF9933]/40">Soon</span>
                     </a>
-                    <a href="#track-status" class="py-1.5 text-[#C9C2B2] hover:text-white flex items-center justify-between text-xs">
+                    <a href="#track-status"
+                        class="py-1.5 text-[#C9C2B2] hover:text-white flex items-center justify-between text-xs">
                         <span>Track Application Status</span>
-                        <span class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-[#FF9933]/20 text-[#FFB066] border border-[#FF9933]/40">Soon</span>
+                        <span
+                            class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-[#FF9933]/20 text-[#FFB066] border border-[#FF9933]/40">Soon</span>
                     </a>
-                    <a href="#fee-estimator" class="py-1.5 text-[#C9C2B2] hover:text-white flex items-center justify-between text-xs">
+                    <a href="#fee-estimator"
+                        class="py-1.5 text-[#C9C2B2] hover:text-white flex items-center justify-between text-xs">
                         <span>SLA Estimator</span>
-                        <span class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-[#FF9933]/20 text-[#FFB066] border border-[#FF9933]/40">Soon</span>
+                        <span
+                            class="text-[9px] font-mono px-1.5 py-0.5 rounded bg-[#FF9933]/20 text-[#FFB066] border border-[#FF9933]/40">Soon</span>
                     </a>
                 </div>
             </div>
 
-            <a href="Helpdesk.html" class="block py-2 text-[#C9C2B2] hover:text-white border-b border-white/5">Helpdesk & Support</a>
-            <a id="mobileAdminPortalLink" href="AdminLogin.html" class="block py-2 text-[#819BC2] hover:text-white">Officer / Department Portal →</a>
+            <a href="Helpdesk.html" class="block py-2 text-[#C9C2B2] hover:text-white border-b border-white/5">Helpdesk
+                & Support</a>
+            <a id="mobileAdminPortalLink" href="AdminLogin.html"
+                class="block py-2 text-[#819BC2] hover:text-white">Officer / Department Portal →</a>
         </div>
     </header>
 
@@ -923,13 +1000,17 @@
             <span>STATUTORY ADVISORY</span>
         </div>
         <div class="ticker-content font-mono">
-            <span>🚨 <strong>GREEN CHANNEL:</strong> 127 non-polluting White Category manufacturing units now receive instantaneous auto-generated CTE within 24 hours.</span>
+            <span>🚨 <strong>GREEN CHANNEL:</strong> 127 non-polluting White Category manufacturing units now receive
+                instantaneous auto-generated CTE within 24 hours.</span>
             <span class="mx-6 text-[#D4A94C]">✦</span>
-            <span>All industrial units must link valid <strong>Udyam Registration</strong> or <strong>CIN</strong> with their entrepreneur profile for automated DigiLocker NOC verification.</span>
+            <span>All industrial units must link valid <strong>Udyam Registration</strong> or <strong>CIN</strong> with
+                their entrepreneur profile for automated DigiLocker NOC verification.</span>
             <span class="mx-6 text-[#D4A94C]">✦</span>
-            <span>Mandatory joint e-inspections under Business Reform Action Plan (BRAP) enforced across all 28 States & UTs.</span>
+            <span>Mandatory joint e-inspections under Business Reform Action Plan (BRAP) enforced across all 28 States &
+                UTs.</span>
             <span class="mx-6 text-[#D4A94C]">✦</span>
-            <span>Composite Master Clearance Certificate now carries digitally verified QR code valid for all state financial subsidies.</span>
+            <span>Composite Master Clearance Certificate now carries digitally verified QR code valid for all state
+                financial subsidies.</span>
         </div>
     </div>
 
@@ -938,7 +1019,7 @@
     ===================================================== -->
     <section class="relative z-10 pt-10 pb-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
-            
+
             <!-- Hero Left Column -->
             <div class="lg:col-span-7 flex flex-col gap-6 text-left">
                 <!-- Status Pill -->
@@ -952,7 +1033,7 @@
 
                 <!-- Main Heading -->
                 <h1 class="hero-heading text-3xl sm:text-4xl lg:text-5xl font-bold leading-tight tracking-tight">
-                    Empowering India's Industry With 
+                    Empowering India's Industry With
                     <span class="gold-text">Unified Digital Clearances</span>
                 </h1>
 
@@ -981,7 +1062,8 @@
                         <span>Entrepreneur Sign In</span>
                     </a>
 
-                    <a href="#track-status" class="inline-flex items-center gap-2 text-sm text-[#819BC2] hover:text-[#D4A94C] py-2 px-3 transition-colors">
+                    <a href="#track-status"
+                        class="inline-flex items-center gap-2 text-sm text-[#819BC2] hover:text-[#D4A94C] py-2 px-3 transition-colors">
                         <span>Track Status</span>
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
@@ -1028,7 +1110,8 @@
                     <!-- Top Ribbon Accent -->
                     <div class="flex items-center justify-between pb-5 border-b border-white/10">
                         <div class="flex items-center gap-2">
-                            <div class="w-8 h-8 rounded-lg bg-[#D4A94C]/15 border border-[#D4A94C]/40 text-[#D4A94C] flex items-center justify-center font-bold text-sm">
+                            <div
+                                class="w-8 h-8 rounded-lg bg-[#D4A94C]/15 border border-[#D4A94C]/40 text-[#D4A94C] flex items-center justify-center font-bold text-sm">
                                 🔍
                             </div>
                             <div>
@@ -1036,7 +1119,8 @@
                                 <p class="text-xs text-[#819BC2] font-mono">Real-Time Single Window Audit</p>
                             </div>
                         </div>
-                        <span class="text-[10px] font-mono uppercase px-2 py-1 rounded bg-[#FF9933]/15 text-[#FFB066] border border-[#FF9933]/40 flex items-center gap-1.5">
+                        <span
+                            class="text-[10px] font-mono uppercase px-2 py-1 rounded bg-[#FF9933]/15 text-[#FFB066] border border-[#FF9933]/40 flex items-center gap-1.5">
                             <span class="wip-ping-dot"></span>
                             <span>PROTOTYPE • WIP</span>
                         </span>
@@ -1044,17 +1128,20 @@
 
                     <form id="heroTrackForm" onsubmit="handleTrackSearch(event)" class="mt-5 space-y-4">
                         <div>
-                            <label for="trackAppIdInput" class="block text-xs font-semibold uppercase tracking-wider text-[#C9C2B2] mb-1.5 font-mono">
+                            <label for="trackAppIdInput"
+                                class="block text-xs font-semibold uppercase tracking-wider text-[#C9C2B2] mb-1.5 font-mono">
                                 Enter Application ID / Udyam / PAN
                             </label>
                             <div class="relative flex items-center">
                                 <span class="absolute left-3 text-[#819BC2] font-mono text-xs">#</span>
                                 <input type="text" id="trackAppIdInput" placeholder="e.g. IND-2026-8942"
                                     class="gov-input !pl-8 !text-sm !font-mono uppercase" required>
-                                <button type="submit" class="absolute right-1.5 bg-[#D4A94C] hover:bg-[#E5B869] text-[#07152F] px-3.5 py-2 rounded-md font-bold text-xs transition-all flex items-center gap-1">
+                                <button type="submit"
+                                    class="absolute right-1.5 bg-[#D4A94C] hover:bg-[#E5B869] text-[#07152F] px-3.5 py-2 rounded-md font-bold text-xs transition-all flex items-center gap-1">
                                     <span>Track</span>
                                     <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M14 5l7 7m0 0l-7 7m7-7H3" />
                                     </svg>
                                 </button>
                             </div>
@@ -1080,14 +1167,18 @@
                         </div>
 
                         <!-- Tracker Result Box (Visible after query) -->
-                        <div id="quickTrackResult" class="p-4 rounded-xl bg-[#05132B]/90 border border-[#D4A94C]/30 space-y-3">
+                        <div id="quickTrackResult"
+                            class="p-4 rounded-xl bg-[#05132B]/90 border border-[#D4A94C]/30 space-y-3">
                             <div class="flex items-start justify-between">
                                 <div>
                                     <div class="text-xs text-[#819BC2] font-mono" id="resAppId">APP: IND-2026-8942</div>
-                                    <div class="text-sm font-bold text-[#F8F1DF]" id="resUnitName">Apex Renewable Biomass Energy LLP</div>
-                                    <div class="text-[11px] text-[#C9C2B2]" id="resLocation">Pithampur Industrial Area, Sector 3, MP</div>
+                                    <div class="text-sm font-bold text-[#F8F1DF]" id="resUnitName">Apex Renewable
+                                        Biomass Energy LLP</div>
+                                    <div class="text-[11px] text-[#C9C2B2]" id="resLocation">Pithampur Industrial Area,
+                                        Sector 3, MP</div>
                                 </div>
-                                <span id="resStatusBadge" class="text-[10px] font-mono px-2 py-0.5 rounded bg-[#22c55e]/20 text-[#86efac] border border-[#22c55e]/40 font-bold">
+                                <span id="resStatusBadge"
+                                    class="text-[10px] font-mono px-2 py-0.5 rounded bg-[#22c55e]/20 text-[#86efac] border border-[#22c55e]/40 font-bold">
                                     STAGE 3: VERIFYING
                                 </span>
                             </div>
@@ -1099,13 +1190,17 @@
                                     <span id="resPercentage" class="text-[#D4A94C] font-bold">75%</span>
                                 </div>
                                 <div class="w-full bg-white/10 h-2 rounded-full overflow-hidden">
-                                    <div id="resProgressBar" class="bg-gradient-to-r from-[#D4A94C] to-[#22c55e] h-full rounded-full transition-all duration-500" style="width: 75%;"></div>
+                                    <div id="resProgressBar"
+                                        class="bg-gradient-to-r from-[#D4A94C] to-[#22c55e] h-full rounded-full transition-all duration-500"
+                                        style="width: 75%;"></div>
                                 </div>
                             </div>
 
                             <div class="flex items-center justify-between text-[11px] pt-1 border-t border-white/5">
-                                <span class="text-[#819BC2] font-mono">SLA Remaining: <strong class="text-[#F8F1DF]">18 Hours</strong></span>
-                                <a href="#track-status" onclick="scrollToFullTracker()" class="text-[#D4A94C] hover:underline font-semibold text-xs">
+                                <span class="text-[#819BC2] font-mono">SLA Remaining: <strong class="text-[#F8F1DF]">18
+                                        Hours</strong></span>
+                                <a href="#track-status" onclick="scrollToFullTracker()"
+                                    class="text-[#D4A94C] hover:underline font-semibold text-xs">
                                     Full Audit Trail →
                                 </a>
                             </div>
@@ -1121,11 +1216,12 @@
          GOVERNMENT SCHEMES & INCENTIVES CATALOG (#schemes)
     ===================================================== -->
     <section id="schemes" class="relative z-10 py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full scroll-mt-24">
-        
+
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
             <div>
                 <div class="flex flex-wrap items-center gap-2 mb-2">
-                    <span class="text-xs font-mono font-bold tracking-widest text-[#D4A94C] uppercase bg-[#D4A94C]/10 px-3 py-1 rounded-full border border-[#D4A94C]/25">
+                    <span
+                        class="text-xs font-mono font-bold tracking-widest text-[#D4A94C] uppercase bg-[#D4A94C]/10 px-3 py-1 rounded-full border border-[#D4A94C]/25">
                         INCENTIVES & SUBSIDIES
                     </span>
                     <span class="wip-badge">
@@ -1135,29 +1231,39 @@
                 </div>
                 <h2 class="text-2xl sm:text-4xl font-bold text-[#F8F1DF] mt-2 flex flex-wrap items-center gap-3">
                     <span>Central & State <span class="gold-text">Industrial Scheme Catalog</span></span>
-                    <span class="text-[11px] font-mono font-bold px-2.5 py-1 rounded bg-[#FF9933]/15 border border-[#FF9933]/40 text-[#FFB066] uppercase inline-flex items-center gap-1.5">
+                    <span
+                        class="text-[11px] font-mono font-bold px-2.5 py-1 rounded bg-[#FF9933]/15 border border-[#FF9933]/40 text-[#FFB066] uppercase inline-flex items-center gap-1.5">
                         <span class="wip-ping-dot"></span>
                         WORK IN PROGRESS • COMING SOON
                     </span>
                 </h2>
                 <p class="text-sm text-[#819BC2] mt-1 max-w-xl">
-                    Discover capital investment subsidies, Production Linked Incentives (PLI), interest subventions, and green energy grants under Make in India & Atmanirbhar Bharat.
+                    Discover capital investment subsidies, Production Linked Incentives (PLI), interest subventions, and
+                    green energy grants under Make in India & Atmanirbhar Bharat.
                 </p>
                 <div class="wip-notice-bar">
                     <div class="flex items-center gap-2.5">
                         <span class="text-base">🚧</span>
-                        <span><strong>Development Status:</strong> Central ministry API sandboxes are currently integrating. Direct online application filing for these schemes will activate in the next release.</span>
+                        <span><strong>Development Status:</strong> Central ministry API sandboxes are currently
+                            integrating. Direct online application filing for these schemes will activate in the next
+                            release.</span>
                     </div>
-                    <span class="hidden sm:inline-block font-mono text-[10px] uppercase px-2 py-0.5 rounded bg-white/5 border border-white/10 text-[#FFB066]">Phase II Rollout</span>
+                    <span
+                        class="hidden sm:inline-block font-mono text-[10px] uppercase px-2 py-0.5 rounded bg-white/5 border border-white/10 text-[#FFB066]">Phase
+                        II Rollout</span>
                 </div>
             </div>
 
             <!-- Scheme Filter Tabs -->
             <div class="flex flex-wrap gap-2">
-                <button type="button" class="filter-tab-btn active" onclick="filterSchemes('all', this)">All Schemes (45+)</button>
-                <button type="button" class="filter-tab-btn" onclick="filterSchemes('pli', this)">PLI & Mega Projects</button>
-                <button type="button" class="filter-tab-btn" onclick="filterSchemes('msme', this)">MSME Subsidies</button>
-                <button type="button" class="filter-tab-btn" onclick="filterSchemes('green', this)">Green & Clean Energy</button>
+                <button type="button" class="filter-tab-btn active" onclick="filterSchemes('all', this)">All Schemes
+                    (45+)</button>
+                <button type="button" class="filter-tab-btn" onclick="filterSchemes('pli', this)">PLI & Mega
+                    Projects</button>
+                <button type="button" class="filter-tab-btn" onclick="filterSchemes('msme', this)">MSME
+                    Subsidies</button>
+                <button type="button" class="filter-tab-btn" onclick="filterSchemes('green', this)">Green & Clean
+                    Energy</button>
             </div>
         </div>
 
@@ -1168,16 +1274,19 @@
             <div class="clearance-card !border-t-[#D4A94C]" data-scheme-cat="pli">
                 <div>
                     <div class="flex items-start justify-between gap-2 mb-3">
-                        <span class="category-pill-badge !text-[#F3D98B] !border-[#D4A94C]/40 !bg-[#D4A94C]/10">DPIIT / CENTRAL GOVT</span>
+                        <span class="category-pill-badge !text-[#F3D98B] !border-[#D4A94C]/40 !bg-[#D4A94C]/10">DPIIT /
+                            CENTRAL GOVT</span>
                         <div class="flex items-center gap-1.5">
                             <span class="wip-card-pill">Work in Progress</span>
-                            <span class="sla-pill !bg-[#D4A94C]/20 !text-[#F3D98B] !border-[#D4A94C]/40">⚡ 4% to 6% Incentive</span>
+                            <span class="sla-pill !bg-[#D4A94C]/20 !text-[#F3D98B] !border-[#D4A94C]/40">⚡ 4% to 6%
+                                Incentive</span>
                         </div>
                     </div>
                     <h3 class="text-base font-bold text-[#F8F1DF] mb-1">Production Linked Incentive (PLI) Scheme</h3>
                     <p class="text-xs text-[#D4A94C] font-mono mb-2">Ministry of Commerce & Industry / DPIIT</p>
                     <p class="text-xs text-[#C9C2B2] leading-relaxed mb-4">
-                        Financial incentive on incremental sales of goods manufactured in India across 14 champion sectors including electronics, pharma, green hydrogen, and auto components.
+                        Financial incentive on incremental sales of goods manufactured in India across 14 champion
+                        sectors including electronics, pharma, green hydrogen, and auto components.
                     </p>
                 </div>
                 <div class="pt-4 border-t border-white/10 space-y-3">
@@ -1186,10 +1295,12 @@
                         <span class="text-[#22c55e]">✓ 14 Sectors Active</span>
                     </div>
                     <div class="flex items-center gap-2">
-                        <button type="button" onclick="openSchemeModal('pli')" class="w-1/2 py-2 px-3 text-xs font-semibold rounded-md border border-[#D4A94C]/40 text-[#D4A94C] hover:bg-[#D4A94C]/10 transition-colors">
+                        <button type="button" onclick="openSchemeModal('pli')"
+                            class="w-1/2 py-2 px-3 text-xs font-semibold rounded-md border border-[#D4A94C]/40 text-[#D4A94C] hover:bg-[#D4A94C]/10 transition-colors">
                             Guidelines
                         </button>
-                        <button type="button" onclick="showWipToast('PLI Scheme Online Application')" class="w-1/2 py-2 px-3 text-xs font-bold text-center rounded-md bg-[#D4A94C]/20 hover:bg-[#D4A94C]/30 text-[#D4A94C] border border-[#D4A94C]/40 transition-colors">
+                        <button type="button" onclick="showWipToast('PLI Scheme Online Application')"
+                            class="w-1/2 py-2 px-3 text-xs font-bold text-center rounded-md bg-[#D4A94C]/20 hover:bg-[#D4A94C]/30 text-[#D4A94C] border border-[#D4A94C]/40 transition-colors">
                             Apply (Coming Soon)
                         </button>
                     </div>
@@ -1200,16 +1311,19 @@
             <div class="clearance-card !border-t-[#22c55e]" data-scheme-cat="msme">
                 <div>
                     <div class="flex items-start justify-between gap-2 mb-3">
-                        <span class="category-pill-badge !text-[#86efac] !border-[#22c55e]/40 !bg-[#22c55e]/10">MSME MINISTRY</span>
+                        <span class="category-pill-badge !text-[#86efac] !border-[#22c55e]/40 !bg-[#22c55e]/10">MSME
+                            MINISTRY</span>
                         <div class="flex items-center gap-1.5">
                             <span class="wip-card-pill">Work in Progress</span>
                             <span class="sla-pill">₹5 Cr Collateral-Free</span>
                         </div>
                     </div>
-                    <h3 class="text-base font-bold text-[#F8F1DF] mb-1">Credit Guarantee Scheme for Micro & Small Enterprises (CGTMSE)</h3>
+                    <h3 class="text-base font-bold text-[#F8F1DF] mb-1">Credit Guarantee Scheme for Micro & Small
+                        Enterprises (CGTMSE)</h3>
                     <p class="text-xs text-[#D4A94C] font-mono mb-2">Ministry of MSME & SIDBI</p>
                     <p class="text-xs text-[#C9C2B2] leading-relaxed mb-4">
-                        Collateral-free debt credit facility up to ₹500 Lakhs for setting up new manufacturing units or technology expansion with 75% to 85% sovereign credit cover.
+                        Collateral-free debt credit facility up to ₹500 Lakhs for setting up new manufacturing units or
+                        technology expansion with 75% to 85% sovereign credit cover.
                     </p>
                 </div>
                 <div class="pt-4 border-t border-white/10 space-y-3">
@@ -1218,10 +1332,12 @@
                         <span class="text-[#86efac]">0.37% Reduced Fee</span>
                     </div>
                     <div class="flex items-center gap-2">
-                        <button type="button" onclick="openSchemeModal('cgtmse')" class="w-1/2 py-2 px-3 text-xs font-semibold rounded-md border border-[#D4A94C]/40 text-[#D4A94C] hover:bg-[#D4A94C]/10 transition-colors">
+                        <button type="button" onclick="openSchemeModal('cgtmse')"
+                            class="w-1/2 py-2 px-3 text-xs font-semibold rounded-md border border-[#D4A94C]/40 text-[#D4A94C] hover:bg-[#D4A94C]/10 transition-colors">
                             Guidelines
                         </button>
-                        <button type="button" onclick="showWipToast('CGTMSE Credit Guarantee Portal')" class="w-1/2 py-2 px-3 text-xs font-bold text-center rounded-md bg-[#D4A94C]/20 hover:bg-[#D4A94C]/30 text-[#D4A94C] border border-[#D4A94C]/40 transition-colors">
+                        <button type="button" onclick="showWipToast('CGTMSE Credit Guarantee Portal')"
+                            class="w-1/2 py-2 px-3 text-xs font-bold text-center rounded-md bg-[#D4A94C]/20 hover:bg-[#D4A94C]/30 text-[#D4A94C] border border-[#D4A94C]/40 transition-colors">
                             Apply (Coming Soon)
                         </button>
                     </div>
@@ -1232,16 +1348,21 @@
             <div class="clearance-card !border-t-[#3b82f6]" data-scheme-cat="pli">
                 <div>
                     <div class="flex items-start justify-between gap-2 mb-3">
-                        <span class="category-pill-badge !text-[#93c5fd] !border-[#3b82f6]/40 !bg-[#3b82f6]/10">ELECTRONICS & IT</span>
+                        <span
+                            class="category-pill-badge !text-[#93c5fd] !border-[#3b82f6]/40 !bg-[#3b82f6]/10">ELECTRONICS
+                            & IT</span>
                         <div class="flex items-center gap-1.5">
                             <span class="wip-card-pill">Work in Progress</span>
-                            <span class="sla-pill !bg-[#3b82f6]/20 !text-[#93c5fd] !border-[#3b82f6]/40">25% Capex Subsidy</span>
+                            <span class="sla-pill !bg-[#3b82f6]/20 !text-[#93c5fd] !border-[#3b82f6]/40">25% Capex
+                                Subsidy</span>
                         </div>
                     </div>
-                    <h3 class="text-base font-bold text-[#F8F1DF] mb-1">SPECS Scheme for Electronic Components & Semiconductors</h3>
+                    <h3 class="text-base font-bold text-[#F8F1DF] mb-1">SPECS Scheme for Electronic Components &
+                        Semiconductors</h3>
                     <p class="text-xs text-[#D4A94C] font-mono mb-2">Ministry of Electronics & IT (MeitY)</p>
                     <p class="text-xs text-[#C9C2B2] leading-relaxed mb-4">
-                        Direct financial incentive of 25% on eligible capital expenditure for active/passive components, semiconductor packaging, displays, and optical micro-assemblies.
+                        Direct financial incentive of 25% on eligible capital expenditure for active/passive components,
+                        semiconductor packaging, displays, and optical micro-assemblies.
                     </p>
                 </div>
                 <div class="pt-4 border-t border-white/10 space-y-3">
@@ -1250,10 +1371,12 @@
                         <span class="text-[#93c5fd]">Direct Bank Transfer</span>
                     </div>
                     <div class="flex items-center gap-2">
-                        <button type="button" onclick="openSchemeModal('specs')" class="w-1/2 py-2 px-3 text-xs font-semibold rounded-md border border-[#D4A94C]/40 text-[#D4A94C] hover:bg-[#D4A94C]/10 transition-colors">
+                        <button type="button" onclick="openSchemeModal('specs')"
+                            class="w-1/2 py-2 px-3 text-xs font-semibold rounded-md border border-[#D4A94C]/40 text-[#D4A94C] hover:bg-[#D4A94C]/10 transition-colors">
                             Guidelines
                         </button>
-                        <button type="button" onclick="showWipToast('SPECS Electronics Subsidy Portal')" class="w-1/2 py-2 px-3 text-xs font-bold text-center rounded-md bg-[#D4A94C]/20 hover:bg-[#D4A94C]/30 text-[#D4A94C] border border-[#D4A94C]/40 transition-colors">
+                        <button type="button" onclick="showWipToast('SPECS Electronics Subsidy Portal')"
+                            class="w-1/2 py-2 px-3 text-xs font-bold text-center rounded-md bg-[#D4A94C]/20 hover:bg-[#D4A94C]/30 text-[#D4A94C] border border-[#D4A94C]/40 transition-colors">
                             Apply (Coming Soon)
                         </button>
                     </div>
@@ -1264,16 +1387,19 @@
             <div class="clearance-card !border-t-[#22c55e]" data-scheme-cat="green">
                 <div>
                     <div class="flex items-start justify-between gap-2 mb-3">
-                        <span class="category-pill-badge !text-[#86efac] !border-[#22c55e]/40 !bg-[#22c55e]/10">SUSTAINABILITY</span>
+                        <span
+                            class="category-pill-badge !text-[#86efac] !border-[#22c55e]/40 !bg-[#22c55e]/10">SUSTAINABILITY</span>
                         <div class="flex items-center gap-1.5">
                             <span class="wip-card-pill">Work in Progress</span>
                             <span class="sla-pill">Up to 80% Subsidy</span>
                         </div>
                     </div>
-                    <h3 class="text-base font-bold text-[#F8F1DF] mb-1">Zero Defect Zero Effect (ZED) Certification & Green Tech</h3>
+                    <h3 class="text-base font-bold text-[#F8F1DF] mb-1">Zero Defect Zero Effect (ZED) Certification &
+                        Green Tech</h3>
                     <p class="text-xs text-[#D4A94C] font-mono mb-2">Ministry of MSME / QCI</p>
                     <p class="text-xs text-[#C9C2B2] leading-relaxed mb-4">
-                        Financial assistance up to ₹5 Lakhs for certification handholding and up to ₹10 Lakhs for installing pollution abatement and energy-saving capital equipment.
+                        Financial assistance up to ₹5 Lakhs for certification handholding and up to ₹10 Lakhs for
+                        installing pollution abatement and energy-saving capital equipment.
                     </p>
                 </div>
                 <div class="pt-4 border-t border-white/10 space-y-3">
@@ -1282,10 +1408,12 @@
                         <span class="text-[#86efac]">50% SPCB Concession</span>
                     </div>
                     <div class="flex items-center gap-2">
-                        <button type="button" onclick="openSchemeModal('zed')" class="w-1/2 py-2 px-3 text-xs font-semibold rounded-md border border-[#D4A94C]/40 text-[#D4A94C] hover:bg-[#D4A94C]/10 transition-colors">
+                        <button type="button" onclick="openSchemeModal('zed')"
+                            class="w-1/2 py-2 px-3 text-xs font-semibold rounded-md border border-[#D4A94C]/40 text-[#D4A94C] hover:bg-[#D4A94C]/10 transition-colors">
                             Guidelines
                         </button>
-                        <button type="button" onclick="showWipToast('ZED Green Tech Subsidy Portal')" class="w-1/2 py-2 px-3 text-xs font-bold text-center rounded-md bg-[#D4A94C]/20 hover:bg-[#D4A94C]/30 text-[#D4A94C] border border-[#D4A94C]/40 transition-colors">
+                        <button type="button" onclick="showWipToast('ZED Green Tech Subsidy Portal')"
+                            class="w-1/2 py-2 px-3 text-xs font-bold text-center rounded-md bg-[#D4A94C]/20 hover:bg-[#D4A94C]/30 text-[#D4A94C] border border-[#D4A94C]/40 transition-colors">
                             Apply (Coming Soon)
                         </button>
                     </div>
@@ -1296,16 +1424,20 @@
             <div class="clearance-card !border-t-[#f97316]" data-scheme-cat="pli">
                 <div>
                     <div class="flex items-start justify-between gap-2 mb-3">
-                        <span class="category-pill-badge !text-[#fdba74] !border-[#f97316]/40 !bg-[#f97316]/10">TEXTILES & APPAREL</span>
+                        <span class="category-pill-badge !text-[#fdba74] !border-[#f97316]/40 !bg-[#f97316]/10">TEXTILES
+                            & APPAREL</span>
                         <div class="flex items-center gap-1.5">
                             <span class="wip-card-pill">Work in Progress</span>
-                            <span class="sla-pill !bg-[#f97316]/20 !text-[#fdba74] !border-[#f97316]/40">₹500 Cr Park Outlay</span>
+                            <span class="sla-pill !bg-[#f97316]/20 !text-[#fdba74] !border-[#f97316]/40">₹500 Cr Park
+                                Outlay</span>
                         </div>
                     </div>
-                    <h3 class="text-base font-bold text-[#F8F1DF] mb-1">PM Mega Integrated Textile Region and Apparel (PM MITRA)</h3>
+                    <h3 class="text-base font-bold text-[#F8F1DF] mb-1">PM Mega Integrated Textile Region and Apparel
+                        (PM MITRA)</h3>
                     <p class="text-xs text-[#D4A94C] font-mono mb-2">Ministry of Textiles, Government of India</p>
                     <p class="text-xs text-[#C9C2B2] leading-relaxed mb-4">
-                        Access plug-and-play production infrastructure, Zero Liquid Discharge (ZLD) effluent facilities, and dedicated power grids in 1,000+ acre mega textile clusters.
+                        Access plug-and-play production infrastructure, Zero Liquid Discharge (ZLD) effluent facilities,
+                        and dedicated power grids in 1,000+ acre mega textile clusters.
                     </p>
                 </div>
                 <div class="pt-4 border-t border-white/10 space-y-3">
@@ -1314,10 +1446,12 @@
                         <span class="text-[#fdba74]">Plug & Play Setup</span>
                     </div>
                     <div class="flex items-center gap-2">
-                        <button type="button" onclick="openSchemeModal('mitra')" class="w-1/2 py-2 px-3 text-xs font-semibold rounded-md border border-[#D4A94C]/40 text-[#D4A94C] hover:bg-[#D4A94C]/10 transition-colors">
+                        <button type="button" onclick="openSchemeModal('mitra')"
+                            class="w-1/2 py-2 px-3 text-xs font-semibold rounded-md border border-[#D4A94C]/40 text-[#D4A94C] hover:bg-[#D4A94C]/10 transition-colors">
                             Guidelines
                         </button>
-                        <button type="button" onclick="showWipToast('PM MITRA Textile Park Allotment Portal')" class="w-1/2 py-2 px-3 text-xs font-bold text-center rounded-md bg-[#D4A94C]/20 hover:bg-[#D4A94C]/30 text-[#D4A94C] border border-[#D4A94C]/40 transition-colors">
+                        <button type="button" onclick="showWipToast('PM MITRA Textile Park Allotment Portal')"
+                            class="w-1/2 py-2 px-3 text-xs font-bold text-center rounded-md bg-[#D4A94C]/20 hover:bg-[#D4A94C]/30 text-[#D4A94C] border border-[#D4A94C]/40 transition-colors">
                             Apply (Coming Soon)
                         </button>
                     </div>
@@ -1328,16 +1462,20 @@
             <div class="clearance-card !border-t-[#a855f7]" data-scheme-cat="msme">
                 <div>
                     <div class="flex items-start justify-between gap-2 mb-3">
-                        <span class="category-pill-badge !text-[#d8b4fe] !border-[#a855f7]/40 !bg-[#a855f7]/10">FOOD PROCESSING</span>
+                        <span class="category-pill-badge !text-[#d8b4fe] !border-[#a855f7]/40 !bg-[#a855f7]/10">FOOD
+                            PROCESSING</span>
                         <div class="flex items-center gap-1.5">
                             <span class="wip-card-pill">Work in Progress</span>
-                            <span class="sla-pill !bg-[#a855f7]/20 !text-[#d8b4fe] !border-[#a855f7]/40">35% Capital Grant</span>
+                            <span class="sla-pill !bg-[#a855f7]/20 !text-[#d8b4fe] !border-[#a855f7]/40">35% Capital
+                                Grant</span>
                         </div>
                     </div>
-                    <h3 class="text-base font-bold text-[#F8F1DF] mb-1">PM Formalisation of Micro Food Processing Enterprises (PMFME)</h3>
+                    <h3 class="text-base font-bold text-[#F8F1DF] mb-1">PM Formalisation of Micro Food Processing
+                        Enterprises (PMFME)</h3>
                     <p class="text-xs text-[#D4A94C] font-mono mb-2">Ministry of Food Processing Industries (MoFPI)</p>
                     <p class="text-xs text-[#C9C2B2] leading-relaxed mb-4">
-                        35% credit-linked capital subsidy up to ₹10 Lakhs per unit for modernizing machinery, establishing cold storage, and standardizing quality under One District One Product (ODOP).
+                        35% credit-linked capital subsidy up to ₹10 Lakhs per unit for modernizing machinery,
+                        establishing cold storage, and standardizing quality under One District One Product (ODOP).
                     </p>
                 </div>
                 <div class="pt-4 border-t border-white/10 space-y-3">
@@ -1346,10 +1484,12 @@
                         <span class="text-[#d8b4fe]">ODOP Priority</span>
                     </div>
                     <div class="flex items-center gap-2">
-                        <button type="button" onclick="openSchemeModal('pmfme')" class="w-1/2 py-2 px-3 text-xs font-semibold rounded-md border border-[#D4A94C]/40 text-[#D4A94C] hover:bg-[#D4A94C]/10 transition-colors">
+                        <button type="button" onclick="openSchemeModal('pmfme')"
+                            class="w-1/2 py-2 px-3 text-xs font-semibold rounded-md border border-[#D4A94C]/40 text-[#D4A94C] hover:bg-[#D4A94C]/10 transition-colors">
                             Guidelines
                         </button>
-                        <button type="button" onclick="showWipToast('PMFME Micro Food Processing Portal')" class="w-1/2 py-2 px-3 text-xs font-bold text-center rounded-md bg-[#D4A94C]/20 hover:bg-[#D4A94C]/30 text-[#D4A94C] border border-[#D4A94C]/40 transition-colors">
+                        <button type="button" onclick="showWipToast('PMFME Micro Food Processing Portal')"
+                            class="w-1/2 py-2 px-3 text-xs font-bold text-center rounded-md bg-[#D4A94C]/20 hover:bg-[#D4A94C]/30 text-[#D4A94C] border border-[#D4A94C]/40 transition-colors">
                             Apply (Coming Soon)
                         </button>
                     </div>
@@ -1361,23 +1501,27 @@
         <!-- Post-UI Implementation Status Banner -->
         <div class="wip-status-ribbon">
             <div class="flex items-center gap-3">
-                <span class="w-8 h-8 rounded-full bg-[#FF9933]/20 border border-[#FF9933]/40 flex items-center justify-center text-sm flex-shrink-0">⏳</span>
+                <span
+                    class="w-8 h-8 rounded-full bg-[#FF9933]/20 border border-[#FF9933]/40 flex items-center justify-center text-sm flex-shrink-0">⏳</span>
                 <div>
                     <div class="text-xs font-bold text-[#F8F1DF] uppercase tracking-wide flex items-center gap-2">
                         <span>Central & State Scheme Catalog — Work in Progress (Coming Soon)</span>
                     </div>
                     <div class="text-[11px] text-[#819BC2] mt-0.5">
-                        Central ministry incentive databases & direct DBT subsidy integration are currently being mapped. Direct online application filing will be activated in Phase 2.
+                        Central ministry incentive databases & direct DBT subsidy integration are currently being
+                        mapped. Direct online application filing will be activated in Phase 2.
                     </div>
                 </div>
             </div>
-            <span class="px-3 py-1 rounded-full text-[10px] font-mono font-bold bg-[#FF9933]/20 text-[#FFB066] border border-[#FF9933]/40 uppercase whitespace-nowrap self-start sm:self-center">
+            <span
+                class="px-3 py-1 rounded-full text-[10px] font-mono font-bold bg-[#FF9933]/20 text-[#FFB066] border border-[#FF9933]/40 uppercase whitespace-nowrap self-start sm:self-center">
                 Coming Soon • Phase 2
             </span>
         </div>
 
         <div class="text-center mt-6">
-            <button type="button" onclick="showWipToast('Master Schemes Directory')" class="inline-flex items-center gap-2 text-sm text-[#D4A94C] hover:text-[#E5B869] font-mono font-bold transition-colors">
+            <button type="button" onclick="showWipToast('Master Schemes Directory')"
+                class="inline-flex items-center gap-2 text-sm text-[#D4A94C] hover:text-[#E5B869] font-mono font-bold transition-colors">
                 <span>View All 45+ Central & State Industrial Incentive Schemes (Coming Soon)</span>
                 <span>→</span>
             </button>
@@ -1388,11 +1532,12 @@
          SINGLE WINDOW CLEARANCES CATALOG (#clearances)
     ===================================================== -->
     <section id="clearances" class="relative z-10 py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full scroll-mt-24">
-        
+
         <div class="flex flex-col md:flex-row md:items-end justify-between gap-6 mb-8">
             <div>
                 <div class="flex flex-wrap items-center gap-2 mb-2">
-                    <span class="text-xs font-mono font-bold tracking-widest text-[#D4A94C] uppercase bg-[#D4A94C]/10 px-3 py-1 rounded-full border border-[#D4A94C]/25">
+                    <span
+                        class="text-xs font-mono font-bold tracking-widest text-[#D4A94C] uppercase bg-[#D4A94C]/10 px-3 py-1 rounded-full border border-[#D4A94C]/25">
                         SERVICES DIRECTORY
                     </span>
                     <span class="wip-badge">
@@ -1402,35 +1547,44 @@
                 </div>
                 <h2 class="text-2xl sm:text-4xl font-bold text-[#F8F1DF] mt-2 flex flex-wrap items-center gap-3">
                     <span>Key Statutory Clearances & <span class="gold-text">Licensing Catalog</span></span>
-                    <span class="text-[11px] font-mono font-bold px-2.5 py-1 rounded bg-[#FF9933]/15 border border-[#FF9933]/40 text-[#FFB066] uppercase inline-flex items-center gap-1.5">
+                    <span
+                        class="text-[11px] font-mono font-bold px-2.5 py-1 rounded bg-[#FF9933]/15 border border-[#FF9933]/40 text-[#FFB066] uppercase inline-flex items-center gap-1.5">
                         <span class="wip-ping-dot"></span>
                         WORK IN PROGRESS • COMING SOON
                     </span>
                 </h2>
                 <p class="text-sm text-[#819BC2] mt-1 max-w-xl">
-                    Search and apply for statutory NOCs across Central Ministries, Pollution Boards, Factory Inspectorates, and State Utilities.
+                    Search and apply for statutory NOCs across Central Ministries, Pollution Boards, Factory
+                    Inspectorates, and State Utilities.
                 </p>
                 <div class="wip-notice-bar">
                     <div class="flex items-center gap-2.5">
                         <span class="text-base">🚧</span>
-                        <span><strong>Development Status:</strong> Multi-department licensing workflows & e-signature pipelines are currently being linked. Digital filings will open soon.</span>
+                        <span><strong>Development Status:</strong> Multi-department licensing workflows & e-signature
+                            pipelines are currently being linked. Digital filings will open soon.</span>
                     </div>
-                    <span class="hidden sm:inline-block font-mono text-[10px] uppercase px-2 py-0.5 rounded bg-white/5 border border-white/10 text-[#FFB066]">Coming Soon</span>
+                    <span
+                        class="hidden sm:inline-block font-mono text-[10px] uppercase px-2 py-0.5 rounded bg-white/5 border border-white/10 text-[#FFB066]">Coming
+                        Soon</span>
                 </div>
             </div>
 
             <!-- Fast Filter Tabs -->
             <div class="flex flex-wrap gap-2">
-                <button type="button" class="filter-tab-btn active" onclick="filterClearances('all', this)">All Clearances</button>
-                <button type="button" class="filter-tab-btn" onclick="filterClearances('pre-est', this)">Pre-Establishment</button>
-                <button type="button" class="filter-tab-btn" onclick="filterClearances('pre-op', this)">Pre-Operation</button>
-                <button type="button" class="filter-tab-btn" onclick="filterClearances('green', this)">Green Channel</button>
+                <button type="button" class="filter-tab-btn active" onclick="filterClearances('all', this)">All
+                    Clearances</button>
+                <button type="button" class="filter-tab-btn"
+                    onclick="filterClearances('pre-est', this)">Pre-Establishment</button>
+                <button type="button" class="filter-tab-btn"
+                    onclick="filterClearances('pre-op', this)">Pre-Operation</button>
+                <button type="button" class="filter-tab-btn" onclick="filterClearances('green', this)">Green
+                    Channel</button>
             </div>
         </div>
 
         <!-- Clearance Cards Grid -->
         <div id="clearanceGrid" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            
+
             <!-- Card 1: Consent to Establish (CTE) -->
             <div class="clearance-card" data-category="pre-est">
                 <div>
@@ -1442,9 +1596,11 @@
                         </div>
                     </div>
                     <h3 class="text-base font-bold text-[#F8F1DF] mb-1">Consent to Establish (CTE) - Water & Air</h3>
-                    <p class="text-xs text-[#D4A94C] font-mono mb-2">Central / State Pollution Control Board (CPCB / SPCB)</p>
+                    <p class="text-xs text-[#D4A94C] font-mono mb-2">Central / State Pollution Control Board (CPCB /
+                        SPCB)</p>
                     <p class="text-xs text-[#C9C2B2] leading-relaxed mb-4">
-                        Mandatory environmental authorization prior to construction or installation of industrial plant, machinery, or effluent discharge systems.
+                        Mandatory environmental authorization prior to construction or installation of industrial plant,
+                        machinery, or effluent discharge systems.
                     </p>
                 </div>
                 <div class="pt-4 border-t border-white/10 space-y-3">
@@ -1453,10 +1609,12 @@
                         <span>Consolidated E-Fee: ₹15,000</span>
                     </div>
                     <div class="flex items-center gap-2">
-                        <button type="button" onclick="openChecklistModal('cte')" class="w-1/2 py-2 px-3 text-xs font-semibold rounded-md border border-[#D4A94C]/40 text-[#D4A94C] hover:bg-[#D4A94C]/10 transition-colors">
+                        <button type="button" onclick="openChecklistModal('cte')"
+                            class="w-1/2 py-2 px-3 text-xs font-semibold rounded-md border border-[#D4A94C]/40 text-[#D4A94C] hover:bg-[#D4A94C]/10 transition-colors">
                             View SOP
                         </button>
-                        <button type="button" onclick="showWipToast('Consent to Establish (CTE) E-filing')" class="w-1/2 py-2 px-3 text-xs font-bold text-center rounded-md bg-[#D4A94C]/20 hover:bg-[#D4A94C]/30 text-[#D4A94C] border border-[#D4A94C]/40 transition-colors">
+                        <button type="button" onclick="showWipToast('Consent to Establish (CTE) E-filing')"
+                            class="w-1/2 py-2 px-3 text-xs font-bold text-center rounded-md bg-[#D4A94C]/20 hover:bg-[#D4A94C]/30 text-[#D4A94C] border border-[#D4A94C]/40 transition-colors">
                             Apply (Coming Soon)
                         </button>
                     </div>
@@ -1473,10 +1631,13 @@
                             <span class="sla-pill">⏱ SLA: 7 Days</span>
                         </div>
                     </div>
-                    <h3 class="text-base font-bold text-[#F8F1DF] mb-1">Factory Building Plan & Machinery Layout Approval</h3>
-                    <p class="text-xs text-[#D4A94C] font-mono mb-2">Directorate of Industrial Safety & Health (DISH)</p>
+                    <h3 class="text-base font-bold text-[#F8F1DF] mb-1">Factory Building Plan & Machinery Layout
+                        Approval</h3>
+                    <p class="text-xs text-[#D4A94C] font-mono mb-2">Directorate of Industrial Safety & Health (DISH)
+                    </p>
                     <p class="text-xs text-[#C9C2B2] leading-relaxed mb-4">
-                        Approval of architectural factory drawings, fire escape routes, worker safety provisions, and plant machinery installation plan.
+                        Approval of architectural factory drawings, fire escape routes, worker safety provisions, and
+                        plant machinery installation plan.
                     </p>
                 </div>
                 <div class="pt-4 border-t border-white/10 space-y-3">
@@ -1485,10 +1646,12 @@
                         <span>Statutory Fee: ₹4,500</span>
                     </div>
                     <div class="flex items-center gap-2">
-                        <button type="button" onclick="openChecklistModal('dish')" class="w-1/2 py-2 px-3 text-xs font-semibold rounded-md border border-[#D4A94C]/40 text-[#D4A94C] hover:bg-[#D4A94C]/10 transition-colors">
+                        <button type="button" onclick="openChecklistModal('dish')"
+                            class="w-1/2 py-2 px-3 text-xs font-semibold rounded-md border border-[#D4A94C]/40 text-[#D4A94C] hover:bg-[#D4A94C]/10 transition-colors">
                             View SOP
                         </button>
-                        <button type="button" onclick="showWipToast('Factory Plan Approval (DISH)')" class="w-1/2 py-2 px-3 text-xs font-bold text-center rounded-md bg-[#D4A94C]/20 hover:bg-[#D4A94C]/30 text-[#D4A94C] border border-[#D4A94C]/40 transition-colors">
+                        <button type="button" onclick="showWipToast('Factory Plan Approval (DISH)')"
+                            class="w-1/2 py-2 px-3 text-xs font-bold text-center rounded-md bg-[#D4A94C]/20 hover:bg-[#D4A94C]/30 text-[#D4A94C] border border-[#D4A94C]/40 transition-colors">
                             Apply (Coming Soon)
                         </button>
                     </div>
@@ -1508,7 +1671,8 @@
                     <h3 class="text-base font-bold text-[#F8F1DF] mb-1">Fire Safety Recommendation & NOC</h3>
                     <p class="text-xs text-[#D4A94C] font-mono mb-2">State Fire & Emergency Services Department</p>
                     <p class="text-xs text-[#C9C2B2] leading-relaxed mb-4">
-                        Provisional and final no-objection certificate for industrial hydrant systems, emergency exits, and high-hazard storage.
+                        Provisional and final no-objection certificate for industrial hydrant systems, emergency exits,
+                        and high-hazard storage.
                     </p>
                 </div>
                 <div class="pt-4 border-t border-white/10 space-y-3">
@@ -1517,10 +1681,12 @@
                         <span>Statutory Fee: ₹3,000</span>
                     </div>
                     <div class="flex items-center gap-2">
-                        <button type="button" onclick="openChecklistModal('fire')" class="w-1/2 py-2 px-3 text-xs font-semibold rounded-md border border-[#D4A94C]/40 text-[#D4A94C] hover:bg-[#D4A94C]/10 transition-colors">
+                        <button type="button" onclick="openChecklistModal('fire')"
+                            class="w-1/2 py-2 px-3 text-xs font-semibold rounded-md border border-[#D4A94C]/40 text-[#D4A94C] hover:bg-[#D4A94C]/10 transition-colors">
                             View SOP
                         </button>
-                        <button type="button" onclick="showWipToast('Fire Safety Recommendation NOC')" class="w-1/2 py-2 px-3 text-xs font-bold text-center rounded-md bg-[#D4A94C]/20 hover:bg-[#D4A94C]/30 text-[#D4A94C] border border-[#D4A94C]/40 transition-colors">
+                        <button type="button" onclick="showWipToast('Fire Safety Recommendation NOC')"
+                            class="w-1/2 py-2 px-3 text-xs font-bold text-center rounded-md bg-[#D4A94C]/20 hover:bg-[#D4A94C]/30 text-[#D4A94C] border border-[#D4A94C]/40 transition-colors">
                             Apply (Coming Soon)
                         </button>
                     </div>
@@ -1540,7 +1706,8 @@
                     <h3 class="text-base font-bold text-[#F8F1DF] mb-1">Consent to Operate (CTO) & Hazardous Waste</h3>
                     <p class="text-xs text-[#D4A94C] font-mono mb-2">State Pollution Control Board (SPCB)</p>
                     <p class="text-xs text-[#C9C2B2] leading-relaxed mb-4">
-                        Commissioning license for manufacturing unit post-installation of Effluent Treatment Plants (ETP) or air pollution devices.
+                        Commissioning license for manufacturing unit post-installation of Effluent Treatment Plants
+                        (ETP) or air pollution devices.
                     </p>
                 </div>
                 <div class="pt-4 border-t border-white/10 space-y-3">
@@ -1549,10 +1716,12 @@
                         <span>Validity: 5-10 Years</span>
                     </div>
                     <div class="flex items-center gap-2">
-                        <button type="button" onclick="openChecklistModal('cto')" class="w-1/2 py-2 px-3 text-xs font-semibold rounded-md border border-[#D4A94C]/40 text-[#D4A94C] hover:bg-[#D4A94C]/10 transition-colors">
+                        <button type="button" onclick="openChecklistModal('cto')"
+                            class="w-1/2 py-2 px-3 text-xs font-semibold rounded-md border border-[#D4A94C]/40 text-[#D4A94C] hover:bg-[#D4A94C]/10 transition-colors">
                             View SOP
                         </button>
-                        <button type="button" onclick="showWipToast('Consent to Operate (CTO) Portal')" class="w-1/2 py-2 px-3 text-xs font-bold text-center rounded-md bg-[#D4A94C]/20 hover:bg-[#D4A94C]/30 text-[#D4A94C] border border-[#D4A94C]/40 transition-colors">
+                        <button type="button" onclick="showWipToast('Consent to Operate (CTO) Portal')"
+                            class="w-1/2 py-2 px-3 text-xs font-bold text-center rounded-md bg-[#D4A94C]/20 hover:bg-[#D4A94C]/30 text-[#D4A94C] border border-[#D4A94C]/40 transition-colors">
                             Apply (Coming Soon)
                         </button>
                     </div>
@@ -1569,10 +1738,12 @@
                             <span class="sla-pill">⏱ SLA: 7 Days</span>
                         </div>
                     </div>
-                    <h3 class="text-base font-bold text-[#F8F1DF] mb-1">Boiler Registration & Pressure Vessel Sanction</h3>
+                    <h3 class="text-base font-bold text-[#F8F1DF] mb-1">Boiler Registration & Pressure Vessel Sanction
+                    </h3>
                     <p class="text-xs text-[#D4A94C] font-mono mb-2">Chief Inspector of Boilers & Steam Generation</p>
                     <p class="text-xs text-[#C9C2B2] leading-relaxed mb-4">
-                        Statutory inspection, hydraulic test verification, and operating certificate under Indian Boiler Act, 1923.
+                        Statutory inspection, hydraulic test verification, and operating certificate under Indian Boiler
+                        Act, 1923.
                     </p>
                 </div>
                 <div class="pt-4 border-t border-white/10 space-y-3">
@@ -1581,10 +1752,12 @@
                         <span>Statutory Fee: ₹8,000</span>
                     </div>
                     <div class="flex items-center gap-2">
-                        <button type="button" onclick="openChecklistModal('boiler')" class="w-1/2 py-2 px-3 text-xs font-semibold rounded-md border border-[#D4A94C]/40 text-[#D4A94C] hover:bg-[#D4A94C]/10 transition-colors">
+                        <button type="button" onclick="openChecklistModal('boiler')"
+                            class="w-1/2 py-2 px-3 text-xs font-semibold rounded-md border border-[#D4A94C]/40 text-[#D4A94C] hover:bg-[#D4A94C]/10 transition-colors">
                             View SOP
                         </button>
-                        <button type="button" onclick="showWipToast('Boiler Registration Inspection Portal')" class="w-1/2 py-2 px-3 text-xs font-bold text-center rounded-md bg-[#D4A94C]/20 hover:bg-[#D4A94C]/30 text-[#D4A94C] border border-[#D4A94C]/40 transition-colors">
+                        <button type="button" onclick="showWipToast('Boiler Registration Inspection Portal')"
+                            class="w-1/2 py-2 px-3 text-xs font-bold text-center rounded-md bg-[#D4A94C]/20 hover:bg-[#D4A94C]/30 text-[#D4A94C] border border-[#D4A94C]/40 transition-colors">
                             Apply (Coming Soon)
                         </button>
                     </div>
@@ -1595,7 +1768,9 @@
             <div class="clearance-card" data-category="green">
                 <div>
                     <div class="flex items-start justify-between gap-2 mb-3">
-                        <span class="category-pill-badge !text-[#6ee7b7] !border-[#22c55e]/40 !bg-[#22c55e]/10">FAST-TRACK GREEN</span>
+                        <span
+                            class="category-pill-badge !text-[#6ee7b7] !border-[#22c55e]/40 !bg-[#22c55e]/10">FAST-TRACK
+                            GREEN</span>
                         <div class="flex items-center gap-1.5">
                             <span class="wip-card-pill">Coming Soon</span>
                             <span class="sla-pill !text-[#6ee7b7] !bg-[#22c55e]/20">⚡ SLA: 24 Hours</span>
@@ -1604,7 +1779,8 @@
                     <h3 class="text-base font-bold text-[#F8F1DF] mb-1">White Category Self-Certification Auto-NOC</h3>
                     <p class="text-xs text-[#D4A94C] font-mono mb-2">Ministry of Commerce & Industry / CPCB</p>
                     <p class="text-xs text-[#C9C2B2] leading-relaxed mb-4">
-                        Zero-polluting industrial activities (software, electronics assembly, renewable solar units) receive instant digital acknowledgement without manual inspection.
+                        Zero-polluting industrial activities (software, electronics assembly, renewable solar units)
+                        receive instant digital acknowledgement without manual inspection.
                     </p>
                 </div>
                 <div class="pt-4 border-t border-white/10 space-y-3">
@@ -1613,10 +1789,12 @@
                         <span class="text-[#22c55e] font-bold">Zero Gov Fee</span>
                     </div>
                     <div class="flex items-center gap-2">
-                        <button type="button" onclick="openChecklistModal('green')" class="w-1/2 py-2 px-3 text-xs font-semibold rounded-md border border-[#D4A94C]/40 text-[#D4A94C] hover:bg-[#D4A94C]/10 transition-colors">
+                        <button type="button" onclick="openChecklistModal('green')"
+                            class="w-1/2 py-2 px-3 text-xs font-semibold rounded-md border border-[#D4A94C]/40 text-[#D4A94C] hover:bg-[#D4A94C]/10 transition-colors">
                             View SOP
                         </button>
-                        <button type="button" onclick="showWipToast('Green Channel Auto-NOC Portal')" class="w-1/2 py-2 px-3 text-xs font-bold text-center rounded-md bg-[#D4A94C]/20 hover:bg-[#D4A94C]/30 text-[#D4A94C] border border-[#D4A94C]/40 transition-colors">
+                        <button type="button" onclick="showWipToast('Green Channel Auto-NOC Portal')"
+                            class="w-1/2 py-2 px-3 text-xs font-bold text-center rounded-md bg-[#D4A94C]/20 hover:bg-[#D4A94C]/30 text-[#D4A94C] border border-[#D4A94C]/40 transition-colors">
                             Instant Auto-NOC (Coming Soon)
                         </button>
                     </div>
@@ -1628,23 +1806,27 @@
         <!-- Post-UI Implementation Status Banner -->
         <div class="wip-status-ribbon">
             <div class="flex items-center gap-3">
-                <span class="w-8 h-8 rounded-full bg-[#FF9933]/20 border border-[#FF9933]/40 flex items-center justify-center text-sm flex-shrink-0">⏳</span>
+                <span
+                    class="w-8 h-8 rounded-full bg-[#FF9933]/20 border border-[#FF9933]/40 flex items-center justify-center text-sm flex-shrink-0">⏳</span>
                 <div>
                     <div class="text-xs font-bold text-[#F8F1DF] uppercase tracking-wide flex items-center gap-2">
                         <span>Statutory Clearances Catalog — Work in Progress (Coming Soon)</span>
                     </div>
                     <div class="text-[11px] text-[#819BC2] mt-0.5">
-                        36+ State Pollution Control Boards, Fire Services, and Factory Inspectorates are currently integrating their electronic filing gateways.
+                        36+ State Pollution Control Boards, Fire Services, and Factory Inspectorates are currently
+                        integrating their electronic filing gateways.
                     </div>
                 </div>
             </div>
-            <span class="px-3 py-1 rounded-full text-[10px] font-mono font-bold bg-[#FF9933]/20 text-[#FFB066] border border-[#FF9933]/40 uppercase whitespace-nowrap self-start sm:self-center">
+            <span
+                class="px-3 py-1 rounded-full text-[10px] font-mono font-bold bg-[#FF9933]/20 text-[#FFB066] border border-[#FF9933]/40 uppercase whitespace-nowrap self-start sm:self-center">
                 Coming Soon • Phase 2
             </span>
         </div>
 
         <div class="text-center mt-6">
-            <button type="button" onclick="showWipToast('Master Clearances Directory')" class="inline-flex items-center gap-2 text-sm text-[#D4A94C] hover:text-[#E5B869] font-mono font-bold transition-colors">
+            <button type="button" onclick="showWipToast('Master Clearances Directory')"
+                class="inline-flex items-center gap-2 text-sm text-[#D4A94C] hover:text-[#E5B869] font-mono font-bold transition-colors">
                 <span>Explore all 140+ Central & State Industrial Clearances (Coming Soon)</span>
                 <span>→</span>
             </button>
@@ -1659,7 +1841,8 @@
 
         <div class="text-center max-w-3xl mx-auto mb-10">
             <div class="flex flex-wrap items-center justify-center gap-2 mb-2">
-                <span class="text-xs font-mono font-bold tracking-widest text-[#D4A94C] uppercase bg-[#D4A94C]/10 px-3 py-1 rounded-full border border-[#D4A94C]/25">
+                <span
+                    class="text-xs font-mono font-bold tracking-widest text-[#D4A94C] uppercase bg-[#D4A94C]/10 px-3 py-1 rounded-full border border-[#D4A94C]/25">
                     TRANSPARENT AUDIT
                 </span>
                 <span class="wip-badge">
@@ -1667,47 +1850,59 @@
                     <span>COMING SOON • WORK IN PROGRESS</span>
                 </span>
             </div>
-            <h2 class="text-2xl sm:text-4xl font-bold text-[#F8F1DF] mt-2 flex flex-wrap items-center justify-center gap-3">
+            <h2
+                class="text-2xl sm:text-4xl font-bold text-[#F8F1DF] mt-2 flex flex-wrap items-center justify-center gap-3">
                 <span>Real-Time <span class="gold-text">Clearance Tracker & Audit Trail</span></span>
-                <span class="text-[11px] font-mono font-bold px-2.5 py-1 rounded bg-[#FF9933]/15 border border-[#FF9933]/40 text-[#FFB066] uppercase inline-flex items-center gap-1.5">
+                <span
+                    class="text-[11px] font-mono font-bold px-2.5 py-1 rounded bg-[#FF9933]/15 border border-[#FF9933]/40 text-[#FFB066] uppercase inline-flex items-center gap-1.5">
                     <span class="wip-ping-dot"></span>
                     WORK IN PROGRESS • COMING SOON
                 </span>
             </h2>
             <p class="text-sm text-[#819BC2] mt-1">
-                Monitor multi-department approvals, officer scrutiny notes, inspection orders, and download certified composite NOCs with tamper-proof security.
+                Monitor multi-department approvals, officer scrutiny notes, inspection orders, and download certified
+                composite NOCs with tamper-proof security.
             </p>
             <div class="wip-notice-bar max-w-2xl mx-auto text-left mt-3">
                 <div class="flex items-center gap-2.5">
                     <span class="text-base">🚧</span>
-                    <span><strong>Prototype Preview:</strong> Live state inspection API gateways are connecting. You can explore the functional test simulation with sample application IDs below.</span>
+                    <span><strong>Prototype Preview:</strong> Live state inspection API gateways are connecting. You can
+                        explore the functional test simulation with sample application IDs below.</span>
                 </div>
-                <span class="hidden sm:inline-block font-mono text-[10px] uppercase px-2 py-0.5 rounded bg-white/5 border border-white/10 text-[#FFB066]">In Progress</span>
+                <span
+                    class="hidden sm:inline-block font-mono text-[10px] uppercase px-2 py-0.5 rounded bg-white/5 border border-white/10 text-[#FFB066]">In
+                    Progress</span>
             </div>
         </div>
 
         <!-- Comprehensive Tracker Container -->
         <div class="glass-panel p-6 sm:p-10 max-w-5xl mx-auto">
-            
+
             <!-- Tracker Header & Input -->
-            <div class="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 pb-8 border-b border-white/10">
+            <div
+                class="flex flex-col md:flex-row items-stretch md:items-center justify-between gap-4 pb-8 border-b border-white/10">
                 <div class="flex-1">
-                    <label for="mainTrackInput" class="block text-xs font-mono font-bold text-[#C9C2B2] uppercase tracking-wider mb-2">
+                    <label for="mainTrackInput"
+                        class="block text-xs font-mono font-bold text-[#C9C2B2] uppercase tracking-wider mb-2">
                         Application Reference / Acknowledgement Number:
                     </label>
                     <div class="relative flex items-center">
-                        <svg class="w-5 h-5 absolute left-3.5 text-[#D4A94C]" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"/>
+                        <svg class="w-5 h-5 absolute left-3.5 text-[#D4A94C]" fill="none" stroke="currentColor"
+                            viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                         </svg>
                         <input type="text" id="mainTrackInput" value="IND-2026-8942"
                             class="gov-input !pl-11 !font-mono !text-base uppercase" placeholder="e.g. IND-2026-8942">
                     </div>
                 </div>
                 <div class="flex items-end">
-                    <button type="button" onclick="executeFullAuditTrack()" class="btn-gold-primary w-full md:w-auto h-[46px] flex items-center justify-center gap-2">
+                    <button type="button" onclick="executeFullAuditTrack()"
+                        class="btn-gold-primary w-full md:w-auto h-[46px] flex items-center justify-center gap-2">
                         <span>Search Audit Trail (WIP Preview)</span>
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M14 5l7 7m0 0l-7 7m7-7H3" />
                         </svg>
                     </button>
                 </div>
@@ -1715,20 +1910,23 @@
 
             <!-- Active File Summary Meta -->
             <div id="fullAuditDetails" class="pt-8 space-y-8">
-                
+
                 <!-- Enterprise Metadata Card -->
-                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-4 rounded-xl bg-[#071736] border border-[#D4A94C]/20">
+                <div
+                    class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 p-4 rounded-xl bg-[#071736] border border-[#D4A94C]/20">
                     <div>
                         <div class="flex items-center justify-between mb-1">
                             <span class="text-[10px] font-mono text-[#819BC2] uppercase">Enterprise Name</span>
                             <span class="wip-card-pill">WIP Test</span>
                         </div>
-                        <h4 id="auditUnitTitle" class="text-sm font-bold text-[#F8F1DF]">EcoTech Plastics Recycling Pvt Ltd</h4>
+                        <h4 id="auditUnitTitle" class="text-sm font-bold text-[#F8F1DF]">EcoTech Plastics Recycling Pvt
+                            Ltd</h4>
                         <span id="auditUdyam" class="text-xs font-mono text-[#D4A94C]">UDYAM-MP-08-009124</span>
                     </div>
                     <div>
                         <span class="text-[10px] font-mono text-[#819BC2] uppercase">Project Sector & Stage</span>
-                        <div id="auditSector" class="text-sm font-medium text-[#F8F1DF]">Polymers & Circular Economy</div>
+                        <div id="auditSector" class="text-sm font-medium text-[#F8F1DF]">Polymers & Circular Economy
+                        </div>
                         <span class="text-xs text-[#819BC2]">Orange Category • Pre-Establishment</span>
                     </div>
                     <div>
@@ -1745,14 +1943,17 @@
 
                 <!-- Visual Step Flow Timeline -->
                 <div>
-                    <h4 class="text-xs font-mono uppercase tracking-widest text-[#D4A94C] mb-6">Multi-Department Scrutiny Timeline</h4>
-                    
+                    <h4 class="text-xs font-mono uppercase tracking-widest text-[#D4A94C] mb-6">Multi-Department
+                        Scrutiny Timeline</h4>
+
                     <div class="relative">
                         <!-- Horizontal Track (Desktop) -->
-                        <div class="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-white/10 -translate-y-1/2 z-0"></div>
+                        <div
+                            class="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-white/10 -translate-y-1/2 z-0">
+                        </div>
 
                         <div class="grid grid-cols-1 md:grid-cols-4 gap-6 relative z-10">
-                            
+
                             <!-- Stage 1 -->
                             <div class="p-4 rounded-xl bg-[#05132B] border border-[#22c55e]/40 space-y-2 text-left">
                                 <div class="flex items-center justify-between">
@@ -1771,12 +1972,14 @@
                                     <span class="text-[10px] font-mono text-[#86efac]">COMPLETED</span>
                                 </div>
                                 <h5 class="text-sm font-bold text-[#F8F1DF]">2. Document Scrutiny</h5>
-                                <p class="text-xs text-[#819BC2]">Parallel validation by SPCB, DISH, and Fire Services.</p>
+                                <p class="text-xs text-[#819BC2]">Parallel validation by SPCB, DISH, and Fire Services.
+                                </p>
                                 <div class="text-[10px] font-mono text-[#D4A94C]">10 Sep 2026, 11:30 IST</div>
                             </div>
 
                             <!-- Stage 3 -->
-                            <div class="p-4 rounded-xl bg-[#0A2045] border border-[#D4A94C] space-y-2 text-left shadow-lg shadow-[#D4A94C]/10">
+                            <div
+                                class="p-4 rounded-xl bg-[#0A2045] border border-[#D4A94C] space-y-2 text-left shadow-lg shadow-[#D4A94C]/10">
                                 <div class="flex items-center justify-between">
                                     <span class="timeline-step-node active-step">3</span>
                                     <span class="text-[10px] font-mono text-[#F3D98B] font-bold">IN PROGRESS</span>
@@ -1802,17 +2005,22 @@
                 </div>
 
                 <!-- Action Download Row -->
-                <div class="p-4 rounded-xl bg-[#051838] border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
+                <div
+                    class="p-4 rounded-xl bg-[#051838] border border-white/10 flex flex-col sm:flex-row items-center justify-between gap-4">
                     <div class="flex items-center gap-3 text-left">
-                        <div class="w-10 h-10 rounded-lg bg-[#D4A94C]/20 border border-[#D4A94C]/40 text-[#D4A94C] flex items-center justify-center">
+                        <div
+                            class="w-10 h-10 rounded-lg bg-[#D4A94C]/20 border border-[#D4A94C]/40 text-[#D4A94C] flex items-center justify-center">
                             📄
                         </div>
                         <div>
-                            <div class="text-xs font-bold text-[#F8F1DF]">Provisional Acknowledgement & Scrutiny Receipt</div>
-                            <div class="text-[11px] text-[#819BC2] font-mono">Digital Hash: 8F2A-94B1-2026-MP-SWC • QR Verified</div>
+                            <div class="text-xs font-bold text-[#F8F1DF]">Provisional Acknowledgement & Scrutiny Receipt
+                            </div>
+                            <div class="text-[11px] text-[#819BC2] font-mono">Digital Hash: 8F2A-94B1-2026-MP-SWC • QR
+                                Verified</div>
                         </div>
                     </div>
-                    <button type="button" onclick="showWipToast('Provisional Receipt Download')" class="btn-outline-gold !py-2 !text-xs">
+                    <button type="button" onclick="showWipToast('Provisional Receipt Download')"
+                        class="btn-outline-gold !py-2 !text-xs">
                         Download Provisional Receipt (Coming Soon) ↓
                     </button>
                 </div>
@@ -1824,17 +2032,20 @@
         <!-- Post-UI Implementation Status Banner -->
         <div class="wip-status-ribbon max-w-5xl mx-auto">
             <div class="flex items-center gap-3">
-                <span class="w-8 h-8 rounded-full bg-[#FF9933]/20 border border-[#FF9933]/40 flex items-center justify-center text-sm flex-shrink-0">⏳</span>
+                <span
+                    class="w-8 h-8 rounded-full bg-[#FF9933]/20 border border-[#FF9933]/40 flex items-center justify-center text-sm flex-shrink-0">⏳</span>
                 <div>
                     <div class="text-xs font-bold text-[#F8F1DF] uppercase tracking-wide flex items-center gap-2">
                         <span>Real-Time Clearance Tracker UI — Work in Progress (Coming Soon)</span>
                     </div>
                     <div class="text-[11px] text-[#819BC2] mt-0.5">
-                        Live officer inspection scheduling, geo-tagged dispatch, and multi-department audit trail telemetry are under active system integration.
+                        Live officer inspection scheduling, geo-tagged dispatch, and multi-department audit trail
+                        telemetry are under active system integration.
                     </div>
                 </div>
             </div>
-            <span class="px-3 py-1 rounded-full text-[10px] font-mono font-bold bg-[#FF9933]/20 text-[#FFB066] border border-[#FF9933]/40 uppercase whitespace-nowrap self-start sm:self-center">
+            <span
+                class="px-3 py-1 rounded-full text-[10px] font-mono font-bold bg-[#FF9933]/20 text-[#FFB066] border border-[#FF9933]/40 uppercase whitespace-nowrap self-start sm:self-center">
                 Coming Soon • Phase 2
             </span>
         </div>
@@ -1847,11 +2058,12 @@
         <div class="section-separator"></div>
 
         <div class="grid grid-cols-1 lg:grid-cols-12 gap-10 items-center">
-            
+
             <!-- Left Info Column -->
             <div class="lg:col-span-5 space-y-4 text-left">
                 <div class="flex flex-wrap items-center gap-2">
-                    <span class="text-xs font-mono font-bold tracking-widest text-[#D4A94C] uppercase bg-[#D4A94C]/10 px-3 py-1 rounded-full border border-[#D4A94C]/25">
+                    <span
+                        class="text-xs font-mono font-bold tracking-widest text-[#D4A94C] uppercase bg-[#D4A94C]/10 px-3 py-1 rounded-full border border-[#D4A94C]/25">
                         INVESTOR TOOL
                     </span>
                     <span class="wip-badge">
@@ -1861,21 +2073,25 @@
                 </div>
                 <h2 class="text-2xl sm:text-4xl font-bold text-[#F8F1DF] flex flex-wrap items-center gap-3">
                     <span>Know Your Clearances & <span class="gold-text">SLA Estimator</span></span>
-                    <span class="text-[11px] font-mono font-bold px-2.5 py-1 rounded bg-[#FF9933]/15 border border-[#FF9933]/40 text-[#FFB066] uppercase inline-flex items-center gap-1.5">
+                    <span
+                        class="text-[11px] font-mono font-bold px-2.5 py-1 rounded bg-[#FF9933]/15 border border-[#FF9933]/40 text-[#FFB066] uppercase inline-flex items-center gap-1.5">
                         <span class="wip-ping-dot"></span>
                         WORK IN PROGRESS • COMING SOON
                     </span>
                 </h2>
                 <p class="text-sm text-[#C9C2B2] leading-relaxed">
-                    Planning a new factory or industrial project? Select your sector, proposed investment, and environmental classification to immediately discover required approvals, turn-around times, and estimated statutory fees.
+                    Planning a new factory or industrial project? Select your sector, proposed investment, and
+                    environmental classification to immediately discover required approvals, turn-around times, and
+                    estimated statutory fees.
                 </p>
                 <div class="wip-notice-bar">
                     <div class="flex items-center gap-2">
                         <span class="text-base">🚧</span>
-                        <span><strong>Notice:</strong> State-specific tariff matrices and statutory fee calculators are currently being calibrated for live rollout.</span>
+                        <span><strong>Notice:</strong> State-specific tariff matrices and statutory fee calculators are
+                            currently being calibrated for live rollout.</span>
                     </div>
                 </div>
-                
+
                 <div class="space-y-3 pt-2">
                     <div class="flex items-start gap-3 text-xs text-[#C9C2B2]">
                         <span class="text-[#22c55e] font-bold">✓</span>
@@ -1895,7 +2111,8 @@
             <!-- Right Calculator Form Card -->
             <div class="lg:col-span-7">
                 <div class="glass-panel p-6 sm:p-8">
-                    <h3 class="text-lg font-bold text-[#F8F1DF] mb-6 flex items-center justify-between pb-3 border-b border-white/10">
+                    <h3
+                        class="text-lg font-bold text-[#F8F1DF] mb-6 flex items-center justify-between pb-3 border-b border-white/10">
                         <span>Industrial Project Parameter Configurator</span>
                         <div class="flex items-center gap-2">
                             <span class="wip-card-pill">Work in Progress</span>
@@ -1906,8 +2123,11 @@
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 mb-6">
                         <!-- Sector Select -->
                         <div>
-                            <label for="calcSector" class="block text-xs font-mono font-bold text-[#C9C2B2] uppercase mb-1.5">Industry Sector</label>
-                            <select id="calcSector" onchange="recalculateEstimator()" class="gov-input !py-2.5 !text-sm">
+                            <label for="calcSector"
+                                class="block text-xs font-mono font-bold text-[#C9C2B2] uppercase mb-1.5">Industry
+                                Sector</label>
+                            <select id="calcSector" onchange="recalculateEstimator()"
+                                class="gov-input !py-2.5 !text-sm">
                                 <option value="mfg">General Manufacturing & Engineering</option>
                                 <option value="pharma">Chemicals, APIs & Pharmaceuticals</option>
                                 <option value="food">Food Processing & Agro-Industries</option>
@@ -1918,8 +2138,11 @@
 
                         <!-- Pollution Category -->
                         <div>
-                            <label for="calcPollution" class="block text-xs font-mono font-bold text-[#C9C2B2] uppercase mb-1.5">Pollution Classification</label>
-                            <select id="calcPollution" onchange="recalculateEstimator()" class="gov-input !py-2.5 !text-sm">
+                            <label for="calcPollution"
+                                class="block text-xs font-mono font-bold text-[#C9C2B2] uppercase mb-1.5">Pollution
+                                Classification</label>
+                            <select id="calcPollution" onchange="recalculateEstimator()"
+                                class="gov-input !py-2.5 !text-sm">
                                 <option value="white">White Category (Zero Pollution - Fast Track)</option>
                                 <option value="green" selected>Green Category (Low Pollution)</option>
                                 <option value="orange">Orange Category (Moderate Pollution)</option>
@@ -1929,8 +2152,11 @@
 
                         <!-- Investment Bracket -->
                         <div>
-                            <label for="calcInvestment" class="block text-xs font-mono font-bold text-[#C9C2B2] uppercase mb-1.5">Proposed Capital Investment</label>
-                            <select id="calcInvestment" onchange="recalculateEstimator()" class="gov-input !py-2.5 !text-sm">
+                            <label for="calcInvestment"
+                                class="block text-xs font-mono font-bold text-[#C9C2B2] uppercase mb-1.5">Proposed
+                                Capital Investment</label>
+                            <select id="calcInvestment" onchange="recalculateEstimator()"
+                                class="gov-input !py-2.5 !text-sm">
                                 <option value="micro">Micro Enterprise (&lt; ₹1 Crore)</option>
                                 <option value="small" selected>Small Enterprise (₹1 Cr - ₹10 Cr)</option>
                                 <option value="medium">Medium Enterprise (₹10 Cr - ₹50 Cr)</option>
@@ -1940,7 +2166,9 @@
 
                         <!-- Land Requirement -->
                         <div>
-                            <label for="calcLand" class="block text-xs font-mono font-bold text-[#C9C2B2] uppercase mb-1.5">Plot Extent Required</label>
+                            <label for="calcLand"
+                                class="block text-xs font-mono font-bold text-[#C9C2B2] uppercase mb-1.5">Plot Extent
+                                Required</label>
                             <select id="calcLand" onchange="recalculateEstimator()" class="gov-input !py-2.5 !text-sm">
                                 <option value="leased">Leased Industrial Shed / Flatted Factory</option>
                                 <option value="small-plot" selected>Plot up to 2,500 sq. meters</option>
@@ -1955,23 +2183,29 @@
                         <div class="grid grid-cols-3 gap-3 text-center">
                             <div class="p-2 rounded-lg bg-white/5">
                                 <div class="text-[10px] font-mono text-[#819BC2] uppercase">Estimated Approvals</div>
-                                <div id="estApprovalsCount" class="text-xl font-mono font-bold text-[#D4A94C] mt-0.5">4 NOCs</div>
+                                <div id="estApprovalsCount" class="text-xl font-mono font-bold text-[#D4A94C] mt-0.5">4
+                                    NOCs</div>
                             </div>
                             <div class="p-2 rounded-lg bg-white/5">
                                 <div class="text-[10px] font-mono text-[#819BC2] uppercase">Max Composite SLA</div>
-                                <div id="estSlaTime" class="text-xl font-mono font-bold text-[#22c55e] mt-0.5">14 Days</div>
+                                <div id="estSlaTime" class="text-xl font-mono font-bold text-[#22c55e] mt-0.5">14 Days
+                                </div>
                             </div>
                             <div class="p-2 rounded-lg bg-white/5">
                                 <div class="text-[10px] font-mono text-[#819BC2] uppercase">Consolidated Govt Fee</div>
-                                <div id="estTotalFee" class="text-xl font-mono font-bold text-[#F8F1DF] mt-0.5">₹22,500</div>
+                                <div id="estTotalFee" class="text-xl font-mono font-bold text-[#F8F1DF] mt-0.5">₹22,500
+                                </div>
                             </div>
                         </div>
 
-                        <div class="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs border-t border-white/10 pt-3">
+                        <div
+                            class="flex flex-col sm:flex-row items-center justify-between gap-3 text-xs border-t border-white/10 pt-3">
                             <span id="estNoticeText" class="text-[#819BC2] text-left">
-                                Includes: Consent to Establish (SPCB), Factory Plan Approval (DISH), and Fire Recommendation.
+                                Includes: Consent to Establish (SPCB), Factory Plan Approval (DISH), and Fire
+                                Recommendation.
                             </span>
-                            <button type="button" onclick="showWipToast('Automated Clearance Application Filing')" class="btn-gold-primary !py-2 !px-4 !text-xs whitespace-nowrap">
+                            <button type="button" onclick="showWipToast('Automated Clearance Application Filing')"
+                                class="btn-gold-primary !py-2 !px-4 !text-xs whitespace-nowrap">
                                 Apply for these Clearances (Coming Soon) →
                             </button>
                         </div>
@@ -1985,17 +2219,20 @@
         <!-- Post-UI Implementation Status Banner -->
         <div class="wip-status-ribbon">
             <div class="flex items-center gap-3">
-                <span class="w-8 h-8 rounded-full bg-[#FF9933]/20 border border-[#FF9933]/40 flex items-center justify-center text-sm flex-shrink-0">⏳</span>
+                <span
+                    class="w-8 h-8 rounded-full bg-[#FF9933]/20 border border-[#FF9933]/40 flex items-center justify-center text-sm flex-shrink-0">⏳</span>
                 <div>
                     <div class="text-xs font-bold text-[#F8F1DF] uppercase tracking-wide flex items-center gap-2">
                         <span>Clearances & SLA Estimator UI — Work in Progress (Coming Soon)</span>
                     </div>
                     <div class="text-[11px] text-[#819BC2] mt-0.5">
-                        Dynamic state fee matrices, capital investment slabs, and statutory timeline estimators across all 28 states are currently in development.
+                        Dynamic state fee matrices, capital investment slabs, and statutory timeline estimators across
+                        all 28 states are currently in development.
                     </div>
                 </div>
             </div>
-            <span class="px-3 py-1 rounded-full text-[10px] font-mono font-bold bg-[#FF9933]/20 text-[#FFB066] border border-[#FF9933]/40 uppercase whitespace-nowrap self-start sm:self-center">
+            <span
+                class="px-3 py-1 rounded-full text-[10px] font-mono font-bold bg-[#FF9933]/20 text-[#FFB066] border border-[#FF9933]/40 uppercase whitespace-nowrap self-start sm:self-center">
                 Coming Soon • Phase 2
             </span>
         </div>
@@ -2007,61 +2244,75 @@
     <section class="relative z-10 py-16 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full text-center">
         <div class="section-separator"></div>
 
-        <span class="text-xs font-mono font-bold tracking-widest text-[#D4A94C] uppercase bg-[#D4A94C]/10 px-3 py-1 rounded-full border border-[#D4A94C]/25">
+        <span
+            class="text-xs font-mono font-bold tracking-widest text-[#D4A94C] uppercase bg-[#D4A94C]/10 px-3 py-1 rounded-full border border-[#D4A94C]/25">
             NATIONAL SINGLE WINDOW ECOSYSTEM
         </span>
         <h2 class="text-2xl sm:text-3xl font-bold text-[#F8F1DF] mt-2 mb-3">
             Integrated Statutory Ministries & Departments
         </h2>
         <p class="text-sm text-[#819BC2] max-w-2xl mx-auto mb-10">
-            A seamless digital coalition connecting 36+ Central Ministries and State Industrial Development Authorities on a common API fabric.
+            A seamless digital coalition connecting 36+ Central Ministries and State Industrial Development Authorities
+            on a common API fabric.
         </p>
 
         <!-- Department Badges Grid -->
         <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-4">
-            
-            <div class="p-4 rounded-xl bg-white/5 border border-white/10 hover:border-[#D4A94C]/50 transition-colors flex flex-col items-center justify-center gap-2 text-center">
-                <div class="w-10 h-10 rounded-full bg-[#D4A94C]/15 text-[#D4A94C] flex items-center justify-center font-bold text-sm">
+
+            <div
+                class="p-4 rounded-xl bg-white/5 border border-white/10 hover:border-[#D4A94C]/50 transition-colors flex flex-col items-center justify-center gap-2 text-center">
+                <div
+                    class="w-10 h-10 rounded-full bg-[#D4A94C]/15 text-[#D4A94C] flex items-center justify-center font-bold text-sm">
                     DPIIT
                 </div>
                 <div class="text-xs font-bold text-[#F8F1DF]">Commerce & Industry</div>
                 <div class="text-[10px] text-[#819BC2]">Govt of India</div>
             </div>
 
-            <div class="p-4 rounded-xl bg-white/5 border border-white/10 hover:border-[#D4A94C]/50 transition-colors flex flex-col items-center justify-center gap-2 text-center">
-                <div class="w-10 h-10 rounded-full bg-[#22c55e]/15 text-[#22c55e] flex items-center justify-center font-bold text-sm">
+            <div
+                class="p-4 rounded-xl bg-white/5 border border-white/10 hover:border-[#D4A94C]/50 transition-colors flex flex-col items-center justify-center gap-2 text-center">
+                <div
+                    class="w-10 h-10 rounded-full bg-[#22c55e]/15 text-[#22c55e] flex items-center justify-center font-bold text-sm">
                     CPCB
                 </div>
                 <div class="text-xs font-bold text-[#F8F1DF]">Pollution Control</div>
                 <div class="text-[10px] text-[#819BC2]">MoEFCC</div>
             </div>
 
-            <div class="p-4 rounded-xl bg-white/5 border border-white/10 hover:border-[#D4A94C]/50 transition-colors flex flex-col items-center justify-center gap-2 text-center">
-                <div class="w-10 h-10 rounded-full bg-[#D4A94C]/15 text-[#D4A94C] flex items-center justify-center font-bold text-sm">
+            <div
+                class="p-4 rounded-xl bg-white/5 border border-white/10 hover:border-[#D4A94C]/50 transition-colors flex flex-col items-center justify-center gap-2 text-center">
+                <div
+                    class="w-10 h-10 rounded-full bg-[#D4A94C]/15 text-[#D4A94C] flex items-center justify-center font-bold text-sm">
                     DISH
                 </div>
                 <div class="text-xs font-bold text-[#F8F1DF]">Industrial Safety</div>
                 <div class="text-[10px] text-[#819BC2]">Inspectorate of Factories</div>
             </div>
 
-            <div class="p-4 rounded-xl bg-white/5 border border-white/10 hover:border-[#D4A94C]/50 transition-colors flex flex-col items-center justify-center gap-2 text-center">
-                <div class="w-10 h-10 rounded-full bg-[#3b82f6]/15 text-[#93c5fd] flex items-center justify-center font-bold text-sm">
+            <div
+                class="p-4 rounded-xl bg-white/5 border border-white/10 hover:border-[#D4A94C]/50 transition-colors flex flex-col items-center justify-center gap-2 text-center">
+                <div
+                    class="w-10 h-10 rounded-full bg-[#3b82f6]/15 text-[#93c5fd] flex items-center justify-center font-bold text-sm">
                     PESO
                 </div>
                 <div class="text-xs font-bold text-[#F8F1DF]">Explosives & Gas</div>
                 <div class="text-[10px] text-[#819BC2]">Petroleum Safety</div>
             </div>
 
-            <div class="p-4 rounded-xl bg-white/5 border border-white/10 hover:border-[#D4A94C]/50 transition-colors flex flex-col items-center justify-center gap-2 text-center">
-                <div class="w-10 h-10 rounded-full bg-[#f97316]/15 text-[#fdba74] flex items-center justify-center font-bold text-sm">
+            <div
+                class="p-4 rounded-xl bg-white/5 border border-white/10 hover:border-[#D4A94C]/50 transition-colors flex flex-col items-center justify-center gap-2 text-center">
+                <div
+                    class="w-10 h-10 rounded-full bg-[#f97316]/15 text-[#fdba74] flex items-center justify-center font-bold text-sm">
                     FIRE
                 </div>
                 <div class="text-xs font-bold text-[#F8F1DF]">Fire Services</div>
                 <div class="text-[10px] text-[#819BC2]">Disaster Management</div>
             </div>
 
-            <div class="p-4 rounded-xl bg-white/5 border border-white/10 hover:border-[#D4A94C]/50 transition-colors flex flex-col items-center justify-center gap-2 text-center">
-                <div class="w-10 h-10 rounded-full bg-[#a855f7]/15 text-[#d8b4fe] flex items-center justify-center font-bold text-sm">
+            <div
+                class="p-4 rounded-xl bg-white/5 border border-white/10 hover:border-[#D4A94C]/50 transition-colors flex flex-col items-center justify-center gap-2 text-center">
+                <div
+                    class="w-10 h-10 rounded-full bg-[#a855f7]/15 text-[#d8b4fe] flex items-center justify-center font-bold text-sm">
                     SIDC
                 </div>
                 <div class="text-xs font-bold text-[#F8F1DF]">Land Allotment</div>
@@ -2075,15 +2326,19 @@
          CALLOUT: HELPDESK & ESCALATION SUPPORT
     ===================================================== -->
     <section class="relative z-10 py-12 px-4 sm:px-6 lg:px-8 max-w-7xl mx-auto w-full">
-        <div class="p-8 sm:p-10 rounded-2xl bg-gradient-to-r from-[#071d44] via-[#0b2b63] to-[#071d44] border border-[#D4A94C]/35 relative overflow-hidden">
+        <div
+            class="p-8 sm:p-10 rounded-2xl bg-gradient-to-r from-[#071d44] via-[#0b2b63] to-[#071d44] border border-[#D4A94C]/35 relative overflow-hidden">
             <div class="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-8 text-left">
                 <div class="space-y-2 max-w-2xl">
-                    <span class="text-xs font-mono uppercase text-[#D4A94C] font-bold">24x7 Statutory Investor Facilitation</span>
+                    <span class="text-xs font-mono uppercase text-[#D4A94C] font-bold">24x7 Statutory Investor
+                        Facilitation</span>
                     <h3 class="text-2xl sm:text-3xl font-bold text-[#F8F1DF]">
                         Need Guidance on Clearances or Experiencing SLA Delays?
                     </h3>
                     <p class="text-sm text-[#C9C2B2] leading-relaxed">
-                        Our centralized grievance escalation cell monitors department SLAs in real-time. If any clearance exceeds guaranteed turnaround timelines, an automatic reminder is triggered to the State Principal Secretary.
+                        Our centralized grievance escalation cell monitors department SLAs in real-time. If any
+                        clearance exceeds guaranteed turnaround timelines, an automatic reminder is triggered to the
+                        State Principal Secretary.
                     </p>
                 </div>
                 <div class="flex flex-wrap items-center gap-4 flex-shrink-0">
@@ -2107,9 +2362,11 @@
             <div class="flex items-start justify-between pb-4 border-b border-white/10">
                 <div>
                     <span id="modalDept" class="text-xs font-mono text-[#D4A94C]">DEPARTMENT CLEARANCE SOP</span>
-                    <h3 id="modalTitle" class="text-lg font-bold text-[#F8F1DF]">Clearance Checklist & Statutory Rules</h3>
+                    <h3 id="modalTitle" class="text-lg font-bold text-[#F8F1DF]">Clearance Checklist & Statutory Rules
+                    </h3>
                 </div>
-                <button type="button" onclick="closeChecklistModal()" class="text-[#819BC2] hover:text-white p-1 rounded-md text-xl leading-none">
+                <button type="button" onclick="closeChecklistModal()"
+                    class="text-[#819BC2] hover:text-white p-1 rounded-md text-xl leading-none">
                     ✕
                 </button>
             </div>
@@ -2510,7 +2767,7 @@
             document.getElementById("resAppId").textContent = "APP: " + inputVal;
             document.getElementById("resUnitName").textContent = data.unitName;
             document.getElementById("resLocation").textContent = data.location;
-            
+
             const badge = document.getElementById("resStatusBadge");
             badge.textContent = data.status;
             badge.className = `text-[10px] font-mono px-2 py-0.5 rounded border font-bold ${data.statusClass}`;
@@ -2893,7 +3150,8 @@
     ===================================================== -->
     <div id="wipToast"
         class="fixed bottom-6 right-6 z-50 transform translate-y-28 opacity-0 pointer-events-none transition-all duration-300 flex items-center gap-3.5 px-5 py-3.5 rounded-xl bg-[#071736] border border-[#FF9933]/50 text-[#F8F1DF] shadow-2xl shadow-black/80 max-w-sm backdrop-blur-md">
-        <div class="w-9 h-9 rounded-lg bg-[#FF9933]/20 border border-[#FF9933]/40 flex items-center justify-center text-lg flex-shrink-0">
+        <div
+            class="w-9 h-9 rounded-lg bg-[#FF9933]/20 border border-[#FF9933]/40 flex items-center justify-center text-lg flex-shrink-0">
             🚧
         </div>
         <div class="flex-1">

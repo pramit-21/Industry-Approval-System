@@ -149,6 +149,42 @@
             display: block;
         }
 
+        /* Password Criteria Verification Styles */
+        .pwd-criteria-box {
+            background: #F4EFE6;
+            border: 1px solid rgba(7, 21, 47, 0.12);
+            border-radius: 8px;
+            padding: 10px 12px;
+            margin-top: 10px;
+        }
+
+        .rule-item {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+            font-size: 0.72rem;
+            color: #64748B;
+            transition: all 0.2s ease;
+        }
+
+        .rule-item.rule-valid {
+            color: #166534;
+            font-weight: 600;
+        }
+
+        .rule-item.rule-valid .rule-icon {
+            color: #16a34a;
+            font-weight: 700;
+        }
+
+        .rule-item.rule-invalid {
+            color: #991b1b;
+        }
+
+        .rule-item.rule-invalid .rule-icon {
+            color: #dc2626;
+        }
+
         /* Benefit Cards on Left Column */
         .benefit-card {
             background: rgba(5, 18, 41, 0.75);
@@ -534,7 +570,7 @@
                                 <div>
                                     <label for="password" class="reg-label">
                                         <span>Account Password *</span>
-                                        <span class="text-[10px] text-[#546A8B] font-normal lowercase">(min 8 chars)</span>
+                                        <span class="text-[10px] text-[#546A8B] font-normal lowercase">(alphanumeric + symbol)</span>
                                     </label>
                                     <div class="input-wrapper relative">
                                         <span class="reg-icon">
@@ -544,7 +580,7 @@
                                             </svg>
                                         </span>
                                         <input id="password" name="password" type="password"
-                                            placeholder="Create secure password" class="reg-input !pr-10" required />
+                                            placeholder="Create strong password" class="reg-input !pr-10" required />
                                         <button type="button" class="absolute right-3 top-1/2 -translate-y-1/2 text-[#819BC2] hover:text-[#D4A94C] p-1"
                                             onclick="togglePasswordVisibility('password', 'pwdEyeIcon')" aria-label="Toggle password visibility">
                                             <svg id="pwdEyeIcon" class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -555,7 +591,32 @@
                                             </svg>
                                         </button>
                                     </div>
-                                    <div id="password-error" class="error-message">Password must contain at least 8 characters.</div>
+                                    <div id="password-error" class="error-message">Password does not meet required security criteria.</div>
+
+                                    <!-- Live Password Requirements Checklist -->
+                                    <div class="pwd-criteria-box">
+                                        <div class="flex items-center justify-between mb-1.5">
+                                            <span class="text-[11px] font-bold text-[#07152F]">Password Criteria:</span>
+                                            <span id="pwdStrengthLabel" class="text-[10px] font-mono font-bold uppercase text-gray-500">Required</span>
+                                        </div>
+                                        <div class="w-full h-1.5 bg-gray-200 rounded-full overflow-hidden mb-2">
+                                            <div id="pwdStrengthBar" class="h-full w-0 transition-all duration-300 bg-red-500 rounded-full"></div>
+                                        </div>
+                                        <div class="grid grid-cols-1 sm:grid-cols-2 gap-1 text-left">
+                                            <div id="rule-length" class="rule-item">
+                                                <span class="rule-icon font-mono">✕</span> Min 8 characters
+                                            </div>
+                                            <div id="rule-alpha" class="rule-item">
+                                                <span class="rule-icon font-mono">✕</span> Upper & Lowercase (A-Z, a-z)
+                                            </div>
+                                            <div id="rule-digit" class="rule-item">
+                                                <span class="rule-icon font-mono">✕</span> At least 1 number (0-9)
+                                            </div>
+                                            <div id="rule-special" class="rule-item">
+                                                <span class="rule-icon font-mono">✕</span> Special char (!@#$%^&*)
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <!-- 5. BUSINESS / ENTERPRISE NAME -->

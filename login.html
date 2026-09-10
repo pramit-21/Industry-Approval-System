@@ -250,12 +250,12 @@
                     <form id="entrepreneurLoginForm" onsubmit="handleEntrepreneurLogin(event)" novalidate>
 
                         <!-- Fixed Role as Entrepreneur -->
-                        <input type="hidden" name="role" value="entrepreneur">
+                        <input type="hidden" name="role" id="enterpriseRole" value="ENTREPRENEUR">
 
                         <!-- Field 1: Enterprise Email / Identifier -->
                         <div class="form-group text-left">
                             <label for="enterpriseIdentifier" class="form-label">
-                                <span>Enter your email</span>
+                                <span>Official Enterprise Email</span>
                             </label>
                             <div class="input-container">
                                 <span class="input-icon" aria-hidden="true">
@@ -264,15 +264,15 @@
                                             d="M16 12a4 4 0 10-8 0 4 4 0 008 0zm0 0v1.5a2.5 2.5 0 005 0V12a9 9 0 10-9 9m4.5-1.206a8.959 8.959 0 01-4.5 1.206" />
                                     </svg>
                                 </span>
-                                <input id="enterpriseIdentifier" name="identifier" type="text" required
-                                    autocomplete="username" placeholder="e.g.john1245@gmail.com" class="gov-input">
+                                <input id="enterpriseIdentifier" name="identifier" type="email" required
+                                    autocomplete="username" placeholder="e.g. entrepreneur@industryone.gov.in" class="gov-input">
                             </div>
                         </div>
 
-                        <!-- Field 2: Password -->
-                        <div class="form-group text-left">
+                        <!-- Field 2: Password (Government Standard Authentication) -->
+                        <div id="passwordGroup" class="form-group text-left">
                             <div class="form-label">
-                                <span>Password</span>
+                                <span>Account Password</span>
                                 <a href="Forgetpassword.jsp"
                                     class="text-[11px] text-[#D4A94C] hover:underline font-normal tracking-normal lowercase">
                                     Forgot Password?
@@ -286,7 +286,7 @@
                                     </svg>
                                 </span>
                                 <input id="enterprisePassword" name="password" type="password" required
-                                    autocomplete="current-password" placeholder="Enter your password" class="gov-input">
+                                    autocomplete="current-password" placeholder="Enter case-sensitive password" class="gov-input">
                                 <button type="button" id="passwordToggleBtn" class="password-toggle-btn"
                                     onclick="togglePasswordVisibility()" aria-label="Toggle password visibility">
                                     <svg id="eyeIcon" class="w-4 h-4" fill="none" stroke="currentColor"
@@ -297,6 +297,38 @@
                                             d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
                                     </svg>
                                 </button>
+                            </div>
+
+                            <!-- Real-Time Caps Lock Detection Warning -->
+                            <div id="capsLockWarning" class="hidden mt-1.5 px-2.5 py-1.5 rounded bg-amber-500/15 border border-amber-500/35 text-amber-300 text-[11px] font-mono flex items-center gap-2">
+                                <span>⚠️</span>
+                                <span><strong>Caps Lock is Active</strong>: Passwords are strictly case-sensitive.</span>
+                            </div>
+
+                            <!-- Government Password Standard Verification & Policy Helper -->
+                            <div class="mt-1.5 flex items-center justify-between text-[11px]">
+                                <button type="button" onclick="togglePasswordPolicy()" class="text-[#D4A94C] hover:underline flex items-center gap-1">
+                                    <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                            d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
+                                    </svg>
+                                    <span>NIC Security Guidelines</span>
+                                </button>
+                                <span class="text-[10px] text-[#819BC2] font-mono">Case-Sensitive</span>
+                            </div>
+
+                            <div id="pwdPolicyDropdown" class="hidden mt-2 p-3 rounded-lg bg-[#051229] border border-[#D4A94C]/25 text-[11px] text-[#C9C2B2] space-y-1.5 text-left">
+                                <div class="text-[#F8F1DF] font-semibold text-[11px] flex items-center gap-1.5">
+                                    <span class="text-[#D4A94C]">🛡️</span>
+                                    <span>Government Password Verification Criteria:</span>
+                                </div>
+                                <ul class="list-disc list-inside space-y-0.5 text-[10px] text-[#819BC2]">
+                                    <li>Length: 8 to 16 characters</li>
+                                    <li>Both Uppercase (A-Z) and Lowercase (a-z) alphabets</li>
+                                    <li>At least one numeric digit (0-9)</li>
+                                    <li>At least one special character (!@#$%^&*)</li>
+                                    <li>Maximum 3 failed attempts before automated lockout</li>
+                                </ul>
                             </div>
                         </div>
 
@@ -311,13 +343,23 @@
                                 <div class="captcha-canvas-wrap">
                                     <canvas id="captchaCanvas" width="180" height="42"></canvas>
                                 </div>
-                                <button type="button" class="captcha-refresh-btn" onclick="generateCaptcha()"
-                                    title="Refresh Captcha Code" aria-label="Refresh Captcha">
-                                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                            d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
-                                    </svg>
-                                </button>
+                                <div class="flex gap-1">
+                                    <!-- Accessible Audio Captcha Button (GIGW / NIC compliance) -->
+                                    <button type="button" class="captcha-refresh-btn" onclick="playAudioCaptcha()"
+                                        title="Listen to Captcha (Screen reader / Audio)" aria-label="Audio Captcha">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M15.536 8.464a5 5 0 010 7.072m2.828-9.9a9 9 0 010 12.728M5.586 15H4a1 1 0 01-1-1v-4a1 1 0 011-1h1.586l4.707-4.707C10.923 3.663 12 4.109 12 5v14c0 .891-1.077 1.337-1.707.707L5.586 15z" />
+                                        </svg>
+                                    </button>
+                                    <button type="button" class="captcha-refresh-btn" onclick="generateCaptcha()"
+                                        title="Refresh Captcha Code" aria-label="Refresh Captcha">
+                                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                                d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15" />
+                                        </svg>
+                                    </button>
+                                </div>
                             </div>
 
                             <div class="input-container mt-2">

@@ -2,6 +2,7 @@ package com.industryone.controller;
 
 import com.industryone.model.LoginRequest;
 import com.industryone.model.LoginResponse;
+import com.industryone.model.RegisterRequest;
 import com.industryone.model.User;
 import com.industryone.service.AuthService;
 import com.industryone.service.LoginAttemptService;
@@ -135,6 +136,72 @@ public class LoginController {
                 "role", user.getRole(),
                 "fullName", user.getFullName()
         ));
+    }
+
+    @PostMapping("/register")
+    public ResponseEntity<?> register(@RequestBody RegisterRequest request) {
+        String email = request.email() == null ? "" : request.email().trim();
+        String password = request.password() == null ? "" : request.password();
+        String role = request.role() == null || request.role().isBlank() ? "ENTREPRENEUR" : request.role().trim().toUpperCase();
+        String fullName = request.fullName() == null ? "" : request.fullName().trim();
+
+        if (email.isBlank() || password.isBlank()) {
+            return ResponseEntity.badRequest().body(Map.of(
+                    "success", false,
+                    "message", "Email and password are required."
+            ));
+        }
+
+        String passwordError = validatePassword(password);
+        if (passwordError != null) {
+            return ResponseEntity.badRequest().body(Map.of(
+                    "success", false,
+                    "message", passwordError
+            ));
+        }
+
+        if (!validRole(role)) {
+            return ResponseEntity.badRequest().body(Map.of(
+                    "success", false,
+                    "message", "Invalid role specified."
+            ));
+        }
+
+        if (userService.exists(email, role)) {
+            return ResponseEntity.status(HttpStatus.CONFLICT).body(Map.of(
+                    "success", false,
+                    "message", "An account with this email and role already exists."
+            ));
+        }
+
+        User user = userService.createUser(email, password, role, fullName.isBlank() ? email : fullName);
+
+        return ResponseEntity.status(HttpStatus.CREATED).body(Map.of(
+                "success", true,
+                "message", "Account registered successfully.",
+                "userId", user.getId(),
+                "email", user.getEmail(),
+                "role", user.getRole()
+        ));
+    }
+
+    private String validatePassword(String password) {
+        if (password == null || password.length() < 8) {
+            return "Password must be at least 8 characters long.";
+        }
+        if (!password.matches(".*[A-Z].*")) {
+            return "Password must contain at least one uppercase letter (A-Z).";
+        }
+        if (!password.matches(".*[a-z].*")) {
+            return "Password must contain at least one lowercase letter (a-z).";
+        }
+        if (!password.matches(".*[0-9].*")) {
+            return "Password must contain at least one numeric digit (0-9).";
+        }
+        if (!password.matches(".*[!@#$%^&*()_+\\-=\\[\\]{};':\"\\\\|,.<>\\/?].*")) {
+            return "Password must contain at least one special character (!@#$%^&*).";
+        }
+        return null;
     }
 
     private boolean validRole(String role) {

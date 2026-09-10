@@ -33,4 +33,8 @@ public class UserService {
         );
         return userRepository.save(user);
     }
+
+    public boolean exists(String email, String role) {
+        return userRepository.existsByEmailIgnoreCaseAndRoleIgnoreCase(email, role);
+    }
 }
